@@ -1,0 +1,278 @@
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:46.381377431 -0700 PDT 
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: 
+outputFileName: 
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:46.38291691 -0700 PDT 
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: 
+
+\
+\ check Forth
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:46.38492092 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:46.38495749 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:46.384993272 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:46.38505511 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:47.607429543 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:47.607498005 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+\
+\ Load StartKernel.f
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:47.710606236 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:47.710638944 -0700 PDT SENDING: src/StartKernelsrc.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:50.695424513 -0700 PDT DONE SENDING waiting for output: src/StartKernelsrc.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:43:50.695480385 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:33.366807558 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:33.366901448 -0700 PDT DONE: src/StartKernelsrc.f
+\
+\ Load forthmaker.f
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:33.471438227 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:33.471463335 -0700 PDT SENDING: src/forthmaker.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:33.844645248 -0700 PDT DONE SENDING waiting for output: src/forthmaker.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:33.844740201 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:57.82214574 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:57.822241297 -0700 PDT DONE: src/forthmaker.f
+\
+\ words to be added / replaced
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:57.927173942 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:57.927203824 -0700 PDT SENDING: : (version) c" STARTKERNEL6.0-
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:57.927231476 -0700 PDT DONE SENDING waiting for output: : (version) c" STARTKERNEL6.0-
+scripts/buildStartKernel-2.txt::2015-08-23 09:46:57.927247974 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:00.944859645 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:00.94496839 -0700 PDT DONE: : (version) c" STARTKERNEL6.0-
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:01.047750552 -0700 PDT SEND: [2015Aug23 09:47]
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:01.048409169 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:01.04845349 -0700 PDT SENDING: -0" ;
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:01.048475541 -0700 PDT DONE SENDING waiting for output: -0" ;
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:01.048487614 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:04.096644094 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:04.096716743 -0700 PDT DONE: -0" ;
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:04.202648887 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:04.202689664 -0700 PDT SENDING: results/outputFiles/_asmsym.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:04.311795128 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_asmsym.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:04.311849811 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:16.02969535 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:16.029763242 -0700 PDT DONE: results/outputFiles/_asmsym.f
+\
+\ words to be deleted
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:16.134338538 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:16.134407428 -0700 PDT SENDING: 1 wconstant forthmakerdeletefence
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:16.134447302 -0700 PDT DONE SENDING waiting for output: 1 wconstant forthmakerdeletefence
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:16.134463938 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:17.21623635 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:17.216323361 -0700 PDT DONE: 1 wconstant forthmakerdeletefence
+\
+\ make StartKernel.if
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:17.31899487 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:17.319021586 -0700 PDT SENDING: hA state orC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:17.319069446 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:17.319089718 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:18.336939456 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:18.337000592 -0700 PDT DONE: hA state orC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:18.440254422 -0700 PDT 
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: results/outputFiles/StartKernel.if
+
+\
+\ forthmaker
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:18.441157166 -0700 PDT  20000 cps  Receive Delay 40s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:18.441179909 -0700 PDT SENDING: h18 forthmaker
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:18.441216551 -0700 PDT DONE SENDING waiting for output: h18 forthmaker
+scripts/buildStartKernel-2.txt::2015-08-23 09:47:18.441240409 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:16.773342977 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:16.77341098 -0700 PDT DONE: h18 forthmaker
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:16.879125675 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:17.884424782 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:17.884679411 -0700 PDT 
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: 
+
+\
+\ Reboot
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:17.885659872 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:17.885684099 -0700 PDT SENDING: reboot
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:17.885724295 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:17.885741859 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:23.779927535 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:23.780044724 -0700 PDT DONE: reboot
+\
+\ check Forth
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:23.885376984 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:23.885407976 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:23.8854374 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:23.885454136 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:25.108509375 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:25.108587866 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+\
+\
+\ Load forthbuilder.f
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:25.213915554 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:25.213938916 -0700 PDT SENDING: src/forthbuilder.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:25.667416138 -0700 PDT DONE SENDING waiting for output: src/forthbuilder.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:25.667471604 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:53.823023057 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:53.823089777 -0700 PDT DONE: src/forthbuilder.f
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:53.925175063 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:53.925236875 -0700 PDT SENDING: forthbuilder
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:53.925263878 -0700 PDT DONE SENDING waiting for output: forthbuilder
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:53.925294718 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:54.943339219 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:54.943380547 -0700 PDT DONE: forthbuilder
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:55.04687154 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:55.046911924 -0700 PDT SENDING: results/outputFiles/StartKernel.if
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:58.187374043 -0700 PDT DONE SENDING waiting for output: results/outputFiles/StartKernel.if
+scripts/buildStartKernel-2.txt::2015-08-23 09:51:58.1874501 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:37.072068171 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:37.072146771 -0700 PDT DONE: results/outputFiles/StartKernel.if
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:37.177357872 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:37.177416463 -0700 PDT SENDING: forthbuilderpass2
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:37.177482443 -0700 PDT DONE SENDING waiting for output: forthbuilderpass2
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:37.177535334 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:38.197089835 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:38.197173144 -0700 PDT DONE: forthbuilderpass2
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:38.299987191 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:38.300094357 -0700 PDT SENDING: results/outputFiles/StartKernel.if
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:41.478899425 -0700 PDT DONE SENDING waiting for output: results/outputFiles/StartKernel.if
+scripts/buildStartKernel-2.txt::2015-08-23 09:52:41.478956528 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:11.407116786 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:11.40721106 -0700 PDT DONE: results/outputFiles/StartKernel.if
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:11.51255367 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:11.512618633 -0700 PDT SENDING: hex
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:11.512655171 -0700 PDT DONE SENDING waiting for output: hex
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:11.512667091 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:12.547814954 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:12.547885228 -0700 PDT DONE: hex
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:12.649714707 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:12.649794659 -0700 PDT SENDING: _fbPatch
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:12.649861699 -0700 PDT DONE SENDING waiting for output: _fbPatch
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:12.649900247 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:14.627792717 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:14.627857794 -0700 PDT DONE: _fbPatch
+\
+\
+\ make StartKernel.eeprom
+\
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:14.732389134 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:14.732419409 -0700 PDT SENDING: hA state orC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:14.732438198 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:14.732467651 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:15.749300671 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:15.749365708 -0700 PDT DONE: hA state orC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:15.853413564 -0700 PDT 
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: results/outputFiles/StartKernel.eeprom
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:15.853828948 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:15.853857454 -0700 PDT SENDING: fbinout
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:15.853880024 -0700 PDT DONE SENDING waiting for output: fbinout
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:15.853892854 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:18.85689005 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:18.856949556 -0700 PDT DONE: fbinout
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:18.962060697 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:27.314754076 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:27.315051375 -0700 PDT 
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: 
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:27.315982436 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:27.316014088 -0700 PDT SENDING: hA state andnC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:27.316062282 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:27.316084034 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:28.418510142 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:28.41966828 -0700 PDT DONE: hA state andnC!
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:28.521745067 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:28.52181763 -0700 PDT SENDING: hex count0 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:28.521849987 -0700 PDT DONE SENDING waiting for output: hex count0 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:28.521875153 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:29.617059028 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:29.617140525 -0700 PDT DONE: hex count0 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:29.722319005 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:29.722374631 -0700 PDT SENDING: count1 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:29.722403919 -0700 PDT DONE SENDING waiting for output: count1 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:29.722452902 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:30.820783043 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:30.820853781 -0700 PDT DONE: count1 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:30.923341642 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:30.923391768 -0700 PDT SENDING: count2 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:30.923419068 -0700 PDT DONE SENDING waiting for output: count2 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:30.923436796 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:32.020458381 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:32.020537911 -0700 PDT DONE: count2 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:32.124403107 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:32.124452287 -0700 PDT SENDING: count3 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:32.124476947 -0700 PDT DONE SENDING waiting for output: count3 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:32.124505757 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:33.222767073 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:33.222837707 -0700 PDT DONE: count3 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:33.32542087 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:33.325478593 -0700 PDT SENDING: count4 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:33.325507535 -0700 PDT DONE SENDING waiting for output: count4 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:33.325523999 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:34.423829203 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:34.423901211 -0700 PDT DONE: count4 W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:34.526670555 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:34.52672491 -0700 PDT SENDING: bytecount W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:34.526802481 -0700 PDT DONE SENDING waiting for output: bytecount W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:34.526826875 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:35.622094827 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:35.62218021 -0700 PDT DONE: bytecount W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:35.724913258 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:35.725028158 -0700 PDT SENDING: checksum W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:35.725073695 -0700 PDT DONE SENDING waiting for output: checksum W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:35.725095044 -0700 PDT WAIT STARTED
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:36.826423023 -0700 PDT WAIT DONE
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:36.826512349 -0700 PDT DONE: checksum W@ .
+scripts/buildStartKernel-2.txt::2015-08-23 09:54:36.928439163 -0700 PDT 
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: 
+outputFileName: 
+
