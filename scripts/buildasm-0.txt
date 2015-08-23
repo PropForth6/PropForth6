@@ -1,0 +1,144 @@
+						L results/runLogs/buildasm-0.txt
+						R results/resultFiles/buildasm-0.txt
+\
+\ When the forth kernel / bootloader changes, the addresses of the routines may change
+\ This script will reassemble the bootloader, kernel, assembler, and symbol files 
+\ and keep everything properly synched.
+\
+\
+\
+\
+\ Reboot
+\
+						X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\ Load asm.f
+\
+						S	src/asm.f
+\
+\ Load _fi.asm - rebuild the kernel to generate symbols
+\
+						X	hA state orC!
+						O	results/outputFiles/_fi.f
+		t 45000			S	src/_fi.asm
+		t 3000			CO
+						X	hA state andnC!
+\
+\ _sym.f, _optsym.f - generate the symbols
+\
+						X	hA state orC!
+						O	results/outputFiles/_asmsym.f
+						X	asmsymgen
+						CO
+						O	results/outputFiles/_asmoptsym.f
+						X	asmoptsymgen
+						CO
+						X	hA state andnC!
+						X	_rasme
+
+\
+\ Make asm.f - remake the assembler - this assembler will match the new kernel
+\
+						O	results/outputFiles/asm.f
+						SW	1 wconstant asm.f
+						SW	[ifndef variable
+						SW	: variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ;
+						SW	]
+						SW	variable asmDestBuffer -1 asmDestBuffer L!
+						SW	\ stringmap mapname ( -- )
+						SW	[ifndef stringmap
+						SW	: stringmap
+						SW		create forthentry $C_a_dovarw w,
+						SW	;
+						SW	]
+						SW	\ defineLocalLabel ( addr cstr  -- )
+						SW	: defineLocalLabel
+						SW		lockdict ccreate $C_a_doconw w, w, forthentry freedict
+						SW	;
+						SW	: definePatch
+						SW		lockdict ccreate
+						SW		$H_cq w, dup here W@ ccopy C@ 1+ allot herewal
+						SW		$C_a_litw w, h1FF and swap if h8000 or then w, 
+						SW		$C_a_exit w, 
+						SW		forthentry freedict
+						SW	;
+
+						SR	results/outputFiles/_asmsym.f
+						SR	src/_asmSrc.f
+						CO
+\
+\ Make masm.f - remake the assembler - this assembler will match the new kernel symbols take less space
+\
+						O	results/outputFiles/asm.f
+						SR	results/outputFiles/_asmoptsym.f
+						SW	1 wconstant asm.f
+						SW	[ifndef variable
+						SW	: variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ;
+						SW	]
+						SW	variable asmDestBuffer -1 asmDestBuffer L!
+						SW	\ stringmap mapname ( -- )
+						SW	[ifndef stringmap
+						SW	: stringmap
+						SW		create forthentry $C_a_dovarw w,
+						SW	;
+						SW	]
+						SW	\ defineLocalLabel ( addr cstr  -- )
+						SW	: defineLocalLabel
+						SW		lockdict ccreate $C_a_doconw w, w, forthentry freedict
+						SW	;
+						SW	: definePatch
+						SW		lockdict ccreate
+						SW		$H_cq w, dup here W@ ccopy C@ 1+ allot herewal
+						SW		$C_a_litw w, h1FF and swap if h8000 or then w, 
+						SW		$C_a_exit w, 
+						SW		forthentry freedict
+						SW	;
+
+						SR	src/_asmSrc.f
+						CO
+\
+\
+\ Reboot
+\
+						X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\ Load asm.f - the new assembler which will match the new kernel
+\
+						S	results/outputFiles/asm.f
+\
+\ Load _bt.asm - the boot loader, used by the fpga version
+\
+						X	hA state orC!
+						O	results/outputFiles/_bt.f
+						S	src/_bt.asm
+						CO
+						X	hA state andnC!
+\
+\ Load _serafc.asm - serial driver with flow control
+\
+						X	hA state orC!
+						O	results/outputFiles/_serafc.f
+		t 45000			S	src/_serafc.asm
+		t 3000			CO
+						X	hA state andnC!
+\
+\ Load _fi.asm - the forth interpreter
+\
+						X	hA state orC!
+						O	results/outputFiles/_fi.f
+		t 45000			S	src/_fi.asm
+		t 3000			CO
+						X	hA state andnC!
+						CR CL
+
+

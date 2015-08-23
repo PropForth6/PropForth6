@@ -1,0 +1,75 @@
+						L results/runLogs/buildinterpreter-1.txt
+						R results/resultFiles/buildinterpreter-1.txt
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\ Load new bootloader, interpreter, and serial driver
+\
+						X	herelal
+						S	results/outputFiles/_bt.f
+						S	results/outputFiles/_fi.f
+						S	results/outputFiles/_serafc.f
+\
+\ Load forthmaker.f
+\
+						S	src/forthmaker.f
+\
+\ words to be added / replaced
+\
+						Y	: (version) c" TMP01KERNEL6.0-
+						SDS
+						X	-0"	;
+						S	results/outputFiles/_asmsym.f
+\
+\ words to be deleted
+\
+		t 1000			X	1 wconstant forthmakerdeletefence
+\
+\ make StartKernel.if
+\
+		t 1000			X	hA state orC!
+		t 3000			O	results/outputFiles/Tmp01Kernel.if
+\
+\ forthmaker
+\
+		t 40000 		X	h18 forthmaker
+		t 1000 			CO
+\
+\ Reboot
+\
+		t 3000			X	reboot
+\
+\ check Forth
+\
+		t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+\
+\
+\ Load forthbuilder.f
+\
+						S	src/forthbuilder.f
+		t 1000			X	forthbuilder
+		t 5000			S	results/outputFiles/Tmp01Kernel.if
+		t 1000			X	forthbuilderpass2
+		t 5000			S	results/outputFiles/Tmp01Kernel.if
+
+		
+		t 1000 e 1		X 	hex
+						X	_fbPatch
+\
+\
+\ make StartKernel.eeprom
+\
+		t 1000	e 0		X	hA state orC!
+		t 3000	c 0		O	results/outputFiles/Tmp01Kernel.eeprom
+						X	fbinout
+						CO
+	e 1	t 1000	c 1		X	hA state andnC!
+						X	_fbDbg
+	e 0
+						CR CL
+
+

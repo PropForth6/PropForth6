@@ -1,0 +1,46 @@
+						L results/runLogs/buildopts-4.txt
+						R results/resultFiles/buildopts-4.txt
+\
+\
+\
+\
+\
+\ Reboot
+\
+						X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\
+\ Load asm.f
+\
+						S	results/outputFiles/asm.f
+\
+\ Load BootOptimizeASmSrc.f
+\
+						X	hA state orC!
+						O	results/outputFiles/BootOptimize.f
+		t 10000			S	src/optimize/BootOptimizeAsmSrc.f
+		t 3000			SR	src/optimize/OptimizePostAsmSrc.f
+						CO
+						X	hA state andnC!
+						
+\
+\ Load mpOptimizeASmSrc.f
+\
+						X	hA state orC!
+						O	results/outputFiles/mpOptimize.f
+						S	src/optimize/mp/mpdef.f
+		t 10000			S	src/optimize/mp/mpOptimizeAsmSrc.f
+		t 3000			SR	src/optimize/OptimizePostAsmSrc.f
+						CO
+						X	hA state andnC!
+						
+						X	reboot
+						
+						CR CL
+
+

@@ -1,0 +1,24 @@
+						L results/runLogs/buildStartKernelSpin-3.txt
+						R results/resultFiles/buildStartKernelSpin-3.txt
+\
+\ Reboot
+\
+						X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\ Load spinImage.f
+\
+						S	src/spinImage.f
+		t 1000	e 0		X	hA state orC!
+		t 3000	c 0		O	results/outputFiles/StartKernel.spin
+						X	spinImage
+						CO
+	e 1	t 1000	c 1		X	hA state andnC!
+	e 0
+						CR CL
+
+

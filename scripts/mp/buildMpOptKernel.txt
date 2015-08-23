@@ -1,0 +1,205 @@
+						L results/runLogs/buildMpOptKernel.txt
+						R results/resultFiles/buildMpOptKernel.txt
+\
+\ Reboot
+\
+	b 0					X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\ Load forthmaker.f
+\
+						S	src/forthmaker.f
+\
+\ words to be added / replaced
+\
+						Y	: (version) c" mpOptKERNEL6.0-
+						SDS
+						X	-0"	;
+\
+\ Load mpOptimize.f
+\
+						S	results/outputFiles/mpOptimize.f
+\
+\ words to be deleted
+\
+		t 1000			X	1 wconstant forthmakerdeletefence
+						X	1 wconstant _xis
+						X	1 wconstant isnumber
+						X	1 wconstant isunumber
+						X	1 wconstant isdigit
+						X	1 wconstant _xnu
+						X	1 wconstant number
+						X	1 wconstant unumber
+						X	1 wconstant todigit
+						
+
+						X	$C_treg1				wconstant	$C_treg1
+						X	$C_treg2				wconstant	$C_treg2
+\						X	$C_IP					wconstant	$C_IP
+\						X	$C_a_lxasm				wconstant	$C_a_lxasm
+\						X	$C_a__xasm2>flagIMM		wconstant	$C_a__xasm2>flagIMM
+\						X	$C_a__xasm2>flag		wconstant	$C_a__xasm2>flag
+\						X	$C_a__xasm2>1IMM		wconstant	$C_a__xasm2>1IMM
+\						X	$C_a__xasm2>1			wconstant	$C_a__xasm2>1
+\						X	$C_a__xasm1>1			wconstant	$C_a__xasm1>1
+\						X	$C_a__xasm2>0			wconstant	$C_a__xasm2>0
+\						X	$C_a_drop				wconstant	$C_a_drop
+\						X	$C_a_RSat				wconstant	$C_a_RSat
+\						X	$C_a_STat				wconstant	$C_a_STat
+\						X	$C_a_COGat				wconstant	$C_a_COGat
+\						X	$C_a_RS!				wconstant	$C_a_RS!
+\						X	$C_a_ST!				wconstant	$C_a_ST!
+\						X	$C_a_COG!				wconstant	$C_a_COG!
+\						X	$C_a_branch				wconstant	$C_a_branch
+\						X	$C_a_doconw				wconstant	$C_a_doconw
+\						X	$C_a_dovarl				wconstant	$C_a_dovarl
+\						X	$C_a_dovarw				wconstant	$C_a_dovarw
+\						X	$C_a_doconl				wconstant	$C_a_doconl
+\						X	$C_a_litl				wconstant	$C_a_litl
+\						X	$C_a_litw				wconstant	$C_a_litw
+						X	$C_a_litw1				wconstant	$C_a_litw1
+\						X	$C_a_exit				wconstant	$C_a_exit
+\						X	$C_a_next				wconstant	$C_a_next
+\						X	$C_a__maskin			wconstant	$C_a__maskin
+\						X	$C_a__maskouthi			wconstant	$C_a__maskouthi
+\						X	$C_a__maskoutlo			wconstant	$C_a__maskoutlo
+\						X	$C_a_r>					wconstant	$C_a_r>
+\						X	$C_a_2>r				wconstant	$C_a_2>r
+\						X	$C_a_>r					wconstant	$C_a_>r
+\						X	$C_a_(loop)				wconstant	$C_a_(loop)
+\						X	$C_a_(+loop)			wconstant	$C_a_(+loop)
+\						X	$C_a_0branch			wconstant	$C_a_0branch
+						X	$C_a_reset				wconstant	$C_a_reset
+\						X	$C_a_lasterr			wconstant	$C_a_lasterr
+						X	$C_a_stPush				wconstant	$C_a_stPush
+						X	$C_a_stPush1			wconstant	$C_a_stPush1
+						X	$C_a_stPush_ret			wconstant	$C_a_stPush_ret
+						X	$C_a_rsPush				wconstant	$C_a_rsPush
+						X	$C_a_rsPush1			wconstant	$C_a_rsPush1
+						X	$C_a_rsPush_ret			wconstant	$C_a_rsPush_ret
+						X	$C_a_stpopC_treg		wconstant	$C_a_stpopC_treg
+						X	$C_a_stPop				wconstant	$C_a_stPop
+						X	$C_a_stPop1				wconstant	$C_a_stPop1
+						X	$C_a_stPop_ret			wconstant	$C_a_stPop_ret
+						X	$C_a_stpopC_treg_ret	wconstant	$C_a_stpopC_treg_ret
+						X	$C_a_rsPop				wconstant	$C_a_rsPop
+						X	$C_a_rsPop1				wconstant	$C_a_rsPop1
+						X	$C_a_rsPop_ret			wconstant	$C_a_rsPop_ret
+						X	$C_fDestInc				wconstant	$C_fDestInc
+						X	$C_fCondMask			wconstant	$C_fCondMask
+						X	$C_fAddrMask			wconstant	$C_fAddrMask
+						X	$C_fLongMask			wconstant	$C_fLongMask
+\						X	$C_resetDreg			wconstant	$C_resetDreg
+						X	$C_stPtr				wconstant	$C_stPtr
+						X	$C_rsPtr				wconstant	$C_rsPtr
+						X	$C_stTOS				wconstant	$C_stTOS
+						X	$C_cogdata				wconstant	$C_cogdata
+						X	$C_treg3				wconstant	$C_treg3
+						X	$C_treg4				wconstant	$C_treg4
+						X	$C_treg5				wconstant	$C_treg5
+						X	$C_treg6				wconstant	$C_treg6
+						X	$C_stBot				wconstant	$C_stBot
+\						X	$C_this					wconstant	$C_this
+						X	$C_stTop				wconstant	$C_stTop
+						X	$C_rsBot				wconstant	$C_rsBot
+						X	$C_rsTop				wconstant	$C_rsTop
+\						X	$C_varEnd				wconstant	$C_varEnd
+
+
+						X	$V_state				wconstant	$V_state
+						X	$V_numchan				wconstant	$V_numchan
+						X	$V_>in					wconstant	$V_>in
+						X	$V_>out					wconstant	$V_>out
+						X	$V_coghere				wconstant	$V_coghere
+						X	$V_execword				wconstant	$V_execword
+						X	$V_base					wconstant	$V_base
+						X	$V_cds					wconstant	$V_cds
+						X	$V_errdata				wconstant	$V_errdata
+\						X	$V_lasterr				wconstant	$V_lasterr
+						X	$V_ios					wconstant	$V_ios
+						X	$V_numpad				wconstant	$V_numpad
+						X	$V_tbuf					wconstant	$V_tbuf
+						X	$V_t1					wconstant	$V_t1
+						X	$V_t0					wconstant	$V_t0
+						X	$V_lc					wconstant	$V_lc
+						X	$V_pad					wconstant	$V_pad
+
+\						X	$H_dq					wconstant	$H_dq
+\						X	$H_cq					wconstant	$H_cq
+\						X	$H_entry				wconstant	$H_entry
+\						X	$S_con					wconstant	$S_con
+\						X	$S_flowControl			wconstant	$S_flowControl
+\						X	$S_baud					wconstant	$S_baud
+\						X	$S_rxpin				wconstant	$S_rxpin
+\						X	$S_txpin				wconstant	$S_txpin
+\						X	$S_cdsz					wconstant	$S_cdsz
+\						X	$S_numcogs				wconstant	$S_numcogs
+\
+\ make optKernel.if
+\
+		t 1000			X	hA state orC!
+		t 3000			O	results/outputFiles/mpOptKernel.if
+\
+\ forthmaker
+\
+		t 40000 		X	h18 forthmaker
+		t 1000 			CO
+\
+\ Reboot
+\
+		t 3000			X	reboot
+\
+\ check Forth
+\
+		t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+						X	h7FFF dup dictend W! memend W!
+
+\
+\
+\ Load forthbuilder.f
+\
+						S	src/forthbuilder.f
+		t 1000			X	forthbuilder
+		t 5000			S	results/outputFiles/mpOptKernel.if
+		t 1000			X	forthbuilderpass2
+		t 5000			S	results/outputFiles/mpOptKernel.if
+
+		
+		t 1000 e 1		X 	hex
+						X	_fbPatch
+\
+\
+\ make optKernel.eeprom
+\
+		t 1000	e 0		X	hA state orC!
+		t 3000	c 0		O	results/outputFiles/mp/mpOptKernel.eeprom
+						X	fbinout
+						CO
+	e 1	t 1000	c 1		X	hA state andnC!
+						X	hex count0 W@ .
+						X	count1 W@ .
+						X	count2 W@ .
+						X	count3 W@ .
+						X	count4 W@ .
+						X	bytecount W@ .
+						X	checksum W@ .
+	e 0
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	CR CL
+
+
