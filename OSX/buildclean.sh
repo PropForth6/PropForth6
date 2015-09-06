@@ -2,15 +2,15 @@ cd ..
 rm -rf results
 mkdir results
 cd results
-mkdir runlogs
+mkdir runLogs
 mkdir resultFiles
 mkdir outputFiles
 
-mkdir runlogs/dev
+mkdir runLogs/dev
 mkdir resultFiles/dev
 mkdir outputFiles/dev
 
-mkdir runlogs/mp
+mkdir runLogs/mp
 mkdir resultFiles/mp
 mkdir outputFiles/mp
 
