@@ -31,8 +31,8 @@ call buildOptKernel.bat
 echo buildOptKernel.bat result: %domakeerr%
 if %domakeerr% neq 0 goto end
 
-call buildMpOptKernel.bat
-echo  buildMpOptKernel.bat result: %domakeerr%
+call buildOptKernelSpin.bat
+echo buildOptKernelSpin.bat result: %domakeerr%
 if %domakeerr% neq 0 goto end
 
 
