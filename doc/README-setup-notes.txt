@@ -1,6 +1,5 @@
 [Notes for setting up PropForth6 and tools, git and github]
 
-
 [setup]
 sudo apt-get install minicom
 sudo apt-get install build-essential
@@ -11,7 +10,8 @@ sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
 git config --list
 
 [git commands]
-git clone https://github.com/salsanci/PropForth6.git
+(removve) git clone https://github.com/salsanci/PropForth6.git
+git clone https://github.com/PropForth6/PropForth6.git
 cd PropForth6/
 git checkout dev
 git status
