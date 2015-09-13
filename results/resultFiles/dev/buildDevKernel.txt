@@ -1,0 +1,3072 @@
+
+ scriptFileName: scripts/dev/buildDevKernel.txt
+   logFileName: results/runLogs/dev/buildDevKernel.txt
+resultFileName: results/resultFiles/dev/buildDevKernel.txt
+outputFileName: 
+reboot
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 14318 optKERNEL6.0-2015Sep12 19:32-0
+
+Prop0 Cog6 ok
+: (version) c" devKERNEL6.0-2015Sep12 19:41-0" ;
+Prop0 Cog6 ok
+(version) version W!
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant build_DevKernel
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ These words are all optional words.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lasti? ( -- t/f ) true if this is the last value of i in this loop, assume an increment of 1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef lasti?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lasti?
+
+ 1 RS@ h2 RS@ 1+ =
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ #C ( c1 -- ) prepend the character c1 to the number currently being formatted
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef #C
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: #C
+
+ -1 >out W+! pad>out C!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ some very common formatting routines, for use with hex, decimal or octal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ will work with other bases, but not optimally 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _nd ( n1 -- n2 ) internal format routine
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _nd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _nd
+
+ base W@ d_40 over <
+
+ if
+
+  d_6
+
+ else
+
+  d_15 over <
+
+  if
+
+   d_8
+
+  else
+
+   d_9 over <
+
+   if
+
+    d_10
+
+   else
+
+   d_7 over <
+
+    if
+
+     d_11
+
+    else
+
+    d_6 over <
+
+     if
+
+      d_12
+
+     else
+
+      d_3 over <
+
+      if
+
+       d_16
+
+      else
+
+       d_32
+
+ thens
+
+ nip
+
+ swap u/mod swap 0<>
+
+ if
+
+  1+
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+] 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _ft ( n1 divisor -- cstr ) internal format routine
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _ft
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _ft
+
+\ set to output an underscore every 4 digits, or 3 if the base it 8 - 10
+
+ h4 base W@ h_8 h_A between
+
+ if
+
+  1-
+
+ then
+
+ rot2
+
+ <#
+
+ _nd 0
+
+ do
+
+  #
+
+  over i 1+ swap u/mod drop
+
+  0=
+
+  if
+
+   lasti? 0=
+
+   if
+
+    h_5F #C
+
+   then
+
+  then
+
+ loop
+
+ #>
+
+ nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _bf ( n1 -- cstr ) format n1 as a byte
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _bf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _bf
+
+ 4 _ft
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .byte ( n1 -- ) output a byte
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .byte
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .byte
+
+ h_FF and _bf .cstr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _wf ( n1 -- cstr ) format n1 as a word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _wf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _wf
+
+ h_FFFF and 2 _ft
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .word ( n1 -- ) output a word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .word
+
+ _wf .cstr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _lf ( n1 -- cstr ) format n1 as a long
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _lf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _lf
+
+ 1 _ft
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .long ( n1 -- ) output a long
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .long
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .long
+
+ _lf .cstr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ xor ( n1 n2 -- n1_xor_n2 ) \ bitwise xor
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef xor
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 4- ( n1 -- n1-4 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 4-
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 4- _xasm2>1IMM h0004 _cnip h10F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2* ( n1 -- n1<<1 ) n2 is shifted logically left 1 bit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 2*
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2* _xasm2>1IMM h0001 _cnip h05F _cnip ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 4/ ( n1 -- n1>>2 ) n2 is shifted arithmetically right2 bits
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 4/
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 4/ _xasm2>1IMM h0002 _cnip h077 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u> ( u1 u2 -- t/f ) \ flag is true if and only if u1 is greater than u2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef u>
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : u> _xasm2>flag h110E _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u< ( u1 u2 -- t/f ) \ flag is true if and only if u1 is less than u2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef u<
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : u< _xasm2>flag hC10E _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ invert ( n1 -- n2 ) bitwise invert n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef invert
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: invert
+
+ -1 xor
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rashift ( n1 n2 -- n3) \ n3 = n1 shifted right arithmetically n2 bits
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef rashift
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : rashift _xasm2>1 h077 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ decimal ( -- ) set the base for decimal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef decimal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: decimal
+
+ hA base W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ibound ( -- n1 ) the upper bound of i
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef ibound
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ibound
+
+ 1 RS@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _words ( cstr -- ) prints the words in the forth dictionary starting with cstr, 0 prints all
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _words
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _words 
+
+ 0 >r lastnfa ." NFA (Forth/Asm Immediate eXecute) Name"
+
+ begin
+
+  2dup swap dup
+
+  if
+
+   npfx
+
+  else
+
+   2drop -1
+
+  then
+
+  if
+
+   r> dup 0=
+
+   if
+
+    cr
+
+   then
+
+   1+ h3 and >r
+
+   dup .word space dup C@ dup h80 and
+
+   if
+
+    h46 
+
+   else
+
+    h41
+
+   then
+
+   emit dup h40 and
+
+   if
+
+    h49
+
+   else
+
+    h20
+
+   then
+
+   emit h20 and
+
+   if
+
+    h58
+
+   else
+
+    h20
+
+   then
+
+   emit space dup .strname dup C@ namemax and h15 swap - 0 max spaces
+
+  then
+
+  nfa>next dup 0=
+
+ until
+
+ r> 3drop cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ words ( -- ) prints the words in the forth dictionary, if the pad has another string following, with that prefix
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef words
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: words
+
+ parsenw _words
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinin ( n1 -- ) set pin # n1 to an input
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pinin
+
+ >m invert dira COG@ and dira COG!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinout ( n1 -- ) set pin # n1 to an output
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinout
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pinout
+
+ >m dira COG@ or dira COG!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinlo ( n1 -- ) set pin # n1 to lo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinlo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pinlo
+
+ >m _maskoutlo
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinhi ( n1 -- ) set pin # n1 to hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinhi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pinhi
+
+ >m _maskouthi
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ px ( t/f n1 -- ) set pin # n1 to h - true or l false
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef px
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: px
+
+ swap
+
+ if 
+
+  pinhi
+
+ else
+
+  pinlo
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ eeprom read and write routine for the prop proto board AT24CL256 eeprom on pin 28 sclk, 29 sda
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _sdai ( -- ) eeprom sda in
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdai
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sdai
+
+ h1D pinin
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _sdao ( -- ) eeprom sda out
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdao
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sdao
+
+ h1D pinout
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _scli ( -- ) eeprom clk in
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _scli
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _scli
+
+ h1C pinin
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _scll ( -- ) eeprom clk out
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sclo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sclo
+
+ h1C pinout
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _sdal ( -- ) eeprom sda lo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sdal
+
+ h20000000 _maskoutlo
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _sdah ( -- ) eeprom sda hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdah
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sdah
+
+ h20000000 _maskouthi
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _scll ( -- ) eeprom clk lo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _scll
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _scll
+
+ h10000000 _maskoutlo
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _sclh ( -- ) eeprom clk hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sclh
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sclh
+
+ h10000000 _maskouthi
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _sda? ( -- t/f ) read the state of the sda pin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sda?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sda?
+
+ h20000000 _maskin
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _eestart ( -- ) start the data transfer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _eestart
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _eestart
+
+ _sclh _sclo _sdah _sdao _sdal _scll
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _eestop ( -- ) stop the data transfer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _eestop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _eestop
+
+ _sclh _sdah _scll _scli _sdai
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 1lock
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1lock( -- ) equivalent to 1 lock
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 1lock 1 lock ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 1unlock
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1unlock( -- )  equivalent to 1 unlock
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 1unlock 1 unlock ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the eereadpage and eewritePage words assume the eeprom are 64kx8 and will address up to 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 8 sequential eeproms
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ eewritepage ( eeAddr addr u -- t/f ) return true if there was an error, use lock 1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef eewritepage
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: eewritepage
+
+ 1lock
+
+ 1 max rot dup hFF and swap dup h8 rshift hFF and swap h10 rshift h7 and 1 lshift
+
+ _eestart hA0 or _eewrite swap _eewrite or swap _eewrite or
+
+ rot2 bounds
+
+ do
+
+  i C@ _eewrite or
+
+ loop
+
+ _eestop hA delms
+
+ 1unlock
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ EW! ( n1 eeAddr -- ) write n1 to the eeprom
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef EW!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: EW!
+
+ swap t0 W! t0 2 eewritepage
+
+ if
+
+  hA ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ st? ( -- ) prints out the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef st?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: st?
+
+ ." ST: " $C_stPtr COG@ 2+ dup $C_stTop <
+
+ if
+
+  $C_stTop swap - 0
+
+  do
+
+   $C_stTop 2- i -  COG@ dup 0<
+
+   if
+
+    base W@ hA = if h2D emit negate then
+
+   then
+
+   .long space
+
+  loop
+
+ else
+
+  drop
+
+ then
+
+ cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ sc ( -- ) clears the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef sc
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: sc
+
+ $C_stTop $C_stPtr COG@ - 3 -
+
+ _p?
+
+ if
+
+  dup .
+
+  ." items cleared" cr
+
+ then
+
+ dup 0>
+
+ if
+
+  0
+
+  do
+
+   drop
+
+  loop
+
+ else
+
+  drop
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _pna ( pfa -- ) print the address, contents and forth name
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef _pna
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _pna
+
+
+
+ dup .word h3A emit W@ dup .word space pfa>nfa .strname space
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pfa? ( addr -- t/f) true if addr is a pfa 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pfa?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pfa?
+
+ dup pfa>nfa dup C@ dup h80 and 0= swap namemax and 0<> rot nfa>pfa rot
+
+ if
+
+  W@
+
+ then
+
+ rot = and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rs? ( -- ) prints out the return stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef rs?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: rs?
+
+ ." RS: " $C_rsTop $C_rsPtr COG@ 1+ - 0
+
+ do
+
+  $C_rsTop 1- i - COG@ dup 2- W@ pfa?
+
+  if
+
+   2- _pna
+
+  else
+
+   .long space
+
+  then
+
+ loop
+
+ cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef lock?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lock? ( -- ) displays the status of the locks
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lock?
+
+ h8 0
+
+ do
+
+  _lockarray i + C@
+
+\       \ ( count/cog == - )
+
+  dup
+
+  h4 rshift
+
+  swap hF and
+
+\       \ ( count cog == - )
+
+  ." Lock: " i .
+
+  2dup h8 < swap 0> and
+
+  if
+
+   ."   Locking cog: " . 
+
+   ."   Lock count: " .
+
+  else
+
+   2drop
+
+  then
+
+  cr
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ variable ( -- ) skip blanks parse the next word and create a variable, allocate a long, 4 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef variable
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: variable
+
+ lockdict create $C_a_dovarl w, 0 l, forthentry freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ constant ( x -- ) skip blanks parse the next word and create a constant, allocate a long, 4 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef constant
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: constant
+
+ lockdict create $C_a_doconl w, l, forthentry freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ abs ( n1 -- abs_n1 ) absolute value of n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef abs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: abs
+
+ _xasm1>1 h151 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ andC! ( c1 addr -- ) and c1 with the contents of address
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef andC!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: andC!
+
+ dup C@ rot and swap C!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rev ( n1 n2 -- n3 ) n3 is n1 with the lower 32-n2 bits reversed and the upper bite cleared
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rev
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: rev
+
+ _xasm2>1 h079 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ revb ( n1 -- n2 ) n2 is the lower 8 bits of n1 reveresed
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef revb
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: revb
+
+ h18 rev
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ px? ( n1 -- t/f) true if pin n1 is hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef px?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: px?
+
+ >m _maskin
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ waitcnt ( n1 n2 -- n1 ) \ wait until n1, add n2 to n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef waitcnt
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: waitcnt
+
+ _xasm2>1 h1F1 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ waitpeq ( n1 n2 -- ) \ wait until state n1 is equal to ina anded with n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef waitpeq
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: waitpeq
+
+ _xasm2>0 h1E0 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ waitpne ( n1 n2 -- ) \ wait until state n1 is not equal to ina anded with n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef waitpne
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: waitpne
+
+ _xasm2>0 h1E8 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ j ( -- n1 ) the second most current loop counter
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef j
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: j
+
+ $C_rsPtr COG@ h5 + COG@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u*/mod ( u1 u2 u3 -- u4 u5 ) u5 = (u1*u2)/u3, u4 is the remainder. Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef u*/mod
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u*/mod
+
+ rot2 um* rot um/mod
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u*/ ( u1 u2 u3 -- u4 ) u4 = (u1*u2)/u3 Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef u*/
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u*/
+
+ rot2 um* rot um/mod nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ sign ( n1 n2 -- n3 ) n3 is the xor of the sign bits of n1 and n2 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef sign
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: sign
+
+ xor h80000000 and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ * ( n1 n2 -- n1*n2) n1 multiplied by n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef *
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: * um*
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ */mod ( n1 n2 n3 -- n4 n5 ) n5 = (n1*n2)/n3, n4 is the remainder. Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef */mod
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: */mod
+
+ 2dup sign >r abs rot dup r> sign
+
+ >r abs rot abs um* rot um/mod r>
+
+ if
+
+  negate swap negate swap
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ */ ( n1 n2 n3 -- n4 ) n4 = (n1*n2)/n3. Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef */
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: */
+
+ */mod nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ /mod ( n1 n2 -- n3 n4 ) \ signed divide & mod  n4 = n1/n2, n3 is the remainder
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef /mod
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: /mod
+
+ 2dup sign >r abs swap abs swap u/mod r>
+
+ if
+
+  negate swap negate swap
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ / ( n1 n2 -- n1/n2) n1 divided by n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef /
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: /
+
+ /mod nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the eereadpage and eewritePage words assume the eeprom are 64kx8 and will address up to 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 8 sequential eeproms
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ eereadpage ( eeAddr addr u -- t/f ) return true if there was an error, use lock 1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef eereadpage 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: eereadpage
+
+ 1lock
+
+ 1 max rot dup hFF and swap dup
+
+ h8 rshift hFF and swap h10 rshift h7 and
+
+ 1 lshift dup >r
+
+ _eestart hA0 or _eewrite swap _eewrite or swap _eewrite or
+
+ _eestart r> hA1 or _eewrite or
+
+ rot2 bounds
+
+ do
+
+  lasti? _eeread i C!
+
+ loop
+
+ _eestop
+
+ 1unlock
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ EW@ ( eeAddr -- n1 ) read a word from the eeprom
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef EW@
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: EW@
+
+ t0 2 eereadpage
+
+ if
+
+  hB ERR 
+
+ then
+
+ t0 W@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ EC@ ( eeAddr -- c1 ) read a byte from the eeprom
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef EC@
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: EC@
+
+ EW@ hFF and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef (dumpb)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (dumpb)
+
+ cr over .word space dup .word _ecs bounds
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef (dumpm)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (dumpm)
+
+ cr .word _ecs
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef (dumpe)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (dumpe)
+
+ tbuf h10 bounds
+
+ do
+
+  i C@ .byte space
+
+ loop
+
+ h2 spaces tbuf h10 bounds
+
+ do
+
+  i C@ dup bl h7E between invert if drop h2E then emit
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dump  ( adr cnt -- ) dump main memory, uses tbuf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef dump
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dump
+
+ (dumpb)
+
+ do
+
+  i  (dumpm)
+
+  i tbuf h10 cmove
+
+  (dumpe)
+
+ h10 +loop
+
+ cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ edump  ( adr cnt -- ) dump eeprom, uses tbuf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef edump
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: edump
+
+ (dumpb)
+
+ do
+
+  i (dumpm)
+
+  i tbuf h10 eereadpage
+
+  if
+
+   tbuf h10 0 fill 
+
+  then
+
+  (dumpe)
+
+ h10 +loop
+
+ cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogdump  ( adr cnt -- ) dump cog memory
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef cogdump
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogdump
+
+ cr over .word space dup .word _ecs bounds
+
+ do
+
+  cr i .word _ecs i h4 bounds
+
+  do
+
+   i COG@ .long space
+
+  loop
+
+ h4 +loop
+
+ cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .cogch ( n1 n2 -- ) print as x(y)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .cogch
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .cogch
+
+ dup -1 =
+
+ if
+
+  2drop ." X(X)"
+
+ else
+
+  <# h29 #C # h28 #C drop # #> .cstr
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ io>cogchan ( addr -- n1 n2 ) addr -> n1 cogid, n2 channel
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef io>coghan
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: io>cogchan
+
+ dup _cd dup $S_cdsz 3 lshift + between
+
+ if
+
+  _cd - $S_cdsz u/mod h7 and dup cognchan rot h4 u/ min
+
+ else
+
+  drop -1 dup
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cog? ( -- ) print out cog information
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef cog?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cog?
+
+ h8 0
+
+ do
+
+  ." Cog:" i dup . ."  #io chan:" dup cognchan .
+
+  cogcds W@  version W@ C@ over C@ - spaces .cstr
+
+  i cogio i cognchan 0
+
+  do
+
+   i 4* over + 2+ W@ dup 0=
+
+   if
+
+    drop
+
+   else
+
+    space space j i .cogch ." ->" io>cogchan .cogch 
+
+   then
+
+  loop
+
+  drop
+
+  cr
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ build? ( -- ) print out build information
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: build?
+
+ cr
+
+ c" build_" _words
+
+ cr
+
+ version W@ .cstr cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ free ( -- ) display free main bytes and current cog longs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef free
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: free
+
+ dictend W@ here W@ - . ." bytes free - " par coghere W@ - . ." cog longs free" cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rnd ( -- n1 ) n1 is a random number from 00 - FF
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rnd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: rnd
+
+ cnt COG@ h8 rshift cnt COG@ xor hFF and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rndtf ( -- t/f) true or false randomly
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef rndtf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: rndtf
+
+ rnd h7F >
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthimagefence
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable savehere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable savewlastnfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable checksum
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable bytecount
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fb checksum W+! 1 bytecount W+! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fbinout
+
+ here W@ savehere W!
+
+ wlastnfa W@ savewlastnfa W!
+
+ c" forthimagefence" find drop pfa>nfa 2- dup here W!
+
+ W@ wlastnfa W!
+
+ 0 _finit W!
+
+ 
+
+ 0 checksum W!
+
+ 0 bytecount W!
+
+ 
+
+ 0 5 C! 
+
+ 
+
+ _cd 0
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+  
+
+ _cd $S_cdsz 8 u* bounds
+
+ do
+
+  0 _fb
+
+  loop
+
+ 
+
+ here W@ _cd $S_cdsz 8 u* +
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+  
+
+ h7FB8 here W@ - 0
+
+ do
+
+  0 _fb
+
+  loop
+
+
+
+ h_35 _fb h_C7 _fb h_14 _fb h_35 _fb
+
+ h_2C _fb h_32 _fb h_00 _fb h_00 _fb
+
+
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 
+
+ h38 0 do
+
+  0 _fb
+
+  loop  
+
+  
+
+ h_14 checksum W@ - h_FF and 5 C!
+
+
+
+ _cd 0
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ _cd $S_cdsz 8 u* bounds
+
+ do
+
+  0 emit
+
+  loop
+
+ 
+
+ here W@ _cd $S_cdsz 8 u* +
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ h7FB8 here W@ - 0
+
+ do
+
+  0 emit
+
+  loop
+
+
+
+ h_35 emit h_C7 emit h_14 emit h_35 emit
+
+ h_2C emit h_32 emit h_00 emit h_00 emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ 
+
+ h38 0 do
+
+  0 emit
+
+  loop
+
+  
+
+ savehere W@ here W!
+
+ savewlastnfa W@ wlastnfa W!
+
+ -1 _finit W!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: scripts/dev/buildDevKernel.txt
+   logFileName: results/runLogs/dev/buildDevKernel.txt
+resultFileName: results/resultFiles/dev/buildDevKernel.txt
+outputFileName: results/outputFiles/dev/devKernel.eeprom
+
+ scriptFileName: scripts/dev/buildDevKernel.txt
+   logFileName: results/runLogs/dev/buildDevKernel.txt
+resultFileName: results/resultFiles/dev/buildDevKernel.txt
+outputFileName: 
+Prop0 Cog6 ok

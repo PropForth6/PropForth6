@@ -1,0 +1,3706 @@
+
+ scriptFileName: scripts/buildOptKernel-5.txt
+   logFileName: results/runLogs/buildOptKernel-5.txt
+resultFileName: results/resultFiles/buildOptKernel-5.txt
+outputFileName: 
+reboot
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 14300 TMP01KERNEL6.0-2015Sep12 19:09-0
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthmakerfence
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' forthmakerfence pfa>nfa wconstant asmsearchstart
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ixnfa ( n1 -- c-addr ) returns the n1 from the last nfa address
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ixnfa
+
+ 0 max wlastnfa W@
+
+ begin
+
+  over 0=
+
+  if
+
+   -1
+
+  else
+
+   swap 1- swap nfa>next dup 0=
+
+  then
+
+ until
+
+ nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfacount ( -- n1 ) returns the number of nfas in the forth dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfacount
+
+ 0 wlastnfa W@
+
+ begin
+
+  swap 1+ swap nfa>next dup 0=
+
+ until
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfaix ( c-addr -- n1 ) returns the index of the nfa address, -1 if not found
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfaix
+
+ -1 swap 0 wlastnfa W@
+
+ begin
+
+  rot 2dup =
+
+  if
+
+   2drop swap -1 -1 -1
+
+  else
+
+   rot 1+ rot nfa>next dup 0=
+
+  then
+
+ until
+
+ 3drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lastdef ( c-addr -- t/f ) true if this is the most recently defined word 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lastdef
+
+ lastnfa over _dictsearch dup
+
+ if
+
+  =
+
+ else
+
+  2drop -1
+
+ then
+
+; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable lastNewNFA
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable initialNewhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable newhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable currentWordSize
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable savebase
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nh+  dup newhere W+! negate currentWordSize W+! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nh2+ 2 nh+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dolalign+
+
+ newhere W@ 3 and
+
+ if
+
+  ." w h_0 " nh2+
+
+  2 currentWordSize W+!
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dolalign
+
+ newhere W@ 3 and
+
+ if
+
+  ." w h_0 " nh2+
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ asmlookup ( n1 --- n2) n1 the assembler address, n2 0 if not found, symbol nfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: asmlookup
+
+ 0 swap asmsearchstart
+
+ begin
+
+ \ ( -1 n1 nfa)
+
+  dup c" $C_" npfx
+
+  if
+
+   2dup nfa>pfa 2+ W@ =
+
+   if
+
+    rot2 -1
+
+   else
+
+     nfa>next dup 0=
+
+   then
+
+  else
+
+   nfa>next dup 0=
+
+  then  
+
+ until
+
+ 2drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isExecasm ( addr -- t/f) true if addr is one of the ifuncs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isExecasm
+
+ dup $C_a__xasm2>1 =
+
+ over $C_a__xasm2>flag = or
+
+ over $C_a__xasm1>1 = or
+
+ swap $C_a__xasm2>0 = or
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isExecasmIMM ( addr -- t/f) true if addr is one of the immediate ifuncs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isExecasmIMM
+
+ dup $C_a__xasm2>1IMM =
+
+ swap $C_a__xasm2>flagIMM = or
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp1
+
+ 2+ dup W@ ." w h_" . nh2+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp2
+
+ 2+ alignl
+
+ dup dup W@ dolalign ." w h_" .  2+ W@ ." w h_" .  2+ nh2+ nh2+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp3
+
+  asmlookup dup 0= 
+
+  if
+
+   drop ." * ***h_" .
+
+  else
+
+   ." a " .strname space drop
+
+  then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dcmp ( addr -- addr t/f) process the post word data, flag true if at the end of the word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp
+
+ dup W@ dup $C_a_doconw = swap $C_a_dovarw = or
+
+ if
+
+  dcmp1 -1
+
+ else
+
+  
+
+ dup W@ isExecasmIMM
+
+ if
+
+  dcmp1
+
+  dcmp1 0
+
+ else
+
+
+
+ dup W@ dup isExecasm
+
+ over $C_a_litw = or
+
+ over $C_a_branch = or
+
+ over $C_a_(loop) = or
+
+ over $C_a_(+loop) = or
+
+ swap $C_a_0branch = or
+
+ if
+
+  dcmp1 0
+
+ else
+
+
+
+ dup W@ dup $C_a_doconl =
+
+ swap $C_a_dovarl = or
+
+ if
+
+  dcmp2 -1
+
+ else
+
+ dup W@ $C_a_litl =
+
+ if
+
+  dcmp2 0
+
+ else
+
+
+
+ dup W@ dup $H_dq = swap $H_cq = or
+
+ if
+
+  dup 2+ C@ 2+ 2/ 0
+
+  do
+
+   2+ dup W@ ." w h_" . nh2+
+
+  loop
+
+  0
+
+ else
+
+
+
+ dup W@ $C_a_lxasm =
+
+ if
+
+  2+
+
+  dup 3 and
+
+  if
+
+   -2 currentWordSize W+!
+
+   alignl
+
+  then
+
+  dolalign+
+
+  dup L@ h9 rshift h1FF and 0
+
+  do
+
+   dup dup W@  ." w h_" . 2+  W@ ." w h_" .  4+ nh2+ nh2+
+
+  loop
+
+  -1
+
+ else
+
+  dup W@ $C_a_exit =
+
+ thens
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ wordforth( addr1 -- addr2 ) addr1 is the nfa, addr2 is the pfa address at the end of this word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: wordforth
+
+ nfa>pfa 2-
+
+ begin
+
+  2+ dup W@ dup hFE00 and 0=
+
+  if
+
+  \ ( addr @ -- )
+
+   dup dcmp3
+
+  else
+
+   ." p " pfa>nfa .strname space
+
+  then
+
+  nh2+
+
+  dcmp
+
+ until
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fixalign ( ix -- ix)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fixalign
+
+ dup ixnfa nfa>lfa 3 and 0<> 
+
+ if
+
+  newhere W@ 3 and 0=
+
+  if
+
+   \ ." ~h0D\" dup ixnfa dup . .strname space newhere W@ . ." fixalign~h0D" 
+
+   2 newhere W+!
+
+  then
+
+ else
+
+  newhere W@ 3 and 0<>
+
+  if
+
+   \ ." ~h0D\" dup ixnfa dup . .strname space newhere W@ . ." fixalign~h0D" 
+
+   2 newhere W+!
+
+  then
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ doword ( ix -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: doword
+
+ \ cr newhere W@ . lastNewNFA W@ .
+
+ fixalign
+
+ \ newhere W@ . lastNewNFA W@ . cr
+
+ 
+
+\ dup . dup ixnfa dup . .strname space dup 1- ixnfa dup . .strname space
+
+
+
+ dup 1- ixnfa over ixnfa - currentWordSize W!
+
+\ currentWordSize W@ . cr
+
+ ." h_"  newhere W@ dup . ." h_" lastNewNFA W@ dup 0<> if 2+ then . lastNewNFA W! nh2+ ixnfa dup C@ h_E0 and ." h_" .
+
+ dup .strname dup C@ namemax and 2+ 1 andn nh+ space
+
+ \ (nfa --)
+
+ dup C@ h80 and 0=
+
+ if
+
+   dup nfa>pfa W@ dcmp3 nh2+
+
+ else
+
+  dup nfa>pfa W@ dup $C_a_doconw =
+
+  if
+
+  \ (nfa pfa@ -- )
+
+   drop ." a $C_a_doconw " nfa>pfa 2+ W@ ." w h_" . nh2+ nh2+
+
+  else dup $C_a_dovarw = if
+
+   2drop ." a $C_a_dovarw w h_0 " nh2+ nh2+
+
+  else dup $C_a_doconl = if
+
+   drop ." a $C_a_doconl " nfa>pfa 2+ alignl L@ nh2+ dolalign+
+
+    ." w h_" dup hFFFF and .  h10 rshift  ." w h_" . nh2+ nh2+
+
+  else dup $C_a_dovarl = if
+
+   2drop ." a $C_a_dovarl " nh2+ dolalign ." w h_0 w h_0 " nh2+ nh2+ 
+
+  else
+
+   drop wordforth
+
+ thens
+
+\ cr currentWordSize W@ . cr
+
+ currentWordSize W@ 0>
+
+ if
+
+  currentWordSize W@ h7FFF >
+
+  if
+
+   ." ******************************************************* " currentWordSize W@ .
+
+  else
+
+   currentWordSize W@ 1+ 2/ 0
+
+   do
+
+    ." w h_0 " nh2+
+
+   loop
+
+  then
+
+ then
+
+ ." e~h0D~h0D" 
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _forthmakerFlag
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ forthmaker ( n1 -- ) generates the forth intermediate code, n1 starting address, must be a long
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: forthmaker
+
+ -1 _forthmakerFlag W!
+
+ base W@ savebase W!
+
+ hex
+
+ dup newhere W! initialNewhere W!
+
+ 0 lastNewNFA W!
+
+ c" forthmakerfence" find nip c" forthmakerfenceend" find nip or
+
+ c" forthmakerdeletefence" find nip or
+
+ if
+
+  \ these should always be the first 3 words
+
+  c" _bt" find drop pfa>nfa nfaix doword
+
+  c" _fi" find drop pfa>nfa nfaix doword
+
+  c" _cd" find drop pfa>nfa nfaix doword
+
+  
+
+  c" forthmakerdeletefence" find drop pfa>nfa nfaix nfacount 1- tuck swap - 0
+
+  do
+
+\ dup . i . dup i - . dup i - ixnfa .strname _forthmakerFlag W@ . cr
+
+   _forthmakerFlag W@
+
+   if
+
+    dup i - ixnfa c" forthmakerfence" name=
+
+    if
+
+     0 _forthmakerFlag W!
+
+     0
+
+    else 
+
+     -1
+
+    then
+
+   else
+
+    dup i - ixnfa c" forthmakerfenceend" name=
+
+    if
+
+     -1 _forthmakerFlag W!
+
+     0
+
+    else 
+
+     0
+
+    then     
+
+   then
+
+   
+
+   if
+
+    dup i - dup ixnfa
+
+    
+
+    dup c" _bt" name=
+
+    over c" _fi" name= or
+
+    over c" _cd" name= or
+
+    if
+
+     2drop
+
+    else   
+
+\ 2dup swap . dup . .strname space
+
+     lastdef
+
+\ dup . cr
+
+     if
+
+      doword
+
+     else
+
+      drop
+
+     then
+
+    then
+
+   then
+
+  loop
+
+  drop
+
+ then
+
+ -1 . cr cr
+
+
+
+ ." \ initialNewhere h_" initialNewhere W@ . cr cr
+
+ ." \ newhere h_" newhere W@ . cr cr
+
+ ." \ lastNewNFA h_" lastNewNFA W@ . cr cr
+
+ savebase W@ base W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthmakerfenceend
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1 wconstant forthmakerdeletefence h18 forthmaker
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (version) c" optKERNEL6.0-2015Sep12 19:32-0" ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create um* forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h10B  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, hA0FC0200 l, hA0FD9200 l, hA0FD9400 l, h2BFD9001 l, h5C4C0104 l, h81BD9400 l, hC8BC02C9 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h2DFC0001 l, h34FD9201 l, h5C540100 l, hA0BD90CA l, h5CFD54A4 l, hA0BD9001 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create um/mod forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h10C  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, hA0BD98C8 l, h5CFD72B3 l, hA0FD9240 l, hA0FC0200 l, h2DFD9001 l, h35FD9801 l, h35FC0201 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h84B00200 l, hE18C0200 l, h34FD9401 l, hE4FD9301 l, hA0BD9001 l, h5CFD54A4 l, hA0BD90CA l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create cstr= forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h108  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, hBC0200 l, h80FC0201 l, h84FD9001 l, hBD9200 l, h80FC0001 l, h80FD9001 l, hBD94C8 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h863D92CA l, hE4E80300 l, h78BD90C4 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create name= forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h10D  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, hBC0200 l, h60FC021F l, h80FC0001 l, hBD94C8 l, h60FD941F l, hA0BD9201 l, h80FC0201 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C0109 l, hBD9200 l, h80FC0001 l, h80FD9001 l, hBD94C8 l, h863D92CA l, hE4E80305 l, h78BD90C4 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _dictsearch forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h114  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, hA0BD9600 l, hA0BD98C8 l, hBC0200 l, h60FC021F l, h80FC0001 l, hBD94C8 l, h60FD941F l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD9201 l, h80FC0201 l, h5C7C010B l, hBD9200 l, h80FC0001 l, h80FD9001 l, hBD94C8 l, h863D92CA l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hE4E80307 l, hA0BD90CC l, h5C680073 l, h84FD9802 l, h6BD90CC l, h5C680073 l, hA0BC00CB l, h5C7C00FE l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create padbl forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h104  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD97F0 l, h80FD9604 l, hA0FD9220 l, h83E06CB l, h80FD9604 l, hE4FD92FF l, h5C7C0073 l, h20202020 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _accept forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h129  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD54A4 l, hA0BC03F0 l, h80FC0202 l, h4BD9801 l, h80FC02DD l, hBC0001 l, h627C0008 l, hA0D59800 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h84FC02DA l, hA0BD9001 l, hA0FD927E l, h4BD95F0 l, h627D9500 l, h5C540107 l, hA0FC0100 l, h43C01F0 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h867D940D l, hA0E99201 l, h5C68011E l, h867D9408 l, h5C680115 l, h48FD9420 l, h3D94C8 l, h80FD9001 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C011E l, h5CFE5122 l, hA0FD9420 l, h5CFE5122 l, h84FD9001 l, h48BD9001 l, h3D94C8 l, h80FD9202 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h4CFD927E l, hA0FD9408 l, h5CFE5122 l, hE4FD9307 l, h84BD9001 l, h5C7C0073 l, h867D9800 l, h5C680128 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h4BC00CC l, h627C0100 l, h5C680124 l, h43D94CC l, h5C7C0000 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create .str forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h10B  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, h867C0000 l, hA09599F0 l, h80D59802 l, h69402CC l, h5C680109 l, hBD94C8 l, h80FD9001 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h4BD9201 l, h627D9300 l, h5C680104 l, h43D9401 l, hE4FC0102 l, h5CFD72B3 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _fkey? forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h106  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h4BC00C8 l, h627C0100 l, h78BC02C4 l, h5C540102 l, hA0FD9300 l, h43D92C8 l, hA0BD9000 l, h5CFD54A4 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD9001 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create fkey? forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h106  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD54A4 l, h4BD91F0 l, h627D9100 l, h78BC00C4 l, h5C540103 l, hA0FD9300 l, h43D93F0 l, h5CFD54A4 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD9000 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create key forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h103  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD54A4 l, h4BD91F0 l, h627D9100 l, h5C5400FD l, hA0FC0100 l, h43C01F0 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _femit? forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h104  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, h60FD90FF l, h4BC0200 l, h627C0300 l, h7CBD92C4 l, h4159000 l, hA0BD90C9 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create femit? forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h108  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h60FD90FF l, hA0BC03F0 l, h80FC0202 l, h6BD9201 l, h78BD94C4 l, h5C680106 l, h4BC02C9 l, h627C0300 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h7CBD94C4 l, h41590C9 l, hA0BD90CA l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create emit forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h107  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B2 l, h60FC00FF l, hA0BC03F0 l, h80FC0202 l, h6BD9201 l, h5C680106 l, h4BC02C9 l, h627C0300 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C680102 l, h43C00C9 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create skipbl forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h10D  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BC01F0 l, h80FC00DC l, h4BC0200 l, h877C0280 l, h5C4C010C l, hA0FD9280 l, h84BD9201 l, h80FC0204 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h80BC03F0 l, hBD9601 l, h867D9620 l, h80E80201 l, hE4E99305 l, h84FC0204 l, h84BC03F0 l, h43C0200 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _eeread forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h11B  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C0103 l, h20000000 l, h10000000 l, hD l, hA0BD98FF l, hE4FD9901 l, h5C7C0000 l, hA0BC00C8 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0FD9000 l, h64BFECFD l, hA0FD9208 l, h5CFE0500 l, h613DFBF2 l, h34FD9001 l, h68BFE8FE l, h5CFE0500 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFE0500 l, h64BFE8FE l, h5CFE0500 l, hE4FD9307 l, h867C0000 l, h7CBFE8FD l, h68BFECFD l, h5CFE0500 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h68BFE8FE l, h5CFE0500 l, h5CFE0500 l, h64BFE8FE l, h64BFE8FD l, h5CFE0500 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _eewrite forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h11A  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C0103 l, h20000000 l, h10000000 l, hD l, hA0BD98FF l, hE4FD9901 l, h5C7C0000 l, hA0FD9208 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h627D9080 l, h7CBFE8FD l, h5CFE0500 l, h68BFE8FE l, h5CFE0500 l, h5CFE0500 l, h64BFE8FE l, h2CFD9001 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFE0500 l, hE4FD9304 l, h64BFECFD l, h623DFBF2 l, h7CBD90C4 l, h5CFE0500 l, h68BFE8FE l, h5CFE0500 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFE0500 l, h64BFE8FE l, h5CFE0500 l, h64BFE8FD l, h68BFECFD l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create xisnumber forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h129  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD92C8 l, h5CFD72B3 l, hA0BD94C8 l, hA0BD90C4 l, hA0BC01F0 l, h80FC00D2 l, hA0FC0200 l, hBD96CA l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h867D967A l, hA0E80240 l, h867D9668 l, hA0E80210 l, h867D9664 l, hA0E8020A l, h867D9662 l, hA0E80202 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h867C0200 l, h4A80200 l, h80D59401 l, h84D59201 l, hBD96CA l, h867D962D l, h80E99401 l, h84E99201 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hBD96CA l, h80FD9401 l, h867D965F l, h5E680127 l, h84FD9630 l, hC37D9609 l, h5C78011E l, h84FD9607 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC37D960A l, hA0B196C4 l, hC37D9626 l, h5C780123 l, h84FD9603 l, hC37D9627 l, hA0B196C4 l, h873D9601 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0B196C4 l, hA0CD9600 l, h62BD90CB l, hE4D59314 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create xnumber forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h12F  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD92C8 l, h5CFD72B3 l, hA0BD94C8 l, hA0FD9000 l, hA0BC01F0 l, h80FC00D2 l, hA0FC0200 l, hBD96CA l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h867D967A l, hA0E80240 l, h867D9668 l, hA0E80210 l, h867D9664 l, hA0E8020A l, h867D9662 l, hA0E80202 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h867C0200 l, h4A80200 l, h80D59401 l, h84D59201 l, hBD96CA l, h867D962D l, h78BD98C4 l, h80E99401 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h84E99201 l, hBD96CA l, h80FD9401 l, h867D965F l, h5C68012B l, h84FD9630 l, hC37D9609 l, h5C78011F l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h84FD9607 l, hC37D960A l, hA0B196C4 l, hC37D9626 l, h5C780124 l, h84FD9603 l, hC37D9627 l, hA0B196C4 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BC00C8 l, hA0BD90CB l, hA0BD9601 l, h2BFD9601 l, h80B19000 l, h2CFC0001 l, h5C540127 l, hE4FD9315 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h867D9800 l, hA49590C8 l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: init_coghere h12F coghere W! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hFB wconstant build_BootOpt
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Output of assembling OpimizeAsmSrc.f goes above this comment block
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u* ( u1 u2 -- u1*u2) u1 multiplied by u2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u*
+
+
+ um* drop
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u/mod ( u1 u2 -- remainder quotient ) \ unsigned divide & mod  u1 divided by u2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u/mod
+
+
+ 0 swap um/mod
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u/ ( u1 u2 -- u1/u2) u1 divided by u2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u/
+
+
+ u/mod nip
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthmakerdeletefence
+Prop0 Cog6 ok
+$C_treg1 wconstant $C_treg1
+Prop0 Cog6 ok
+$C_treg2 wconstant $C_treg2
+Prop0 Cog6 ok
+$C_a_litw1 wconstant $C_a_litw1
+Prop0 Cog6 ok
+$C_a_reset wconstant $C_a_reset
+Prop0 Cog6 ok
+$C_a_stPush wconstant $C_a_stPush
+Prop0 Cog6 ok
+$C_a_stPush1 wconstant $C_a_stPush1
+Prop0 Cog6 ok
+$C_a_stPush_ret wconstant $C_a_stPush_ret
+Prop0 Cog6 ok
+$C_a_rsPush wconstant $C_a_rsPush
+Prop0 Cog6 ok
+$C_a_rsPush1 wconstant $C_a_rsPush1
+Prop0 Cog6 ok
+$C_a_rsPush_ret wconstant $C_a_rsPush_ret
+Prop0 Cog6 ok
+$C_a_stpopC_treg wconstant $C_a_stpopC_treg
+Prop0 Cog6 ok
+$C_a_stPop wconstant $C_a_stPop
+Prop0 Cog6 ok
+$C_a_stPop1 wconstant $C_a_stPop1
+Prop0 Cog6 ok
+$C_a_stPop_ret wconstant $C_a_stPop_ret
+Prop0 Cog6 ok
+$C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
+Prop0 Cog6 ok
+$C_a_rsPop wconstant $C_a_rsPop
+Prop0 Cog6 ok
+$C_a_rsPop1 wconstant $C_a_rsPop1
+Prop0 Cog6 ok
+$C_a_rsPop_ret wconstant $C_a_rsPop_ret
+Prop0 Cog6 ok
+$C_fDestInc wconstant $C_fDestInc
+Prop0 Cog6 ok
+$C_fCondMask wconstant $C_fCondMask
+Prop0 Cog6 ok
+$C_fAddrMask wconstant $C_fAddrMask
+Prop0 Cog6 ok
+$C_fLongMask wconstant $C_fLongMask
+Prop0 Cog6 ok
+$C_stTOS wconstant $C_stTOS
+Prop0 Cog6 ok
+$C_cogdata wconstant $C_cogdata
+Prop0 Cog6 ok
+$C_treg3 wconstant $C_treg3
+Prop0 Cog6 ok
+$C_treg4 wconstant $C_treg4
+Prop0 Cog6 ok
+$C_treg5 wconstant $C_treg5
+Prop0 Cog6 ok
+$C_treg6 wconstant $C_treg6
+Prop0 Cog6 ok
+$C_stBot wconstant $C_stBot
+Prop0 Cog6 ok
+$C_rsBot wconstant $C_rsBot
+Prop0 Cog6 ok
+$V_state wconstant $V_state
+Prop0 Cog6 ok
+$V_numchan wconstant $V_numchan
+Prop0 Cog6 ok
+$V_>in wconstant $V_>in
+Prop0 Cog6 ok
+$V_>out wconstant $V_>out
+Prop0 Cog6 ok
+$V_coghere wconstant $V_coghere
+Prop0 Cog6 ok
+$V_execword wconstant $V_execword
+Prop0 Cog6 ok
+$V_base wconstant $V_base
+Prop0 Cog6 ok
+$V_cds wconstant $V_cds
+Prop0 Cog6 ok
+$V_errdata wconstant $V_errdata
+Prop0 Cog6 ok
+$V_ios wconstant $V_ios
+Prop0 Cog6 ok
+$V_numpad wconstant $V_numpad
+Prop0 Cog6 ok
+$V_tbuf wconstant $V_tbuf
+Prop0 Cog6 ok
+$V_t1 wconstant $V_t1
+Prop0 Cog6 ok
+$V_t0 wconstant $V_t0
+Prop0 Cog6 ok
+$V_lc wconstant $V_lc
+Prop0 Cog6 ok
+$V_pad wconstant $V_pad
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: scripts/buildOptKernel-5.txt
+   logFileName: results/runLogs/buildOptKernel-5.txt
+resultFileName: results/resultFiles/buildOptKernel-5.txt
+outputFileName: results/outputFiles/optKernel.if
+
+ scriptFileName: scripts/buildOptKernel-5.txt
+   logFileName: results/runLogs/buildOptKernel-5.txt
+resultFileName: results/resultFiles/buildOptKernel-5.txt
+outputFileName: 
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 14300 TMP01KERNEL6.0-2015Sep12 19:09-0
+
+Prop0 Cog6 ok
+wvariable lastNewNFA
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable initialNewhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable newhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable resolveFlag
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable resolveError
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable initialBaseAddr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable baseAddr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: bw,
+
+ resolveFlag W@ 0=
+
+ if
+
+  2 allot
+
+ then
+
+ baseAddr W@ W! 2 baseAddr W+! 2 newhere W+!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >tbuf
+
+ tbuf dup C@ + 1+ C!
+
+ tbuf C@ 1+ tbuf C!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ getword ( -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: getword
+
+ 0 tbuf C!
+
+ begin
+
+  key dup bl = over h0D = or
+
+  if
+
+   drop 0
+
+  else
+
+   >tbuf -1
+
+  then
+
+ until
+
+ begin
+
+  key dup bl = over h0D = or
+
+  if
+
+   drop -1
+
+  else
+
+   >tbuf 0
+
+  then
+
+ until
+
+\ ." getword " tbuf .cstr cr
+
+ h2E emit
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ getnumber ( -- 0 | -1) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: getnumber
+
+  getword tbuf C@++ fisnumber 0=
+
+  if
+
+   ." ~h0D* ***ERROR EXPECTED NUMBER: " tbuf .cstr cr cr -1
+
+  else
+
+   tbuf C@++ fnumber 0
+
+  then
+
+\ ." getnumber " over . dup . cr
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: na initialBaseAddr W@ + initialNewhere W@ - ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: oa initialBaseAddr W@ - initialNewhere W@ + ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ newDictFind ( cstr -- 0 | xt -1 ) c-addr is a counted string, 0 - not found, -1 pfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: newDictFind
+
+ dup tbuf ccopy
+
+ lastNewNFA W@ 0= resolveFlag W@ 0= or
+
+ if
+
+  drop 0
+
+ else
+
+  lastNewNFA W@
+
+  \ 2-
+
+  begin
+
+   dup 0=
+
+   if
+
+    -1
+
+   else
+
+    \ 2+
+
+\    dup . dup na .strname cr
+
+    2dup na name=
+
+    if
+
+     -1
+
+    else
+
+     2- na W@ dup 0=
+
+    then
+
+   then
+
+  until
+
+  2dup na name=
+
+  if
+
+   nip na nfa>pfa oa -1
+
+  else
+
+   2drop 0
+
+   resolveFlag W@
+
+   if
+
+    ." ~h0D~h0D~h0DSymbol not found: " tbuf .cstr cr cr cr
+
+    -1 resolveError W!
+
+   then
+
+  then
+
+ then
+
+\ st?
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ newDictWConst ( cstr -- 0 | xt -1 ) c-addr is a counted string, 0 - not found, -1 const
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: newDictWConst
+
+ newDictFind dup
+
+ if
+
+  swap na 2+ W@ swap
+
+ then
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _getfword ( -- 0 | -1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _getfword
+
+ begin
+
+  getword
+
+  tbuf c" ;" cstr=
+
+  if
+
+   -1
+
+  else
+
+   tbuf c" a" cstr=
+
+   if
+
+    getword
+
+    tbuf newDictWConst 0=
+
+    if
+
+     0
+
+    then
+
+    bw, resolveError W@
+
+   else
+
+    tbuf c" p" cstr=
+
+    if
+
+     getword
+
+     tbuf newDictFind 0=
+
+     if
+
+      0
+
+     then
+
+     bw, resolveError W@
+
+    else
+
+     tbuf c" w" cstr=
+
+     if
+
+      getnumber
+
+      if
+
+       ." ~h0D* ***ERROR expected number: " tbuf .cstr cr cr -1
+
+      else
+
+       bw, 0
+
+      then
+
+     else
+
+      tbuf c" e" cstr=
+
+      if
+
+       -1
+
+      else
+
+       ." ~h0D* ***ERROR [ a | p | w | e]:" tbuf .cstr cr cr -1
+
+      then
+
+     then
+
+    then
+
+   then
+
+  then
+
+ until
+
+ ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ getfword ( -- 0 | -1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: getfword
+
+ getnumber over -1 = or
+
+ if
+
+  drop -1
+
+ else
+
+  initialNewhere W@ h_FFFF =
+
+  if
+
+   dup initialNewhere W! dup newhere W!
+
+  then
+
+  \ tolerate long alignment alignment 
+
+  dup newhere W@ <> over newhere W@ 2+ <> and
+
+  if
+
+   ." ~h0D* ***ERROR SYNCH ERROR: " dup . newhere W@ . tbuf .cstr cr cr -1
+
+  else
+
+   newhere W@ 2+ =
+
+   if
+
+    0 bw,
+
+   then
+
+
+
+   getnumber
+
+   if
+
+    ." ~h0D* ***ERROR expected lfa: " tbuf .cstr cr cr -1
+
+   else
+
+   
+
+    
+
+    bw,
+
+    getnumber
+
+    if
+
+     ." ~h0D* ***ERROR expected flags: " tbuf .cstr cr cr -1
+
+    else
+
+     getword tbuf baseAddr W@ ccopy
+
+     resolveFlag W@ 0=
+
+     if
+
+      newhere W@ lastNewNFA W!
+
+     then
+
+     baseAddr W@ orC!
+
+     tbuf C@ 2+ 1 andn dup resolveFlag W@ 0= if dup  allot then baseAddr W+! newhere W+!
+
+     _getfword
+
+     0
+
+    then
+
+   then
+
+  then
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: forthbuilder
+
+ lockdict
+
+ base W@ hex 
+
+ herelal
+
+ here W@ dup baseAddr W! initialBaseAddr W!
+
+ h_0 lastNewNFA W!
+
+ h_0 resolveFlag W!
+
+ h_0 resolveError W!
+
+ h_FFFF initialNewhere W!
+
+ begin
+
+  getfword
+
+  newhere W@ . cr
+
+ until
+
+ cr
+
+ ." \ initialNewhere h_" initialNewhere W@ . cr cr
+
+ ." \ newhere h_" newhere W@ . cr cr
+
+ ." \ lastNewNFA h_" lastNewNFA W@ . cr cr
+
+ base W!
+
+ freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: forthbuilderpass2
+
+ lockdict
+
+ base W@ hex
+
+ initialBaseAddr W@ baseAddr W! 
+
+ -1 resolveFlag W!
+
+ h_0 resolveError W!
+
+ h_FFFF initialNewhere W!
+
+ begin
+
+  getfword
+
+  newhere W@ . cr
+
+ until
+
+ cr
+
+ ." \ initialNewhere h_" initialNewhere W@ . cr cr
+
+ ." \ newhere h_" newhere W@ . cr cr
+
+ ." \ lastNewNFA h_" lastNewNFA W@ . cr cr
+
+ base W!
+
+ freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fbPatch ( startCog -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fbPatch
+
+\ the init long for the start cog
+
+ dup c" $S_cdsz" newDictWConst . u*
+
+ c" _cd" newDictFind . 2+ alignl + h10 lshift
+
+ c" _fi" newDictFind . 2+ 2+ 2+ dup . 2 lshift or or
+
+\ third long must be the initialization long
+
+ c" _bt" newDictFind .  2+ 3 4 u* + na L!
+
+\ Patch the forth interpreter 
+
+\  
+
+\
+
+\ Set the initial IP to the forth start word
+
+\
+
+ c" fstart" newDictFind . dup .
+
+ c" _fi" newDictFind . 2+ dup .
+
+ c" $C_IP" newDictWConst . dup . 1+ 4 u* + na dup . L!
+
+
+
+ c" $V_lasterr" newDictWConst . dup .
+
+ c" _fi" newDictFind . 2+ dup .
+
+ c" $C_a_lasterr" newDictWConst . dup . 1+ 4 u* + na dup .
+
+ over . dup .
+
+ dup L@ h1FF andn dup . rot dup . or dup . swap dup . L!
+
+\  
+
+\
+
+\ Patch the forth dictionary
+
+\
+
+ dictend W@ dup . c" dictend" newDictFind . na 2+ dup . W!
+
+ memend W@ dup . c" memend" newDictFind . na 2+ dup . W!
+
+ newhere W@ dup . c" here" newDictFind . na 2+ dup . W!
+
+ lastNewNFA dup . W@ c" wlastnfa" newDictFind . na 2+ dup . W!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable checksum
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable bytecount
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count3
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count4
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fbDbg
+
+ hex count0 W@ .
+
+ count1 W@ .
+
+ count2 W@ .
+
+ count3 W@ .
+
+ count4 W@ .
+
+ bytecount W@ .
+
+ checksum W@ .
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fb checksum W+! 1 bytecount W+! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fbinout 
+
+ 0 checksum W!
+
+ 0 bytecount W!
+
+ 
+
+ h_00 _fb h_B4 _fb h_C4 _fb h_04 _fb
+
+ h_6F _fb h_00 _fb h_10 _fb h_00 _fb
+
+ h_C0 _fb h_7F _fb h_C8 _fb h_7F _fb
+
+ h_B8 _fb h_7F _fb h_CC _fb h_7F _fb
+
+\ h_B8 _fb h_7F _fb h_D0 _fb h_7F _fb
+
+ h_B0 _fb h_7F _fb h_02 _fb h_00 _fb
+
+ h_A8 _fb h_7F _fb h_00 _fb h_00 _fb
+
+\ h_A8 _fb h_7F _fb h_04 _fb h_00 _fb
+
+ 
+
+ bytecount W@ count0 W!
+
+ initialBaseAddr W@ newhere W@ initialNewhere W@ - bounds
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+ bytecount W@ count1 W!
+
+  
+
+ h7FB8 newhere W@ - 0
+
+ do
+
+  0 _fb
+
+  loop
+
+ bytecount W@ count2 W!
+
+
+
+ h_35 _fb h_A7 _fb h_14 _fb h_35 _fb
+
+\ h_35 _fb h_C7 _fb h_14 _fb h_35 _fb
+
+ h_2C _fb h_32 _fb h_00 _fb h_00 _fb
+
+
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ bytecount W@ count3 W!
+
+ 
+
+ h38 0 do
+
+  0 _fb
+
+  loop
+
+ bytecount W@ count4 W!
+
+
+
+ h_00 emit h_B4 emit h_C4 emit h_04 emit
+
+ h_6F emit
+
+ h_14 checksum W@ - h_FF and emit
+
+ h_10 emit h_00 emit
+
+ h_C0 emit h_7F emit h_C8 emit h_7F emit
+
+ h_B8 emit h_7F emit h_CC emit h_7F emit
+
+\ h_B8 emit h_7F emit h_D0 emit h_7F emit
+
+ h_B0 emit h_7F emit h_02 emit h_00 emit
+
+ h_A8 emit h_7F emit h_00 emit h_00 emit
+
+\ h_A8 emit h_7F emit h_04 emit h_00 emit
+
+        
+
+ initialBaseAddr W@ newhere W@ initialNewhere W@ - bounds
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ h7FB8 newhere W@ - 0
+
+ do
+
+  0 emit
+
+  loop
+
+
+
+ h_35 emit h_A7 emit h_14 emit h_35 emit
+
+\ h_35 emit h_C7 emit h_14 emit h_35 emit
+
+ h_2C emit h_32 emit h_00 emit h_00 emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ 
+
+ h38 0 do
+
+  0 emit
+
+  loop
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+forthbuilder
+.......................30 
+.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................428 
+.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................B30 
+.........B40 
+.........B4C 
+.........B5A 
+...............B6E 
+.........B7C 
+...............B90 
+.........B9C 
+.........BAA 
+.........BB8 
+.........BCA 
+.........BD8 
+.........BE8 
+.........BF8 
+.........C06 
+.........C1C 
+.........C2A 
+.........C36 
+.........C46 
+.........C52 
+.........C5E 
+.........C68 
+.............C76 
+.........C7E 
+.........C86 
+.........C8E 
+.........C98 
+.........CA2 
+.........CAC 
+.........CB8 
+.........CC4 
+...........................CE2 
+.......CF6 
+.......D06 
+.......D16 
+.......D24 
+.......D32 
+.......D40 
+.......D4A 
+.......D56 
+.......D66 
+.......D76 
+...........D82 
+...........D90 
+...........D9C 
+...........DA8 
+...........DB4 
+.......DBC 
+.......DC4 
+.......DCE 
+...........DDA 
+...........DE6 
+...........DF2 
+.......DFA 
+.......E02 
+.......E0C 
+.......E18 
+...........E28 
+...........E38 
+.......E44 
+.......E50 
+.......E5C 
+.......E68 
+.......E72 
+.............E80 
+...........E8A 
+.......E94 
+...........E9E 
+.......EA8 
+.......EB2 
+...........EC2 
+...........ECC 
+...........ED8 
+...........EE4 
+...........EEE 
+...........EFA 
+...........F06 
+.............F16 
+...........F20 
+.........................................F4A 
+...........F5A 
+.......F62 
+.......F6A 
+.......F72 
+.......F7E 
+.......F8A 
+.......F96 
+.......................FB0 
+...........FC0 
+...............FD4 
+.........................FF2 
+.............................1012 
+...................................................................105C 
+...........106A 
+...........107A 
+.........108E 
+.............109C 
+.....................10B4 
+.......................10D2 
+...........10DE 
+.................10F0 
+...........................................1120 
+...........112E 
+.........................................115E 
+.............1170 
+.................................1198 
+.............11AA 
+...............................11D2 
+...........11E4 
+.............11F2 
+...........1202 
+...............1216 
+.........1224 
+.........1232 
+.............1240 
+.............124E 
+.............125C 
+.............126C 
+.............127E 
+...............1294 
+...............12A8 
+.........12BA 
+.............12C8 
+.............12DA 
+.............12EC 
+.............12FA 
+...............130E 
+.............131E 
+.............1332 
+.............................................1364 
+.............1376 
+.............1386 
+.............1394 
+.............13A6 
+.............13B6 
+...............13CC 
+.................13DE 
+...................13F8 
+...........1406 
+...............141C 
+...........142A 
+...........1438 
+...........1446 
+.............1454 
+...........1460 
+.............146E 
+.............147C 
+.............148A 
+.............1498 
+.............14A6 
+.............14B4 
+.............14C2 
+.............14D0 
+.............14DE 
+.............14EC 
+.................................1510 
+...........151C 
+...........152A 
+...........1536 
+...........1542 
+.............1550 
+...................1564 
+...................157A 
+...................1592 
+...................15AA 
+.............15B8 
+...........15C6 
+.............................15E8 
+.............15FA 
+...................1612 
+.............1624 
+...............1636 
+.................................................................................168C 
+...................16A4 
+.........................................16D4 
+...............................................1708 
+...........................................1738 
+.....................................1760 
+...................................178A 
+.....................................17B2 
+...............................................................17F6 
+.............1808 
+.....................................1830 
+.................1848 
+...............185A 
+.........................................1888 
+...................18A2 
+...........................................................................18F2 
+...............1904 
+.................................1928 
+.............................194C 
+...........195A 
+.....................1970 
+...........197A 
+...........1988 
+.........................19A4 
+.........19B2 
+.............19C4 
+...........19D6 
+...........19E6 
+.................1A00 
+.......................1A22 
+.....................................................1A60 
+.............................................1A92 
+.........................................1AC0 
+...................................................................................................................................................1B56 
+...................................1B82 
+...................................1BAC 
+.............1BBE 
+.......................1BDA 
+.....................................................................................1C32 
+.............1C40 
+.............................1C5E 
+.......................................................1C9A 
+...........................1CB4 
+.................1CC6 
+.................1CD8 
+.........................1CF0 
+.............1D00 
+...............1D18 
+.......................................................................................................................................1DA2 
+.............................................................................................1E04 
+...............................................................1E4A 
+...........1E58 
+...........1E68 
+.........................1E88 
+...................................1EB6 
+.......................1ED6 
+.............1EE8 
+.......................1F04 
+.........................1F22 
+...................1F38 
+.......................1F50 
+.....................1F66 
+...........................1F86 
+.........................1FA0 
+...........1FB0 
+.............1FC6 
+.............1FDA 
+.............1FEA 
+...............1FFC 
+.....................................................2038 
+.......................2050 
+.......................2068 
+.....................207C 
+...................................................20B2 
+.................................20D2 
+...................................................210A 
+.........2116 
+...................................................214C 
+.........................2166 
+.............................2186 
+.....................................21AE 
+.................21C2 
+.......................................21EE 
+...........21FC 
+...........220A 
+.....................2220 
+...............2232 
+.........................224E 
+.............................226C 
+...........................2288 
+...........2294 
+.........22A4 
+.........22B2 
+.............................................................................................................................................................................................................................................23AA 
+...........23BC 
+.......................23D6 
+...........23E8 
+.......................2406 
+...............241C 
+...............242C 
+...............................................................246E 
+.............247C 
+.............2488 
+.......................................................................................................24F0 
+.............24FC 
+.......2502 
+...................2516 
+.........2520 
+...............2534 
+.................254A 
+.......2550 
+.....................................2574 
+...................2588 
+.......................25A0 
+...............................................25D4 
+...............................25F6 
+.........2602 
+...............................................................................................................................................................................................................................................................................................2726 
+.............................................................................................................2798 
+...............................................27C8 
+.........................27E4 
+...................27FA 
+.......................................................2832 
+.............................................................................................2894 
+...........28A6 
+...........28B8 
+...........28C6 
+.......................................................................................................................................................................................................2994 
+...................29AC 
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................2D4A 
+.........2D5C 
+.........2D6C 
+.........2D7C 
+.........2D8A 
+.........2D9C 
+.........2DAC 
+.........2DC0 
+.........2DD6 
+.........2DEC 
+.........2E00 
+.........2E12 
+.........2E20 
+.........2E30 
+.........2E3E 
+.........2E54 
+.........2E6A 
+.........2E7E 
+.........2E8E 
+.........2E9E 
+.........2EB0 
+.........2EC0 
+.........2ED2 
+.........2EE4 
+.........2EF6 
+.........2F08 
+.........2F1A 
+.........2F2A 
+.........2F3A 
+.........2F4A 
+.........2F5C 
+.........2F6C 
+.........2F7C 
+.........2F8C 
+.........2FA0 
+.........2FB4 
+.........2FC8 
+.........2FE0 
+.........2FF8 
+.........3012 
+.........3024 
+.........3030 
+.........................................3062 
+.........................................................................30AC 
+...........................................................................30FC 
+.............................................................313C 
+.................................................................................3190 
+...........................................................................................................3204 
+.............................................3234 
+...............................................................................................................................................................................................32F8 
+.........................................................................3344 
+...................................................337C 
+.....................................................33B4 
+.......................................33DC 
+...........................................340C 
+...........................................................344C 
+.........................................................3488 
+...............................................................................34DC 
+.......................................................................................................................................3568 
+.....................................................................................................................................35F4 
+.................................................................................................................................................................................................36BC 
+.......................................................................................................................................................................................................................3798 
+...............37B2 
+.........37C6 
+...........37D2 
+.............37E2 
+...........37EE 
+.37EE 
+
+\ initialNewhere h_18 
+
+\ newhere h_37EE 
+
+\ lastNewNFA h_37E4 
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ initialNewhere h_18 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ newhere h_37EE 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lastNewNFA h_37E2 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+forthbuilderpass2
+.......................30 
+.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................428 
+.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................B30 
+.........B40 
+.........B4C 
+.........B5A 
+...............B6E 
+.........B7C 
+...............B90 
+.........B9C 
+.........BAA 
+.........BB8 
+.........BCA 
+.........BD8 
+.........BE8 
+.........BF8 
+.........C06 
+.........C1C 
+.........C2A 
+.........C36 
+.........C46 
+.........C52 
+.........C5E 
+.........C68 
+.............C76 
+.........C7E 
+.........C86 
+.........C8E 
+.........C98 
+.........CA2 
+.........CAC 
+.........CB8 
+.........CC4 
+...........................CE2 
+.......CF6 
+.......D06 
+.......D16 
+.......D24 
+.......D32 
+.......D40 
+.......D4A 
+.......D56 
+.......D66 
+.......D76 
+...........D82 
+...........D90 
+...........D9C 
+...........DA8 
+...........DB4 
+.......DBC 
+.......DC4 
+.......DCE 
+...........DDA 
+...........DE6 
+...........DF2 
+.......DFA 
+.......E02 
+.......E0C 
+.......E18 
+...........E28 
+...........E38 
+.......E44 
+.......E50 
+.......E5C 
+.......E68 
+.......E72 
+.............E80 
+...........E8A 
+.......E94 
+...........E9E 
+.......EA8 
+.......EB2 
+...........EC2 
+...........ECC 
+...........ED8 
+...........EE4 
+...........EEE 
+...........EFA 
+...........F06 
+.............F16 
+...........F20 
+.........................................F4A 
+...........F5A 
+.......F62 
+.......F6A 
+.......F72 
+.......F7E 
+.......F8A 
+.......F96 
+.......................FB0 
+...........FC0 
+...............FD4 
+.........................FF2 
+.............................1012 
+...................................................................105C 
+...........106A 
+...........107A 
+.........108E 
+.............109C 
+.....................10B4 
+.......................10D2 
+...........10DE 
+.................10F0 
+...........................................1120 
+...........112E 
+.........................................115E 
+.............1170 
+.................................1198 
+.............11AA 
+...............................11D2 
+...........11E4 
+.............11F2 
+...........1202 
+...............1216 
+.........1224 
+.........1232 
+.............1240 
+.............124E 
+.............125C 
+.............126C 
+.............127E 
+...............1294 
+...............12A8 
+.........12BA 
+.............12C8 
+.............12DA 
+.............12EC 
+.............12FA 
+...............130E 
+.............131E 
+.............1332 
+.............................................1364 
+.............1376 
+.............1386 
+.............1394 
+.............13A6 
+.............13B6 
+...............13CC 
+.................13DE 
+...................13F8 
+...........1406 
+...............141C 
+...........142A 
+...........1438 
+...........1446 
+.............1454 
+...........1460 
+.............146E 
+.............147C 
+.............148A 
+.............1498 
+.............14A6 
+.............14B4 
+.............14C2 
+.............14D0 
+.............14DE 
+.............14EC 
+.................................1510 
+...........151C 
+...........152A 
+...........1536 
+...........1542 
+.............1550 
+...................1564 
+...................157A 
+...................1592 
+...................15AA 
+.............15B8 
+...........15C6 
+.............................15E8 
+.............15FA 
+...................1612 
+.............1624 
+...............1636 
+.................................................................................168C 
+...................16A4 
+.........................................16D4 
+...............................................1708 
+...........................................1738 
+.....................................1760 
+...................................178A 
+.....................................17B2 
+...............................................................17F6 
+.............1808 
+.....................................1830 
+.................1848 
+...............185A 
+.........................................1888 
+...................18A2 
+...........................................................................18F2 
+...............1904 
+.................................1928 
+.............................194C 
+...........195A 
+.....................1970 
+...........197A 
+...........1988 
+.........................19A4 
+.........19B2 
+.............19C4 
+...........19D6 
+...........19E6 
+.................1A00 
+.......................1A22 
+.....................................................1A60 
+.............................................1A92 
+.........................................1AC0 
+...................................................................................................................................................1B56 
+...................................1B82 
+...................................1BAC 
+.............1BBE 
+.......................1BDA 
+.....................................................................................1C32 
+.............1C40 
+.............................1C5E 
+.......................................................1C9A 
+...........................1CB4 
+.................1CC6 
+.................1CD8 
+.........................1CF0 
+.............1D00 
+...............1D18 
+.......................................................................................................................................1DA2 
+.............................................................................................1E04 
+...............................................................1E4A 
+...........1E58 
+...........1E68 
+.........................1E88 
+...................................1EB6 
+.......................1ED6 
+.............1EE8 
+.......................1F04 
+.........................1F22 
+...................1F38 
+.......................1F50 
+.....................1F66 
+...........................1F86 
+.........................1FA0 
+...........1FB0 
+.............1FC6 
+.............1FDA 
+.............1FEA 
+...............1FFC 
+.....................................................2038 
+.......................2050 
+.......................2068 
+.....................207C 
+...................................................20B2 
+.................................20D2 
+...................................................210A 
+.........2116 
+...................................................214C 
+.........................2166 
+.............................2186 
+.....................................21AE 
+.................21C2 
+.......................................21EE 
+...........21FC 
+...........220A 
+.....................2220 
+...............2232 
+.........................224E 
+.............................226C 
+...........................2288 
+...........2294 
+.........22A4 
+.........22B2 
+.............................................................................................................................................................................................................................................23AA 
+...........23BC 
+.......................23D6 
+...........23E8 
+.......................2406 
+...............241C 
+...............242C 
+...............................................................246E 
+.............247C 
+.............2488 
+.......................................................................................................24F0 
+.............24FC 
+.......2502 
+...................2516 
+.........2520 
+...............2534 
+.................254A 
+.......2550 
+.....................................2574 
+...................2588 
+.......................25A0 
+...............................................25D4 
+...............................25F6 
+.........2602 
+...............................................................................................................................................................................................................................................................................................2726 
+.............................................................................................................2798 
+...............................................27C8 
+.........................27E4 
+...................27FA 
+.......................................................2832 
+.............................................................................................2894 
+...........28A6 
+...........28B8 
+...........28C6 
+.......................................................................................................................................................................................................2994 
+...................29AC 
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................2D4A 
+.........2D5C 
+.........2D6C 
+.........2D7C 
+.........2D8A 
+.........2D9C 
+.........2DAC 
+.........2DC0 
+.........2DD6 
+.........2DEC 
+.........2E00 
+.........2E12 
+.........2E20 
+.........2E30 
+.........2E3E 
+.........2E54 
+.........2E6A 
+.........2E7E 
+.........2E8E 
+.........2E9E 
+.........2EB0 
+.........2EC0 
+.........2ED2 
+.........2EE4 
+.........2EF6 
+.........2F08 
+.........2F1A 
+.........2F2A 
+.........2F3A 
+.........2F4A 
+.........2F5C 
+.........2F6C 
+.........2F7C 
+.........2F8C 
+.........2FA0 
+.........2FB4 
+.........2FC8 
+.........2FE0 
+.........2FF8 
+.........3012 
+.........3024 
+.........3030 
+.........................................3062 
+.........................................................................30AC 
+...........................................................................30FC 
+.............................................................313C 
+.................................................................................3190 
+...........................................................................................................3204 
+.............................................3234 
+...............................................................................................................................................................................................32F8 
+.........................................................................3344 
+...................................................337C 
+.....................................................33B4 
+.......................................33DC 
+...........................................340C 
+...........................................................344C 
+.........................................................3488 
+...............................................................................34DC 
+.......................................................................................................................................3568 
+.....................................................................................................................................35F4 
+.................................................................................................................................................................................................36BC 
+.......................................................................................................................................................................................................................3798 
+...............37B2 
+.........37C6 
+...........37D2 
+.............37E2 
+...........37EE 
+.37EE 
+
+\ initialNewhere h_18 
+
+\ newhere h_37EE 
+
+\ lastNewNFA h_37E4 
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ initialNewhere h_18 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ newhere h_37EE 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lastNewNFA h_37E2 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hex
+Prop0 Cog6 ok
+_fbPatch
+-1 -1 -1 3C -1 -1 260C -1 38 -1 2 4318 -1 CC -1 38 -1 A1 4594 CC 4594 -7F026A00 CC -7F026934 4594 7FB8 -1 4E2C 7FB8 -1 4E3A 37EE -1 4E1E 37EC -1 4E12 Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: scripts/buildOptKernel-5.txt
+   logFileName: results/runLogs/buildOptKernel-5.txt
+resultFileName: results/resultFiles/buildOptKernel-5.txt
+outputFileName: results/outputFiles/optKernel.eeprom
+
+ scriptFileName: scripts/buildOptKernel-5.txt
+   logFileName: results/runLogs/buildOptKernel-5.txt
+resultFileName: results/resultFiles/buildOptKernel-5.txt
+outputFileName: 
+Prop0 Cog6 ok
+hex count0 W@ .
+18 Prop0 Cog6 ok
+count1 W@ .
+37EE Prop0 Cog6 ok
+count2 W@ .
+7FB8 Prop0 Cog6 ok
+count3 W@ .
+7FC8 Prop0 Cog6 ok
+count4 W@ .
+8000 Prop0 Cog6 ok
+bytecount W@ .
+8000 Prop0 Cog6 ok
+checksum W@ .
+E6D3 Prop0 Cog6 ok

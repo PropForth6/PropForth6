@@ -1,0 +1,10486 @@
+
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: 
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 14300 TMP01KERNEL6.0-2015Sep12 19:09-0
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _bt ( -- ) Always the first word. This word is the assembler bootloader.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Propeller chips boot a spin program on cog 0 which will execute this assembler word. It then starts PropForth.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The Spinless FPGA version simply loads this word into cog 0 and starts.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This word is assembled and built as part of the build process, or the current version is used.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fi ( -- ) Always the second word. This word is the assembler PropForth interpreter
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This word is assembled and built as part of the build process, or the current version is used.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _cd ( -- ) Always the third word. This is the cog data area.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This word is defined and built as part of the build process, or the current version is used.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _serafc ( -- ) the assembler serial driver
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad + 12 - n1 - clocks/bit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad +  8 - n2 - txmask 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad +  4 - n3 - rxmask 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad +  0 - t/f - flow control on/off
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ parameters are passed this way to eliminate the dependencies of the kernel assembler
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This word is assembled and built as part of the build process, or the current version is used.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the version string is set by the build process
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : (version) c" PropForth v6.0 2013Dec20 17:00 0" ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ These variables are the current dictionary limits. Cannot really easily redefine these variables on a running forth system,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ it requires multiple steps and caution, not worth the bother usually.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ wlastnfa - access as a word, the address of the last nfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ wlastnfa W@ wvariable wlastnfa wlastnfa W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ memend - access as a word, the end of memory available to PropForth
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ memend  W@ wvariable memend  memend  W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ here - access as a word, the current end of the dictionary space being used
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ here    W@ wvariable here    here    W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dictend - access as a word, the end of the total dictionary space
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dictend W@ wvariable dictend dictend W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Constants which reference the cogdata space are effectively variables with a level of indirection. Refedinition of these,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ if the base variable is the same, is reasonable and can be done on a running system. Caution with other variables.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lock 0 - the main dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lock 1 - the eeprom, and other devices on the eeprom lines
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lock 2 - is used cooperatively by error messages, and messages during boot/reset to the console
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ propid - access as a word, the numeric id of this prop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable propid 0 propid W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the default prop and version strings
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (prop) c" Prop" ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the version string is set by the build process
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : (version) c" PropForth v6.0 2013Dec20 17:00 0" ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pointers to the prop and version strings 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ prop - access as a word, the address of the string identifier of this prop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable prop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ version - access as a word, the address of the string version of PropForth
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable version
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This word variable is 0 when the propeller is rebooted and set to non-zero when
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ forth is initialized
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+_finit W@ wvariable _finit _finit W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+8 wconstant $S_numcogs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The size of the cog's data area, this will be initialized by $S_cdsz defined as a constant
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$S_cdsz wconstant $S_cdsz
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Word constant, the txpin of the serial driver
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$S_txpin wconstant $S_txpin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Word constant, the rxpin of the serial driver
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$S_rxpin wconstant $S_rxpin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Word constant, the initial starting baud rate of the serial driver
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$S_baud wconstant $S_baud
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$S_flowControl wconstant $S_flowControl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ prop 7 is normally the console channel, this is the prop which handles communication to the console, and
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ provides the interface to the rest of the cogs, _dbg is the pointer to the ouput channel for debug
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$S_con wconstant $S_con
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$S_con cogio wconstant _dbg
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ These constants are all intialized to the running values, so any following words compile correctly. If you add constants
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ that are used by the base compiler, follow the practice. 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Any word constant which begins with $H_xxx is a forth exection address.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Any word constant which begins with $C_xxx is an assembler execution address.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This is the address of the assembler which is loaded to a PropForth cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$H_entry wconstant $H_entry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This is ' cq - the routine which handles the word c"
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$H_cq wconstant $H_cq
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This is ' dq - the routine which handles the word ."
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$H_dq  wconstant $H_dq
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ These constants are all assembler addresses
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_exit wconstant $C_a_exit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_dovarw wconstant $C_a_dovarw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_doconw wconstant $C_a_doconw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_branch wconstant $C_a_branch
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_litw wconstant $C_a_litw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_2>r wconstant $C_a_2>r
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_(loop) wconstant $C_a_(loop)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_(+loop) wconstant $C_a_(+loop)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_0branch wconstant $C_a_0branch
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_litl wconstant $C_a_litl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm wconstant $C_a_lxasm
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the end of the variables used by the interpreter in th cog, start of the cog free space
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_varEnd wconstant $C_varEnd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ a register which is used to initialize the cog and the par register on a reset
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_resetDreg wconstant $C_resetDreg
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the forth instruction pointer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_IP wconstant $C_IP
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Address for the a_next routine
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_next wconstant $C_a_next
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Address for the this pointer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_this wconstant $C_this
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This is space constant
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+bl wconstant bl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ -1 or true, used frequently
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ -1  constant  -1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0 or false, used frequently
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+0 wconstant 0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant 1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+2 wconstant 2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This is the par register, always initalized to point to this cogs section of cogdata
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F0 wconstant par
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the other cog special registers
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cnt - address of the the global cnt register for this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F1 wconstant cnt
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ina - address of the the ina register for this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F2 wconstant ina
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ outa - address of the the outa register for this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F4 wconstant outa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dira - address of the the dira register for this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F6 wconstant dira
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _ cnip ( -- )  Use in the _xasm*>* words to get rid of litw word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _cnip
+
+ here W@ 2- dup W@ over 2- W! here W!
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the conditions for _xasm2>1 & _xasm2>1IMM
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1XXX - c = 0 and z = 0 above
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 3XXX - c = 0           above or equal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 5XXX -           z = 0 not equal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ AXXX -           z = 1 equal 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ CXXX - c = 1           below
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ EXXX - c = 1 or  z = 1 below or equal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the assembler codes for all the _xasm
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ADD  - h107
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ AND  - h0C7
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ANDN  - h0CF
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ CMP  - h10E
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ CMPS  - h186
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ HUBOP  - h01F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ MIN  - h097
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ MINS  - h087
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ MAX  - h09F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ MAXS  - h08F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ NEG  - h14F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ OR  - h0D7
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ RDBYTE - h007
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ RDLONG - h017
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ RDWORD - h00F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ SAR  - h077
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ SHL  - h05F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ SHR  - h057
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ SUB  - h10F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ WRBYTE - h000
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ WRLONG - h010
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ WRWORD - h008
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ XOR  - h0DF
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xasm2>flagIMM ( n1 n2 -- n ) \ there is first an immediate word, then assembler operation
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ is specified by the literal which follows (replaces the i field)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _xasm2>flagIMM asmlabel _xasm2>flagIMM
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xasm2>flag ( n1 n2 -- n ) \ the assembler operation is specified by the literal which follows (replaces the i field)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _xasm2>flag asmlabel _xasm2>flag
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xasm2>1IMM ( n1 n2 -- n ) \ there is first an immediate word, then assembler operation
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ is specified by the literal which follows (replaces the i field)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _xasm2>1IMM asmlabel _xasm2>1IMM
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xasm2>1 ( n1 n2 -- n ) \ the assembler operation is specified by the literal which follows (replaces the i field)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _xasm2>1 asmlabel _xasm2>1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xasm1>1 ( n -- n ) \ the assembler operation is specified by the literal which follows (replaces the i field)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _xasm1>1 asmlabel _xasm1>1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xasm2>0 ( n1 n2 -- ) \ the assembler operation is specified by the literal which follows (replaces the i field)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _xasm2>0 asmlabel _xasm2>0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lxasm ( addr -- ) load the assembler at addr and execute it
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' lxasm asmlabel lxasm
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _maskin ( n -- t/f ) n is the bit mask to read in
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _maskin asmlabel _maskin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _maskoutlo ( n -- ) set the bits in n low
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _maskoutlo asmlabel _maskoutlo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _maskouthi ( n -- ) set the bits in n hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _maskouthi asmlabel _maskouthi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cstr= ( cstr cstr -- t/f)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ' cstr= asmlabel cstr=
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ and ( n1 n2 -- n1 ) \ bitwise n1 and n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: and _xasm2>1 hC7 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ andn ( n1 n2 -- n1 ) \ bitwise n1 and inverted n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: andn _xasm2>1 hCF _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ L@ ( addr -- n1 ) \ fetch 32 bit value at main memory addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: L@ _xasm1>1 h17 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ C@ ( addr -- c1 ) \ fetch 8 bit value at main memory addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: C@ _xasm1>1 7 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ W@ ( addr -- h1 ) \ fetch 16 bit value at main memory addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: W@ _xasm1>1 h9 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ RS@ ( addr -- n1 ) \ fetch n1th value down the return stack, 0 is the top of stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' RS@ asmlabel RS@
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ST@ ( addr -- n1 ) \ fetch n1th value down the stack, 0 is the top of stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' ST@ asmlabel ST@
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ COG@ ( addr -- n1 ) \ fetch 32 bit value at cog addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' COG@ asmlabel COG@
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ L! ( n1 addr -- ) \ store 32 bit value (n1) at main memory addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: L! _xasm2>0 h10 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ C! ( c1 addr -- ) \ store 8 bit value (c1) main memory at addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: C! _xasm2>0 h0 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ W! ( h1 addr -- ) \ store 16 bit value (h1) main memory at addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: W! _xasm2>0 8 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ RS! ( n1 n2 -- ) \ store n1 at the n2th position on the return stack, 0 is the top of stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' RS! asmlabel RS!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ST! ( n1 n2 -- ) \ store n1 at the n2th position on the stack, 0 is the top of stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' ST! asmlabel ST!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ COG! ( n1 addr -- ) \ store 32 bit value (n1) at cog addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' COG! asmlabel COG!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ branch \ 16 bit branch offset follows -  -2 is to itself, +2 is next word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' branch asmlabel branch
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ hubopr ( n1 n2 -- n3 ) n2 specifies which hubop (0 - 7), n1 is the source datcog, n3 is returned, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: hubopr _xasm2>1 h1F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ hubopf ( n1 n2 -- t/f ) n2 specifies which hubop (0 - 7), t/f is the 'c' flag is set from the hubop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: hubopf _xasm2>flag hC01F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ doconw ( -- h1 ) \ push 16 bit constant which follows on the stack - implicit a_exit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' doconw asmlabel doconw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ doconl ( -- n1 ) \ push a 32 bit constant which follows the stack - implicit a_exit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' doconl asmlabel doconl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dovarw ( -- addr ) \ push address of 16 bit variable which follows on the stack - implicit a_exit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' dovarw asmlabel dovarw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dovarl ( -- addr ) \ push address of 32 bit variable which follows the stack - implicit a_exit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' dovarl asmlabel dovarl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ drop ( n1 -- ) \ drop the value on the top of the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' drop asmlabel drop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dup ( n1 -- n1 n1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ' dup asmlabel dup
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dup h0 ST@ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ = ( n1 n2 -- t/f ) \ compare top 2 32 bit stack values, true if they are equal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: = _xasm2>flag hA186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ exit the current forth word, and back to the caller
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' exit asmlabel exit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ > ( n1 n2 -- t/f ) \ flag is true if and only if n1 is greater than n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: > _xasm2>flag h1186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ litw ( -- h1 ) \  push a 16 bit literal on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' litw asmlabel litw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ litl ( -- n1 ) \  push a 32 bit literal on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' litl asmlabel litl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lshift (n1 n2 -- n3) \ n3 = n1 shifted left n2 bits
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lshift _xasm2>1 h5F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ < ( n1 n2 -- t/f ) \ flag is true if and only if n1 is less than n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: < _xasm2>flag hC186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ max ( n1 n2 -- n1 ) \ signed max of top 2 stack values
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: max _xasm2>1 h87 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ min ( n1 n2 -- n1 ) \ signed min of top 2 stack values
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: min _xasm2>1 h8F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ - ( n1 n2 -- n1-n2 ) \ subtracts n2 from n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: - _xasm2>1 h10F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ or ( n1 n2 -- n1_or_n2 ) \ bitwise or
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: or _xasm2>1 hD7 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ xor ( n1 n2 -- n1_xor_n2 ) \ bitwise xor
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: xor _xasm2>1 hDF _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ over ( n1 n2 -- n1 n2 n1 ) \ duplicate 2 value down on the stack to the top of the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ' over asmlabel over
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: over h1 ST@ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ + ( n1 n2 -- n1+n2 ) \ sum of n1 & n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: + _xasm2>1 h107 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rot ( n1 n2 n3 -- n2 n3 n1 ) \ rotate top 3 value on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ' rot asmlabel rot
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: rot h2 ST@ h2 ST@ h2 ST@ 3 ST! 3 ST! 0 ST! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rshift ( n1 n2 -- n3) \ n3 = n1 shifted right logically n2 bits
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: rshift _xasm2>1 h57 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ r> ( -- n1 ) \ pop top of RS to stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' r> asmlabel r>
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >r ( n1 -- ) \ pop stack top to RS
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' >r asmlabel >r
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2>r ( n1 n2 -- ) \ pop top 2 stack to RS
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' 2>r asmlabel 2>r
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0branch ( t/f -- ) \ branch it top of stack value is zero 16 bit branch offset follows,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ -2 is to itself, +2 is next word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' 0branch asmlabel 0branch
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (loop) ( -- ) \ add 1 to loop counter, branch if count is below limit offset follows,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ -2 is to itself, +2 is next word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' (loop) asmlabel (loop)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (+loop) ( n1 -- ) \ add n1 to loop counter, branch if count is below limit, offset follows,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ -2 is to itself, +2 is next word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' (+loop) asmlabel (+loop)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ swap ( n1 n2 -- n2 n1 ) \ swap top 2 stack values
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: swap
+
+ 1 ST@ 1 ST@ 2 ST! 0 ST!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ negate ( n1 -- 0-n1 ) the negative of n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: negate _xasm1>1 h14F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ reboot ( -- ) reboot the propellor chip
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: reboot hFF 0 hubopr ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogstop ( n -- ) stop cog n
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogstop
+
+ 4 cogstate andnC!
+
+ dup 3 hubopr drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _rreg ( cogid -- reg)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _rreg
+
+ dup dup cogio h10 lshift $H_entry 2 lshift or or 
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogreset ( n1 -- ) reset the forth cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogreset
+
+\ stop the cog, and 0 out the cog data area, if it is not the cog we are on
+
+ 7 and dup cogid <>
+
+ if
+
+  dup cogstop
+
+ then
+
+\ start up the cog
+
+ _rreg 2 hubopr drop
+
+\ wait for the cog to come alive, for a bit of time
+
+ cogstate h8000 0
+
+ do
+
+  dup C@ 4 and
+
+  if
+
+   leave
+
+  then
+
+ loop
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ reset ( -- ) reset this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: reset cogid cogreset ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ clkfreq ( -- u1 ) the system clock frequency
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: clkfreq 0 L@ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ In this next section is the definition of the variables which are defined for each cog in main memory
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The offsets of these variables must be manually updated in Optsymsrc.f. They are
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h04 wconstant $V_pad
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h83 wconstant $V_lc
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h84 wconstant $V_t0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h86 wconstant $V_t1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h88 wconstant $V_tbuf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA8 wconstant $V_numpad
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hCA wconstant $V_ios
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hCC wconstant $V_lasterr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hCE wconstant $V_errdata 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hD0 wconstant $V_cds
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hD2 wconstant $V_base
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hD4 wconstant $V_execword
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hD8 wconstant $V_coghere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hDA wconstant $V_>out
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hDC wconstant $V_>in
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hDE wconstant $V_numchan
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hDF wconstant $V_state
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _p+ ( offset -- addr )  the offset is added to the contents of the par register, giving an address references 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the cogdata
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _p+ par COG@ + ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ IO for propforth is done via an io channel. An io channel is a long which is treated
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ as 2 words. The io channel which connects to the interpreter is at the beginning
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ of the cog data area. It is defined as io. Any cogs io is defined as n cogio.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The structure of the long is 2 words as follows:
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ io     (word) - this is the input, if the h0100 bit is set, it means the interpreter
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\                 is ready to accept input. To send a byte to the input write h00cc,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\                 where cc is the byte value. This word is used by key? and key
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ io + 2 (word) - this is a pointer to the where the output of the channel goes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\                 This word is used by emit? and emit.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\                 If this word is 0, the ouput destination is not valid and emit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\                 will simply "throw away the output. If it is not zero, it is assumed
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\                 to be a pointer to an io channel. Thus the output of an io channel
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\                 always points to the input of another io channel.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogio ( n -- addr) the address of the data area for cog n
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogio 7 and $S_cdsz u* _cd + ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogiochan ( n1 n2 -- addr ) cog n1, channel n2 ->addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogiochan over cognchan 1- min 4* swap cogio + ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ io  ( -- addr ) the address of the io channel for the cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: io
+
+ par COG@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ERR ( -- ) clear the input queue, set the error code to the calling pfa and reset this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ERR
+
+ clearkeys r> lasterr W! reset
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (iodis) ( n1 n2 -- ) cog n1 channel n2 disconnect, disconnect this cog and the cog it is connected to
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (iodis)
+
+ cogiochan 2+ dup W@ swap 0 swap W! dup
+
+ if
+
+  0 swap 2+ W!
+
+ else
+
+  drop
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ iodis ( n1 -- ) cogid to disconnect, disconnect this cog and the cog it is connected to
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: iodis
+
+ 0 (iodis)
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (ioconn) ( n1 n2 n3 n4 -- ) connect cog n1 channel n2 to cog n3 channel n4, disconnect them from other cogs first
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (ioconn)
+
+ 2dup (iodis) >r >r 2dup (iodis) r> r>
+
+ cogiochan rot2 cogiochan 2dup 2+ W! swap 2+ W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ioconn ( n1 n2 -- ) connect the 2 cogs, disconnect them from other cogs first
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ioconn
+
+ 0 tuck (ioconn)
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (iolink) ( n1 n2 n3 n4 -- ) links the 2 channels, output of cog n1 channel n2 -> input of cog n3 channel n4,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\  output of n3 channel n4 -> old output of n1 channel n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (iolink)
+
+  cogiochan rot2 cogiochan swap over
+
+  2+ W@ over 2+ W! swap 2+ W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ iolink ( n1 n2 -- ) links the 2 cogs, output of n1 -> input of n2, output of n2 -> old output of n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: iolink
+
+ 0 tuck (iolink)
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (iounlink) ( n1 n2 -- ) unlinks cog n1 channel n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (iounlink)
+
+ cogiochan 2+ dup W@ 2+
+
+ dup W@ rot W! 0 swap W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ iounlink ( n1 -- ) unlinks the cog n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: iounlink 0 (iounlink) ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad  ( -- addr ) access as bytes, or words and long, the address of the pad area - used by accept for keyboard input,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ can be used carefully by other code
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pad
+
+ 4 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogpad ( n1 -- addr ) the address of pad for cog n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogpad
+
+ cogio 4+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad>in ( -- addr ) addr is the address to the start of the parse area.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pad>in
+
+ >in W@ pad +
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the maximum name length allowed must be 1F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F wconstant namemax
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the size of the pad area, 128 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h80 wconstant padsize
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _lc ( -- addr) the address of the last character in the pad, filled by the parse word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _lc
+
+ h83 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ these are temporay variables, and by convention are only used within a word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ caution, make sure you know what words you are calling
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ t0 - access as a word, temp variable
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: t0
+
+ h84 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ t1 - access as a word, temp variable
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: t1
+
+ h86 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\   h20 (32) byte array overflows into numpad
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ tbuf - access as a chars, words, or longs. Temp array of 32 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: tbuf
+
+ h88 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ numpad ( -- addr ) the of the area used by the numeric output routines, can be used carefully by other code
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: numpad
+
+ hA8 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cognumpad ( n1 -- addr ) the address of numpad for cog n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cognumpad
+
+ cogio hA8 +
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad>out ( -- addr ) addr is the address to the the current output byte
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pad>out
+
+ >out W@ numpad +
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the size of the numpad, 34 bytes the largest number we can deal with is 33 digits
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h22 wconstant numpadsize
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ios ( -- words) access as a word, io pointer is saved here for debugging
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ios
+
+ hCA _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lasterr ( -- addr ) access as a words, pfa set by ERR, and the kernel - if 0 - no error
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lasterr
+
+ hCC _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ errdata ( -- word) access as a word, additional data along with lasterr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: errdata
+
+ hCE _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cds ( -- addr) access as a word, the display string for this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cds
+
+ hD0 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogcds ( n1 -- addr) the address of the display string for cog n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogcds
+
+ cogio hD0 +
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ base ( -- addr ) access as a word, the address of the base variable
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: base
+
+ hD2 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ execword ( -- addr ) a long, an area where the current word for execute is stored
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: execword
+
+ hD4 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ execute ( addr -- ) execute the word - pfa address is on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: execute
+
+ dup h7E00 and
+
+ if
+
+\ *********************************** for debugging support
+
+\  dup execword W!
+
+  $C_IP COG!
+
+ else
+
+  execword W!
+
+  $C_a_exit execword 2+ W!
+
+  execword $C_IP COG!
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ coghere ( -- addr ) access as a word, the first unused register address in this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: coghere
+
+ hD8 _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >out ( -- addr ) access as a word, the offset to the current output byte
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >out
+
+ hDA _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >in ( -- addr ) access as a word, addr is the var the offset in characters from the start of the input buffer to
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the parse area.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >in
+
+ hDC _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ numchan ( -- addr) the number of channels this cog supports, access as a byte
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: numchan
+
+ hDE _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ state ( -- addr) access as a char
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bit 0 -  0 - interpret mode / 1 - forth compile mode
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bit 1 -  0 - prompts and errors on / 1 - prompts and errors off
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bit 2 -  0 - Other / 1 - PropForth cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bit 3 -  0 - accept echos chars on / 1 - accept echos chars off
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bit 4 -  0 - accept echos line off / 1 - accept echos line on
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bit 5 - 6 - free
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bit 7 -  0 - was not running mp, 1 - was running mp, this bit is preserved accross a reset  
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: state
+
+ hDF _p+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogstate ( n1 -- addr ) the address of state for cog n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogstate
+
+ cogio hDF +
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _p? ( -- t/f) true if prompts and errors are on
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _p?
+
+ 2 state C@ and 0=
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cognchan ( n1 -- n2 ) n2 is the number of io channels for cog n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cognchan
+
+ cogio hDE + C@ 1+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >con ( n1 -- ) disconnect the current cog, and connect the console to the cog n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >con
+
+ $S_con ioconn
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ compile? ( -- t/f ) true if we are in a compile
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: compile?
+
+ state C@ 1 and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _femit? (c1 ioaddr -- t/f) true if the output emitted a char, a fast non blocking emit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _femit?
+
+ 2+ W@ dup
+
+ if
+
+  dup W@ h100 and
+
+  if
+
+   swap hFF and swap W! -1
+
+  else
+
+   2drop 0
+
+  then
+
+ else
+
+  2drop -1
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ femit? (c1 -- t/f) true if the output emitted a char, a fast non blocking emit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: femit?
+
+ io _femit? ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ emit ( c1 -- ) emit the char on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: emit
+
+ begin
+
+  dup femit?
+
+ until
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fkey? ( ioaddr -- c1 t/f ) fast nonblocking key routine, true if c1 is a valid key
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fkey?
+
+ dup W@ dup h100 and
+
+ if
+
+  drop 0
+
+ else
+
+  h100 rot W! -1
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fkey? ( -- c1 t/f ) fast nonblocking key routine, true if c1 is a valid key
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fkey?
+
+ io _fkey?
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ key ( -- c1 ) get a key
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: key
+
+ 0
+
+ begin
+
+  drop fkey?
+
+ until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2dup ( n1 n2 -- n1 n2 n1 n2 ) copy top 2 items on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2dup
+
+ over over
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2drop ( n1 n2 -- ) drop top 2 items on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2drop
+
+ drop drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 3drop ( n1 n2 n3 -- ) drop top 3 items on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 3drop
+
+ 2drop drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0= ( n1 -- t/f ) true if n1 is zero
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 0= _xasm2>flagIMM h0 _cnip hA186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ <> ( x1 x2 -- flag ) flag is true if and only if x1 is not bit-for-bit the same as x2. 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: <> _xasm2>flag h5186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0 <> ( n1 -- t/f ) true if n1 is not zero
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 0<> _xasm2>flagIMM h0 _cnip h5186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0< ( n1 -- t/f ) true if n1 < 0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 0< _xasm2>flagIMM h0 _cnip hC186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0> ( n1 -- t/f ) true if n1 > 0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 0> _xasm2>flagIMM h0 _cnip h1186 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1+ ( n1 -- n1+1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 1+ _xasm2>1IMM h1 _cnip h107 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1- ( n1 -- n1-1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 1- _xasm2>1IMM h1 _cnip h10F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2+ ( n1 -- n1+2 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2+ _xasm2>1IMM h2 _cnip h107 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2- ( n1 -- n1-2 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2- _xasm2>1IMM h2 _cnip h10F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 4+ ( n1 -- n1+4 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 4+ _xasm2>1IMM h4 _cnip h107 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 4* ( n1 -- n1<<2 ) n1 is shifted logically left 2 bits
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 4* _xasm2>1IMM h2 _cnip h5F _cnip ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2/ ( n1 -- n1>>1 ) n1 is shifted arithmetically right 1 bit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2/ _xasm2>1IMM h1 _cnip h77 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ rot2 ( x1 x2 x3 -- x3 x1 x2 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : rot2 rot rot ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: rot2 2 ST@ 2 ST@ 2 ST@ 4 ST! 1 ST! 1 ST! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nip ( x1 x2 -- x2 ) delete the item x1 from the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nip
+
+ swap drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ tuck ( x1 x2 -- x2 x1 x2 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: tuck
+
+ swap over
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >= ( n1 n2 -- t/f) true if n1 >= n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >=
+
+ _xasm2>flag h3186 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ <= ( n1 n2 -- t/f) true if n1 <= n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: <=
+
+ _xasm2>flag hE186 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0>= ( n1 -- t/f ) true if n1 >= 0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 0>=
+
+ _xasm2>flagIMM h0 _cnip h3186 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ W+! ( n1 addr -- ) add n1 to the word contents of address
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: W+!
+
+ dup W@ rot + swap W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ orC! ( c1 addr -- ) or c1 with the contents of address
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: orC!
+
+ dup C@ rot or swap C!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ andnC! ( c1 addr -- ) and inverse of c1 with the contents of address
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: andnC!
+
+ dup C@ rot andn swap C!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ between ( n1 n2 n3 -- t/f ) true if n2 <= n1 <= n3
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: between
+
+ rot2 over <= rot2 >= and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cr ( -- ) emits a carriage return
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cr
+
+ hD emit
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ space ( -- ) emits a space
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: space
+
+ bl emit
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ spaces ( n -- ) emit n spaces
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: spaces
+
+ dup
+
+ if
+
+  0
+
+  do
+
+   space
+
+  loop
+
+ else
+
+  drop
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ bounds ( x n -- x+n x )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: bounds
+
+ over + swap
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ alignl ( n1 -- n1) aligns n1 to a long (32 bit)  boundary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: alignl
+
+ 3 + 3 andn
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ alignw ( n1 -- n1) aligns n1 to a halfword (16 bit)  boundary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: alignw
+
+ 1+ 1 andn
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ C@++ ( c-addr -- c-addr+1 c1 ) fetch the character and increment the address
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: C@++
+
+ dup 1+ swap C@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ todigit ( c1 -- n1 ) converts character to a number 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: todigit
+
+ h30 -
+
+ dup h9 >
+
+ if
+
+  7 - dup hA <
+
+  if
+
+   drop -1
+
+ thens
+
+\
+
+ dup h26 >
+
+ if
+
+  3 - dup h27 <
+
+  if
+
+   drop -1
+
+ thens
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isdigit ( c1 -- t/f ) true if is it a valid digit according to base
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isdigit
+
+ todigit 0 base W@ 1- between
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isunumber ( c-addr len -- t/f ) true if the string is numeric
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isunumber
+
+ bounds -1 rot2
+
+ do
+
+  i C@ h5F <>
+
+  if
+
+   i C@ isdigit and
+
+  then
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ unumber ( c-addr len -- u1 ) convert string to an unsigned number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: unumber
+
+ bounds 0 rot2
+
+ do
+
+  i C@ h5F <>
+
+  if
+
+   base W@ u* i C@ todigit +
+
+  then
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ number ( c-addr len -- n1 ) convert string to a signed number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: number
+
+ over C@ h2D =
+
+ if
+
+  1- 0 max swap 1+ swap unumber negate
+
+ else
+
+  unumber
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xnu ( c-addr len base -- n1 ) convert string to a signed number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _xnu
+
+ base W@ >r base W!
+
+ 1- 0 max swap 1+ swap
+
+ number
+
+ r> base W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ xnumber ( c-addr len -- n1 ) convert string to a signed number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: xnumber
+
+ over C@ h7A =
+
+ if
+
+  h40 _xnu
+
+ else
+
+  over C@ h68 =
+
+  if
+
+   h10 _xnu
+
+  else
+
+   over C@ h64 =
+
+   if
+
+    hA _xnu
+
+   else
+
+    over C@ h62 =
+
+    if
+
+     2 _xnu
+
+    else
+
+     number
+
+ thens
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isnumber ( c-addr len -- t/f ) true if the string is numeric
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isnumber
+
+ over C@ h2D =
+
+ if
+
+  1- 0 max swap 1+ swap
+
+ then
+
+ isunumber
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _xis ( c-addr len base -- t/f ) true if the string is numeric
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _xis
+
+ base W@ >r base W!
+
+ 1- 0 max swap 1+ swap
+
+ isnumber
+
+ r> base W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ xisnumber ( c-addr len -- t/f ) true if the string is numeric
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: xisnumber
+
+ over C@ h7A =
+
+ if
+
+  h40 _xis
+
+ else
+
+  over C@ h68 =
+
+  if
+
+   h10 _xis
+
+  else
+
+   over C@ h64 =
+
+   if
+
+    hA _xis
+
+   else
+
+    over C@ h62 =
+
+    if
+
+     2 _xis
+
+    else
+
+     isnumber
+
+ thens
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .str ( c-addr u1 -- ) emit u1 characters at c-addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .str
+
+ dup
+
+ if
+
+  bounds
+
+  do
+
+   i C@ emit
+
+  loop
+
+ else
+
+  2drop
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ npfx ( c-addr1 c-addr2 -- t/f ) -1 if c-addr2 is prefix of c-addr1, 0 otherwise
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: npfx
+
+ namelen rot namelen rot 2dup >=
+
+ if
+
+  min bounds
+
+  do
+
+   C@++ i C@ <>
+
+   if
+
+    drop 0 leave
+
+   then
+
+  loop
+
+  0<>
+
+ else
+
+  2drop 2drop 0
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ namelen ( c-addr -- c-addr+1 len ) returns c-addr+1 and the length of the name at c-addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: namelen
+
+ C@++ namemax and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cmove ( c-addr1 c-addr2 u -- ) If u is greater than zero, copy u consecutive characters from the data space starting
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\  at c-addr1 to that starting at c-addr2, proceeding character-by-character from lower addresses to higher addresses.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cmove
+
+ dup 0>
+
+ if
+
+  bounds
+
+  do
+
+   C@++ i C!
+
+  loop
+
+  drop
+
+ else
+
+  3drop
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ namecopy ( c-addr1 c-addr2 -- ) Copy the name from c-addr1 to c-addr2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: namecopy
+
+ over namelen 1+ nip cmove
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ccopy ( c-addr1 c-addr2 -- ) Copy the cstr from c-addr1 to c-addr2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ccopy
+
+ over C@ 1+ cmove
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cappend ( c-addr1 c-addr2 -- ) addpend the cstr from c-addr1 to c-addr2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cappend
+
+ dup C@++ +
+
+ rot2 over C@ over C@ +
+
+ swap C! dup C@ swap 1+
+
+ rot2 cmove
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cappendn ( n cstr -- ) print the number n and append to cstr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cappendn
+
+ swap <# #s #> swap cappend
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (nfcog) ( -- n1 n2 ) n1 the next valid free forth cog, n2 is 0 if the cog is valid
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (nfcog)
+
+ -1 -1 8 0
+
+ do
+
+  7 i - dup cogstate C@ 4 and
+
+  over cogio L@ h_100 = and
+
+  if
+
+   nip nip 0 leave
+
+  else
+
+   drop
+
+  then
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfcog ( -- n ) returns the next valid free forth cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfcog
+
+ (nfcog)
+
+ if
+
+  ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogx ( cstr n -- ) execute cstr on cog n
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogx
+
+ io 2+ W@
+
+ rot2 cogio io 2+ W!
+
+ .cstr cr
+
+ io 2+ W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .strname ( c-addr -- ) c-addr point to a forth name field, print the name
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .strname
+
+ dup
+
+ if
+
+  namelen .str
+
+ else
+
+  drop h3F emit
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .cstr ( addr -- ) emit a counted string at addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .cstr
+
+  C@++ .str
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dq ( -- ) emit a counted string at the ip, and increment the ip past it and word alignw it
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dq
+
+ r> C@++ 2dup + alignw >r .str
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ i ( -- n1 ) the most current loop counter
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: i
+
+ 2 RS@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ seti ( n1 -- ) set the most current loop counter
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: seti
+
+ 2 RS!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fill ( c-addr u char -- ) fill the memory with char
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fill
+
+ rot2 bounds
+
+ do
+
+  dup i C!
+
+ loop
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfa>lfa ( addr -- addr ) go from the nfa (name field address) to the lfa (link field address)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfa>lfa
+
+ 2-
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfa>pfa ( addr -- addr ) go from the nfa (name field address) to the pfa (parameter field address)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfa>pfa
+
+ namelen + alignw
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfa>next ( addr -- addr ) go from the current nfa to the prev nfa in the dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfa>next
+
+ nfa>lfa W@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lastnfa ( -- addr ) gets the last NFA
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lastnfa
+
+ wlastnfa W@
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isnamechar ( c1 -- t/f ) true if c1 is a valif name char > $20 < $7F
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isnamechar
+
+ h21 h7E between
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _forthpfa>nfa ( addr -- addr ) pfa>nfa for a forth word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _forthpfa>nfa
+
+ 1-
+
+ begin
+
+  1- dup C@ isnamechar 0=
+
+ until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _asmpfa>nfa ( addr -- addr ) pfa>nfa for an asm word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _asmpfa>nfa
+
+ lastnfa
+
+ begin
+
+  2dup nfa>pfa W@ = over C@
+
+  h80 and 0= and
+
+  if
+
+   -1
+
+  else
+
+    nfa>next dup 0=
+
+  then
+
+ until
+
+ nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pfa>nfa ( addr -- addr ) gets the name field address (nfa) for a parameter field address (pfa)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: pfa>nfa
+
+ dup h7E00 and
+
+ if
+
+  _forthpfa>nfa
+
+ else
+
+  dup W@ $C_a_lxasm =
+
+  if
+
+   _forthpfa>nfa
+
+  else
+
+   _asmpfa>nfa
+
+  then
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _accept ( -- +n2 ) collect padsize -2 characters or until eol, convert ctl chars to space,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad with 1 space at start & end. For parsing ease, and for the length byte when we make cstrs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _accept
+
+ padsize 2- pad 1+ over bounds 
+
+ do
+
+  key dup hD =
+
+  if
+
+   state C@ 8 and 0=
+
+   if
+
+    dup emit
+
+   then
+
+   2drop i pad 1+ - leave
+
+  else
+
+   dup 8 = 
+
+   if
+
+    drop
+
+    state C@ 8 and 0=
+
+    if
+
+     8 emit space 8 emit
+
+    then
+
+    bl i 1- C!
+
+    i 2- pad max seti
+
+   else
+
+    bl max
+
+    state C@ 8 and 0=
+
+    if
+
+     dup emit
+
+    then
+
+    i C!
+
+  thens
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ padbl ( -- ) fills this cogs pad with blanks
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: padbl
+
+ pad padsize bl fill
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ accept ( -- ) uses the pad and accepts up to padsize - 2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: accept
+
+ padbl
+
+ _accept
+
+ state C@ h10 and
+
+ if
+
+  pad 1+ swap .str cr
+
+ else
+
+  drop
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ parse ( c1 -- +n2 ) parse the word delimited by c1, or the end of buffer is reached, n2 is the length >in is the offset
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ in the pad of the start of the parsed word REPLACED IN VERSION 4.3 2011FEB24
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: parse
+
+ padsize >in W@ <=
+
+ if
+
+  0
+
+ else
+
+  dup _lc C!
+
+\        \ put the delim character at the end of the pad
+
+  0
+
+  begin
+
+   2dup pad>in + C@ tuck =
+
+   if
+
+    drop -1
+
+   else
+
+    h7E =
+
+    if
+
+\        \ process ~ddd
+
+     dup pad>in + dup
+
+     1+ 3 2dup
+
+     xisnumber
+
+     if
+
+\        \ we have a valid number
+
+      xnumber over C!
+
+      over 0
+
+      do
+
+       dup C@ over 3 + C! 1-
+
+      loop
+
+      drop
+
+      3 >in W+!
+
+     else
+
+      3drop
+
+     then
+
+    then
+
+    1+ 0
+
+   then
+
+  until
+
+ then
+
+ nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ skipbl ( -- ) increment >in past blanks or until it equals padsize
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: skipbl
+
+ begin
+
+  pad>in C@ bl =
+
+  if
+
+   >in W@ 1+ dup >in W! padsize =
+
+  else
+
+   -1
+
+  then
+
+ until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nextword ( -- ) increment >in past current counted string
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nextword
+
+ padsize >in W@ >
+
+ if
+
+  pad>in C@ >in W@ + 1+ >in W!
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ parseword ( c1 -- +n2 ) skip blanks, and parse the following word delimited by c1, update to be a counted string in
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the pad
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: parseword
+
+ skipbl parse dup
+
+ if
+
+  >in W@ 1- 2dup pad + C! >in W!
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ parsebl ( -- t/f) parse the next word in the pad delimited by blank, true if there is a word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: parsebl
+
+ bl parseword 0<>
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ parsenw ( -- cstr ) parse and move to the next word, str ptr is zero if there is no next word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: parsenw
+
+ parsebl
+
+ if
+
+  pad>in nextword
+
+ else
+
+  0
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ find ( c-addr -- c-addr 0 | xt 2 | xt 1  |  xt -1 ) c-addr is a counted string, 0 - not found, 2 eXecute word, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1 immediate word, -1 word NOT ANSI
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: find
+
+ lastnfa over _dictsearch dup
+
+ if
+
+  nip dup nfa>pfa over C@ h80 and 0=
+
+  if
+
+   W@
+
+  then
+
+  swap C@ dup h40 and
+
+  if
+
+   h20 and
+
+   if
+
+    2
+
+   else
+
+    1
+
+   then
+
+  else
+
+   drop -1
+
+ thens
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ <# ( -- ) initialize the output area
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: <# numpadsize
+
+ >out W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ #> ( n1 -- caddr ) address of a counted string representing the output, NOT ANSI
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: #>
+
+ drop numpadsize >out W@ - -1 >out W+! pad>out C! pad>out
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ tochar ( n1 -- c1 ) convert c1 to a char
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: tochar
+
+ h3F and h30 +
+
+ dup h39 >
+
+ if
+
+  7 +
+
+ then
+
+ dup h5D >
+
+ if
+
+  3 +
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ # ( n1 -- n2 ) divide n1 by base and convert the remainder to a char and append to the output
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: #
+
+ base W@ u/mod swap tochar -1 >out W+! pad>out C!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ #s ( n1 -- 0 ) execute # until the remainder is 0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: #s
+
+ begin
+
+  # dup 0=
+
+ until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u. ( n1 -- ) prints the unsigned number on the top of the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u.
+
+ <# #s #> .cstr space
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ . ( n1 -- ) prints the signed number on the top of the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .
+
+ dup 0<
+
+ if
+
+  h2D emit negate
+
+ then
+
+ u.
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cogid ( -- n1 ) return id of the current cog ( 0 - 7 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cogid
+
+ -1 1 hubopr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _lockarray - 8 character array used to keep track of locks
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\       \ one byte for each lock
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\      \ hi 4 bits is the lockcount
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\      \ lo 4 bits is the cogid
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict wvariable _lockarray 6 allot freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lock ( lock# -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lock
+
+ 7 and dup _lockarray + dup C@ dup
+
+\       \ ( lock# _lockarray_addr count/cog count/cog == - )
+
+ hF and cogid =
+
+ if
+
+\      \ locked by this cog, increment count
+
+\ 
+
+  h10 + tuck swap C!
+
+\       \ ( lock# count+1/cog == - )
+
+  hF0 and 0=
+
+  if
+
+\      \ we locked too many times, 15 is the max
+
+   ERR
+
+  then
+
+  drop
+
+\       \ ( - == - )
+
+ else
+
+\       \ ( lock# _lockarray_addr count/cog == - )
+
+  drop swap
+
+\       \ ( _lockarray_addr lock# == - )
+
+\  cnt COG@ tbuf L!
+
+\      \ this will try to lock for about 20 seconds
+
+\      \ then error out 
+
+  -1 h1000 8 lshift 0
+
+  do
+
+\       \ ( _lockarray_addr lock# -1 == - )
+
+   over 6 hubopf 0=
+
+\       \ ( _lockarray_addr lock# -1 t/f == - )
+
+   if
+
+    drop 0 leave
+
+\       \ ( _lockarray_addr lock# 0 == - )
+
+   then
+
+\       \ ( _lockarray_addr lock# -1 == - )
+
+  loop
+
+\       \ ( _lockarray_addr lock# 0/-1 == - )
+
+\
+
+  if
+
+\   cnt COG@ tbuf L@ .
+
+\      \ lock timeout
+
+   ERR
+
+  then
+
+\       \ ( _lockarray_addr lock# == - )
+
+
+
+  drop
+
+\       \ ( _lockarray_addr == - )
+
+  cogid h10 + swap C!
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ unlock ( lock# -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: unlock
+
+ 7 and dup _lockarray + dup C@ dup
+
+\       \ ( lock# _lockarray_addr count/cog count/cog == - )
+
+ hF and cogid =
+
+ if
+
+\      \ locked by this cog, decrement count
+
+\       \ ( lock# _lockarray_addr count/cog == - )
+
+  h10 - dup hF0 and 0=
+
+  if
+
+\       \ ( lock# _lockarray_addr 0/cog == - )
+
+   drop hF swap C!
+
+\       \ ( - == - )
+
+   7 hubopf drop
+
+  else
+
+\       \ ( lock# _lockarray_addr count-1/cog == - )
+
+   swap C! drop
+
+\       \ ( - == - )
+
+  then
+
+ else
+
+\      \ this cog is unlocking something it did not lock
+
+  ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ unlockall ( -- ) unlocks everything this cog has locked
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: unlockall
+
+ 8 0
+
+ do
+
+  _lockarray i + C@ hF and cogid =
+
+  if
+
+   hF _lockarray i + C!
+
+   i 7 hubopf drop
+
+  then
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2lock 2 lock ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2unlock 2 unlock ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ checkdict ( n -- ) make sure there are at least n bytes available in the dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: checkdict
+
+ here W@ + dictend W@ >=
+
+ if
+
+  ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (createbegin)
+
+ lockdict herewal
+
+ wlastnfa W@ here W@ dup 2+ wlastnfa W! swap over W! 2+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (createend)
+
+ over namecopy namelen + alignw here W! freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ccreate ( cstr -- ) create a dictionary entry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ccreate
+
+ (createbegin) swap (createend)
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ create ( -- ) skip blanks parse the next word and create a dictionary entry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: create
+
+ bl parseword
+
+ if
+
+  (createbegin) pad>in (createend) nextword
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ herewal ( -- ) align contents of here to a word boundary, 2 byte boundary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: herewal
+
+ lockdict 2 checkdict here W@ alignw here W! freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ allot ( n1 -- ) add n1 to here, allocates space on the data dictionary or release it
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: allot
+
+ lockdict dup checkdict here W+! freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ w, ( x -- ) allocate 1 halfword 2 bytes in the dictionary and copy x to that location
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: w,
+
+ lockdict herewal here W@ W! 2 allot freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ c, ( x -- ) allocate 1 byte in the dictionary and copy x to that location
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: c,
+
+ lockdict here W@ C! 1 allot freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ herelal ( -- ) alignw contents of here to a long boundary, 4 byte boundary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: herelal
+
+ lockdict 4 checkdict here W@ alignl here W! freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ l, ( x -- ) allocate 1 long, 4 bytes in the dictionary and copy x to that location
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: l,
+
+ lockdict herelal here W@ L! 4 allot freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ orlnfa ( c1 -- ) ors c1 with the nfa length of the last name field entered
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: orlnfa
+
+ lastnfa orC!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ forthentry ( -- ) marks last entry as a forth word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: forthentry
+
+ h80 orlnfa
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ immediate ( -- ) marks last entry as an immediate word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: immediate
+
+ h40 orlnfa
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ exec ( -- ) marks last entry as an eXecute word, executes always
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: exec
+
+ h60 orlnfa
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ leave ( -- ) exits at the next loop or +loop, i is placed to the max loop value
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: leave
+
+ 1 RS@ 2 RS!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ clearkeys ( -- ) clear the input keys
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: clearkeys
+
+\ fkey? ( -- c1 t/f ) fast nonblocking key routine, true if c1 is a valid key
+
+ 1 state andnC!
+
+ cnt COG@
+
+ begin
+
+  fkey?
+
+  if
+
+   2drop cnt COG@
+
+  else
+
+   drop
+
+  then
+
+  cnt COG@ over - clkfreq > 
+
+ until
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ w>l ( n1 n2 -- n1n2 ) consider only lower 16 bits of each source word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: w>l
+
+ hFFFF and swap
+
+ h10 lshift or
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ l>w ( n1n2 -- n1 n2) break into 16 bits
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: l>w
+
+ dup h10 rshift
+
+ swap hFFFF and
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: :
+
+ lockdict create h3741 1 state orC!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _ mmcs ( -- ) print MISMATCHED CONTROL STRUCTURE(S), then clear input keys
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _mmcs
+
+ _p?
+
+ if
+
+  ." MISMATCHED CONTROL STRUCTURE(S)" cr
+
+ then
+
+ clearkeys
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ to prevent ; from using itself while it is defining itself it is first defined as %, then renamed
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: %
+
+ $C_a_exit w, 1 state andnC! forthentry h3741 <>
+
+ if
+
+  _mmcs
+
+ then
+
+ freedict
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+c" %" find drop pfa>nfa 1+ c" ;" C@++ rot swap cmove
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dothen
+
+ l>w dup h1235 = swap h1239 = or
+
+ if
+
+  dup here W@ swap - swap W!
+
+ else
+
+  _mmcs
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: then
+
+ dothen
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: thens
+
+  begin
+
+  dup hFFFF and dup h1235 = swap h1239 = or
+
+  if
+
+   dothen 0
+
+  else
+
+   -1
+
+  then
+
+ until
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: if
+
+ $C_a_0branch w, here W@ h1235 w>l 0 w,
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: else
+
+ $C_a_branch w, 0 w, dothen here W@ 2- h1239 w>l
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: until
+
+ l>w h1317 =
+
+ if
+
+  $C_a_0branch w, here W@ - w,
+
+ else
+
+  _mmcs
+
+ then
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: begin
+
+ here W@ h1317 w>l
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: doloop
+
+ swap l>w h2329 =
+
+ if
+
+  swap w, here W@ - w,
+
+ else
+
+  _mmcs
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: loop
+
+ $C_a_(loop) doloop
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: +loop
+
+ $C_a_(+loop) doloop
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: do
+
+ $C_a_2>r w, here W@ h2329 w>l
+
+; immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _ecs ( -- ) emit a colon followed by a space
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _ecs
+
+ h3A emit space
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _udf ( -- ) print out UNDEFINED WORD
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _udf
+
+ ." UNDEFINED WORD "
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _qp ( -- cstr ) we are past the open " in a string, parse the string in the pad and return a cstr 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _qp
+
+ h22 parse 1- pad>in 2dup C! swap 2+ >in W+!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _sp ( n1 -- ) put n1 in the dictionary, followed by the string in the pad
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _sp
+
+ w, _qp dup here W@ ccopy C@ 1+ allot herewal
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ."
+
+ $H_dq _sp
+
+;  immediate
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fisnumber ( c-addr len -- t/f -- ) dummy routines for indirection when float package is loaded
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fisnumber
+
+ xisnumber
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fnumber ( c-addr len -- n1 ) convert string to a signed number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dummy routines for indirection when float package is loaded
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fnumber
+
+ xnumber
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ interpretpad ( -- ) interpret the contents of the pad
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: interpretpad
+
+ 1 >in W!
+
+ begin
+
+  bl parseword
+
+  if
+
+   pad>in nextword find dup
+
+   if
+
+\
+
+    dup -1 = 
+
+    if
+
+     drop compile?
+
+     if
+
+      w,
+
+     else
+
+      execute
+
+     then
+
+     0
+
+    else
+
+     2 =
+
+     if
+
+      execute 0
+
+     else
+
+      compile?
+
+      if
+
+       execute 0
+
+      else
+
+       pfa>nfa
+
+       _p?
+
+       if
+
+        ." IMMEDIATE WORD " .strname cr
+
+       else
+
+        drop
+
+       then
+
+       clearkeys -1
+
+      then
+
+     then
+
+    then
+
+\
+
+\
+
+\
+
+   else
+
+    drop dup C@++  fisnumber
+
+    if
+
+     C@++ fnumber compile?
+
+     if
+
+      dup 0 hFFFF between
+
+      if
+
+       $C_a_litw w, w,
+
+      else
+
+       $C_a_litl w, l,
+
+      then
+
+     then
+
+     0
+
+    else
+
+     compile? if freedict then
+
+     1 state andnC!
+
+     _p?
+
+     if
+
+      _udf .strname cr
+
+     then
+
+     clearkeys
+
+     -1
+
+    then
+
+   then
+
+  else
+
+   -1
+
+  then
+
+ until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ interpret ( -- ) the main interpreter loop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: interpret
+
+ accept interpretpad
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _wc1 ( x -- nfa ) skip blanks parse the next word and create a constant, allocate a word, 2 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _wc1
+
+ lockdict create $C_a_doconw w, w, forthentry lastnfa freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ wconstant ( x -- ) skip blanks parse the next word and create a constant, allocate a word, 2 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: wconstant
+
+  _wc1 drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ wvariable ( -- ) skip blanks parse the next word and create a variable, allocate a word, 2 bytes 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: wvariable
+
+ lockdict create $C_a_dovarw w, 0 w, forthentry freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ variable ( -- ) skip blanks parse the next word and create a variable, allocate a long, 4 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: variable
+
+ lockdict create $C_a_dovarl w, 0 l, forthentry freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ constant ( x -- ) skip blanks parse the next word and create a constant, allocate a long, 4 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: constant
+
+ lockdict create $C_a_doconl w, l, forthentry freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+-1  constant  -1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : -1 hFFFFFFFF ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ asmlabel ( x -- ) skip blanks parse the next word and create an assembler entry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: asmlabel
+
+ lockdict create w, freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ hex ( -- ) set the base for hexadecimal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: hex
+
+ h10 base W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ waitcnt ( n1 n2 -- n1 ) \ wait until n1, add n2 to n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: waitcnt
+
+ _xasm2>1 h1F1 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _maxms h7FFFFFFF clkfreq h3E8 u/ u/ _maxms L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _cpms clkfreq h3E8 u/ _cpms L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ delms ( n1 -- ) delay n1 milli-seconds for 80Mhz h68DB max
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: delms
+
+ _maxms L@ min 1 max
+
+ _cpms L@ u* cnt COG@ +
+
+ 0 waitcnt drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >m ( n1 -- n2 ) produce a 1 bit mask n2 for position n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >m
+
+ 1 swap lshift
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ \ ( -- ) moves the parse pointer >in to the end of the line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: \
+
+ padsize >in W!
+
+; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _dl( c1 -- ) drop lines unitl c1 is received as the first or second character in a line, a . is emitted for each line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _dl
+
+ padbl
+
+ pad 1+
+
+ state C@ rot2
+
+ 8 state orC!
+
+ h10 state andnC!
+
+\ ( c1 addr -- )
+
+ begin
+
+  _p?
+
+  if
+
+   h2E emit cr
+
+  then
+
+  accept
+
+  dup C@
+
+\ ( c1 addr char -- )
+
+  2 ST@ =
+
+\ ( c1 addr flag -- )
+
+  over 1+ C@ 3 ST@ = or
+
+ until
+
+ drop
+
+ _p?
+
+ if
+
+  emit cr
+
+ else
+
+  drop
+
+ then
+
+ state C!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ { ( -- ) discard all the characters between { and }
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ open brace MUST be the first and only character on a new line, the close brace must be on another line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: {
+
+ h7D _dl
+
+; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ } ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: } ; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _if xxx   ( flag -- ) if flag  is 0, drop all characters until ], [if should be the first only only chars on the line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _if
+
+ 0=
+
+ if
+
+  h5D _dl
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [if xxx   ( flag -- ) if flag  is 0, drop all characters until ], [if should be the first only only chars on the line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: [if
+
+ _if
+
+; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifdef xxx   ( -- ) if xxx is not defined drop all characters until ]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifdef xxx should be the first only only chars on the line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: [ifdef
+
+ parsenw find nip _if
+
+; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef xxx   ( -- ) if xxx is defined drop all characters until ]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ [ifndef xxx should be the first only only chars on the line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: [ifndef
+
+ parsenw find nip 0= _if
+
+; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ] ; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : ... ; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ' ( -- addr ) returns the execution token for the next name, if not found it returns 0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: '
+
+parsenw dup if
+
+ find 0=
+
+ if _p? if _udf cr then drop 0
+
+ then
+
+then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cq ( -- addr ) returns the address of the counted string following this word and increments the IP past it
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cq
+
+ r> dup C@++ + alignw >r
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ c" ( -- c-addr ) compiles the string delimited by ", runtime return the addr of 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\          the counted string ** valid only in that line
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ comiple time, caddress is not left on the stack
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: c" compile? if $H_cq _sp else _qp then ; immediate exec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ init_coghere ( -- ) This word can be replaced by the assembler optimizations, initializes the coghere wvariable
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: init_coghere
+
+ $C_varEnd coghere W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ prompt ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: prompt
+
+ _p?
+
+ if
+
+  2lock prop W@ .cstr propid W@ . ." Cog" cogid . ." ok" cr 2unlock
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ main ( -- ) main interpreter loop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _main
+
+ r> r> 2drop
+
+ begin
+
+  compile? 0=
+
+  if
+
+   prompt
+
+  then
+
+  interpret 0
+
+ until
+
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ main ( -- ) main interpreter loop, can be easily patched
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: main
+
+ _main
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ this word is what the IP is set to on a reboot or a reset
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fstart ( -- ) the start word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fstart
+
+\         \ if the cog terminated abnormally,
+
+\        \ the value will be not 0,
+
+\        \ normally processed by onreset
+
+\        \ preserve lasterr & errdata, and hi bit of state
+
+ lasterr L@ state C@ h80 and
+
+\        \ zero out the rest of the cog data area
+
+ pad $S_cdsz 4 - 0 fill
+
+ state orC! lasterr L! 
+
+\        \ set up the cogs IO
+
+ h100 io W!
+
+\         \ initialize forth variables
+
+ hA base W! init_coghere
+
+\        \ initiliaze the common variables
+
+ lockdict _finit W@ 0=
+
+ if 
+
+  -1 _finit W!
+
+  freedict
+
+\        \ initialize the forth variables
+
+  (version) version W! (prop) prop W!
+
+  _lockarray 8 bounds do hF i C! loop
+
+  h7FFFFFFF clkfreq h3E8 u/ u/ _maxms L!
+
+  clkfreq h3E8 u/ _cpms L!
+
+\
+
+\ _fi cq dq entry cq dq onboot onreset - must all exist in the dictionary
+
+\
+
+  c" _fi" find drop 2+ alignl 4+ c" $H_entry" find drop 2+ W!
+
+  c" cq" find drop c" $H_cq" find drop 2+ W!
+
+  c" dq" find drop c" $H_dq" find drop 2+ W!
+
+  c" onboot" find drop execute
+
+ else
+
+  freedict
+
+ then
+
+\        \ set up the reset register for the cog
+
+ cogid _rreg $C_resetDreg COG!
+
+\        \ execute cogresetN (N is cogig) if exists,
+
+\        \ otherwise execute onreset
+
+ c" onreset" tbuf ccopy cogid tbuf cappendn tbuf find
+
+ if
+
+  execute
+
+ else
+
+  drop
+
+  c" onreset"
+
+  find drop execute
+
+ then
+
+\        \ THE MAIN LOOP
+
+ main
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ THE DEFAULT INITIALIZATION WORDS, onboot and on reset must exist
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ onboot ( -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: onboot
+
+ $S_con iodis
+
+ $S_con cogreset
+
+ c" _dbg" find
+
+ if
+
+  2+ $S_con cogio swap W!
+
+ else
+
+  drop
+
+ then
+
+ h10 delms
+
+ c" initcon" $S_con cogx
+
+ h100 delms
+
+ cogid >con
+
+ 8 0
+
+ do
+
+  i cogid <>
+
+  i $S_con <> and
+
+  if
+
+   i cogreset
+
+  then
+
+ loop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ wl ( -- ) wordlister
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: wl
+
+ here W@ lastnfa
+
+ begin
+
+  dup . 2dup - . dup .strname cr
+
+  nip dup nfa>lfa W@ dup 0=
+
+  until
+
+ 2drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >dbg ( -- ) routes this cogs io to the debug channel and locks the debug channel,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the current output pointer is saved
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >dbg
+
+ _dbg io 2+ dup W@ ios W! W! 2lock
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ xdbg ( -- ) unlocks the debug channel and restores the cogs output pointer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: xdbg
+
+ ios W@ io 2+ W! 2unlock
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ p>n ( pfa -- nfa) looks up the nfa for a pfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: p>n
+
+ lastnfa dup
+
+ begin
+
+  dup 3 ST@ <
+
+  if
+
+   -1
+
+  else
+
+   nip dup nfa>lfa W@ dup 0=
+
+  then
+
+  until
+
+ swap 0<> and nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ onreset ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: onreset
+
+ unlockall $S_con cogid <>
+
+ if
+
+  >dbg cr ." RESET: " cogid . lasterr W@ dup . p>n .strname 4 spaces errdata W@ dup . p>n .strname cr  xdbg
+
+ then
+
+ 4 state orC! version W@ cds W!  0 lasterr L!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ These must be defined at the end for a rebuild
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lockdict ( -- ) lock the forth dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lockdict 0 lock ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ freedict ( -- ) free the forth dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: freedict 0 unlock ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u* ( u1 u2 -- u1*u2) u1*u2 must be a valid 32 bit unsigned number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u*
+
+ 0
+
+ h20 0
+
+ do
+
+  over 1 and
+
+  if
+
+   2 ST@ +
+
+  then
+
+  2 ST@ 1 lshift 2 ST!
+
+  h1 ST@ 1 rshift h1 ST!
+
+ loop
+
+ nip
+
+ nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u>= ( u1 u2 -- t/f ) \ flag is true if and only if u1 is greater or equal to than u2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u>= _xasm2>flag h310E _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u/mod ( u1 u2 -- remainder quotient) both remainder and quotient are 32 bit unsigned numbers
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u/mod
+
+ 1
+
+ h1F 0
+
+ do
+
+  over 0<
+
+  if
+
+   leave
+
+  else 
+
+   swap 1 lshift swap
+
+   1 lshift
+
+  then
+
+ loop
+
+\
+
+ 0
+
+ h20 0
+
+ do
+
+  3 ST@ 3 ST@
+
+  u>=
+
+  if
+
+   3 ST@ 3 ST@ - 3 ST!
+
+   over +
+
+  then
+
+  swap 1 rshift swap
+
+  rot 1 rshift rot2
+
+  over 0=
+
+  if
+
+   leave
+
+  then
+
+ loop
+
+ nip nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u/ ( u1 u2 -- u1/u2) u1 divided by u2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u/
+
+ u/mod nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ cstr= ( cstr1 cstr2 -- t/f ) case sensitive compare
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: cstr=
+
+ over C@ over C@ =
+
+ if
+
+  -1 rot
+
+  1+
+
+  rot C@++ bounds
+
+  do
+
+   dup C@ i C@ <>
+
+   if
+
+    nip 0 swap leave
+
+   then
+
+   1+
+
+  loop
+
+  drop
+
+ else
+
+  2drop 0
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ name= ( cstr1 cstr2 -- t/f ) case sensitive compare
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: name=
+
+ over C@ h1F and over C@ h1F and =
+
+ if
+
+  -1 rot
+
+  1+
+
+  rot C@++ h1F and bounds
+
+  do
+
+   dup C@ i C@ <>
+
+   if
+
+    nip 0 swap leave
+
+   then
+
+   1+
+
+  loop
+
+  drop
+
+ else
+
+  2drop 0
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _dictsearch ( nfa cstr -- n1) nfa - addr to start searching in the dictionary, cstr - the counted string to find
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ n1 - nfa if found, 0 if not found, a fast assembler routine
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _dictsearch
+
+ swap
+
+ begin
+
+  2dup name=
+
+  if
+
+   -1
+
+  else
+
+   nfa>next dup 0=
+
+  then
+
+ until
+
+ nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ serafc ( n1 n2 n3 t/f -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ n1 - tx pin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ n2 - rx pin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ n3 - baud rate / 4 - the actual baud rate will be 4 * this number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ t/f - flow control on/off
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _serafc ( -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad + 12 - n1 - clocks/bit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad +  8 - n2 - txmask 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad +  4 - n3 - rxmask 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pad +  0 - t/f - flow control on/off
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ parameters are passed this way to eliminate the dependencies of the kernel assembler
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: serafc
+
+ c" SERAFC " pad ccopy
+
+ dup if
+
+  c"  FC "
+
+ else
+
+  c" NFC "
+
+ then
+
+ pad cappend
+
+
+
+ over 4* pad cappendn
+
+ c"  TX:" pad cappend 3 ST@ pad cappendn
+
+ c"  RX:" pad cappend 2 ST@ pad cappendn 
+
+
+
+ pad numpad ccopy numpad cds W!
+
+ 4 state andnC!
+
+ pad L! 
+
+ 4* clkfreq swap u/ pad d_12 + L!
+
+ >m tuck pad 4+ L!
+
+ >m tuck pad 8 + L!
+
+\ ( txmask rxmask -- )
+
+ over _maskouthi dira COG@ over andn 2 ST@ or dira COG!
+
+ h100 io L!
+
+\ (bitticks txmask rxmask t/f --)
+
+\
+
+\
+
+ _serafc
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ initcon ( -- ) initialize the default serial console on this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: initcon
+
+ $S_txpin $S_rxpin $S_baud $S_flowControl serafc
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthmakerfence
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' forthmakerfence pfa>nfa wconstant asmsearchstart
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ixnfa ( n1 -- c-addr ) returns the n1 from the last nfa address
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ixnfa
+
+ 0 max wlastnfa W@
+
+ begin
+
+  over 0=
+
+  if
+
+   -1
+
+  else
+
+   swap 1- swap nfa>next dup 0=
+
+  then
+
+ until
+
+ nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfacount ( -- n1 ) returns the number of nfas in the forth dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfacount
+
+ 0 wlastnfa W@
+
+ begin
+
+  swap 1+ swap nfa>next dup 0=
+
+ until
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ nfaix ( c-addr -- n1 ) returns the index of the nfa address, -1 if not found
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nfaix
+
+ -1 swap 0 wlastnfa W@
+
+ begin
+
+  rot 2dup =
+
+  if
+
+   2drop swap -1 -1 -1
+
+  else
+
+   rot 1+ rot nfa>next dup 0=
+
+  then
+
+ until
+
+ 3drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lastdef ( c-addr -- t/f ) true if this is the most recently defined word 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lastdef
+
+ lastnfa over _dictsearch dup
+
+ if
+
+  =
+
+ else
+
+  2drop -1
+
+ then
+
+; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable lastNewNFA
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable initialNewhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable newhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable currentWordSize
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable savebase
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nh+  dup newhere W+! negate currentWordSize W+! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: nh2+ 2 nh+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dolalign+
+
+ newhere W@ 3 and
+
+ if
+
+  ." w h_0 " nh2+
+
+  2 currentWordSize W+!
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dolalign
+
+ newhere W@ 3 and
+
+ if
+
+  ." w h_0 " nh2+
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ asmlookup ( n1 --- n2) n1 the assembler address, n2 0 if not found, symbol nfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: asmlookup
+
+ 0 swap asmsearchstart
+
+ begin
+
+ \ ( -1 n1 nfa)
+
+  dup c" $C_" npfx
+
+  if
+
+   2dup nfa>pfa 2+ W@ =
+
+   if
+
+    rot2 -1
+
+   else
+
+     nfa>next dup 0=
+
+   then
+
+  else
+
+   nfa>next dup 0=
+
+  then  
+
+ until
+
+ 2drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isExecasm ( addr -- t/f) true if addr is one of the ifuncs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isExecasm
+
+ dup $C_a__xasm2>1 =
+
+ over $C_a__xasm2>flag = or
+
+ over $C_a__xasm1>1 = or
+
+ swap $C_a__xasm2>0 = or
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isExecasmIMM ( addr -- t/f) true if addr is one of the immediate ifuncs
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: isExecasmIMM
+
+ dup $C_a__xasm2>1IMM =
+
+ swap $C_a__xasm2>flagIMM = or
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp1
+
+ 2+ dup W@ ." w h_" . nh2+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp2
+
+ 2+ alignl
+
+ dup dup W@ dolalign ." w h_" .  2+ W@ ." w h_" .  2+ nh2+ nh2+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp3
+
+  asmlookup dup 0= 
+
+  if
+
+   drop ." * ***h_" .
+
+  else
+
+   ." a " .strname space drop
+
+  then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ dcmp ( addr -- addr t/f) process the post word data, flag true if at the end of the word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: dcmp
+
+ dup W@ dup $C_a_doconw = swap $C_a_dovarw = or
+
+ if
+
+  dcmp1 -1
+
+ else
+
+  
+
+ dup W@ isExecasmIMM
+
+ if
+
+  dcmp1
+
+  dcmp1 0
+
+ else
+
+
+
+ dup W@ dup isExecasm
+
+ over $C_a_litw = or
+
+ over $C_a_branch = or
+
+ over $C_a_(loop) = or
+
+ over $C_a_(+loop) = or
+
+ swap $C_a_0branch = or
+
+ if
+
+  dcmp1 0
+
+ else
+
+
+
+ dup W@ dup $C_a_doconl =
+
+ swap $C_a_dovarl = or
+
+ if
+
+  dcmp2 -1
+
+ else
+
+ dup W@ $C_a_litl =
+
+ if
+
+  dcmp2 0
+
+ else
+
+
+
+ dup W@ dup $H_dq = swap $H_cq = or
+
+ if
+
+  dup 2+ C@ 2+ 2/ 0
+
+  do
+
+   2+ dup W@ ." w h_" . nh2+
+
+  loop
+
+  0
+
+ else
+
+
+
+ dup W@ $C_a_lxasm =
+
+ if
+
+  2+
+
+  dup 3 and
+
+  if
+
+   -2 currentWordSize W+!
+
+   alignl
+
+  then
+
+  dolalign+
+
+  dup L@ h9 rshift h1FF and 0
+
+  do
+
+   dup dup W@  ." w h_" . 2+  W@ ." w h_" .  4+ nh2+ nh2+
+
+  loop
+
+  -1
+
+ else
+
+  dup W@ $C_a_exit =
+
+ thens
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ wordforth( addr1 -- addr2 ) addr1 is the nfa, addr2 is the pfa address at the end of this word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: wordforth
+
+ nfa>pfa 2-
+
+ begin
+
+  2+ dup W@ dup hFE00 and 0=
+
+  if
+
+  \ ( addr @ -- )
+
+   dup dcmp3
+
+  else
+
+   ." p " pfa>nfa .strname space
+
+  then
+
+  nh2+
+
+  dcmp
+
+ until
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fixalign ( ix -- ix)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fixalign
+
+ dup ixnfa nfa>lfa 3 and 0<> 
+
+ if
+
+  newhere W@ 3 and 0=
+
+  if
+
+   \ ." ~h0D\" dup ixnfa dup . .strname space newhere W@ . ." fixalign~h0D" 
+
+   2 newhere W+!
+
+  then
+
+ else
+
+  newhere W@ 3 and 0<>
+
+  if
+
+   \ ." ~h0D\" dup ixnfa dup . .strname space newhere W@ . ." fixalign~h0D" 
+
+   2 newhere W+!
+
+  then
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ doword ( ix -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: doword
+
+ \ cr newhere W@ . lastNewNFA W@ .
+
+ fixalign
+
+ \ newhere W@ . lastNewNFA W@ . cr
+
+ 
+
+\ dup . dup ixnfa dup . .strname space dup 1- ixnfa dup . .strname space
+
+
+
+ dup 1- ixnfa over ixnfa - currentWordSize W!
+
+\ currentWordSize W@ . cr
+
+ ." h_"  newhere W@ dup . ." h_" lastNewNFA W@ dup 0<> if 2+ then . lastNewNFA W! nh2+ ixnfa dup C@ h_E0 and ." h_" .
+
+ dup .strname dup C@ namemax and 2+ 1 andn nh+ space
+
+ \ (nfa --)
+
+ dup C@ h80 and 0=
+
+ if
+
+   dup nfa>pfa W@ dcmp3 nh2+
+
+ else
+
+  dup nfa>pfa W@ dup $C_a_doconw =
+
+  if
+
+  \ (nfa pfa@ -- )
+
+   drop ." a $C_a_doconw " nfa>pfa 2+ W@ ." w h_" . nh2+ nh2+
+
+  else dup $C_a_dovarw = if
+
+   2drop ." a $C_a_dovarw w h_0 " nh2+ nh2+
+
+  else dup $C_a_doconl = if
+
+   drop ." a $C_a_doconl " nfa>pfa 2+ alignl L@ nh2+ dolalign+
+
+    ." w h_" dup hFFFF and .  h10 rshift  ." w h_" . nh2+ nh2+
+
+  else dup $C_a_dovarl = if
+
+   2drop ." a $C_a_dovarl " nh2+ dolalign ." w h_0 w h_0 " nh2+ nh2+ 
+
+  else
+
+   drop wordforth
+
+ thens
+
+\ cr currentWordSize W@ . cr
+
+ currentWordSize W@ 0>
+
+ if
+
+  currentWordSize W@ h7FFF >
+
+  if
+
+   ." ******************************************************* " currentWordSize W@ .
+
+  else
+
+   currentWordSize W@ 1+ 2/ 0
+
+   do
+
+    ." w h_0 " nh2+
+
+   loop
+
+  then
+
+ then
+
+ ." e~h0D~h0D" 
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _forthmakerFlag
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ forthmaker ( n1 -- ) generates the forth intermediate code, n1 starting address, must be a long
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: forthmaker
+
+ -1 _forthmakerFlag W!
+
+ base W@ savebase W!
+
+ hex
+
+ dup newhere W! initialNewhere W!
+
+ 0 lastNewNFA W!
+
+ c" forthmakerfence" find nip c" forthmakerfenceend" find nip or
+
+ c" forthmakerdeletefence" find nip or
+
+ if
+
+  \ these should always be the first 3 words
+
+  c" _bt" find drop pfa>nfa nfaix doword
+
+  c" _fi" find drop pfa>nfa nfaix doword
+
+  c" _cd" find drop pfa>nfa nfaix doword
+
+  
+
+  c" forthmakerdeletefence" find drop pfa>nfa nfaix nfacount 1- tuck swap - 0
+
+  do
+
+\ dup . i . dup i - . dup i - ixnfa .strname _forthmakerFlag W@ . cr
+
+   _forthmakerFlag W@
+
+   if
+
+    dup i - ixnfa c" forthmakerfence" name=
+
+    if
+
+     0 _forthmakerFlag W!
+
+     0
+
+    else 
+
+     -1
+
+    then
+
+   else
+
+    dup i - ixnfa c" forthmakerfenceend" name=
+
+    if
+
+     -1 _forthmakerFlag W!
+
+     0
+
+    else 
+
+     0
+
+    then     
+
+   then
+
+   
+
+   if
+
+    dup i - dup ixnfa
+
+    
+
+    dup c" _bt" name=
+
+    over c" _fi" name= or
+
+    over c" _cd" name= or
+
+    if
+
+     2drop
+
+    else   
+
+\ 2dup swap . dup . .strname space
+
+     lastdef
+
+\ dup . cr
+
+     if
+
+      doword
+
+     else
+
+      drop
+
+     then
+
+    then
+
+   then
+
+  loop
+
+  drop
+
+ then
+
+ -1 . cr cr
+
+
+
+ ." \ initialNewhere h_" initialNewhere W@ . cr cr
+
+ ." \ newhere h_" newhere W@ . cr cr
+
+ ." \ lastNewNFA h_" lastNewNFA W@ . cr cr
+
+ savebase W@ base W!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthmakerfenceend
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1 wconstant forthmakerdeletefence h18 forthmaker
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (version) c" STARTKERNEL6.0-2015Sep12 19:18-0" ;
+Prop0 Cog6 ok
+hFB wconstant $C_varEnd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hFB wconstant $C_rsTop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hE5 wconstant $C_rsBot
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hE5 wconstant $C_stTop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hE4 wconstant $C_this
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hCD wconstant $C_stBot
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hCC wconstant $C_treg6
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hCB wconstant $C_treg5
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hCA wconstant $C_treg4
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC9 wconstant $C_treg3
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC9 wconstant $C_cogdata
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC8 wconstant $C_stTOS
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC7 wconstant $C_rsPtr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC6 wconstant $C_stPtr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC5 wconstant $C_resetDreg
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC4 wconstant $C_fLongMask
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC3 wconstant $C_fAddrMask
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC2 wconstant $C_fCondMask
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC1 wconstant $C_fDestInc
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hC0 wconstant $C_a_rsPop_ret
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hBF wconstant $C_a_rsPop1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hBA wconstant $C_a_rsPop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hB9 wconstant $C_a_stpopC_treg_ret
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hB9 wconstant $C_a_stPop_ret
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hB8 wconstant $C_a_stPop1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hB3 wconstant $C_a_stPop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hB2 wconstant $C_a_stpopC_treg
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hB1 wconstant $C_a_rsPush_ret
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hAF wconstant $C_a_rsPush1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hAB wconstant $C_a_rsPush
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hAA wconstant $C_a_stPush_ret
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA8 wconstant $C_a_stPush1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA4 wconstant $C_a_stPush
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA1 wconstant $C_a_lasterr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0 wconstant $C_a_reset
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h9C wconstant $C_a_0branch
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h91 wconstant $C_a_(+loop)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h8F wconstant $C_a_(loop)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h8B wconstant $C_a_>r
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h88 wconstant $C_a_2>r
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h84 wconstant $C_a_r>
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h81 wconstant $C_a__maskoutlo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h80 wconstant $C_a__maskouthi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h7D wconstant $C_a__maskin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h75 wconstant $C_a_next
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h73 wconstant $C_a_exit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h71 wconstant $C_a_litw1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h6F wconstant $C_a_litw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h69 wconstant $C_a_litl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h64 wconstant $C_a_doconl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h61 wconstant $C_a_dovarw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5F wconstant $C_a_dovarl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C wconstant $C_a_doconw
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h58 wconstant $C_a_branch
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h54 wconstant $C_a_COG!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h4F wconstant $C_a_ST!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h49 wconstant $C_a_RS!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h45 wconstant $C_a_COGat
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h40 wconstant $C_a_STat
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h3A wconstant $C_a_RSat
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h38 wconstant $C_a_drop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h33 wconstant $C_a__xasm2>0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h2E wconstant $C_a__xasm1>1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h28 wconstant $C_a__xasm2>1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h25 wconstant $C_a__xasm2>1IMM
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h16 wconstant $C_a__xasm2>flag
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h13 wconstant $C_a__xasm2>flagIMM
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h3 wconstant $C_a_lxasm
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h2 wconstant $C_IP
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1 wconstant $C_treg2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h0 wconstant $C_treg1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthmakerdeletefence
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: results/outputFiles/StartKernel.if
+
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: 
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 14300 TMP01KERNEL6.0-2015Sep12 19:09-0
+
+Prop0 Cog6 ok
+wvariable lastNewNFA
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable initialNewhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable newhere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable resolveFlag
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable resolveError
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable initialBaseAddr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable baseAddr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: bw,
+
+ resolveFlag W@ 0=
+
+ if
+
+  2 allot
+
+ then
+
+ baseAddr W@ W! 2 baseAddr W+! 2 newhere W+!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >tbuf
+
+ tbuf dup C@ + 1+ C!
+
+ tbuf C@ 1+ tbuf C!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ getword ( -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: getword
+
+ 0 tbuf C!
+
+ begin
+
+  key dup bl = over h0D = or
+
+  if
+
+   drop 0
+
+  else
+
+   >tbuf -1
+
+  then
+
+ until
+
+ begin
+
+  key dup bl = over h0D = or
+
+  if
+
+   drop -1
+
+  else
+
+   >tbuf 0
+
+  then
+
+ until
+
+\ ." getword " tbuf .cstr cr
+
+ h2E emit
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ getnumber ( -- 0 | -1) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: getnumber
+
+  getword tbuf C@++ fisnumber 0=
+
+  if
+
+   ." ~h0D* ***ERROR EXPECTED NUMBER: " tbuf .cstr cr cr -1
+
+  else
+
+   tbuf C@++ fnumber 0
+
+  then
+
+\ ." getnumber " over . dup . cr
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: na initialBaseAddr W@ + initialNewhere W@ - ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: oa initialBaseAddr W@ - initialNewhere W@ + ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ newDictFind ( cstr -- 0 | xt -1 ) c-addr is a counted string, 0 - not found, -1 pfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: newDictFind
+
+ dup tbuf ccopy
+
+ lastNewNFA W@ 0= resolveFlag W@ 0= or
+
+ if
+
+  drop 0
+
+ else
+
+  lastNewNFA W@
+
+  \ 2-
+
+  begin
+
+   dup 0=
+
+   if
+
+    -1
+
+   else
+
+    \ 2+
+
+\    dup . dup na .strname cr
+
+    2dup na name=
+
+    if
+
+     -1
+
+    else
+
+     2- na W@ dup 0=
+
+    then
+
+   then
+
+  until
+
+  2dup na name=
+
+  if
+
+   nip na nfa>pfa oa -1
+
+  else
+
+   2drop 0
+
+   resolveFlag W@
+
+   if
+
+    ." ~h0D~h0D~h0DSymbol not found: " tbuf .cstr cr cr cr
+
+    -1 resolveError W!
+
+   then
+
+  then
+
+ then
+
+\ st?
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ newDictWConst ( cstr -- 0 | xt -1 ) c-addr is a counted string, 0 - not found, -1 const
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: newDictWConst
+
+ newDictFind dup
+
+ if
+
+  swap na 2+ W@ swap
+
+ then
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _getfword ( -- 0 | -1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _getfword
+
+ begin
+
+  getword
+
+  tbuf c" ;" cstr=
+
+  if
+
+   -1
+
+  else
+
+   tbuf c" a" cstr=
+
+   if
+
+    getword
+
+    tbuf newDictWConst 0=
+
+    if
+
+     0
+
+    then
+
+    bw, resolveError W@
+
+   else
+
+    tbuf c" p" cstr=
+
+    if
+
+     getword
+
+     tbuf newDictFind 0=
+
+     if
+
+      0
+
+     then
+
+     bw, resolveError W@
+
+    else
+
+     tbuf c" w" cstr=
+
+     if
+
+      getnumber
+
+      if
+
+       ." ~h0D* ***ERROR expected number: " tbuf .cstr cr cr -1
+
+      else
+
+       bw, 0
+
+      then
+
+     else
+
+      tbuf c" e" cstr=
+
+      if
+
+       -1
+
+      else
+
+       ." ~h0D* ***ERROR [ a | p | w | e]:" tbuf .cstr cr cr -1
+
+      then
+
+     then
+
+    then
+
+   then
+
+  then
+
+ until
+
+ ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ getfword ( -- 0 | -1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: getfword
+
+ getnumber over -1 = or
+
+ if
+
+  drop -1
+
+ else
+
+  initialNewhere W@ h_FFFF =
+
+  if
+
+   dup initialNewhere W! dup newhere W!
+
+  then
+
+  \ tolerate long alignment alignment 
+
+  dup newhere W@ <> over newhere W@ 2+ <> and
+
+  if
+
+   ." ~h0D* ***ERROR SYNCH ERROR: " dup . newhere W@ . tbuf .cstr cr cr -1
+
+  else
+
+   newhere W@ 2+ =
+
+   if
+
+    0 bw,
+
+   then
+
+
+
+   getnumber
+
+   if
+
+    ." ~h0D* ***ERROR expected lfa: " tbuf .cstr cr cr -1
+
+   else
+
+   
+
+    
+
+    bw,
+
+    getnumber
+
+    if
+
+     ." ~h0D* ***ERROR expected flags: " tbuf .cstr cr cr -1
+
+    else
+
+     getword tbuf baseAddr W@ ccopy
+
+     resolveFlag W@ 0=
+
+     if
+
+      newhere W@ lastNewNFA W!
+
+     then
+
+     baseAddr W@ orC!
+
+     tbuf C@ 2+ 1 andn dup resolveFlag W@ 0= if dup  allot then baseAddr W+! newhere W+!
+
+     _getfword
+
+     0
+
+    then
+
+   then
+
+  then
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: forthbuilder
+
+ lockdict
+
+ base W@ hex 
+
+ herelal
+
+ here W@ dup baseAddr W! initialBaseAddr W!
+
+ h_0 lastNewNFA W!
+
+ h_0 resolveFlag W!
+
+ h_0 resolveError W!
+
+ h_FFFF initialNewhere W!
+
+ begin
+
+  getfword
+
+  newhere W@ . cr
+
+ until
+
+ cr
+
+ ." \ initialNewhere h_" initialNewhere W@ . cr cr
+
+ ." \ newhere h_" newhere W@ . cr cr
+
+ ." \ lastNewNFA h_" lastNewNFA W@ . cr cr
+
+ base W!
+
+ freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: forthbuilderpass2
+
+ lockdict
+
+ base W@ hex
+
+ initialBaseAddr W@ baseAddr W! 
+
+ -1 resolveFlag W!
+
+ h_0 resolveError W!
+
+ h_FFFF initialNewhere W!
+
+ begin
+
+  getfword
+
+  newhere W@ . cr
+
+ until
+
+ cr
+
+ ." \ initialNewhere h_" initialNewhere W@ . cr cr
+
+ ." \ newhere h_" newhere W@ . cr cr
+
+ ." \ lastNewNFA h_" lastNewNFA W@ . cr cr
+
+ base W!
+
+ freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fbPatch ( startCog -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fbPatch
+
+\ the init long for the start cog
+
+ dup c" $S_cdsz" newDictWConst . u*
+
+ c" _cd" newDictFind . 2+ alignl + h10 lshift
+
+ c" _fi" newDictFind . 2+ 2+ 2+ dup . 2 lshift or or
+
+\ third long must be the initialization long
+
+ c" _bt" newDictFind .  2+ 3 4 u* + na L!
+
+\ Patch the forth interpreter 
+
+\  
+
+\
+
+\ Set the initial IP to the forth start word
+
+\
+
+ c" fstart" newDictFind . dup .
+
+ c" _fi" newDictFind . 2+ dup .
+
+ c" $C_IP" newDictWConst . dup . 1+ 4 u* + na dup . L!
+
+
+
+ c" $V_lasterr" newDictWConst . dup .
+
+ c" _fi" newDictFind . 2+ dup .
+
+ c" $C_a_lasterr" newDictWConst . dup . 1+ 4 u* + na dup .
+
+ over . dup .
+
+ dup L@ h1FF andn dup . rot dup . or dup . swap dup . L!
+
+\  
+
+\
+
+\ Patch the forth dictionary
+
+\
+
+ dictend W@ dup . c" dictend" newDictFind . na 2+ dup . W!
+
+ memend W@ dup . c" memend" newDictFind . na 2+ dup . W!
+
+ newhere W@ dup . c" here" newDictFind . na 2+ dup . W!
+
+ lastNewNFA dup . W@ c" wlastnfa" newDictFind . na 2+ dup . W!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable checksum
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable bytecount
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count3
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable count4
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fbDbg
+
+ hex count0 W@ .
+
+ count1 W@ .
+
+ count2 W@ .
+
+ count3 W@ .
+
+ count4 W@ .
+
+ bytecount W@ .
+
+ checksum W@ .
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fb checksum W+! 1 bytecount W+! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fbinout 
+
+ 0 checksum W!
+
+ 0 bytecount W!
+
+ 
+
+ h_00 _fb h_B4 _fb h_C4 _fb h_04 _fb
+
+ h_6F _fb h_00 _fb h_10 _fb h_00 _fb
+
+ h_C0 _fb h_7F _fb h_C8 _fb h_7F _fb
+
+ h_B8 _fb h_7F _fb h_CC _fb h_7F _fb
+
+\ h_B8 _fb h_7F _fb h_D0 _fb h_7F _fb
+
+ h_B0 _fb h_7F _fb h_02 _fb h_00 _fb
+
+ h_A8 _fb h_7F _fb h_00 _fb h_00 _fb
+
+\ h_A8 _fb h_7F _fb h_04 _fb h_00 _fb
+
+ 
+
+ bytecount W@ count0 W!
+
+ initialBaseAddr W@ newhere W@ initialNewhere W@ - bounds
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+ bytecount W@ count1 W!
+
+  
+
+ h7FB8 newhere W@ - 0
+
+ do
+
+  0 _fb
+
+  loop
+
+ bytecount W@ count2 W!
+
+
+
+ h_35 _fb h_A7 _fb h_14 _fb h_35 _fb
+
+\ h_35 _fb h_C7 _fb h_14 _fb h_35 _fb
+
+ h_2C _fb h_32 _fb h_00 _fb h_00 _fb
+
+
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ bytecount W@ count3 W!
+
+ 
+
+ h38 0 do
+
+  0 _fb
+
+  loop
+
+ bytecount W@ count4 W!
+
+
+
+ h_00 emit h_B4 emit h_C4 emit h_04 emit
+
+ h_6F emit
+
+ h_14 checksum W@ - h_FF and emit
+
+ h_10 emit h_00 emit
+
+ h_C0 emit h_7F emit h_C8 emit h_7F emit
+
+ h_B8 emit h_7F emit h_CC emit h_7F emit
+
+\ h_B8 emit h_7F emit h_D0 emit h_7F emit
+
+ h_B0 emit h_7F emit h_02 emit h_00 emit
+
+ h_A8 emit h_7F emit h_00 emit h_00 emit
+
+\ h_A8 emit h_7F emit h_04 emit h_00 emit
+
+        
+
+ initialBaseAddr W@ newhere W@ initialNewhere W@ - bounds
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ h7FB8 newhere W@ - 0
+
+ do
+
+  0 emit
+
+  loop
+
+
+
+ h_35 emit h_A7 emit h_14 emit h_35 emit
+
+\ h_35 emit h_C7 emit h_14 emit h_35 emit
+
+ h_2C emit h_32 emit h_00 emit h_00 emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ 
+
+ h38 0 do
+
+  0 emit
+
+  loop
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+forthbuilder
+.......................30 
+.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................428 
+.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................B30 
+.........B40 
+.........B4C 
+.........B5A 
+...............B6E 
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................F0E 
+.........F1E 
+...............F32 
+.........F3E 
+.........F4C 
+.........F5A 
+.........F6C 
+.........F7A 
+.........F8A 
+.........F9A 
+.........FA8 
+.........FBE 
+.........FCC 
+.........FD8 
+.........FE8 
+.........FF4 
+.........1000 
+.........100A 
+.........1012 
+.........101A 
+.........1022 
+.........102C 
+.........1036 
+.........1040 
+.........104C 
+.........1058 
+...........................1076 
+.......108A 
+.......109A 
+.......10AA 
+.......10B8 
+.......10C6 
+.......10D4 
+.......10DE 
+.......10EA 
+.......10FA 
+.......110A 
+...........1116 
+...........1124 
+...........1130 
+...........113C 
+...........1148 
+.......1150 
+.......1158 
+.......1162 
+...........116E 
+...........117A 
+...........1186 
+.......118E 
+.......1196 
+.......11A0 
+.......11AC 
+...........11BC 
+...........11CC 
+.......11D8 
+.......11E4 
+.......11F0 
+.......11FC 
+.......1206 
+.............1214 
+...........121E 
+.......1228 
+...........1232 
+.......123C 
+.......1246 
+...........1256 
+...........1260 
+...........126C 
+...........1278 
+...........1282 
+...........128E 
+...........129A 
+.............12AA 
+...........12B4 
+.........................................12DE 
+...........12EE 
+.......12F6 
+.......12FE 
+.......1306 
+.......1312 
+.......131E 
+.......132A 
+.......................1344 
+...........1354 
+...............1368 
+.........................1386 
+.............................13A6 
+...................................................................13F0 
+...........13FE 
+...........140E 
+.........141C 
+.........1428 
+.........1434 
+.........1440 
+.........144E 
+.........145E 
+.........146C 
+.........147E 
+.........1490 
+.........149E 
+.........14AC 
+.........14BE 
+.........14D0 
+.........14DE 
+.........14EC 
+.........14FE 
+.........150E 
+.............151C 
+.....................1534 
+.......................1552 
+...........155E 
+.................1570 
+...........................................15A0 
+...........15AE 
+.........................................15DE 
+.............15F0 
+.................................1618 
+.............162A 
+...............................1652 
+...........1664 
+.............1672 
+...........1682 
+...............1696 
+.........16A4 
+.........16B2 
+.............16C0 
+.............16CE 
+.............16DC 
+.............16EC 
+.............16FE 
+...............1714 
+...............1728 
+.........173A 
+.............1748 
+.............175A 
+.............176C 
+.............177A 
+...............178E 
+.............179E 
+.............17B2 
+.............................................17E4 
+.............17F6 
+.............1806 
+.............1814 
+.............1826 
+.............1836 
+...............184C 
+.................185E 
+...................1878 
+...........1886 
+...............189C 
+.............................................................18DE 
+...........18EE 
+.................1902 
+.........................................1930 
+...........193E 
+.................1950 
+...........195E 
+...........196C 
+...........197A 
+.............1988 
+...........1994 
+.............19A2 
+.............19B0 
+.............19BE 
+.............19CC 
+.............19DA 
+.............19E8 
+.............19F6 
+.............1A04 
+.............1A12 
+.............1A20 
+.................................1A44 
+...........1A50 
+...........1A5E 
+...........1A6A 
+...........1A76 
+.............1A84 
+...................1A98 
+...................1AAE 
+...................1AC6 
+...................1ADE 
+.............1AEC 
+...........1AFA 
+.............................1B1C 
+.............1B2E 
+...................1B46 
+.............1B58 
+...............1B6A 
+.................................................................................1BC0 
+...................1BD8 
+.........................................1C08 
+...............................................1C3C 
+...........................................1C6C 
+.....................................1C94 
+.......................................................................................................1D00 
+...................................1D2A 
+.....................................1D52 
+.......................................................................................................1DC0 
+.................................1DE4 
+...............................................................1E26 
+.............1E38 
+.....................................1E60 
+.................1E78 
+...............1E8A 
+.........................................1EB8 
+...................1ED2 
+...........................................................................1F22 
+...............1F34 
+.................................1F58 
+.............................1F7C 
+...........1F8A 
+.....................1FA0 
+...........1FAA 
+...........1FB8 
+.........................1FD4 
+.........1FE2 
+.............1FF4 
+...........2006 
+...........2016 
+.................2030 
+.......................2052 
+.....................................................2090 
+.............................................20C2 
+.........................................................................................................................................................................2170 
+...............2182 
+.......................................
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: results/outputFiles/StartKernel.eeprom
+
+ scriptFileName: scripts/buildStartKernel-2.txt
+   logFileName: results/runLogs/buildStartKernel-2.txt
+resultFileName: results/resultFiles/buildStartKernel-2.txt
+outputFileName: 
