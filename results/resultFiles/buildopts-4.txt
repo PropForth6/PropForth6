@@ -21,7 +21,7 @@ RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14300 TMP01KERNEL6.0-2015Sep12 19:09-0
+here: 14416 STARTKERNEL6.0-2015Sep20 08:53-0
 
 Prop0 Cog6 ok
 [ifndef $C_varEnd
@@ -966,17 +966,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef variable
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-: variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ;
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -2105,3 +2100,20 @@ outputFileName: results/outputFiles/mpOptimize.f
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: results/resultFiles/buildopts-4.txt
 outputFileName: 
+Prop0 Cog6 ok
+reboot
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok

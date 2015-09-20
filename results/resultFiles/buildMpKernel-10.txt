@@ -3,6 +3,2346 @@
    logFileName: results/runLogs/buildMpKernel-10.txt
 resultFileName: results/resultFiles/buildMpKernel-10.txt
 outputFileName: 
+reboot
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 15208 mpOptKERNEL6.0-2015Sep20 09:22-0
+
+Prop0 Cog6 ok
+: (version) c" mpKERNEL6.0-2015Sep20 09:31-0" ;
+Prop0 Cog6 ok
+(version) version W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef sliceLock
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+7 wconstant sliceLock
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef numBG
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ minimum 32
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+d_128 wconstant numBG
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef sqz
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ +1 for the queue space ( head cannot equal tail), + 1 for queue/dequeue + 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+numBG d_9 + 1+ -2 and wconstant sqz
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef sliceQ
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ + 4 bytes for the queue overhead
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h8000 sqz 2 lshift 4 + - wconstant sliceQ
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef bgQ
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ + 4 bytes for the queue overhead
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+sliceQ sqz 1 lshift  4 + -  wconstant bgQ
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ >nc ( -- ) allocate a free cog and link the io to this cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >nc lockdict cogid nfcog iolink freedict ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ xnc ( -- ) unlink the io
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: xnc lockdict cogid iounlink freedict ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2* ( n1 -- n1<<1 ) n2 is shifted logically left 1 bit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 2*
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2* _xasm2>1IMM h0001 _cnip h05F _cnip ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef $C_a_dovarl
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ variable ( -- ) skip blanks parse the next word and create a variable, allocate a long, 4 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef variable
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 4- ( n1 -- n1-4 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 4-
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 4- _xasm2>1IMM h0004 _cnip h10F _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u*/mod ( u1 u2 u3 -- u4 u5 ) u5 = (u1*u2)/u3, u4 is the remainder. Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef u*/mod
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u*/mod
+
+ rot2 um* rot um/mod
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u*/ ( u1 u2 u3 -- u4 ) u4 = (u1*u2)/u3 Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef u*/
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: u*/
+
+ rot2 um* rot um/mod nip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ queue structure, must be long aligned
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ byte 0 - head
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ byte 1 - tail
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ byte 2 - # elements
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ byte 3 - flags , xxxx_xx00 - byte queue,  xxxx_xx01 - word queue, xxxx_xx10 - long queue
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ byte 4-n - data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _iniQ ( flags size addr -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _iniQ 
+
+\ (flags size addr -- ) lo 2 bits of flags are used for the item size 0 - byte 1 word 2 long addr must be long aligned 
+
+ dup 3 and if ERR then
+
+ 0 over C! 1+ 0 over C! 1+ swap over C! 1+ C!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _defQ1 ( name bsize -- addr)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _defQ1
+
+ \ ( bsize addr -- )
+
+ swap ccreate $C_a_dovarl w, 
+
+  herelal here W@ swap 4+ allot forthentry
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _defQ( size name -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _defQ
+
+ lockdict
+
+ swap 1+ 2 max tuck 4* _defQ1
+
+\ (size addr -- ) 
+
+ 2 rot2 _iniQ
+
+ freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ defQ( size -- ) name 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: defQ parsenw _defQ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _defWQ( size name -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _defWQ
+
+ lockdict
+
+ swap 1+ 2 max tuck 2* _defQ1
+
+\ (size addr -- ) 
+
+ 1 rot2 _iniQ
+
+ freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ defWQ( size -- ) name 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: defWQ parsenw _defWQ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _defCQ( size name -- ) 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _defCQ
+
+ lockdict
+
+ swap 1+ 2 max tuck _defQ1
+
+\ (size addr -- ) 
+
+ 0 rot2 _iniQ
+
+ freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ defCQ( size -- ) name 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: defCQ parsenw _defCQ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >sliceQ sliceQ _toq 0= if ERR then ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: sliceQ> sliceQ _frq  0= if ERR then ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >sliceQ? sliceQ _qaf  nip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: sliceQ>? sliceQ _qaf  drop ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >bgQ bgQ _toq  0= if ERR then ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: bgQ> bgQ _frq  0= if ERR then ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : bgQ> bgQ _qfr ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: >bgQ? bgQ _qaf  nip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: bgQ>? bgQ _qaf  drop ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: setThis $C_this COG! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpST@ thisC@ d_0 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpST! thisC! d_0 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpRS@ thisC@ d_1 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpRS! thisC! d_1 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpIP@ thisW@ d_2 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpIP! thisW! d_2 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpCT@ thisL@ d_4 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpCT! thisL! d_4 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpXC@ thisL@ d_8 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpXC! thisL! d_8 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpS0@ thisL@ d_12 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpS0! thisL! d_12 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpS1@ thisL@ d_16 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpS1! thisL! d_16 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpS2@ thisL@ d_20 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpS2! thisL! d_20 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: inQ@ thisW@ d_24 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: inQ! thisW! d_24 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: in2Q@ thisW@ d_26 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: in2Q! thisW! d_26 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: outQ@ thisW@ d_28 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: outQ! thisW! d_28 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: out2Q@ thisW@ d_30 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: out2Q! thisW! d_30 _cnip ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+d_32 wconstant mpSZ
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _inTypedef 0 _inTypedef W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: inTDef?
+
+ _inTypedef W@ 0= if ERR then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .h ( n1 -- ) output as hex
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .h base W@ swap hex ." h_" . base W! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ :: ( - ) name - same as :  but causes an error if word is already defined
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: ::
+
+ inTDef?
+
+ parsenw dup find
+
+ if
+
+  errdata W! ERR
+
+ else
+
+  drop
+
+ then
+
+ lockdict ccreate h3741 1 state orC!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ::: ( addr -- addr) name - addr wconstant data, define main mp routine
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: :::
+
+ inTDef?
+
+ dup 2+ W@ 0<> if ERR then
+
+ parsenw dup find
+
+ if
+
+  errdata W! ERR
+
+ else
+
+  drop
+
+ then
+
+ lockdict ccreate
+
+ here W@ alignw over 2+ W!
+
+ h3741 1 state orC!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ defPtr ( addr-- addr) name
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: defPtr
+
+ inTDef?
+
+\ ( addr -- )
+
+ parsenw dup 0=
+
+ if
+
+  ERR
+
+ else
+
+\ ( addr name -- )
+
+  >nc
+
+  ." ~h0D:: " .cstr  space dup W@ .h ." $C_this COG@ + ;~h0D~h0D~h0D"
+
+  xnc
+
+\ ( addr -- )
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ mpAllot ( addr size -- addr )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpAllot
+
+ inTDef?
+
+ over W@ + over W!
+
+; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _defX ( addr strType size -- addr) name
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _defX
+
+ inTDef?
+
+ 2 ST@ W@ dup >r over 1- and if ERR then r>
+
+\ ( addr strType size offset -- )
+
+ parsenw dup 0=
+
+ if
+
+  3drop 2drop ERR
+
+ else
+
+\ ( addr strType size offset name -- )
+
+  >nc
+
+  ." ~h0D:: " dup .cstr ." @ this" 3 ST@ .cstr ." @ " over .h ."  _cnip ;~h0D:: "
+
+  .cstr ." ! this"  rot .cstr ." ! " .h ."  _cnip ;~h0D~h0D~h0D"
+
+  xnc
+
+\ ( addr size -- )
+
+  mpAllot
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _reuX ( addr strType size -- addr) name
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _reuX
+
+ swap find 0= if ERR then swap
+
+ inTDef?
+
+ 2 ST@ W@ dup >r over 1- and if ERR then r>
+
+ parsenw dup 0=
+
+ if
+
+  3drop 2drop ERR
+
+ else
+
+\ ( addr xpfa size offset name -- )
+
+  tbuf ccopy c" @" tbuf cappend tbuf
+
+  find 0=
+
+  if ERR else
+
+\ ( addr xpfa size offset pfa -- )
+
+   dup W@ swap 2+ W@
+
+\ ( addr xpfa size offset @pfa  poffset-- )
+
+   rot <> 
+
+   if ERR then
+
+\ ( addr xpfa size @pfa -- )
+
+   rot <> if ERR then
+
+\ ( addr size -- )
+
+   mpAllot
+
+  then
+
+ then
+
+ 
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ defL ( addr -- addr) name - addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: defL
+
+ c" L" 4 _defX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ defW ( addr -- addr) name - addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: defW
+
+ c" W" 2 _defX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ defC ( addr -- addr) name - addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: defC
+
+ c" C" 1 _defX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ reuseL ( addr -- addr) name - addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: reuseL
+
+ c" thisL@" 4 _reuX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ reuseW ( addr -- addr) name - addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: reuseW
+
+ c" thisW@" 2 _reuX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ reuseC ( addr -- addr) name - addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: reuseC
+
+ c" thisC@" 1 _reuX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _gaccX ( strType addrobj member accname -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _gaccX
+
+ rot find 0=
+
+ if
+
+  ERR
+
+ else
+
+  2+ alignl
+
+\ ( strType member accname  addrSZ -- )
+
+  rot tbuf ccopy c" @" tbuf cappend
+
+\ ( strType accname  addr -- )
+
+  tbuf find 0=
+
+  if
+
+   ERR
+
+  else
+
+   2+ W@ + 
+
+\ ( strType accname addr -- )
+
+   >nc
+
+   ." ~h0D: " over .cstr  ." @ " dup .h rot dup .cstr ." @ ;~h0D: "
+
+\ (accname  addr  strType -- )
+
+   rot .cstr ." ! " swap .h .cstr ." ! ;~h0D~h0D~h0D"
+
+   xnc
+
+  then
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ gaccX ( strType -- ) smon_d _xdir xdir 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: gaccX
+
+ parsenw dup 0=
+
+ if
+
+  ERR
+
+ else
+
+  parsenw dup 0=
+
+  if
+
+   ERR
+
+  else
+
+   parsenw dup 0=
+
+   if
+
+    ERR
+
+   else
+
+    _gaccX
+
+ thens
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ gaccL smon_d _xdir xdir 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: gaccL
+
+ c" L" gaccX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ gaccW smon_d _xdir xdir 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: gaccW
+
+ c" W" gaccX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ gaccC smon_d _xdir xdir 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: gaccC
+
+ c" C" gaccX
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ((( ( -- addr) name - addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: (((
+
+ parsenw dup
+
+ if
+
+  lockdict _inTypedef W@
+
+  if
+
+   freedict
+
+   ERR
+
+  then
+
+  dup find nip
+
+  if
+
+   ERR
+
+  then
+
+  -1 _inTypedef W! freedict
+
+  >nc
+
+  ." ~h0Dlockdict mpSZ wconstant " dup .cstr ."  0 w, freedict~h0D~h0D~h0D"
+
+  xnc  
+
+  find 0=
+
+  if
+
+   drop
+
+   ERR
+
+  then
+
+  2+ 
+
+ else
+
+  ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ))) ( addr -- ) addr wconstant data
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: )))
+
+ lockdict _inTypedef W@ 0=
+
+ if
+
+  freedict
+
+  ERR
+
+ then
+
+ 0 _inTypedef W! freedict
+
+ >nc
+
+ dup 2+ W@ dup 0= if ERR then
+
+ swap dup W@ swap 2- pfa>nfa
+
+\ ( xpfa size  name -- )
+
+ ." ~h0D: " .strname ."  lockdict variable here W@ " dup 4- .h ." allot freedict 4- dup "
+
+ .h ." 0 fill~h0D" .h ." swap 2+ W! cr ;~h0D~h0D~h0D"
+
+ xnc  
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ mp+ ( addr -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mp+
+
+ dup setThis
+
+ h10 lshift mpIP@ or
+
+\ ( qv -- )
+
+ sliceLock lock
+
+ >sliceQ? 2 >=
+
+ if
+
+  >bgQ? 2 >=
+
+  if
+
+   1 mpST!
+
+   $C_this COG@ >bgQ
+
+
+
+   >sliceQ
+
+   sliceLock unlock
+
+  else
+
+   0 mpST!
+
+   sliceLock unlock
+
+   drop ERR
+
+  then
+
+ else
+
+  0 mpST!
+
+  sliceLock unlock
+
+  drop ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpInit cnt COG@ mpCT! 0 mpXC! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mp-
+
+ mpST@
+
+ 0 mpST!
+
+ sliceLock lock sliceQ> sliceLock unlock
+
+ dup h_7FFFF and
+
+ r> drop >r
+
+ h10 rshift dup setThis 0=
+
+ if
+
+  drop
+
+ else
+
+  mpST!
+
+ then
+
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+((( mpMon_t
+Prop0 Cog5 ok
+lockdict mpSZ wconstant mpMon_t 0 w, freedict
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+defL flags
+Prop0 Cog5 ok
+:: flags@ thisL@ h_20  _cnip ;
+Prop0 Cog5 ok
+:: flags! thisL! h_20  _cnip ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+defL curcnt
+Prop0 Cog5 ok
+:: curcnt@ thisL@ h_24  _cnip ;
+Prop0 Cog5 ok
+:: curcnt! thisL! h_24  _cnip ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+defL lastcnt
+Prop0 Cog5 ok
+:: lastcnt@ thisL@ h_28  _cnip ;
+Prop0 Cog5 ok
+:: lastcnt! thisL! h_28  _cnip ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+defL count
+Prop0 Cog5 ok
+:: count@ thisL@ h_2C  _cnip ;
+Prop0 Cog5 ok
+:: count! thisL! h_2C  _cnip ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+defL maxcnt
+Prop0 Cog5 ok
+:: maxcnt@ thisL@ h_30  _cnip ;
+Prop0 Cog5 ok
+:: maxcnt! thisL! h_30  _cnip ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+defL totcnt
+Prop0 Cog5 ok
+:: totcnt@ thisL@ h_34  _cnip ;
+Prop0 Cog5 ok
+:: totcnt! thisL! h_34  _cnip ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ mpMon_x ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+::: mpMon_x
+
+ mpInit 0 flags! 0 curcnt! cnt COG@ lastcnt! 0 count! 0 maxcnt! 0 totcnt!
+
+ begin
+
+  slice
+
+  flags@ 1 and
+
+  if
+
+   0 flags! 0 curcnt! cnt COG@ lastcnt! 0 count! 0 maxcnt! 0 totcnt!
+
+  else
+
+   cnt COG@ dup lastcnt@ - curcnt! lastcnt!
+
+   maxcnt@ curcnt@ max maxcnt!
+
+   totcnt@ curcnt@ + totcnt!
+
+   totcnt@ h_4000_000 <
+
+   if
+
+     count@ 1+ count!
+
+   else
+
+    totcnt@ 1 rshift totcnt!
+
+    count@ 1+ 1 rshift count!
+
+   then
+
+  then
+
+ 0 until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+)))
+Prop0 Cog5 ok
+: mpMon_t lockdict variable here W@ h_34 allot freedict 4- dup h_38 0 fill
+h_45A4 swap 2+ W! cr ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+((( mpGC_t
+Prop0 Cog5 ok
+lockdict mpSZ wconstant mpGC_t 0 w, freedict
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+reuseL flags
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ mpGC_x ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+::: mpGC_x
+
+ mpInit
+
+ 0 flags!
+
+ begin
+
+  slice
+
+\
+
+\ 3 lo bits of flag
+
+\ 000 - GC running
+
+\ XX1 - waiting for GC to stop
+
+\ 100 - GC stopped
+
+\ X1X - waiting for GC to start
+
+\
+
+\ bits 0 & 2 are set by other process
+
+\ bit 1 is set by GC
+
+\ bits 0 1 2 are reset by GC
+
+\
+
+  flags@ 7 and
+
+  if
+
+   flags@ 1 and
+
+   if
+
+    flags@ 7 andn 4 or flags!
+
+   else
+
+    flags@ 2 and
+
+    if
+
+     flags@ 7 andn flags!
+
+    then
+
+   then
+
+  else
+
+   gc1
+
+  then
+
+ 0 until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+)))
+Prop0 Cog5 ok
+: mpGC_t lockdict variable here W@ h_20 allot freedict 4- dup h_24 0 fill
+h_4688 swap 2+ W! cr ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _main ( -- ) main interpreter loop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _main
+
+ r> r> 2drop
+
+ state C@ h80 and
+
+ if
+
+  sliceLock lock sliceQ> sliceLock unlock
+
+  dup h_7FFFF and >r
+
+  h10 rshift
+
+  setThis 0
+
+ else
+
+  begin
+
+   compile? 0=
+
+   if
+
+    prompt
+
+   then
+
+   h80 state orC!
+
+   begin
+
+    io W@ h100 and
+
+    if
+
+     0 setThis 0 slice 
+
+    else
+
+     -1
+
+    then
+
+   until
+
+   h80 state andnC!
+
+   0 setThis 0 errdata W!
+
+   interpret 0
+
+  until
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+mpMon_t mpMon_d
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+mpGC_t mpGC_d
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+gaccL mpGC_d flags gcflags
+Prop0 Cog5 ok
+: gcflags@ h_4810 L@ ;
+Prop0 Cog5 ok
+: gcflags! h_4810 L! ;
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ mpGCStop( -- t/f) true if GC was running
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpGCStop
+
+ gcflags@ 7 and 4 =
+
+ if
+
+  0
+
+ else
+
+  begin
+
+   gcflags@ 7 and 0=
+
+  until
+
+  gcflags@ 1 or gcflags!
+
+  begin
+
+   gcflags@ 7 and 4 =
+
+  until
+
+  -1
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpGCStart
+
+ gcflags@ 2 or gcflags!
+
+ begin
+
+  gcflags@ 7 and 0=
+
+ until
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _mp1
+
+ p>n dup C@ namemax and hC swap - 0 max spaces .strname
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _af
+
+ dup 0=
+
+ if
+
+  drop h15 spaces
+
+ else
+
+  dup _mp1 space _qaf . .
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpMon
+
+ mpMon_d setThis
+
+ ." lag(us):: max avg: " maxcnt@ d_1000_000 clkfreq u*/ . totcnt@ count@ u/ d_1000_000 clkfreq u*/ .
+
+ ." slices/s:: min avg: " clkfreq maxcnt@ u/ . clkfreq count@ totcnt@ u*/ . cr
+
+ mpGCStop
+
+ ." ~h0Dword_name        dataname:addr mpST maxT(us)    in                in2               out               out2~h0D~h0D"
+
+
+
+ 0 >bgQ
+
+
+
+ sqz 1+ 0
+
+ do
+
+  bgQ> dup setThis
+
+  if
+
+   mpIP@ _mp1 space $C_this COG@ dup _mp1 ." :" .
+
+   mpST@ . mpXC@ d_1000_000 clkfreq u*/ .
+
+   inQ@ _af in2Q@ _af outQ@ _af out2Q@ _af
+
+   cr
+
+   $C_this COG@ >bgQ
+
+  else
+
+   leave
+
+  then
+
+ loop
+
+ cr
+
+ if
+
+  mpGCStart
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: mpRes
+
+ mpMon_d setThis flags@ 1 or flags!
+
+ mpGCStop
+
+ sqz 1+ 0
+
+ do
+
+  bgQ> dup setThis dup
+
+  if
+
+    >bgQ 0 mpXC! 
+
+  else
+
+   drop leave
+
+  then
+
+ loop
+
+ if
+
+  mpGCStart
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ this changes the name of the last onboot word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ onboot ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: onboot
+
+
+
+ lockdict bgQ dup dictend W! memend W! freedict
+
+ 2 sqz sliceQ _iniQ
+
+ 1 sqz bgQ _iniQ
+
+
+
+ mpMon_d mp+
+
+ mpGC_d mp+
+
+ onb001
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ this changes the name of the last onreset word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+c" onreset" find drop pfa>nfa 1+ c" onre001" C@++ rot swap cmove
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ onreset ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: onreset
+
+ errdata W@ 0<>
+
+ if
+
+\ offending mpST to 0
+
+  0 errdata W@ C!
+
+ then
+
+ onre001
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+' _main ' main W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+c"  MPF" prop W@ ccopy
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+1 wconstant forthimagefence
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+wvariable savehere
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+wvariable savewlastnfa
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+wvariable checksum
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+wvariable bytecount
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+: _fb checksum W+! 1 bytecount W+! ;
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+: fbinout
+
+ here W@ savehere W!
+
+ wlastnfa W@ savewlastnfa W!
+
+ c" forthimagefence" find drop pfa>nfa 2- dup here W!
+
+ W@ wlastnfa W!
+
+ 0 _finit W!
+
+ 
+
+ 0 checksum W!
+
+ 0 bytecount W!
+
+ 
+
+ 0 5 C! 
+
+ 
+
+ _cd 0
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+  
+
+ _cd $S_cdsz 8 u* bounds
+
+ do
+
+  0 _fb
+
+  loop
+
+ 
+
+ here W@ _cd $S_cdsz 8 u* +
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+  
+
+ h7FB8 here W@ - 0
+
+ do
+
+  0 _fb
+
+  loop
+
+
+
+ h_35 _fb h_C7 _fb h_14 _fb h_35 _fb
+
+ h_2C _fb h_32 _fb h_00 _fb h_00 _fb
+
+
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 
+
+ h38 0 do
+
+  0 _fb
+
+  loop  
+
+  
+
+ h_14 checksum W@ - h_FF and 5 C!
+
+
+
+ _cd 0
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ _cd $S_cdsz 8 u* bounds
+
+ do
+
+  0 emit
+
+  loop
+
+ 
+
+ here W@ _cd $S_cdsz 8 u* +
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ h7FB8 here W@ - 0
+
+ do
+
+  0 emit
+
+  loop
+
+
+
+ h_35 emit h_C7 emit h_14 emit h_35 emit
+
+ h_2C emit h_32 emit h_00 emit h_00 emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ 
+
+ h38 0 do
+
+  0 emit
+
+  loop
+
+  
+
+ savehere W@ here W!
+
+ savewlastnfa W@ wlastnfa W!
+
+ -1 _finit W!
+
+ ;
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+
+ MPF0 Cog6 ok
+hA state orC!
 
  scriptFileName: scripts/mp/buildMpKernel.txt
    logFileName: results/runLogs/buildMpKernel-10.txt
@@ -13,3 +2353,4 @@ outputFileName: results/outputFiles/mp/mpKernel.eeprom
    logFileName: results/runLogs/buildMpKernel-10.txt
 resultFileName: results/resultFiles/buildMpKernel-10.txt
 outputFileName: 
+ MPF0 Cog6 ok

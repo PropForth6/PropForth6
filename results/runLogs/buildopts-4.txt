@@ -1,10 +1,10 @@
-scripts/buildopts-4.txt::2015-09-12 19:28:34.23731737 -0500 CDT 
+scripts/buildopts-4.txt::2015-09-20 09:05:22.271250553 -0700 PDT 
  scriptFileName: scripts/buildopts-4.txt
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: 
 outputFileName: 
 
-scripts/buildopts-4.txt::2015-09-12 19:28:34.25050434 -0500 CDT 
+scripts/buildopts-4.txt::2015-09-20 09:05:22.272391815 -0700 PDT 
  scriptFileName: scripts/buildopts-4.txt
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: results/resultFiles/buildopts-4.txt
@@ -17,133 +17,133 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/buildopts-4.txt::2015-09-12 19:28:34.253896532 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:05:22.273400704 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:28:34.253922886 -0500 CDT SENDING: reboot
-scripts/buildopts-4.txt::2015-09-12 19:28:34.254002734 -0500 CDT DONE SENDING waiting for output: reboot
-scripts/buildopts-4.txt::2015-09-12 19:28:34.254009545 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:28:40.099972544 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:28:40.100014363 -0500 CDT DONE: reboot
+scripts/buildopts-4.txt::2015-09-20 09:05:22.273441802 -0700 PDT SENDING: reboot
+scripts/buildopts-4.txt::2015-09-20 09:05:22.273505546 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/buildopts-4.txt::2015-09-20 09:05:22.273543027 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:05:28.139441042 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:05:28.139506174 -0700 PDT DONE: reboot
 \
 \ check Forth
 \
-scripts/buildopts-4.txt::2015-09-12 19:28:40.21280747 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:05:28.244509922 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:28:40.212886424 -0500 CDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildopts-4.txt::2015-09-12 19:28:40.212941898 -0500 CDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildopts-4.txt::2015-09-12 19:28:40.212943393 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:28:41.428096242 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:28:41.428145311 -0500 CDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildopts-4.txt::2015-09-20 09:05:28.244553552 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildopts-4.txt::2015-09-20 09:05:28.244590438 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildopts-4.txt::2015-09-20 09:05:28.244605428 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:05:29.468209844 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:05:29.46829204 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \
 \ Load asm.f
 \
-scripts/buildopts-4.txt::2015-09-12 19:28:41.532303485 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:05:29.571241852 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:28:41.532374112 -0500 CDT SENDING: results/outputFiles/asm.f
-scripts/buildopts-4.txt::2015-09-12 19:28:42.439852826 -0500 CDT DONE SENDING waiting for output: results/outputFiles/asm.f
-scripts/buildopts-4.txt::2015-09-12 19:28:42.439891022 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:29:30.589348107 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:29:30.589771939 -0500 CDT DONE: results/outputFiles/asm.f
+scripts/buildopts-4.txt::2015-09-20 09:05:29.571267292 -0700 PDT SENDING: results/outputFiles/asm.f
+scripts/buildopts-4.txt::2015-09-20 09:05:30.624738054 -0700 PDT DONE SENDING waiting for output: results/outputFiles/asm.f
+scripts/buildopts-4.txt::2015-09-20 09:05:30.624783449 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:06:18.067501767 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:06:18.067620336 -0700 PDT DONE: results/outputFiles/asm.f
 \
 \ Load BootOptimizeASmSrc.f
 \
-scripts/buildopts-4.txt::2015-09-12 19:29:30.693813431 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:06:18.170298604 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:29:30.693835219 -0500 CDT SENDING: hA state orC!
-scripts/buildopts-4.txt::2015-09-12 19:29:30.693982927 -0500 CDT DONE SENDING waiting for output: hA state orC!
-scripts/buildopts-4.txt::2015-09-12 19:29:30.693993034 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:29:33.698226716 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:29:33.698430178 -0500 CDT DONE: hA state orC!
-scripts/buildopts-4.txt::2015-09-12 19:29:33.801688717 -0500 CDT 
+scripts/buildopts-4.txt::2015-09-20 09:06:18.170328502 -0700 PDT SENDING: hA state orC!
+scripts/buildopts-4.txt::2015-09-20 09:06:18.170370782 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildopts-4.txt::2015-09-20 09:06:18.170415572 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:06:21.187353034 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:06:21.1874726 -0700 PDT DONE: hA state orC!
+scripts/buildopts-4.txt::2015-09-20 09:06:21.292248529 -0700 PDT 
  scriptFileName: scripts/buildopts-4.txt
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: results/resultFiles/buildopts-4.txt
 outputFileName: results/outputFiles/BootOptimize.f
 
-scripts/buildopts-4.txt::2015-09-12 19:29:33.804399524 -0500 CDT  20000 cps  Receive Delay 10s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:06:21.293197839 -0700 PDT  20000 cps  Receive Delay 10s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:29:33.804413262 -0500 CDT SENDING: src/optimize/BootOptimizeAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:29:34.700387339 -0500 CDT DONE SENDING waiting for output: src/optimize/BootOptimizeAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:29:34.700441551 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:30:38.583407484 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:30:38.58346079 -0500 CDT DONE: src/optimize/BootOptimizeAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:30:38.685926779 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:06:21.293227375 -0700 PDT SENDING: src/optimize/BootOptimizeAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:06:22.365854686 -0700 PDT DONE SENDING waiting for output: src/optimize/BootOptimizeAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:06:22.365906663 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:07:26.055356082 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:07:26.055428208 -0700 PDT DONE: src/optimize/BootOptimizeAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:07:26.157310345 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:30:38.685994849 -0500 CDT ECHOING: src/optimize/OptimizePostAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:30:38.686049113 -0500 CDT DONE ECHOING: src/optimize/OptimizePostAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:30:38.786863745 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:30:41.78788455 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:30:41.788221926 -0500 CDT 
+scripts/buildopts-4.txt::2015-09-20 09:07:26.159033425 -0700 PDT ECHOING: src/optimize/OptimizePostAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:07:26.160111059 -0700 PDT DONE ECHOING: src/optimize/OptimizePostAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:07:26.262599332 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:07:29.263506749 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:07:29.263698319 -0700 PDT 
  scriptFileName: scripts/buildopts-4.txt
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: results/resultFiles/buildopts-4.txt
 outputFileName: 
 
-scripts/buildopts-4.txt::2015-09-12 19:30:41.789502732 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:07:29.264221125 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:30:41.789534088 -0500 CDT SENDING: hA state andnC!
-scripts/buildopts-4.txt::2015-09-12 19:30:41.789604075 -0500 CDT DONE SENDING waiting for output: hA state andnC!
-scripts/buildopts-4.txt::2015-09-12 19:30:41.789628234 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:30:44.893328209 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:30:44.893396403 -0500 CDT DONE: hA state andnC!
+scripts/buildopts-4.txt::2015-09-20 09:07:29.264252647 -0700 PDT SENDING: hA state andnC!
+scripts/buildopts-4.txt::2015-09-20 09:07:29.264275637 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/buildopts-4.txt::2015-09-20 09:07:29.264290447 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:07:32.378353068 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:07:32.378425736 -0700 PDT DONE: hA state andnC!
 \
 \ Load mpOptimizeASmSrc.f
 \
-scripts/buildopts-4.txt::2015-09-12 19:30:44.996713038 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:07:32.484622682 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:30:44.996729945 -0500 CDT SENDING: hA state orC!
-scripts/buildopts-4.txt::2015-09-12 19:30:44.996790003 -0500 CDT DONE SENDING waiting for output: hA state orC!
-scripts/buildopts-4.txt::2015-09-12 19:30:44.996796406 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:30:48.00063353 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:30:48.000694723 -0500 CDT DONE: hA state orC!
-scripts/buildopts-4.txt::2015-09-12 19:30:48.104041779 -0500 CDT 
+scripts/buildopts-4.txt::2015-09-20 09:07:32.484739756 -0700 PDT SENDING: hA state orC!
+scripts/buildopts-4.txt::2015-09-20 09:07:32.484785956 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildopts-4.txt::2015-09-20 09:07:32.484830844 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:07:35.5000031 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:07:35.500061775 -0700 PDT DONE: hA state orC!
+scripts/buildopts-4.txt::2015-09-20 09:07:35.604155516 -0700 PDT 
  scriptFileName: scripts/buildopts-4.txt
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: results/resultFiles/buildopts-4.txt
 outputFileName: results/outputFiles/mpOptimize.f
 
-scripts/buildopts-4.txt::2015-09-12 19:30:48.10653838 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:07:35.604829889 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:30:48.106557559 -0500 CDT SENDING: src/optimize/mp/mpdef.f
-scripts/buildopts-4.txt::2015-09-12 19:30:48.129024109 -0500 CDT DONE SENDING waiting for output: src/optimize/mp/mpdef.f
-scripts/buildopts-4.txt::2015-09-12 19:30:48.129102832 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:30:51.129354609 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:30:51.129452331 -0500 CDT DONE: src/optimize/mp/mpdef.f
-scripts/buildopts-4.txt::2015-09-12 19:30:51.235549219 -0500 CDT  20000 cps  Receive Delay 10s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:07:35.604840719 -0700 PDT SENDING: src/optimize/mp/mpdef.f
+scripts/buildopts-4.txt::2015-09-20 09:07:35.630582214 -0700 PDT DONE SENDING waiting for output: src/optimize/mp/mpdef.f
+scripts/buildopts-4.txt::2015-09-20 09:07:35.630634457 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:07:38.631467969 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:07:38.63156822 -0700 PDT DONE: src/optimize/mp/mpdef.f
+scripts/buildopts-4.txt::2015-09-20 09:07:38.734228813 -0700 PDT  20000 cps  Receive Delay 10s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:30:51.235631753 -0500 CDT SENDING: src/optimize/mp/mpOptimizeAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:30:52.425280567 -0500 CDT DONE SENDING waiting for output: src/optimize/mp/mpOptimizeAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:30:52.425314898 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:31:02.425833827 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:31:02.425882525 -0500 CDT DONE: src/optimize/mp/mpOptimizeAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:31:02.528504245 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:07:38.734298093 -0700 PDT SENDING: src/optimize/mp/mpOptimizeAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:07:40.131031899 -0700 PDT DONE SENDING waiting for output: src/optimize/mp/mpOptimizeAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:07:40.131070153 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:09:19.225339171 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:09:19.225407114 -0700 PDT DONE: src/optimize/mp/mpOptimizeAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:09:19.330415275 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:31:02.528584131 -0500 CDT ECHOING: src/optimize/OptimizePostAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:31:02.528651598 -0500 CDT DONE ECHOING: src/optimize/OptimizePostAsmSrc.f
-scripts/buildopts-4.txt::2015-09-12 19:31:02.629344492 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:31:05.631050285 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:31:05.631121146 -0500 CDT 
+scripts/buildopts-4.txt::2015-09-20 09:09:19.330464309 -0700 PDT ECHOING: src/optimize/OptimizePostAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:09:19.33059329 -0700 PDT DONE ECHOING: src/optimize/OptimizePostAsmSrc.f
+scripts/buildopts-4.txt::2015-09-20 09:09:19.432984235 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:09:22.434148162 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:09:22.434434103 -0700 PDT 
  scriptFileName: scripts/buildopts-4.txt
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: results/resultFiles/buildopts-4.txt
 outputFileName: 
 
-scripts/buildopts-4.txt::2015-09-12 19:31:05.633032941 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:09:22.435041505 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:31:05.633052031 -0500 CDT SENDING: hA state andnC!
-scripts/buildopts-4.txt::2015-09-12 19:31:05.633070158 -0500 CDT DONE SENDING waiting for output: hA state andnC!
-scripts/buildopts-4.txt::2015-09-12 19:31:05.633075839 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:31:08.6334429 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:31:08.633538726 -0500 CDT DONE: hA state andnC!
-scripts/buildopts-4.txt::2015-09-12 19:31:08.735173582 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildopts-4.txt::2015-09-20 09:09:22.435093249 -0700 PDT SENDING: hA state andnC!
+scripts/buildopts-4.txt::2015-09-20 09:09:22.435126191 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/buildopts-4.txt::2015-09-20 09:09:22.435149785 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:09:25.550504627 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:09:25.550587787 -0700 PDT DONE: hA state andnC!
+scripts/buildopts-4.txt::2015-09-20 09:09:25.652603538 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildopts-4.txt::2015-09-12 19:31:08.735245933 -0500 CDT SENDING: reboot
-scripts/buildopts-4.txt::2015-09-12 19:31:08.735270492 -0500 CDT DONE SENDING waiting for output: reboot
-scripts/buildopts-4.txt::2015-09-12 19:31:08.73527565 -0500 CDT WAIT STARTED
-scripts/buildopts-4.txt::2015-09-12 19:31:11.73561384 -0500 CDT WAIT DONE
-scripts/buildopts-4.txt::2015-09-12 19:31:11.735715871 -0500 CDT DONE: reboot
-scripts/buildopts-4.txt::2015-09-12 19:31:11.837591166 -0500 CDT 
+scripts/buildopts-4.txt::2015-09-20 09:09:25.652666651 -0700 PDT SENDING: reboot
+scripts/buildopts-4.txt::2015-09-20 09:09:25.652723441 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/buildopts-4.txt::2015-09-20 09:09:25.652748081 -0700 PDT WAIT STARTED
+scripts/buildopts-4.txt::2015-09-20 09:09:31.539093985 -0700 PDT WAIT DONE
+scripts/buildopts-4.txt::2015-09-20 09:09:31.539192359 -0700 PDT DONE: reboot
+scripts/buildopts-4.txt::2015-09-20 09:09:31.642180093 -0700 PDT 
  scriptFileName: scripts/buildopts-4.txt
    logFileName: results/runLogs/buildopts-4.txt
 resultFileName: 
