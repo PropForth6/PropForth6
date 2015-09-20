@@ -1,10 +1,10 @@
-scripts/buildOptKernel-5.txt::2015-09-20 09:09:58.855120871 -0700 PDT 
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:16.406235424 -0700 PDT 
  scriptFileName: scripts/buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: 
 outputFileName: 
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:09:58.857208529 -0700 PDT 
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:16.406887571 -0700 PDT 
  scriptFileName: scripts/buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
@@ -13,86 +13,86 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:09:58.858058031 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:16.407258121 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:09:58.858116971 -0700 PDT SENDING: reboot
-scripts/buildOptKernel-5.txt::2015-09-20 09:09:58.858148353 -0700 PDT DONE SENDING waiting for output: reboot
-scripts/buildOptKernel-5.txt::2015-09-20 09:09:58.858162824 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:04.721589067 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:04.721656556 -0700 PDT DONE: reboot
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:16.407278246 -0700 PDT SENDING: reboot
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:16.40729004 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:16.407295362 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:22.274450705 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:22.274490233 -0700 PDT DONE: reboot
 \
 \ check Forth
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:04.827511618 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:22.378986236 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:04.827553898 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:04.827591866 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:04.827605904 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:06.055106731 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:06.055182357 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:22.37902921 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:22.379066368 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:22.379116632 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:23.605115246 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:23.605152785 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ Load forthmaker.f
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:06.157805382 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:23.709755538 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:06.1579118 -0700 PDT SENDING: src/forthmaker.f
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:06.54467732 -0700 PDT DONE SENDING waiting for output: src/forthmaker.f
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:06.544758384 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:32.23145654 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:32.231553084 -0700 PDT DONE: src/forthmaker.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:23.709812265 -0700 PDT SENDING: src/forthmaker.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:24.082923498 -0700 PDT DONE SENDING waiting for output: src/forthmaker.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:24.082992592 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:49.775841335 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:49.775889257 -0700 PDT DONE: src/forthmaker.f
 \
 \ words to be added / replaced
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:32.337399718 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:49.879144409 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:32.337453796 -0700 PDT SENDING: : (version) c" optKERNEL6.0-
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:32.337470966 -0700 PDT DONE SENDING waiting for output: : (version) c" optKERNEL6.0-
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:32.337486196 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:35.353656118 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:35.35371519 -0700 PDT DONE: : (version) c" optKERNEL6.0-
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:35.457240388 -0700 PDT SEND: [2015Sep20 09:10]
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:35.457657068 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:49.879161416 -0700 PDT SENDING: : (version) c" optKERNEL6.0-
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:49.879177131 -0700 PDT DONE SENDING waiting for output: : (version) c" optKERNEL6.0-
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:49.87918401 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:52.898926544 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:52.898957251 -0700 PDT DONE: : (version) c" optKERNEL6.0-
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:53.001580499 -0700 PDT SEND: [2015Sep20 13:25]
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:53.002046132 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:35.45769817 -0700 PDT SENDING: -0" ;
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:35.45778214 -0700 PDT DONE SENDING waiting for output: -0" ;
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:35.45781156 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:38.521901213 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:38.521962976 -0700 PDT DONE: -0" ;
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:53.00207611 -0700 PDT SENDING: -0" ;
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:53.002111034 -0700 PDT DONE SENDING waiting for output: -0" ;
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:53.002123642 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:56.069799309 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:56.069852005 -0700 PDT DONE: -0" ;
 \
 \ Load BootOptimize.f
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:38.629407213 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:56.174117627 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:38.631727665 -0700 PDT SENDING: results/outputFiles/BootOptimize.f
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:39.120802106 -0700 PDT DONE SENDING waiting for output: results/outputFiles/BootOptimize.f
-scripts/buildOptKernel-5.txt::2015-09-20 09:10:39.120861774 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:25.490235709 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:25.490325346 -0700 PDT DONE: results/outputFiles/BootOptimize.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:56.174183235 -0700 PDT SENDING: results/outputFiles/BootOptimize.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:56.632818035 -0700 PDT DONE SENDING waiting for output: results/outputFiles/BootOptimize.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:25:56.632856685 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:43.033827305 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:43.033956158 -0700 PDT DONE: results/outputFiles/BootOptimize.f
 \
 \ words to be deleted
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:25.595443085 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:43.13793252 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:25.595565485 -0700 PDT SENDING: 1 wconstant forthmakerdeletefence
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:25.595603025 -0700 PDT DONE SENDING waiting for output: 1 wconstant forthmakerdeletefence
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:25.595637917 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:26.676519657 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:26.676584029 -0700 PDT DONE: 1 wconstant forthmakerdeletefence
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:43.137951158 -0700 PDT SENDING: 1 wconstant forthmakerdeletefence
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:43.137966764 -0700 PDT DONE SENDING waiting for output: 1 wconstant forthmakerdeletefence
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:43.137972665 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:44.220445287 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:44.220499439 -0700 PDT DONE: 1 wconstant forthmakerdeletefence
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:26.782052835 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:44.321693915 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:26.782112533 -0700 PDT SENDING: $C_treg1 wconstant $C_treg1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:26.782179273 -0700 PDT DONE SENDING waiting for output: $C_treg1 wconstant $C_treg1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:26.782217491 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:27.846022852 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:27.846090105 -0700 PDT DONE: $C_treg1 wconstant $C_treg1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:27.947716957 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:44.321729321 -0700 PDT SENDING: $C_treg1 wconstant $C_treg1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:44.321753211 -0700 PDT DONE SENDING waiting for output: $C_treg1 wconstant $C_treg1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:44.321763235 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:45.375181368 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:45.375274596 -0700 PDT DONE: $C_treg1 wconstant $C_treg1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:45.480351957 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:27.947785017 -0700 PDT SENDING: $C_treg2 wconstant $C_treg2
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:27.947815827 -0700 PDT DONE SENDING waiting for output: $C_treg2 wconstant $C_treg2
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:27.947837125 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:29.013915418 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:29.013986773 -0700 PDT DONE: $C_treg2 wconstant $C_treg2
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:45.480374117 -0700 PDT SENDING: $C_treg2 wconstant $C_treg2
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:45.480391984 -0700 PDT DONE SENDING waiting for output: $C_treg2 wconstant $C_treg2
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:45.480395956 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:46.539675921 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:46.53972809 -0700 PDT DONE: $C_treg2 wconstant $C_treg2
 \						X	$C_IP					wconstant	$C_IP
 \						X	$C_a_lxasm				wconstant	$C_a_lxasm
 \						X	$C_a__xasm2>flagIMM		wconstant	$C_a__xasm2>flagIMM
@@ -115,13 +115,13 @@ scripts/buildOptKernel-5.txt::2015-09-20 09:11:29.013986773 -0700 PDT DONE: $C_t
 \						X	$C_a_doconl				wconstant	$C_a_doconl
 \						X	$C_a_litl				wconstant	$C_a_litl
 \						X	$C_a_litw				wconstant	$C_a_litw
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:29.129870252 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:46.653927909 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:29.129892054 -0700 PDT SENDING: $C_a_litw1 wconstant $C_a_litw1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:29.129902325 -0700 PDT DONE SENDING waiting for output: $C_a_litw1 wconstant $C_a_litw1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:29.129950243 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:30.181178945 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:30.181255246 -0700 PDT DONE: $C_a_litw1 wconstant $C_a_litw1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:46.653941287 -0700 PDT SENDING: $C_a_litw1 wconstant $C_a_litw1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:46.653953374 -0700 PDT DONE SENDING waiting for output: $C_a_litw1 wconstant $C_a_litw1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:46.653976207 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:47.711943923 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:47.712003109 -0700 PDT DONE: $C_a_litw1 wconstant $C_a_litw1
 \						X	$C_a_exit				wconstant	$C_a_exit
 \						X	$C_a_next				wconstant	$C_a_next
 \						X	$C_a__maskin			wconstant	$C_a__maskin
@@ -133,316 +133,316 @@ scripts/buildOptKernel-5.txt::2015-09-20 09:11:30.181255246 -0700 PDT DONE: $C_a
 \						X	$C_a_(loop)				wconstant	$C_a_(loop)
 \						X	$C_a_(+loop)			wconstant	$C_a_(+loop)
 \						X	$C_a_0branch			wconstant	$C_a_0branch
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:30.295310185 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:47.823918179 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:30.295330732 -0700 PDT SENDING: $C_a_reset wconstant $C_a_reset
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:30.295344547 -0700 PDT DONE SENDING waiting for output: $C_a_reset wconstant $C_a_reset
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:30.295352071 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:31.354393509 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:31.354458766 -0700 PDT DONE: $C_a_reset wconstant $C_a_reset
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:47.823935095 -0700 PDT SENDING: $C_a_reset wconstant $C_a_reset
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:47.823948794 -0700 PDT DONE SENDING waiting for output: $C_a_reset wconstant $C_a_reset
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:47.82395401 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:48.87793141 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:48.877967441 -0700 PDT DONE: $C_a_reset wconstant $C_a_reset
 \						X	$C_a_lasterr			wconstant	$C_a_lasterr
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:31.46250598 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:48.980387984 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:31.46265994 -0700 PDT SENDING: $C_a_stPush wconstant $C_a_stPush
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:31.462718662 -0700 PDT DONE SENDING waiting for output: $C_a_stPush wconstant $C_a_stPush
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:31.462741928 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:32.523371168 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:32.523445324 -0700 PDT DONE: $C_a_stPush wconstant $C_a_stPush
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:32.630136854 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:48.98042079 -0700 PDT SENDING: $C_a_stPush wconstant $C_a_stPush
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:48.980447494 -0700 PDT DONE SENDING waiting for output: $C_a_stPush wconstant $C_a_stPush
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:48.980456446 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:50.046843706 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:50.046898196 -0700 PDT DONE: $C_a_stPush wconstant $C_a_stPush
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:50.147540487 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:32.630235748 -0700 PDT SENDING: $C_a_stPush1 wconstant $C_a_stPush1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:32.630268232 -0700 PDT DONE SENDING waiting for output: $C_a_stPush1 wconstant $C_a_stPush1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:32.630333494 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:33.692424477 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:33.692506377 -0700 PDT DONE: $C_a_stPush1 wconstant $C_a_stPush1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:33.796065366 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:50.147562934 -0700 PDT SENDING: $C_a_stPush1 wconstant $C_a_stPush1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:50.147581008 -0700 PDT DONE SENDING waiting for output: $C_a_stPush1 wconstant $C_a_stPush1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:50.147584842 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:51.217659132 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:51.217697559 -0700 PDT DONE: $C_a_stPush1 wconstant $C_a_stPush1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:51.323400908 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:33.796195564 -0700 PDT SENDING: $C_a_stPush_ret wconstant $C_a_stPush_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:33.796224337 -0700 PDT DONE SENDING waiting for output: $C_a_stPush_ret wconstant $C_a_stPush_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:33.79633257 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:34.858977 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:34.859076388 -0700 PDT DONE: $C_a_stPush_ret wconstant $C_a_stPush_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:34.962137911 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:51.323431912 -0700 PDT SENDING: $C_a_stPush_ret wconstant $C_a_stPush_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:51.32346143 -0700 PDT DONE SENDING waiting for output: $C_a_stPush_ret wconstant $C_a_stPush_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:51.323473226 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:52.38741684 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:52.387456039 -0700 PDT DONE: $C_a_stPush_ret wconstant $C_a_stPush_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:52.493029383 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:34.962227553 -0700 PDT SENDING: $C_a_rsPush wconstant $C_a_rsPush
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:34.962253013 -0700 PDT DONE SENDING waiting for output: $C_a_rsPush wconstant $C_a_rsPush
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:34.96461949 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:36.027887225 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:36.027981051 -0700 PDT DONE: $C_a_rsPush wconstant $C_a_rsPush
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:36.130589937 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:52.493052049 -0700 PDT SENDING: $C_a_rsPush wconstant $C_a_rsPush
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:52.493074713 -0700 PDT DONE SENDING waiting for output: $C_a_rsPush wconstant $C_a_rsPush
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:52.493097771 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:53.557343973 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:53.557377447 -0700 PDT DONE: $C_a_rsPush wconstant $C_a_rsPush
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:53.662897045 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:36.130691051 -0700 PDT SENDING: $C_a_rsPush1 wconstant $C_a_rsPush1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:36.130726951 -0700 PDT DONE SENDING waiting for output: $C_a_rsPush1 wconstant $C_a_rsPush1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:36.130778253 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:37.19577898 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:37.195876186 -0700 PDT DONE: $C_a_rsPush1 wconstant $C_a_rsPush1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:37.297789881 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:53.662930131 -0700 PDT SENDING: $C_a_rsPush1 wconstant $C_a_rsPush1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:53.662963155 -0700 PDT DONE SENDING waiting for output: $C_a_rsPush1 wconstant $C_a_rsPush1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:53.662971051 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:54.723098139 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:54.723225395 -0700 PDT DONE: $C_a_rsPush1 wconstant $C_a_rsPush1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:54.827221102 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:37.297891963 -0700 PDT SENDING: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:37.297925493 -0700 PDT DONE SENDING waiting for output: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:37.297979923 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:38.362973219 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:38.363099351 -0700 PDT DONE: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:38.467977701 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:54.827279176 -0700 PDT SENDING: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:54.827385799 -0700 PDT DONE SENDING waiting for output: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:54.827409917 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:55.893032021 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:55.893064007 -0700 PDT DONE: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:55.998138348 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:38.468024881 -0700 PDT SENDING: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:38.468068071 -0700 PDT DONE SENDING waiting for output: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:38.468081236 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:39.534704407 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:39.53477551 -0700 PDT DONE: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:39.637038633 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:55.998160468 -0700 PDT SENDING: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:55.998178899 -0700 PDT DONE SENDING waiting for output: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:55.998182723 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:57.062648084 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:57.06269134 -0700 PDT DONE: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:57.168207781 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:39.637098359 -0700 PDT SENDING: $C_a_stPop wconstant $C_a_stPop
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:39.63712611 -0700 PDT DONE SENDING waiting for output: $C_a_stPop wconstant $C_a_stPop
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:39.637197301 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:40.703388873 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:40.703470741 -0700 PDT DONE: $C_a_stPop wconstant $C_a_stPop
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:40.805547886 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:57.168230254 -0700 PDT SENDING: $C_a_stPop wconstant $C_a_stPop
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:57.168252623 -0700 PDT DONE SENDING waiting for output: $C_a_stPop wconstant $C_a_stPop
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:57.168259666 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:58.232411015 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:58.232466721 -0700 PDT DONE: $C_a_stPop wconstant $C_a_stPop
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:58.334216806 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:40.805608568 -0700 PDT SENDING: $C_a_stPop1 wconstant $C_a_stPop1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:40.805635228 -0700 PDT DONE SENDING waiting for output: $C_a_stPop1 wconstant $C_a_stPop1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:40.805666216 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:41.870811722 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:41.870906774 -0700 PDT DONE: $C_a_stPop1 wconstant $C_a_stPop1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:41.97480684 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:58.334249378 -0700 PDT SENDING: $C_a_stPop1 wconstant $C_a_stPop1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:58.334290808 -0700 PDT DONE SENDING waiting for output: $C_a_stPop1 wconstant $C_a_stPop1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:58.334302112 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:59.398982056 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:59.399037515 -0700 PDT DONE: $C_a_stPop1 wconstant $C_a_stPop1
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:59.503826708 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:41.9748484 -0700 PDT SENDING: $C_a_stPop_ret wconstant $C_a_stPop_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:41.974917786 -0700 PDT DONE SENDING waiting for output: $C_a_stPop_ret wconstant $C_a_stPop_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:41.974939052 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:43.038782473 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:43.038882252 -0700 PDT DONE: $C_a_stPop_ret wconstant $C_a_stPop_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:43.142555066 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:59.503870092 -0700 PDT SENDING: $C_a_stPop_ret wconstant $C_a_stPop_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:59.503938726 -0700 PDT DONE SENDING waiting for output: $C_a_stPop_ret wconstant $C_a_stPop_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:26:59.503951838 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:00.569981775 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:00.570056648 -0700 PDT DONE: $C_a_stPop_ret wconstant $C_a_stPop_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:00.673034552 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:43.142595873 -0700 PDT SENDING: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:43.142620322 -0700 PDT DONE SENDING waiting for output: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:43.142635182 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:44.208899524 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:44.208967451 -0700 PDT DONE: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:44.313615887 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:00.673059454 -0700 PDT SENDING: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:00.673079479 -0700 PDT DONE SENDING waiting for output: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:00.673083337 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:01.736727877 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:01.736792877 -0700 PDT DONE: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:01.840501146 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:44.313672527 -0700 PDT SENDING: $C_a_rsPop wconstant $C_a_rsPop
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:44.313705075 -0700 PDT DONE SENDING waiting for output: $C_a_rsPop wconstant $C_a_rsPop
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:44.313725505 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:45.377774025 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:45.377824473 -0700 PDT DONE: $C_a_rsPop wconstant $C_a_rsPop
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:45.482535522 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:01.840524607 -0700 PDT SENDING: $C_a_rsPop wconstant $C_a_rsPop
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:01.840548347 -0700 PDT DONE SENDING waiting for output: $C_a_rsPop wconstant $C_a_rsPop
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:01.840555582 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:02.907139688 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:02.907196608 -0700 PDT DONE: $C_a_rsPop wconstant $C_a_rsPop
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:03.009490028 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:45.482585279 -0700 PDT SENDING: $C_a_rsPop1 wconstant $C_a_rsPop1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:45.482605647 -0700 PDT DONE SENDING waiting for output: $C_a_rsPop1 wconstant $C_a_rsPop1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:45.482642183 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:46.549585535 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:46.549654612 -0700 PDT DONE: $C_a_rsPop1 wconstant $C_a_rsPop1
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:46.651756759 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:03.009512501 -0700 PDT SENDING: $C_a_rsPop1 wconstant $C_a_rsPop1
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:03.009530234 -0700 PDT DONE SENDING waiting for output: $C_a_rsPop1 wconstant $C_a_rsPop1
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:03.009534498 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:04.077271633 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:04.07730242 -0700 PDT DONE: $C_a_rsPop1 wconstant $C_a_rsPop1
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:04.181399223 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:46.651817279 -0700 PDT SENDING: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:46.651846121 -0700 PDT DONE SENDING waiting for output: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:46.651862567 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:47.717247944 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:47.717327252 -0700 PDT DONE: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:47.820449751 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:04.181422742 -0700 PDT SENDING: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:04.181440876 -0700 PDT DONE SENDING waiting for output: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:04.181445131 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:05.243424583 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:05.243492026 -0700 PDT DONE: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:05.348749008 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:47.82050858 -0700 PDT SENDING: $C_fDestInc wconstant $C_fDestInc
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:47.820532109 -0700 PDT DONE SENDING waiting for output: $C_fDestInc wconstant $C_fDestInc
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:47.820569976 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:48.886258568 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:48.886331461 -0700 PDT DONE: $C_fDestInc wconstant $C_fDestInc
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:48.989570793 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:05.348775004 -0700 PDT SENDING: $C_fDestInc wconstant $C_fDestInc
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:05.348800095 -0700 PDT DONE SENDING waiting for output: $C_fDestInc wconstant $C_fDestInc
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:05.348807492 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:06.415675046 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:06.415730606 -0700 PDT DONE: $C_fDestInc wconstant $C_fDestInc
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:06.5195372 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:48.989629553 -0700 PDT SENDING: $C_fCondMask wconstant $C_fCondMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:48.989657833 -0700 PDT DONE SENDING waiting for output: $C_fCondMask wconstant $C_fCondMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:48.989674044 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:50.055302654 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:50.055376634 -0700 PDT DONE: $C_fCondMask wconstant $C_fCondMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:50.158392886 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:06.519563211 -0700 PDT SENDING: $C_fCondMask wconstant $C_fCondMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:06.519583335 -0700 PDT DONE SENDING waiting for output: $C_fCondMask wconstant $C_fCondMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:06.519588319 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:07.58318203 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:07.583270263 -0700 PDT DONE: $C_fCondMask wconstant $C_fCondMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:07.68741595 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:50.158457032 -0700 PDT SENDING: $C_fAddrMask wconstant $C_fAddrMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:50.158494606 -0700 PDT DONE SENDING waiting for output: $C_fAddrMask wconstant $C_fAddrMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:50.158514462 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:51.224696654 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:51.224977404 -0700 PDT DONE: $C_fAddrMask wconstant $C_fAddrMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:51.327483518 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:07.68743948 -0700 PDT SENDING: $C_fAddrMask wconstant $C_fAddrMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:07.687461343 -0700 PDT DONE SENDING waiting for output: $C_fAddrMask wconstant $C_fAddrMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:07.687467406 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:08.752823046 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:08.752875704 -0700 PDT DONE: $C_fAddrMask wconstant $C_fAddrMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:08.858078915 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:51.327572866 -0700 PDT SENDING: $C_fLongMask wconstant $C_fLongMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:51.327600438 -0700 PDT DONE SENDING waiting for output: $C_fLongMask wconstant $C_fLongMask
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:51.327621054 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:52.392340016 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:52.392417311 -0700 PDT DONE: $C_fLongMask wconstant $C_fLongMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:08.858103405 -0700 PDT SENDING: $C_fLongMask wconstant $C_fLongMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:08.858122761 -0700 PDT DONE SENDING waiting for output: $C_fLongMask wconstant $C_fLongMask
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:08.858126501 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:09.92355669 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:09.92362223 -0700 PDT DONE: $C_fLongMask wconstant $C_fLongMask
 \						X	$C_resetDreg			wconstant	$C_resetDreg
 \						X	$C_stPtr				wconstant	$C_stPtr
 \						X	$C_rsPtr				wconstant	$C_rsPtr
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:52.499383389 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:10.030348288 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:52.499408596 -0700 PDT SENDING: $C_stTOS wconstant $C_stTOS
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:52.499421576 -0700 PDT DONE SENDING waiting for output: $C_stTOS wconstant $C_stTOS
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:52.499429243 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:53.559599753 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:53.559681353 -0700 PDT DONE: $C_stTOS wconstant $C_stTOS
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:53.66152875 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:10.030363101 -0700 PDT SENDING: $C_stTOS wconstant $C_stTOS
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:10.030376066 -0700 PDT DONE SENDING waiting for output: $C_stTOS wconstant $C_stTOS
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:10.030380026 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:11.092778373 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:11.092807713 -0700 PDT DONE: $C_stTOS wconstant $C_stTOS
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:11.194641335 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:53.66163129 -0700 PDT SENDING: $C_cogdata wconstant $C_cogdata
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:53.661662015 -0700 PDT DONE SENDING waiting for output: $C_cogdata wconstant $C_cogdata
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:53.661709858 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:54.731959563 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:54.73204008 -0700 PDT DONE: $C_cogdata wconstant $C_cogdata
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:54.83404435 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:11.194667802 -0700 PDT SENDING: $C_cogdata wconstant $C_cogdata
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:11.194693814 -0700 PDT DONE SENDING waiting for output: $C_cogdata wconstant $C_cogdata
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:11.194700392 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:12.259525641 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:12.259561004 -0700 PDT DONE: $C_cogdata wconstant $C_cogdata
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:12.362961575 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:54.83410001 -0700 PDT SENDING: $C_treg3 wconstant $C_treg3
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:54.834124087 -0700 PDT DONE SENDING waiting for output: $C_treg3 wconstant $C_treg3
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:54.834166804 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:55.897677393 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:55.897748844 -0700 PDT DONE: $C_treg3 wconstant $C_treg3
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:56.002915641 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:12.362997753 -0700 PDT SENDING: $C_treg3 wconstant $C_treg3
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:12.363032601 -0700 PDT DONE SENDING waiting for output: $C_treg3 wconstant $C_treg3
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:12.363043029 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:13.427834354 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:13.42788598 -0700 PDT DONE: $C_treg3 wconstant $C_treg3
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:13.532192171 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:56.002956843 -0700 PDT SENDING: $C_treg4 wconstant $C_treg4
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:56.003005409 -0700 PDT DONE SENDING waiting for output: $C_treg4 wconstant $C_treg4
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:56.003019475 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:57.068759571 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:57.068812192 -0700 PDT DONE: $C_treg4 wconstant $C_treg4
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:57.171894845 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:13.532235757 -0700 PDT SENDING: $C_treg4 wconstant $C_treg4
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:13.532280553 -0700 PDT DONE SENDING waiting for output: $C_treg4 wconstant $C_treg4
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:13.532289659 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:14.598025393 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:14.598053852 -0700 PDT DONE: $C_treg4 wconstant $C_treg4
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:14.70194001 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:57.171955971 -0700 PDT SENDING: $C_treg5 wconstant $C_treg5
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:57.171976799 -0700 PDT DONE SENDING waiting for output: $C_treg5 wconstant $C_treg5
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:57.172003207 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:58.236150738 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:58.236252332 -0700 PDT DONE: $C_treg5 wconstant $C_treg5
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:58.340753273 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:14.701963041 -0700 PDT SENDING: $C_treg5 wconstant $C_treg5
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:14.701980213 -0700 PDT DONE SENDING waiting for output: $C_treg5 wconstant $C_treg5
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:14.701984254 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:15.76775924 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:15.767831609 -0700 PDT DONE: $C_treg5 wconstant $C_treg5
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:15.872737931 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:58.340803153 -0700 PDT SENDING: $C_treg6 wconstant $C_treg6
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:58.340867336 -0700 PDT DONE SENDING waiting for output: $C_treg6 wconstant $C_treg6
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:58.340891027 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:59.408995275 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:59.409058709 -0700 PDT DONE: $C_treg6 wconstant $C_treg6
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:59.513746483 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:15.872773424 -0700 PDT SENDING: $C_treg6 wconstant $C_treg6
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:15.872800833 -0700 PDT DONE SENDING waiting for output: $C_treg6 wconstant $C_treg6
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:15.872807417 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:16.938649881 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:16.93871092 -0700 PDT DONE: $C_treg6 wconstant $C_treg6
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:17.044420669 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:59.513799097 -0700 PDT SENDING: $C_stBot wconstant $C_stBot
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:59.513832237 -0700 PDT DONE SENDING waiting for output: $C_stBot wconstant $C_stBot
-scripts/buildOptKernel-5.txt::2015-09-20 09:11:59.513851403 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:00.577955363 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:00.578021026 -0700 PDT DONE: $C_stBot wconstant $C_stBot
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:17.044469562 -0700 PDT SENDING: $C_stBot wconstant $C_stBot
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:17.044502119 -0700 PDT DONE SENDING waiting for output: $C_stBot wconstant $C_stBot
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:17.04450957 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:18.106862331 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:18.10694849 -0700 PDT DONE: $C_stBot wconstant $C_stBot
 \						X	$C_this					wconstant	$C_this
 \						X	$C_stTop				wconstant	$C_stTop
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:00.68252142 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:18.209586306 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:00.682550132 -0700 PDT SENDING: $C_rsBot wconstant $C_rsBot
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:00.682571808 -0700 PDT DONE SENDING waiting for output: $C_rsBot wconstant $C_rsBot
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:00.682584104 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:01.747003547 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:01.747076941 -0700 PDT DONE: $C_rsBot wconstant $C_rsBot
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:18.209598842 -0700 PDT SENDING: $C_rsBot wconstant $C_rsBot
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:18.209613944 -0700 PDT DONE SENDING waiting for output: $C_rsBot wconstant $C_rsBot
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:18.209620332 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:19.2737408 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:19.273820697 -0700 PDT DONE: $C_rsBot wconstant $C_rsBot
 \						X	$C_rsTop				wconstant	$C_rsTop
 \						X	$C_varEnd				wconstant	$C_varEnd
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:01.852869911 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:19.379657036 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:01.852896736 -0700 PDT SENDING: $V_state wconstant $V_state
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:01.852917582 -0700 PDT DONE SENDING waiting for output: $V_state wconstant $V_state
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:01.852959868 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:02.943779858 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:02.943859808 -0700 PDT DONE: $V_state wconstant $V_state
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:03.048568563 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:19.379672338 -0700 PDT SENDING: $V_state wconstant $V_state
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:19.379688022 -0700 PDT DONE SENDING waiting for output: $V_state wconstant $V_state
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:19.379711517 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:20.460698573 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:20.460766073 -0700 PDT DONE: $V_state wconstant $V_state
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:20.563444542 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:03.048614556 -0700 PDT SENDING: $V_numchan wconstant $V_numchan
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:03.048630056 -0700 PDT DONE SENDING waiting for output: $V_numchan wconstant $V_numchan
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:03.048658173 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:04.129888132 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:04.129979564 -0700 PDT DONE: $V_numchan wconstant $V_numchan
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:04.231454711 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:20.563470568 -0700 PDT SENDING: $V_numchan wconstant $V_numchan
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:20.563513661 -0700 PDT DONE SENDING waiting for output: $V_numchan wconstant $V_numchan
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:20.563520692 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:21.643712386 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:21.643767251 -0700 PDT DONE: $V_numchan wconstant $V_numchan
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:21.747384799 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:04.231614145 -0700 PDT SENDING: $V_>in wconstant $V_>in
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:04.231698783 -0700 PDT DONE SENDING waiting for output: $V_>in wconstant $V_>in
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:04.231733259 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:05.315476969 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:05.315558395 -0700 PDT DONE: $V_>in wconstant $V_>in
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:05.418252216 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:21.747408094 -0700 PDT SENDING: $V_>in wconstant $V_>in
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:21.747430128 -0700 PDT DONE SENDING waiting for output: $V_>in wconstant $V_>in
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:21.747436949 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:22.827384146 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:22.827417721 -0700 PDT DONE: $V_>in wconstant $V_>in
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:22.932073405 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:05.418308896 -0700 PDT SENDING: $V_>out wconstant $V_>out
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:05.41834059 -0700 PDT DONE SENDING waiting for output: $V_>out wconstant $V_>out
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:05.41837627 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:06.499651571 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:06.499762627 -0700 PDT DONE: $V_>out wconstant $V_>out
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:06.604235799 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:22.932104439 -0700 PDT SENDING: $V_>out wconstant $V_>out
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:22.932133451 -0700 PDT DONE SENDING waiting for output: $V_>out wconstant $V_>out
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:22.932144987 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:24.013104308 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:24.013169154 -0700 PDT DONE: $V_>out wconstant $V_>out
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:24.117719243 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:06.604275739 -0700 PDT SENDING: $V_coghere wconstant $V_coghere
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:06.604336251 -0700 PDT DONE SENDING waiting for output: $V_coghere wconstant $V_coghere
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:06.60434986 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:07.683371671 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:07.683442886 -0700 PDT DONE: $V_coghere wconstant $V_coghere
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:07.788585744 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:24.117739627 -0700 PDT SENDING: $V_coghere wconstant $V_coghere
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:24.117760293 -0700 PDT DONE SENDING waiting for output: $V_coghere wconstant $V_coghere
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:24.117764342 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:25.198075746 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:25.198108516 -0700 PDT DONE: $V_coghere wconstant $V_coghere
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:25.302192876 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:07.788644707 -0700 PDT SENDING: $V_execword wconstant $V_execword
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:07.788708558 -0700 PDT DONE SENDING waiting for output: $V_execword wconstant $V_execword
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:07.788730364 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:08.868415393 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:08.868506723 -0700 PDT DONE: $V_execword wconstant $V_execword
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:08.970126566 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:25.302230873 -0700 PDT SENDING: $V_execword wconstant $V_execword
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:25.302260231 -0700 PDT DONE SENDING waiting for output: $V_execword wconstant $V_execword
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:25.302264192 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:26.383744702 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:26.383835042 -0700 PDT DONE: $V_execword wconstant $V_execword
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:26.488457405 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:08.970191618 -0700 PDT SENDING: $V_base wconstant $V_base
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:08.971585444 -0700 PDT DONE SENDING waiting for output: $V_base wconstant $V_base
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:08.971610196 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:10.05647916 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:10.056577201 -0700 PDT DONE: $V_base wconstant $V_base
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:10.159699468 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:26.488479315 -0700 PDT SENDING: $V_base wconstant $V_base
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:26.488515879 -0700 PDT DONE SENDING waiting for output: $V_base wconstant $V_base
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:26.488520883 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:27.568178273 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:27.568224896 -0700 PDT DONE: $V_base wconstant $V_base
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:27.67501517 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:10.159794174 -0700 PDT SENDING: $V_cds wconstant $V_cds
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:10.159814976 -0700 PDT DONE SENDING waiting for output: $V_cds wconstant $V_cds
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:10.159830766 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:11.23884465 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:11.238896966 -0700 PDT DONE: $V_cds wconstant $V_cds
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:11.34024995 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:27.675055856 -0700 PDT SENDING: $V_cds wconstant $V_cds
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:27.675086908 -0700 PDT DONE SENDING waiting for output: $V_cds wconstant $V_cds
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:27.675098978 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:28.756200499 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:28.756260419 -0700 PDT DONE: $V_cds wconstant $V_cds
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:28.859729687 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:11.340291748 -0700 PDT SENDING: $V_errdata wconstant $V_errdata
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:11.340371286 -0700 PDT DONE SENDING waiting for output: $V_errdata wconstant $V_errdata
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:11.340397772 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:12.426174977 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:12.426248309 -0700 PDT DONE: $V_errdata wconstant $V_errdata
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:28.859757847 -0700 PDT SENDING: $V_errdata wconstant $V_errdata
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:28.859782496 -0700 PDT DONE SENDING waiting for output: $V_errdata wconstant $V_errdata
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:28.859789727 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:29.938334245 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:29.938375384 -0700 PDT DONE: $V_errdata wconstant $V_errdata
 \						X	$V_lasterr				wconstant	$V_lasterr
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:12.53210683 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:30.044603259 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:12.532224186 -0700 PDT SENDING: $V_ios wconstant $V_ios
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:12.53226627 -0700 PDT DONE SENDING waiting for output: $V_ios wconstant $V_ios
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:12.53229339 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:13.612128146 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:13.612200886 -0700 PDT DONE: $V_ios wconstant $V_ios
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:13.718666733 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:30.044629528 -0700 PDT SENDING: $V_ios wconstant $V_ios
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:30.044662515 -0700 PDT DONE SENDING waiting for output: $V_ios wconstant $V_ios
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:30.044678379 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:31.124541575 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:31.124629481 -0700 PDT DONE: $V_ios wconstant $V_ios
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:31.228761608 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:13.718721407 -0700 PDT SENDING: $V_numpad wconstant $V_numpad
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:13.718772973 -0700 PDT DONE SENDING waiting for output: $V_numpad wconstant $V_numpad
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:13.718796464 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:14.796859407 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:14.796926213 -0700 PDT DONE: $V_numpad wconstant $V_numpad
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:14.901137719 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:31.228783973 -0700 PDT SENDING: $V_numpad wconstant $V_numpad
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:31.228805254 -0700 PDT DONE SENDING waiting for output: $V_numpad wconstant $V_numpad
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:31.228812867 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:32.308780201 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:32.308840186 -0700 PDT DONE: $V_numpad wconstant $V_numpad
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:32.411293371 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:14.901176055 -0700 PDT SENDING: $V_tbuf wconstant $V_tbuf
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:14.901203713 -0700 PDT DONE SENDING waiting for output: $V_tbuf wconstant $V_tbuf
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:14.901218665 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:15.982214788 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:15.98228418 -0700 PDT DONE: $V_tbuf wconstant $V_tbuf
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:16.088547694 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:32.411321017 -0700 PDT SENDING: $V_tbuf wconstant $V_tbuf
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:32.411348673 -0700 PDT DONE SENDING waiting for output: $V_tbuf wconstant $V_tbuf
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:32.411371897 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:33.494774381 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:33.494844654 -0700 PDT DONE: $V_tbuf wconstant $V_tbuf
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:33.598444796 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:16.088603279 -0700 PDT SENDING: $V_t1 wconstant $V_t1
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:16.088723191 -0700 PDT DONE SENDING waiting for output: $V_t1 wconstant $V_t1
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:16.088751808 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:17.163610057 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:17.163683039 -0700 PDT DONE: $V_t1 wconstant $V_t1
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:17.265212892 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:33.598467403 -0700 PDT SENDING: $V_t1 wconstant $V_t1
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:33.598517728 -0700 PDT DONE SENDING waiting for output: $V_t1 wconstant $V_t1
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:33.598528456 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:34.677517337 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:34.677574675 -0700 PDT DONE: $V_t1 wconstant $V_t1
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:34.782595044 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:17.265307556 -0700 PDT SENDING: $V_t0 wconstant $V_t0
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:17.265332785 -0700 PDT DONE SENDING waiting for output: $V_t0 wconstant $V_t0
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:17.265353445 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:18.351281481 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:18.351341729 -0700 PDT DONE: $V_t0 wconstant $V_t0
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:18.452751935 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:34.782619286 -0700 PDT SENDING: $V_t0 wconstant $V_t0
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:34.782635935 -0700 PDT DONE SENDING waiting for output: $V_t0 wconstant $V_t0
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:34.782644847 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:35.86238844 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:35.862432847 -0700 PDT DONE: $V_t0 wconstant $V_t0
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:35.963789885 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:18.452808295 -0700 PDT SENDING: $V_lc wconstant $V_lc
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:18.452833369 -0700 PDT DONE SENDING waiting for output: $V_lc wconstant $V_lc
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:18.452852949 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:19.534890388 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:19.534945632 -0700 PDT DONE: $V_lc wconstant $V_lc
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:19.637822342 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:35.963851542 -0700 PDT SENDING: $V_lc wconstant $V_lc
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:35.963882176 -0700 PDT DONE SENDING waiting for output: $V_lc wconstant $V_lc
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:35.963887472 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:37.048504371 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:37.048564031 -0700 PDT DONE: $V_lc wconstant $V_lc
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:37.150292054 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:19.637875719 -0700 PDT SENDING: $V_pad wconstant $V_pad
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:19.637895636 -0700 PDT DONE SENDING waiting for output: $V_pad wconstant $V_pad
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:19.637916125 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:20.72207425 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:20.722139228 -0700 PDT DONE: $V_pad wconstant $V_pad
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:37.150316729 -0700 PDT SENDING: $V_pad wconstant $V_pad
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:37.150337414 -0700 PDT DONE SENDING waiting for output: $V_pad wconstant $V_pad
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:37.150344266 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:38.235378783 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:38.235435223 -0700 PDT DONE: $V_pad wconstant $V_pad
 \						X	$H_dq					wconstant	$H_dq
 \						X	$H_cq					wconstant	$H_cq
 \						X	$H_entry				wconstant	$H_entry
@@ -455,14 +455,14 @@ scripts/buildOptKernel-5.txt::2015-09-20 09:12:20.722139228 -0700 PDT DONE: $V_p
 \						X	$S_numcogs				wconstant	$S_numcogs
 \ make optKernel.if
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:20.831318421 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:38.341784163 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:20.83133347 -0700 PDT SENDING: hA state orC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:20.83135131 -0700 PDT DONE SENDING waiting for output: hA state orC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:20.831362795 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:21.838667561 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:21.838737839 -0700 PDT DONE: hA state orC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:21.942843765 -0700 PDT 
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:38.34179936 -0700 PDT SENDING: hA state orC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:38.341811378 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:38.341814863 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:39.35319286 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:39.353259246 -0700 PDT DONE: hA state orC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:39.458817819 -0700 PDT 
  scriptFileName: scripts/buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
@@ -471,16 +471,16 @@ outputFileName: results/outputFiles/optKernel.if
 \
 \ forthmaker
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:21.943935672 -0700 PDT  20000 cps  Receive Delay 40s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:39.459325475 -0700 PDT  20000 cps  Receive Delay 40s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:21.943977505 -0700 PDT SENDING: h18 forthmaker
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:21.944000807 -0700 PDT DONE SENDING waiting for output: h18 forthmaker
-scripts/buildOptKernel-5.txt::2015-09-20 09:12:21.944061194 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:53.325729412 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:53.325816006 -0700 PDT DONE: h18 forthmaker
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:53.431504241 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:54.434356841 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:54.434931101 -0700 PDT 
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:39.459335065 -0700 PDT SENDING: h18 forthmaker
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:39.459345986 -0700 PDT DONE SENDING waiting for output: h18 forthmaker
+scripts/buildOptKernel-5.txt::2015-09-20 13:27:39.459359854 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:10.841058206 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:10.842120494 -0700 PDT DONE: h18 forthmaker
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:10.947257776 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:11.948914967 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:11.949027748 -0700 PDT 
  scriptFileName: scripts/buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
@@ -489,165 +489,165 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:54.436075352 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:11.950509574 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:54.436221003 -0700 PDT SENDING: reboot
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:54.436265861 -0700 PDT DONE SENDING waiting for output: reboot
-scripts/buildOptKernel-5.txt::2015-09-20 09:14:54.436288385 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:00.329317664 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:00.329390998 -0700 PDT DONE: reboot
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:11.950530685 -0700 PDT SENDING: reboot
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:11.950552337 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:11.950559774 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:17.847666251 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:17.84772567 -0700 PDT DONE: reboot
 \
 \ check Forth
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:00.434872768 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:17.951904236 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:00.434992064 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:00.435055174 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:00.435078784 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:01.660545818 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:01.660610264 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:17.951936404 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:17.951959947 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:17.951969245 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:19.178129337 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:19.178159409 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \
 \ Load forthbuilder.f
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:01.762965682 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:19.283332821 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:01.76299322 -0700 PDT SENDING: src/forthbuilder.f
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:02.2012157 -0700 PDT DONE SENDING waiting for output: src/forthbuilder.f
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:02.201265721 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:30.235141209 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:30.235215029 -0700 PDT DONE: src/forthbuilder.f
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:30.336440496 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:19.283390538 -0700 PDT SENDING: src/forthbuilder.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:19.697879392 -0700 PDT DONE SENDING waiting for output: src/forthbuilder.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:19.697896051 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:47.757862052 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:47.757907357 -0700 PDT DONE: src/forthbuilder.f
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:47.858641777 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:30.336513806 -0700 PDT SENDING: forthbuilder
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:30.336544432 -0700 PDT DONE SENDING waiting for output: forthbuilder
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:30.336617142 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:31.358215449 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:31.358298114 -0700 PDT DONE: forthbuilder
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:31.460031458 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:47.858689168 -0700 PDT SENDING: forthbuilder
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:47.858718524 -0700 PDT DONE SENDING waiting for output: forthbuilder
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:47.85872555 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:48.878084927 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:48.878115814 -0700 PDT DONE: forthbuilder
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:48.979542772 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:31.460069196 -0700 PDT SENDING: results/outputFiles/optKernel.if
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:34.672540561 -0700 PDT DONE SENDING waiting for output: results/outputFiles/optKernel.if
-scripts/buildOptKernel-5.txt::2015-09-20 09:15:34.672622244 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:16.286583022 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:16.286720701 -0700 PDT DONE: results/outputFiles/optKernel.if
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:16.392113905 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:48.979562982 -0700 PDT SENDING: results/outputFiles/optKernel.if
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:51.960450838 -0700 PDT DONE SENDING waiting for output: results/outputFiles/optKernel.if
+scripts/buildOptKernel-5.txt::2015-09-20 13:30:51.96047102 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:33.811296737 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:33.811595296 -0700 PDT DONE: results/outputFiles/optKernel.if
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:33.913932685 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:16.392175996 -0700 PDT SENDING: forthbuilderpass2
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:16.392235057 -0700 PDT DONE SENDING waiting for output: forthbuilderpass2
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:16.392268282 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:17.409759723 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:17.409855306 -0700 PDT DONE: forthbuilderpass2
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:17.512987408 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:33.913956409 -0700 PDT SENDING: forthbuilderpass2
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:33.913973136 -0700 PDT DONE SENDING waiting for output: forthbuilderpass2
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:33.913976785 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:34.932233282 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:34.932293132 -0700 PDT DONE: forthbuilderpass2
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:35.034774554 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:17.513021722 -0700 PDT SENDING: results/outputFiles/optKernel.if
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:20.682487557 -0700 PDT DONE SENDING waiting for output: results/outputFiles/optKernel.if
-scripts/buildOptKernel-5.txt::2015-09-20 09:16:20.682532391 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:42.851758675 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:42.855788864 -0700 PDT DONE: results/outputFiles/optKernel.if
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:42.960924524 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:35.034827727 -0700 PDT SENDING: results/outputFiles/optKernel.if
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:37.996633175 -0700 PDT DONE SENDING waiting for output: results/outputFiles/optKernel.if
+scripts/buildOptKernel-5.txt::2015-09-20 13:31:37.996662857 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:00.362202182 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:00.362461996 -0700 PDT DONE: results/outputFiles/optKernel.if
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:00.466480352 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:42.960977855 -0700 PDT SENDING: hex
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:42.960996375 -0700 PDT DONE SENDING waiting for output: hex
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:42.961030687 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:44.008455941 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:44.008534775 -0700 PDT DONE: hex
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:44.109619577 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:00.466512925 -0700 PDT SENDING: hex
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:00.466541758 -0700 PDT DONE SENDING waiting for output: hex
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:00.466550416 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:01.506545314 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:01.50659515 -0700 PDT DONE: hex
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:01.610851751 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:44.109676922 -0700 PDT SENDING: _fbPatch
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:44.109695114 -0700 PDT DONE SENDING waiting for output: _fbPatch
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:44.109740477 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:46.054050133 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:46.054129333 -0700 PDT DONE: _fbPatch
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:01.610877398 -0700 PDT SENDING: _fbPatch
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:01.610894469 -0700 PDT DONE SENDING waiting for output: _fbPatch
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:01.610901348 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:03.553871117 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:03.554004471 -0700 PDT DONE: _fbPatch
 \
 \
 \ make optKernel.eeprom
 \
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:46.156675008 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:03.657547252 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:46.156711204 -0700 PDT SENDING: hA state orC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:46.156734659 -0700 PDT DONE SENDING waiting for output: hA state orC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:46.156757144 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:47.176055607 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:47.176106119 -0700 PDT DONE: hA state orC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:47.28140079 -0700 PDT 
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:03.657610534 -0700 PDT SENDING: hA state orC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:03.657638416 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:03.657647793 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:04.67437759 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:04.674409248 -0700 PDT DONE: hA state orC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:04.778559297 -0700 PDT 
  scriptFileName: scripts/buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
 outputFileName: results/outputFiles/optKernel.eeprom
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:47.281793437 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:04.778768808 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:47.281827427 -0700 PDT SENDING: fbinout
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:47.281848049 -0700 PDT DONE SENDING waiting for output: fbinout
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:47.281860645 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:50.287141406 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:50.287206577 -0700 PDT DONE: fbinout
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:50.389933107 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:58.759831264 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:58.760129846 -0700 PDT 
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:04.778785441 -0700 PDT SENDING: fbinout
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:04.778805348 -0700 PDT DONE SENDING waiting for output: fbinout
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:04.778811885 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:07.782018127 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:07.782049371 -0700 PDT DONE: fbinout
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:07.886220471 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:16.22858587 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:16.228727369 -0700 PDT 
  scriptFileName: scripts/buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
 outputFileName: 
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:58.761088289 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:16.229057551 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:58.761109105 -0700 PDT SENDING: hA state andnC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:58.761151503 -0700 PDT DONE SENDING waiting for output: hA state andnC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:58.761176123 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:59.862745481 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:59.862827537 -0700 PDT DONE: hA state andnC!
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:59.964338 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:16.229068726 -0700 PDT SENDING: hA state andnC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:16.229080276 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:16.22908396 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:17.336482288 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:17.336514578 -0700 PDT DONE: hA state andnC!
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:17.439509087 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:59.964394264 -0700 PDT SENDING: hex count0 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:59.964449572 -0700 PDT DONE SENDING waiting for output: hex count0 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:17:59.964487531 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:01.062507246 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:01.062580113 -0700 PDT DONE: hex count0 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:01.167575471 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:17.439539593 -0700 PDT SENDING: hex count0 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:17.439560866 -0700 PDT DONE SENDING waiting for output: hex count0 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:17.439571535 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:18.537800273 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:18.537840252 -0700 PDT DONE: hex count0 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:18.64219746 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:01.167624052 -0700 PDT SENDING: count1 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:01.16764324 -0700 PDT DONE SENDING waiting for output: count1 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:01.16766526 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:02.267279969 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:02.267349349 -0700 PDT DONE: count1 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:02.370811876 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:18.642236153 -0700 PDT SENDING: count1 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:18.642258788 -0700 PDT DONE SENDING waiting for output: count1 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:18.642265558 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:19.738821455 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:19.738850755 -0700 PDT DONE: count1 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:19.843043547 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:02.370901584 -0700 PDT SENDING: count2 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:02.37093575 -0700 PDT DONE SENDING waiting for output: count2 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:02.37097714 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:03.464309012 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:03.46436517 -0700 PDT DONE: count2 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:03.569538407 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:19.84308092 -0700 PDT SENDING: count2 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:19.843107104 -0700 PDT DONE SENDING waiting for output: count2 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:19.843114613 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:20.937770436 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:20.93780231 -0700 PDT DONE: count2 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:21.042683356 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:03.569594267 -0700 PDT SENDING: count3 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:03.56965202 -0700 PDT DONE SENDING waiting for output: count3 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:03.569707806 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:04.669096862 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:04.669177839 -0700 PDT DONE: count3 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:04.770455271 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:21.042705279 -0700 PDT SENDING: count3 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:21.042727608 -0700 PDT DONE SENDING waiting for output: count3 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:21.042734291 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:22.138982034 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:22.139009496 -0700 PDT DONE: count3 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:22.241181494 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:04.770511685 -0700 PDT SENDING: count4 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:04.770557563 -0700 PDT DONE SENDING waiting for output: count4 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:04.773184603 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:05.870281835 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:05.870364199 -0700 PDT DONE: count4 W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:05.974663869 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:22.241202387 -0700 PDT SENDING: count4 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:22.241222784 -0700 PDT DONE SENDING waiting for output: count4 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:22.241245585 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:23.342538923 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:23.342564192 -0700 PDT DONE: count4 W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:23.447110923 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:05.974724122 -0700 PDT SENDING: bytecount W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:05.974750869 -0700 PDT DONE SENDING waiting for output: bytecount W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:05.974782349 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:07.069752505 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:07.06983225 -0700 PDT DONE: bytecount W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:07.172485341 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:23.447129427 -0700 PDT SENDING: bytecount W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:23.447145103 -0700 PDT DONE SENDING waiting for output: bytecount W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:23.447148807 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:24.542748773 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:24.542788066 -0700 PDT DONE: bytecount W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:24.647189008 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:07.172552057 -0700 PDT SENDING: checksum W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:07.172581041 -0700 PDT DONE SENDING waiting for output: checksum W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:07.172628185 -0700 PDT WAIT STARTED
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:08.270903808 -0700 PDT WAIT DONE
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:08.270986168 -0700 PDT DONE: checksum W@ .
-scripts/buildOptKernel-5.txt::2015-09-20 09:18:08.373260427 -0700 PDT 
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:24.647208559 -0700 PDT SENDING: checksum W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:24.647225396 -0700 PDT DONE SENDING waiting for output: checksum W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:24.647229439 -0700 PDT WAIT STARTED
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:25.743443811 -0700 PDT WAIT DONE
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:25.743491307 -0700 PDT DONE: checksum W@ .
+scripts/buildOptKernel-5.txt::2015-09-20 13:33:25.847998458 -0700 PDT 
  scriptFileName: scripts/buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: 

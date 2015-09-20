@@ -1,4 +1,5 @@
 // +build windows
+
 package serial
 // Serial io as raw as possible. 8 bits, no parity 1 stop bit, channel to provide DTR control
 //
