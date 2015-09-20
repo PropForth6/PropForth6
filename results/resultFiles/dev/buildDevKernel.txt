@@ -21,10 +21,10 @@ RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14434 optKERNEL6.0-2015Aug23 10:03-0
+here: 14318 optKERNEL6.0-2015Sep12 19:32-0
 
 Prop0 Cog6 ok
-: (version) c" devKERNEL6.0-2015Aug23 10:13-0" ;
+: (version) c" devKERNEL6.0-2015Sep12 19:41-0" ;
 Prop0 Cog6 ok
 (version) version W!
 Prop0 Cog6 ok
@@ -1666,14 +1666,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef variable
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: variable
+
+ lockdict create $C_a_dovarl w, 0 l, forthentry freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1691,14 +1694,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef constant
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: constant
+
+ lockdict create $C_a_doconl w, l, forthentry freedict
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1848,14 +1854,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef waitcnt
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: waitcnt
+
+ _xasm2>1 h1F1 _cnip
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
