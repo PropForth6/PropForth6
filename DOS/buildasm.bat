@@ -14,4 +14,6 @@ if %domakeerr% neq 0 goto end
 
 :end
 echo buildasm.bat result: %domakeerr%
+cd DOS
+
 

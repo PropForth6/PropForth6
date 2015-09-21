@@ -15,3 +15,4 @@ if %domakeerr% neq 0 goto end
 :end
 echo buildtools.bat result: %domakeerr%
 
+cd DOS

@@ -16,3 +16,4 @@ if %domakeerr% neq 0 goto end
 :end
 echo buildStartKernelSpin.bat result: %domakeerr%
 
+cd DOS
