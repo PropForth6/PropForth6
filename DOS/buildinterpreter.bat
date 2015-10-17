@@ -11,3 +11,4 @@ if %domakeerr% neq 0 goto end
 :end
 echo buildinterpreter.bat result: %domakeerr%
 
+cd DOS

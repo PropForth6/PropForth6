@@ -1,10 +1,10 @@
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:17.598168929 -0700 PDT 
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:30.2319738 -0700 PDT 
  scriptFileName: scripts/buildinterpreter-1.txt
    logFileName: results/runLogs/buildinterpreter-1.txt
 resultFileName: 
 outputFileName: 
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:17.599100837 -0700 PDT 
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:30.3393957 -0700 PDT 
  scriptFileName: scripts/buildinterpreter-1.txt
    logFileName: results/runLogs/buildinterpreter-1.txt
 resultFileName: results/resultFiles/buildinterpreter-1.txt
@@ -13,100 +13,100 @@ outputFileName:
 \
 \ check Forth
 \
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:17.600065507 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:30.5161535 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:17.600103647 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:17.600137774 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:17.600144636 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:18.825644475 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:18.825693095 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:30.5161535 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:30.5200598 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:30.5220129 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:31.7534582 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:31.7534582 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ Load new bootloader, interpreter, and serial driver
 \
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:18.930884668 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:32.0249426 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:18.930983454 -0700 PDT SENDING: herelal
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:18.931002532 -0700 PDT DONE SENDING waiting for output: herelal
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:18.931009473 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:21.977177324 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:21.977216338 -0700 PDT DONE: herelal
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:22.080814724 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:32.0249426 -0700 PDT SENDING: herelal
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:32.0298254 -0700 PDT DONE SENDING waiting for output: herelal
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:32.0317785 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:35.0786535 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:35.0786535 -0700 PDT DONE: herelal
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:35.2515051 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:22.080865424 -0700 PDT SENDING: results/outputFiles/_bt.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:22.091779232 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_bt.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:22.091805573 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:26.110334495 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:26.110379205 -0700 PDT DONE: results/outputFiles/_bt.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:26.21254895 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:35.2515051 -0700 PDT SENDING: results/outputFiles/_bt.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:35.2671301 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_bt.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:35.2671301 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:39.289591 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:39.289591 -0700 PDT DONE: results/outputFiles/_bt.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:39.4585363 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:26.212576807 -0700 PDT SENDING: results/outputFiles/_fi.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:26.380129207 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_fi.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:26.380146168 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:43.593251711 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:43.593304513 -0700 PDT DONE: results/outputFiles/_fi.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:43.694535693 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:39.4585363 -0700 PDT SENDING: results/outputFiles/_fi.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:39.6284582 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_fi.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:39.6284582 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:56.8384191 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:56.8384191 -0700 PDT DONE: results/outputFiles/_fi.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:57.0200598 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:43.694570748 -0700 PDT SENDING: results/outputFiles/_serafc.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:43.861481369 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_serafc.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:58:43.861527659 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:00.221802439 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:00.221832783 -0700 PDT DONE: results/outputFiles/_serafc.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:57.0200598 -0700 PDT SENDING: results/outputFiles/_serafc.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:57.1909582 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_serafc.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:40:57.1909582 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:13.539591 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:13.539591 -0700 PDT DONE: results/outputFiles/_serafc.f
 \
 \ Load forthmaker.f
 \
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:00.322616368 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:13.7407629 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:00.322663695 -0700 PDT SENDING: src/forthmaker.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:00.681160764 -0700 PDT DONE SENDING waiting for output: src/forthmaker.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:00.681198074 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:26.611948551 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:26.61199478 -0700 PDT DONE: src/forthmaker.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:13.7407629 -0700 PDT SENDING: src/forthmaker.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:14.1108801 -0700 PDT DONE SENDING waiting for output: src/forthmaker.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:14.1108801 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:40.0259191 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:40.0259191 -0700 PDT DONE: src/forthmaker.f
 \
 \ words to be added / replaced
 \
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:26.715100984 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:40.2778723 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:26.715118642 -0700 PDT SENDING: : (version) c" TMP01KERNEL6.0-
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:26.715134406 -0700 PDT DONE SENDING waiting for output: : (version) c" TMP01KERNEL6.0-
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:26.715142819 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:29.731944575 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:29.731975335 -0700 PDT DONE: : (version) c" TMP01KERNEL6.0-
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:29.837175178 -0700 PDT SEND: [2015Sep20 12:59]
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:29.837383669 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:40.2778723 -0700 PDT SENDING: : (version) c" TMP01KERNEL6.0-
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:40.2827551 -0700 PDT DONE SENDING waiting for output: : (version) c" TMP01KERNEL6.0-
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:40.2837316 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:43.3071691 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:43.3081457 -0700 PDT DONE: : (version) c" TMP01KERNEL6.0-
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:43.4321691 -0700 PDT SEND: [2015Oct12 10:41]
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:43.461466 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:29.837401991 -0700 PDT SENDING: -0" ;
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:29.83741948 -0700 PDT DONE SENDING waiting for output: -0" ;
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:29.837425698 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:32.904737003 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:32.904782927 -0700 PDT DONE: -0" ;
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:33.009393853 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:43.4624426 -0700 PDT SENDING: -0" ;
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:43.4702551 -0700 PDT DONE SENDING waiting for output: -0" ;
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:43.4722082 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:46.5386145 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:46.5386145 -0700 PDT DONE: -0" ;
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:46.7212316 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:33.009434299 -0700 PDT SENDING: results/outputFiles/_asmsym.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:33.116539877 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_asmsym.f
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:33.116569798 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:43.442797205 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:43.442861097 -0700 PDT DONE: results/outputFiles/_asmsym.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:46.7212316 -0700 PDT SENDING: results/outputFiles/_asmsym.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:46.8413488 -0700 PDT DONE SENDING waiting for output: results/outputFiles/_asmsym.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:46.8413488 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:57.1675207 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:57.1675207 -0700 PDT DONE: results/outputFiles/_asmsym.f
 \
 \ words to be deleted
 \
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:43.547031538 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:57.4184973 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:43.547065646 -0700 PDT SENDING: 1 wconstant forthmakerdeletefence
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:43.547101302 -0700 PDT DONE SENDING waiting for output: 1 wconstant forthmakerdeletefence
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:43.547120623 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:44.628704541 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:44.628760466 -0700 PDT DONE: 1 wconstant forthmakerdeletefence
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:57.4194738 -0700 PDT SENDING: 1 wconstant forthmakerdeletefence
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:57.430216 -0700 PDT DONE SENDING waiting for output: 1 wconstant forthmakerdeletefence
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:57.4321691 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:58.523966 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:58.523966 -0700 PDT DONE: 1 wconstant forthmakerdeletefence
 \
 \ make StartKernel.if
 \
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:44.733021629 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:58.7368566 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:44.733035083 -0700 PDT SENDING: hA state orC!
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:44.73304668 -0700 PDT DONE SENDING waiting for output: hA state orC!
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:44.733052808 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:45.74875516 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:45.748829532 -0700 PDT DONE: hA state orC!
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:45.852697555 -0700 PDT 
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:58.7368566 -0700 PDT SENDING: hA state orC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:58.742716 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:58.742716 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:59.758341 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:59.758341 -0700 PDT DONE: hA state orC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:41:59.9643957 -0700 PDT 
  scriptFileName: scripts/buildinterpreter-1.txt
    logFileName: results/runLogs/buildinterpreter-1.txt
 resultFileName: results/resultFiles/buildinterpreter-1.txt
@@ -115,16 +115,16 @@ outputFileName: results/outputFiles/Tmp01Kernel.if
 \
 \ forthmaker
 \
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:45.853218168 -0700 PDT  20000 cps  Receive Delay 40s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:42:00.1294348 -0700 PDT  20000 cps  Receive Delay 40s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:45.853229015 -0700 PDT SENDING: h18 forthmaker
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:45.853240208 -0700 PDT DONE SENDING waiting for output: h18 forthmaker
-scripts/buildinterpreter-1.txt::2015-09-20 12:59:45.853244168 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:10.170709944 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:10.170778089 -0700 PDT DONE: h18 forthmaker
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:10.274806142 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:11.277037634 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:11.277648465 -0700 PDT 
+scripts/buildinterpreter-1.txt::2015-10-12 10:42:00.1294348 -0700 PDT SENDING: h18 forthmaker
+scripts/buildinterpreter-1.txt::2015-10-12 10:42:00.1352941 -0700 PDT DONE SENDING waiting for output: h18 forthmaker
+scripts/buildinterpreter-1.txt::2015-10-12 10:42:00.1392004 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:24.0989299 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:24.0989299 -0700 PDT DONE: h18 forthmaker
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:24.2290955 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:25.210123 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:25.2110801 -0700 PDT 
  scriptFileName: scripts/buildinterpreter-1.txt
    logFileName: results/runLogs/buildinterpreter-1.txt
 resultFileName: results/resultFiles/buildinterpreter-1.txt
@@ -133,123 +133,123 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:11.278009658 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:25.3489025 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:11.278020018 -0700 PDT SENDING: reboot
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:11.278028676 -0700 PDT DONE SENDING waiting for output: reboot
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:11.27803206 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:17.173997676 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:17.17402508 -0700 PDT DONE: reboot
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:25.3489025 -0700 PDT SENDING: reboot
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:25.3642161 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:25.3709158 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:31.5268432 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:31.5268432 -0700 PDT DONE: reboot
 \
 \ check Forth
 \
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:17.279048125 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:31.8205744 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:17.279063198 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:17.279079517 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:17.279084771 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:18.506532478 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:18.506563615 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:31.8205744 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:31.8247856 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:31.8268912 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:33.1471024 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:33.1471024 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \
 \ Load forthbuilder.f
 \
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:18.609684663 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:33.3892464 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:18.609726176 -0700 PDT SENDING: src/forthbuilder.f
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:19.035376002 -0700 PDT DONE SENDING waiting for output: src/forthbuilder.f
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:19.035405075 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:47.190355825 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:47.190443922 -0700 PDT DONE: src/forthbuilder.f
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:47.291367902 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:33.3892464 -0700 PDT SENDING: src/forthbuilder.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:33.8503728 -0700 PDT DONE SENDING waiting for output: src/forthbuilder.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:44:33.8503728 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:01.9716831 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:01.9716831 -0700 PDT DONE: src/forthbuilder.f
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:02.1308628 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:47.291419242 -0700 PDT SENDING: forthbuilder
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:47.291465867 -0700 PDT DONE SENDING waiting for output: forthbuilder
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:47.291481173 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:48.309107866 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:48.309156022 -0700 PDT DONE: forthbuilder
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:48.413787498 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:02.1308628 -0700 PDT SENDING: forthbuilder
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:02.1357456 -0700 PDT DONE SENDING waiting for output: forthbuilder
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:02.1376987 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:03.1513706 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:03.1513706 -0700 PDT DONE: forthbuilder
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:03.3515659 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:48.413826816 -0700 PDT SENDING: results/outputFiles/Tmp01Kernel.if
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:51.436189357 -0700 PDT DONE SENDING waiting for output: results/outputFiles/Tmp01Kernel.if
-scripts/buildinterpreter-1.txt::2015-09-20 13:02:51.436224355 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:29.638956051 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:29.638998206 -0700 PDT DONE: results/outputFiles/Tmp01Kernel.if
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:29.744180279 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:03.3515659 -0700 PDT SENDING: results/outputFiles/Tmp01Kernel.if
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:06.3828159 -0700 PDT DONE SENDING waiting for output: results/outputFiles/Tmp01Kernel.if
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:06.3828159 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:45.483643 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:45.483643 -0700 PDT DONE: results/outputFiles/Tmp01Kernel.if
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:45.6450986 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:29.744214371 -0700 PDT SENDING: forthbuilderpass2
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:29.744241106 -0700 PDT DONE SENDING waiting for output: forthbuilderpass2
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:29.74424923 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:30.762844769 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:30.76288786 -0700 PDT DONE: forthbuilderpass2
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:30.866184853 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:45.6450986 -0700 PDT SENDING: forthbuilderpass2
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:45.6489658 -0700 PDT DONE SENDING waiting for output: forthbuilderpass2
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:45.6489658 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:46.6592718 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:46.6592718 -0700 PDT DONE: forthbuilderpass2
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:46.8545654 -0700 PDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:30.866214641 -0700 PDT SENDING: results/outputFiles/Tmp01Kernel.if
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:33.786692073 -0700 PDT DONE SENDING waiting for output: results/outputFiles/Tmp01Kernel.if
-scripts/buildinterpreter-1.txt::2015-09-20 13:03:33.786744909 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:02.823639551 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:02.824605292 -0700 PDT DONE: results/outputFiles/Tmp01Kernel.if
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:02.929576337 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:46.8545654 -0700 PDT SENDING: results/outputFiles/Tmp01Kernel.if
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:49.6890937 -0700 PDT DONE SENDING waiting for output: results/outputFiles/Tmp01Kernel.if
+scripts/buildinterpreter-1.txt::2015-10-12 10:45:49.6890937 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:17.9531 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:17.9531 -0700 PDT DONE: results/outputFiles/Tmp01Kernel.if
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:18.1238978 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:02.929606297 -0700 PDT SENDING: hex
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:02.929628464 -0700 PDT DONE SENDING waiting for output: hex
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:02.929632292 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:03.96370723 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:03.963739661 -0700 PDT DONE: hex
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:04.065806993 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:18.1238978 -0700 PDT SENDING: hex
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:18.1292688 -0700 PDT DONE SENDING waiting for output: hex
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:18.1314172 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:19.2722176 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:19.2722176 -0700 PDT DONE: hex
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:19.4215314 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:04.06583392 -0700 PDT SENDING: _fbPatch
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:04.065855253 -0700 PDT DONE SENDING waiting for output: _fbPatch
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:04.065861568 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:06.043766477 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:06.04380202 -0700 PDT DONE: _fbPatch
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:19.4215314 -0700 PDT SENDING: _fbPatch
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:19.4269024 -0700 PDT DONE SENDING waiting for output: _fbPatch
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:19.4279766 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:21.5957122 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:21.5957122 -0700 PDT DONE: _fbPatch
 \
 \
 \ make StartKernel.eeprom
 \
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:06.147857373 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:21.8481492 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:06.14788007 -0700 PDT SENDING: hA state orC!
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:06.147896184 -0700 PDT DONE SENDING waiting for output: hA state orC!
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:06.14790221 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:07.165540177 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:07.166388497 -0700 PDT DONE: hA state orC!
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:07.271188991 -0700 PDT 
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:21.8481492 -0700 PDT SENDING: hA state orC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:21.8535202 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:21.8556686 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:22.969614 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:22.969614 -0700 PDT DONE: hA state orC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:23.2134574 -0700 PDT 
  scriptFileName: scripts/buildinterpreter-1.txt
    logFileName: results/runLogs/buildinterpreter-1.txt
 resultFileName: results/resultFiles/buildinterpreter-1.txt
 outputFileName: results/outputFiles/Tmp01Kernel.eeprom
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:07.271382824 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:23.2456834 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:07.271398229 -0700 PDT SENDING: fbinout
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:07.271415602 -0700 PDT DONE SENDING waiting for output: fbinout
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:07.271425109 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:10.276453875 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:10.27648236 -0700 PDT DONE: fbinout
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:10.38124315 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:18.724380986 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:18.724536008 -0700 PDT 
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:23.2456834 -0700 PDT SENDING: fbinout
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:23.2510544 -0700 PDT DONE SENDING waiting for output: fbinout
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:23.2510544 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:26.5552936 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:26.5552936 -0700 PDT DONE: fbinout
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:26.686346 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:35.399433 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:35.399433 -0700 PDT 
  scriptFileName: scripts/buildinterpreter-1.txt
    logFileName: results/runLogs/buildinterpreter-1.txt
 resultFileName: results/resultFiles/buildinterpreter-1.txt
 outputFileName: 
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:18.724863246 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:35.471943 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:18.724878806 -0700 PDT SENDING: hA state andnC!
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:18.724892553 -0700 PDT DONE SENDING waiting for output: hA state andnC!
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:18.724898978 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:19.830378906 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:19.830423918 -0700 PDT DONE: hA state andnC!
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:19.934659249 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:35.471943 -0700 PDT SENDING: hA state andnC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:35.486445 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:35.4922458 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:36.588597 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:36.588597 -0700 PDT DONE: hA state andnC!
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:36.7210486 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:19.93468642 -0700 PDT SENDING: _fbDbg
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:19.934707536 -0700 PDT DONE SENDING waiting for output: _fbDbg
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:19.934714767 -0700 PDT WAIT STARTED
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:21.079337777 -0700 PDT WAIT DONE
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:21.079368625 -0700 PDT DONE: _fbDbg
-scripts/buildinterpreter-1.txt::2015-09-20 13:05:21.182520061 -0700 PDT 
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:36.7210486 -0700 PDT SENDING: _fbDbg
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:36.7258826 -0700 PDT DONE SENDING waiting for output: _fbDbg
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:36.7268494 -0700 PDT WAIT STARTED
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:37.8580054 -0700 PDT WAIT DONE
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:37.8580054 -0700 PDT DONE: _fbDbg
+scripts/buildinterpreter-1.txt::2015-10-12 10:47:37.9962578 -0700 PDT 
  scriptFileName: scripts/buildinterpreter-1.txt
    logFileName: results/runLogs/buildinterpreter-1.txt
 resultFileName: 

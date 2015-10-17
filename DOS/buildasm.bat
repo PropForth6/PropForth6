@@ -4,7 +4,7 @@ if %INGOSHELL% neq 1 set domakerr=999
 if %domakeerr% neq 0 goto end
 cd ..
 
-DOS\propellent /PORT %PROPCOMM% /EEPROM ../src/StartKernel.eeprom
+DOS\propellent /PORT %PROPCOMM% /EEPROM src\StartKernel.eeprom
 if %ERRORLEVEL% neq 0 set domakeerr=998
 if %domakeerr% neq 0 goto end
 
@@ -14,4 +14,6 @@ if %domakeerr% neq 0 goto end
 
 :end
 echo buildasm.bat result: %domakeerr%
+cd DOS
+
 
