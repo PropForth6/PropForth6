@@ -7,9 +7,14 @@ sudo apt-get install build-essential
 sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
 
 [Ensure your git user.name  and git user.email are set if you wish to contribute to github]
-git config --list
+[git user.name is the user name you use to log in to github.]
+[notice that you cannot use you email to log in to github]
 
-[git commands]
+git config --list
+git config --global user.name "prof-braino"
+
+*** remove the invcoorrect github commands *****
+
 (removve) git clone https://github.com/salsanci/PropForth6.git
 git clone https://github.com/PropForth6/PropForth6.git
 cd PropForth6/
@@ -20,6 +25,88 @@ git fetch
 
 [create a new branch by 'checking out' the new branch name]
 git checkout -b 20150902_Linux 
+
+**** add the new github commands from 20151018 ****
+[git commands]
+[  -- clone the PF6 repository]
+git clone https://github.com/PropForth6/PropForth6.git
+
+cd to PF6
+
+[check the current branch (should be master by default)]
+git branch 
+[notice there are no other branches visible yet]
+
+[see the list of active branches]
+git branch -a
+[see that there are other branches, including dev, and whatever sal and the others are working on]
+
+[retrieve the dev branch so you have the current state to work from]
+
+[switch to dev branch (we do all development dev branched from the previous master)]
+git checkout -b dev origin/dev
+
+[at this point, you should have the dev branch, which is that most recent snapshot of the code, test by sal]
+[this should be an "everything working" starting point for you further development]
+
+========================================================
+
+[create a new branch for me (doug) to work in for testing]
+[branch naming convention YYYYMMDDusernameDevelomentObjective]
+[on October 18, 2015, doug's task was to run the build test]
+[NOTE branch is created when we use the CHECKOUT command]
+git checkout -b  20151018dougbuildtest
+
+===================
+[task 1 add a file]
+[ -- in a text editor, create any new file, save it; ]
+[ -- example is dougCreated.txt in doc directory ]
+
+[check the created file is noticed]
+git status
+[should report "doc/dougCreated.txt" is modified and needs to be added, in RED]
+
+[add the file (add all the new files in the directory that need adding)]
+git add . 
+
+[check state with git sttatus]
+git status
+
+[shows the files are ready to commit, in green
+
+[task 2 update an existing  file]
+[ -- in an text editor, edit any file, and save]
+
+[check state with git sttatus]
+git status
+
+[shows the file is mdified]
+
+[add the changed file (to the staging area) with an explanatory message]
+
+git commit -a -m "updated setup docs"
+
+
+===================
+
+OK-let try this edit readme, ok
+
+now in order to push this back up,
+
+git status
+
+git commit -a -m "fix typo"
+
+git push -u --all
+
+it works! all my testing will be in this branch
+continue testing here. 
+
+
+
+
+
+*** end of new github commands *****
 
 [compile the go serial at least once]
 cd tools/
