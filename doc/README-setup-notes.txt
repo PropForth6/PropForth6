@@ -1,5 +1,7 @@
 [Notes for setting up PropForth6 and tools, git and github]
 
+[ Begin general setup instructions ]
+
 [setup]
 sudo apt-get install minicom
 sudo apt-get install build-essential
@@ -13,20 +15,6 @@ sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
 git config --list
 git config --global user.name "prof-braino"
 
-*** remove the invcoorrect github commands *****
-
-(removve) git clone https://github.com/salsanci/PropForth6.git
-git clone https://github.com/PropForth6/PropForth6.git
-cd PropForth6/
-git checkout dev
-git status
-git log
-git fetch 
-
-[create a new branch by 'checking out' the new branch name]
-git checkout -b 20150902_Linux 
-
-**** add the new github commands from 20151018 ****
 [git commands]
 [  -- clone the PF6 repository]
 git clone https://github.com/PropForth6/PropForth6.git
@@ -49,7 +37,11 @@ git checkout -b dev origin/dev
 [at this point, you should have the dev branch, which is that most recent snapshot of the code, test by sal]
 [this should be an "everything working" starting point for you further development]
 
-========================================================
+[ END general setup instructions ]
+
+=========================================================
+
+[Begin Propforth Development workflow instructions]
 
 [create a new branch for me (doug) to work in for testing]
 [branch naming convention YYYYMMDDusernameDevelomentObjective]
@@ -57,7 +49,6 @@ git checkout -b dev origin/dev
 [NOTE branch is created when we use the CHECKOUT command]
 git checkout -b  20151018dougbuildtest
 
-===================
 [task 1 add a file]
 [ -- in a text editor, create any new file, save it; ]
 [ -- example is dougCreated.txt in doc directory ]
@@ -92,27 +83,14 @@ git commit -a -m "updated setup docs"
 
 git push -u --all
 
+[git asks for your git username and password. Message indicate the branch changes were uploaded to the repository]
+[at this point, your should be able to see your branch and updates in the github repository]
 
-===================
+[End Propforth Development workflow instructions]
 
-OK-let try this edit readme, ok
+=========================================================
 
-now in order to push this back up,
-
-git status
-
-git commit -a -m "fix typo"
-
-git push -u --all
-
-it works! all my testing will be in this branch
-continue testing here. 
-
-
-
-
-
-*** end of new github commands *****
+[Begin instructions to run the Propforth6 build process]
 
 [compile the go serial at least once]
 cd tools/
@@ -154,8 +132,9 @@ cd Linux
 
 [NOTE: BUILDALL.SH is NOT the top script, if things don't work, check you ran build.sh]
 
+[END instructions to run the Propforth6 build process]
 
-
+=========================================================
 
 
 
