@@ -86,6 +86,12 @@ git status
 
 git commit -a -m "updated setup docs"
 
+[check status]
+
+[PUSH changes up to repository on github]
+
+git push -u --all
+
 
 ===================
 
