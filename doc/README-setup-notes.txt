@@ -6,7 +6,13 @@
 sudo apt-get install minicom
 sudo apt-get install build-essential
 [install go from website go1.5.linux-amd64.tar.gz]
-sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+
+[NOTE: If you see a meessage to install the GCCgo, maybe you missed the step:]
+export PATH=$PATH:/usr/local/go/bin
+
+*************************************************
 
 [Ensure your git user.name  and git user.email are set if you wish to contribute to github]
 [git user.name is the user name you use to log in to github.]
@@ -91,6 +97,16 @@ git push -u --all
 =========================================================
 
 [Begin instructions to run the Propforth6 build process]
+
+[NOTE you must change the virtual serial port to match you system]
+[on OSX, sal uses /dev/cu.usbserial-FTY2XPAM]
+[on Linux, braino uses /dev/ttyUSB0]
+[the repository is set to sal's OSX by default]
+[NON OSX must changecheck these each time]
+the files affected are:
+/home/<userID>/PropForth6/tools/serial_proxy/serial_proxy.conf
+/home/<userID>/PropForth6/Linux/build.sh
+
 
 [compile the go serial at least once]
 cd tools/

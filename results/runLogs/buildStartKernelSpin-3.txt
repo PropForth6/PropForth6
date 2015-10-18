@@ -1,10 +1,10 @@
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:43.58119485 -0700 PDT 
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:03:53.525511041 -0500 CDT 
  scriptFileName: scripts/buildStartKernelSpin-3.txt
    logFileName: results/runLogs/buildStartKernelSpin-3.txt
 resultFileName: 
 outputFileName: 
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:43.58183218 -0700 PDT 
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:03:53.525928299 -0500 CDT 
  scriptFileName: scripts/buildStartKernelSpin-3.txt
    logFileName: results/runLogs/buildStartKernelSpin-3.txt
 resultFileName: results/resultFiles/buildStartKernelSpin-3.txt
@@ -13,69 +13,69 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:43.582148423 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:03:53.526179987 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:43.582164005 -0700 PDT SENDING: reboot
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:43.582180455 -0700 PDT DONE SENDING waiting for output: reboot
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:43.582187123 -0700 PDT WAIT STARTED
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:49.467152186 -0700 PDT WAIT DONE
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:49.467228826 -0700 PDT DONE: reboot
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:03:53.526195433 -0500 CDT SENDING: reboot
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:03:53.526217572 -0500 CDT DONE SENDING waiting for output: reboot
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:03:53.526223139 -0500 CDT WAIT STARTED
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:05.818061857 -0500 CDT WAIT DONE
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:05.820306373 -0500 CDT DONE: reboot
 \
 \ check Forth
 \
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:49.572985266 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:05.921012676 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:49.573037482 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:49.573073442 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:49.57307998 -0700 PDT WAIT STARTED
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:50.797144772 -0700 PDT WAIT DONE
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:50.797208049 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:05.921025458 -0500 CDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:05.921048644 -0500 CDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:05.921052162 -0500 CDT WAIT STARTED
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:06.930449304 -0500 CDT WAIT DONE
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:06.930474751 -0500 CDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ Load spinImage.f
 \
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:50.90261731 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:07.031098243 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:50.902684832 -0700 PDT SENDING: src/spinImage.f
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:51.062856823 -0700 PDT DONE SENDING waiting for output: src/spinImage.f
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:07:51.062895437 -0700 PDT WAIT STARTED
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:04.415571785 -0700 PDT WAIT DONE
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:04.41563128 -0700 PDT DONE: src/spinImage.f
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:04.521811838 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:07.031128245 -0500 CDT SENDING: src/spinImage.f
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:07.175040219 -0500 CDT DONE SENDING waiting for output: src/spinImage.f
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:07.17511106 -0500 CDT WAIT STARTED
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:10.185194208 -0500 CDT WAIT DONE
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:10.185220781 -0500 CDT DONE: src/spinImage.f
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:10.285547773 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:04.52185721 -0700 PDT SENDING: hA state orC!
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:04.521910867 -0700 PDT DONE SENDING waiting for output: hA state orC!
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:04.521927164 -0700 PDT WAIT STARTED
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:05.539276151 -0700 PDT WAIT DONE
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:05.539328379 -0700 PDT DONE: hA state orC!
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:05.645108627 -0700 PDT 
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:10.285561362 -0500 CDT SENDING: hA state orC!
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:10.285572017 -0500 CDT DONE SENDING waiting for output: hA state orC!
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:10.285575219 -0500 CDT WAIT STARTED
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:11.285796822 -0500 CDT WAIT DONE
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:11.285872781 -0500 CDT DONE: hA state orC!
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:11.390059877 -0500 CDT 
  scriptFileName: scripts/buildStartKernelSpin-3.txt
    logFileName: results/runLogs/buildStartKernelSpin-3.txt
 resultFileName: results/resultFiles/buildStartKernelSpin-3.txt
 outputFileName: results/outputFiles/StartKernel.spin
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:05.645582481 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:11.390677789 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:05.645639244 -0700 PDT SENDING: spinImage
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:05.645677113 -0700 PDT DONE SENDING waiting for output: spinImage
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:08:05.645693978 -0700 PDT WAIT STARTED
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:45.899162437 -0700 PDT WAIT DONE
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:45.899294323 -0700 PDT DONE: spinImage
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:46.000038084 -0700 PDT WAIT STARTED
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:49.000950899 -0700 PDT WAIT DONE
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:49.001372938 -0700 PDT 
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:11.390724672 -0500 CDT SENDING: spinImage
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:11.390768957 -0500 CDT DONE SENDING waiting for output: spinImage
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:11.390782205 -0500 CDT WAIT STARTED
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:14.390956407 -0500 CDT WAIT DONE
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:14.390987579 -0500 CDT DONE: spinImage
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:14.491585392 -0500 CDT WAIT STARTED
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:17.491726837 -0500 CDT WAIT DONE
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:17.491764224 -0500 CDT 
  scriptFileName: scripts/buildStartKernelSpin-3.txt
    logFileName: results/runLogs/buildStartKernelSpin-3.txt
 resultFileName: results/resultFiles/buildStartKernelSpin-3.txt
 outputFileName: 
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:49.001905168 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:17.492056242 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:49.001935152 -0700 PDT SENDING: hA state andnC!
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:49.001959835 -0700 PDT DONE SENDING waiting for output: hA state andnC!
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:49.001964935 -0700 PDT WAIT STARTED
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:50.110760554 -0700 PDT WAIT DONE
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:50.110807606 -0700 PDT DONE: hA state andnC!
-scripts/buildStartKernelSpin-3.txt::2015-10-17 17:10:50.215412126 -0700 PDT 
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:17.492064628 -0500 CDT SENDING: hA state andnC!
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:17.492075507 -0500 CDT DONE SENDING waiting for output: hA state andnC!
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:17.492082231 -0500 CDT WAIT STARTED
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:18.492222879 -0500 CDT WAIT DONE
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:18.492246397 -0500 CDT DONE: hA state andnC!
+scripts/buildStartKernelSpin-3.txt::2015-10-18 17:04:18.592630413 -0500 CDT 
  scriptFileName: scripts/buildStartKernelSpin-3.txt
    logFileName: results/runLogs/buildStartKernelSpin-3.txt
 resultFileName: 
