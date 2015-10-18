@@ -1,11 +1,11 @@
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:14.2941143 -0700 PDT 
- scriptFileName: scripts//mp/buildMpOptKernelSpin.txt
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:36.041295919 -0700 PDT 
+ scriptFileName: scripts/mp/buildMpOptKernelSpin.txt
    logFileName: results/runLogs/buildMpOptKernelSpin.txt
 resultFileName: 
 outputFileName: 
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:14.4054424 -0700 PDT 
- scriptFileName: scripts//mp/buildMpOptKernelSpin.txt
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:36.043376686 -0700 PDT 
+ scriptFileName: scripts/mp/buildMpOptKernelSpin.txt
    logFileName: results/runLogs/buildMpOptKernelSpin.txt
 resultFileName: results/resultFiles/buildMpOptKernelSpin.txt
 outputFileName: 
@@ -13,70 +13,70 @@ outputFileName:
 \
 \ Reboot
 \
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:14.4708721 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:36.044782643 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:14.4708721 -0700 PDT SENDING: reboot
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:14.4757549 -0700 PDT DONE SENDING waiting for output: reboot
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:14.477708 -0700 PDT WAIT STARTED
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:19.6368877 -0700 PDT WAIT DONE
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:19.6368877 -0700 PDT DONE: reboot
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:36.044845923 -0700 PDT SENDING: reboot
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:36.044896708 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:36.044914675 -0700 PDT WAIT STARTED
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:41.234072048 -0700 PDT WAIT DONE
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:41.234168784 -0700 PDT DONE: reboot
 \
 \ check Forth
 \
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:19.9122783 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:41.336544471 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:19.9122783 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:19.9191143 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:19.9220439 -0700 PDT WAIT STARTED
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:20.9572002 -0700 PDT WAIT DONE
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:20.9572002 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:41.336811951 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:41.336892388 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:41.337107141 -0700 PDT WAIT STARTED
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:42.367850403 -0700 PDT WAIT DONE
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:42.367985795 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ Load spinImage.f
 \
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:21.1759502 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:42.47120152 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:21.1759502 -0700 PDT SENDING: src/spinImage.f
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:21.3331768 -0700 PDT DONE SENDING waiting for output: src/spinImage.f
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:21.3331768 -0700 PDT WAIT STARTED
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:25.0802471 -0700 PDT WAIT DONE
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:25.0802471 -0700 PDT DONE: src/spinImage.f
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:25.2394268 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:42.471355076 -0700 PDT SENDING: src/spinImage.f
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:42.627699638 -0700 PDT DONE SENDING waiting for output: src/spinImage.f
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:42.627827703 -0700 PDT WAIT STARTED
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:46.367023092 -0700 PDT WAIT DONE
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:46.367241381 -0700 PDT DONE: src/spinImage.f
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:46.473011377 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:25.2394268 -0700 PDT SENDING: hA state orC!
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:25.2443096 -0700 PDT DONE SENDING waiting for output: hA state orC!
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:25.2462627 -0700 PDT WAIT STARTED
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:26.2579814 -0700 PDT WAIT DONE
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:26.2579814 -0700 PDT DONE: hA state orC!
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:26.4747783 -0700 PDT 
- scriptFileName: scripts//mp/buildMpOptKernelSpin.txt
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:46.473153017 -0700 PDT SENDING: hA state orC!
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:46.473230622 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:46.473281852 -0700 PDT WAIT STARTED
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:47.487756565 -0700 PDT WAIT DONE
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:47.488005231 -0700 PDT DONE: hA state orC!
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:47.593681751 -0700 PDT 
+ scriptFileName: scripts/mp/buildMpOptKernelSpin.txt
    logFileName: results/runLogs/buildMpOptKernelSpin.txt
 resultFileName: results/resultFiles/buildMpOptKernelSpin.txt
 outputFileName: results/outputFiles/mp/optMpKernel.spin
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:26.5109111 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:47.594059601 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:26.5109111 -0700 PDT SENDING: spinImage
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:26.5148174 -0700 PDT DONE SENDING waiting for output: spinImage
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:26.5167705 -0700 PDT WAIT STARTED
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:52.4200908 -0700 PDT WAIT DONE
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:52.4200908 -0700 PDT DONE: spinImage
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:52.5382549 -0700 PDT WAIT STARTED
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:55.5382549 -0700 PDT WAIT DONE
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:55.5382549 -0700 PDT 
- scriptFileName: scripts//mp/buildMpOptKernelSpin.txt
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:47.594083573 -0700 PDT SENDING: spinImage
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:47.594145677 -0700 PDT DONE SENDING waiting for output: spinImage
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:38:47.594262063 -0700 PDT WAIT STARTED
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:12.625673345 -0700 PDT WAIT DONE
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:12.625878809 -0700 PDT DONE: spinImage
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:12.727712795 -0700 PDT WAIT STARTED
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:15.732540988 -0700 PDT WAIT DONE
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:15.733210921 -0700 PDT 
+ scriptFileName: scripts/mp/buildMpOptKernelSpin.txt
    logFileName: results/runLogs/buildMpOptKernelSpin.txt
 resultFileName: results/resultFiles/buildMpOptKernelSpin.txt
 outputFileName: 
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:55.6144268 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:15.734473119 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:55.6144268 -0700 PDT SENDING: hA state andnC!
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:55.6300518 -0700 PDT DONE SENDING waiting for output: hA state andnC!
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:55.6349346 -0700 PDT WAIT STARTED
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:56.6534893 -0700 PDT WAIT DONE
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:56.6534893 -0700 PDT DONE: hA state andnC!
-scripts//mp/buildMpOptKernelSpin.txt::2015-10-12 12:00:56.7921611 -0700 PDT 
- scriptFileName: scripts//mp/buildMpOptKernelSpin.txt
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:15.734549448 -0700 PDT SENDING: hA state andnC!
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:15.734612872 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:15.734646318 -0700 PDT WAIT STARTED
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:16.754831853 -0700 PDT WAIT DONE
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:16.755021106 -0700 PDT DONE: hA state andnC!
+scripts/mp/buildMpOptKernelSpin.txt::2015-10-17 17:39:16.858936055 -0700 PDT 
+ scriptFileName: scripts/mp/buildMpOptKernelSpin.txt
    logFileName: results/runLogs/buildMpOptKernelSpin.txt
 resultFileName: 
 outputFileName: 

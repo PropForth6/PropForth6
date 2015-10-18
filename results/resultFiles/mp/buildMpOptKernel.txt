@@ -21,7 +21,7 @@ RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14416 STARTKERNEL6.0-2015Oct12 10:51-0
+here: 14416 STARTKERNEL6.0-2015Oct17 16:59-0
 
 Prop0 Cog6 ok
 
@@ -884,7 +884,7 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-: (version) c" mpOptKERNEL6.0-2015Oct12 11:49-0" ;
+: (version) c" mpOptKERNEL6.0-2015Oct17 17:28-0" ;
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
@@ -2400,7 +2400,7 @@ RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14416 STARTKERNEL6.0-2015Oct12 10:51-0
+here: 14416 STARTKERNEL6.0-2015Oct17 16:59-0
 
 Prop0 Cog6 ok
 h7FFF dup dictend W! memend W!
@@ -4223,4 +4223,4 @@ count4 W@ .
 bytecount W@ .
 8000 Prop0 Cog6 ok
 checksum W@ .
-D873 Prop0 Cog6 ok
+D87B Prop0 Cog6 ok

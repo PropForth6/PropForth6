@@ -21,12 +21,10 @@ RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 15208 mpOptKERNEL6.0-2015Oct12 11:49-0
+here: 15208 mpOptKERNEL6.0-2015Oct17 17:28-0
 
 Prop0 Cog6 ok
-: (version) c" mpKERNEL6.0-2015Oct12 11:59-0" ;
-Prop0 Cog6 ok
-(version) version W!
+c" mpKERNEL6.0----2015Oct17 17:37-0" version W@ ccopy
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
@@ -1465,7 +1463,7 @@ Prop0 Cog6 ok
 )))
 Prop0 Cog5 ok
 : mpMon_t lockdict variable here W@ h_34 allot freedict 4- dup h_38 0 fill
-h_45A4 swap 2+ W! cr ;
+h_4574 swap 2+ W! cr ;
 Prop0 Cog5 ok
 
 Prop0 Cog6 ok
@@ -1580,7 +1578,7 @@ Prop0 Cog6 ok
 )))
 Prop0 Cog5 ok
 : mpGC_t lockdict variable here W@ h_20 allot freedict 4- dup h_24 0 fill
-h_4688 swap 2+ W! cr ;
+h_4658 swap 2+ W! cr ;
 Prop0 Cog5 ok
 
 Prop0 Cog6 ok
@@ -1678,9 +1676,9 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 gaccL mpGC_d flags gcflags
 Prop0 Cog5 ok
-: gcflags@ h_4810 L@ ;
+: gcflags@ h_47E0 L@ ;
 Prop0 Cog5 ok
-: gcflags! h_4810 L! ;
+: gcflags! h_47E0 L! ;
 Prop0 Cog5 ok
 
 Prop0 Cog6 ok

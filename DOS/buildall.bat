@@ -51,6 +51,9 @@ call mp\buildMpKernelSpin.bat
 echo buildMpKernelSpin.bat result: %domakeerr%
 if %domakeerr% neq 0 goto end
 
+call dev\buildlac.bat
+echo buildlac.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
 
 :end
 echo buildall.bat result: %domakeerr%

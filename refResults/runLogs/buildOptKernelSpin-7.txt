@@ -1,0 +1,83 @@
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:16:59.8302274 -0700 PDT 
+ scriptFileName: scripts/buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: 
+outputFileName: 
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:16:59.9347196 -0700 PDT 
+ scriptFileName: scripts/buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: results/resultFiles/buildOptKernelSpin-7.txt
+outputFileName: 
+
+\
+\ Reboot
+\
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:00.0401884 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:00.0401884 -0700 PDT SENDING: reboot
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:00.0646024 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:00.0665556 -0700 PDT WAIT STARTED
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:05.7168506 -0700 PDT WAIT DONE
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:05.7179248 -0700 PDT DONE: reboot
+\
+\ check Forth
+\
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:06.0294428 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:06.0294428 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:06.0348138 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:06.0348138 -0700 PDT WAIT STARTED
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:07.1809852 -0700 PDT WAIT DONE
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:07.1809852 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+\
+\ Load spinImage.f
+\
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:07.4226802 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:07.4226802 -0700 PDT SENDING: src/spinImage.f
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:07.5977748 -0700 PDT DONE SENDING waiting for output: src/spinImage.f
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:07.5977748 -0700 PDT WAIT STARTED
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:11.681033 -0700 PDT WAIT DONE
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:11.681033 -0700 PDT DONE: src/spinImage.f
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:11.8511898 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:11.8511898 -0700 PDT SENDING: hA state orC!
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:11.855057 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:11.8569906 -0700 PDT WAIT STARTED
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:12.855695 -0700 PDT WAIT DONE
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:12.855695 -0700 PDT DONE: hA state orC!
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:13.0596898 -0700 PDT 
+ scriptFileName: scripts/buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: results/resultFiles/buildOptKernelSpin-7.txt
+outputFileName: results/outputFiles/optKernel.spin
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:13.0964282 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:13.0964282 -0700 PDT SENDING: spinImage
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:13.1002954 -0700 PDT DONE SENDING waiting for output: spinImage
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:13.102229 -0700 PDT WAIT STARTED
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:37.2166866 -0700 PDT WAIT DONE
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:37.2166866 -0700 PDT DONE: spinImage
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:37.3324957 -0700 PDT WAIT STARTED
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:40.3160591 -0700 PDT WAIT DONE
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:40.3160591 -0700 PDT 
+ scriptFileName: scripts/buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: results/resultFiles/buildOptKernelSpin-7.txt
+outputFileName: 
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:40.3939663 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:40.3939663 -0700 PDT SENDING: hA state andnC!
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:40.3981775 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:40.4002831 -0700 PDT WAIT STARTED
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:41.4973007 -0700 PDT WAIT DONE
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:41.4973007 -0700 PDT DONE: hA state andnC!
+scripts/buildOptKernelSpin-7.txt::2015-10-12 11:17:41.6478511 -0700 PDT 
+ scriptFileName: scripts/buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: 
+outputFileName: 
+

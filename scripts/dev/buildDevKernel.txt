@@ -12,10 +12,9 @@
 \
 \ words to be added / replaced
 \
-						Y	: (version) c" devKERNEL6.0-
+						Y	c" devKERNEL6.0-
 						SDS
-						X	-0"	;
-						X	(version) version W!
+						X	-0"	version W@ ccopy
 						S	src/optimize/dev/DevKernelDef.f
 						S	src/optimize/dev/DevKernel.f
 \
