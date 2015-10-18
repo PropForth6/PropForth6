@@ -1,2 +1,2 @@
 # PropForth6
-A concurrent processor vesrion of Forth, specifically for the Prop
+A concurrent processor version of Forth, specifically for the Prop
