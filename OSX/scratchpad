@@ -1,0 +1,284 @@
+/dev/cu.usbserial-FTY2XPAM
+
+/dev/cu.usbserial-A1013QW3
+
+/dev/cu.SanciQStart-DevB
+
+./serial_proxy -s /dev/cu.usbserial-FTY2XPAM -S -P -A -b 230400 -a -e
+
+./serial_proxy -s /dev/cu.usbserial-A1013QW3 -S -P -A -b 230400 -a -e
+
+./serial_proxy -s /dev/cu.SanciQStart-DevB -S -P -A -b 230400 -p 5000 -a -e
+
+fswritec fswritec
+\
+\ _nk ( buf -- buf key)
+[ifndef _nk
+: _nk
+	dup h18 rshift swap _fsk swap
+;
+]
+
+\
+\ same as fswrite but eliminates comments and whitespace
+\
+[ifndef fswritec
+: fswritec
+	cogid nfcog iolink
+	parsenw
+	." fswrite " .cstr cr
+\
+\ buffer 4 characters
+\
+	key _fsk _fsk _fsk
+	begin
+		dup h2E2E2E0D =
+		if
+			-1
+		else
+			_nk
+\
+\ drop lines between braces {}
+\
+			dup h7B =
+			if
+				drop
+				begin _nk h7D = until
+				_nk
+			then
+\
+\ drop comment lines
+\
+			dup h5C =
+			if
+				drop
+				begin _nk h0D = until
+			else
+				dup h0D =
+				if
+					drop
+				else
+\
+\ drop spaces and tabs at the beginning of a line
+\
+					begin
+						dup h20 = over h09 = or
+						if
+							drop _nk 0
+						else
+							-1
+						then
+					until
+\
+\ emit chars until we get a cr or find a ...CR  sequence
+\
+					dup h0D =
+					if
+						drop
+					else
+						begin
+							dup h22 =
+							if
+								emit begin _nk dup emit h22 = until
+								_nk
+							then
+							dup h20 = over h09 = or
+							if
+								begin drop _nk dup h20 <> over h09 <> and until
+								dup h0D <>
+								if space then
+							then
+							dup emit h0D <>
+							if
+								dup h2E2E2E0D =
+								if
+									-1
+								else
+									_nk 0
+								then
+							else
+								-1
+							then
+						until
+					then
+				then
+			then	
+			0
+		then
+	until
+	drop
+	." ...~h0D~h0D~h0D"
+	cogid iounlink
+;
+]
+...
+
+
+fswritec boot.f
+hA state orC!
+1 wconstant forgetfence
+
+
+\
+\ (forget) ( cstr -- ) wind the dictionary back - caution
+[ifndef (forget)
+: (forget)
+	dup
+	if
+		find
+		if
+			pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+		else
+			_p?
+			if
+				.cstr h3F emit cr
+			then
+		then
+	else
+		drop
+	then
+;
+]
+
+\
+\ forget ( -- ) wind the dictionary back to the word which follows - caution
+[ifndef forget
+: forget
+	parsenw (forget)
+;
+]
+
+\ findEETOP ( -- n1 ) the top of the eeprom + 1
+: findEETOP
+\
+\ search 32k block increments until we get a fail
+\
+	0
+	h100000 h8000
+	do
+		i t0 2 eereadpage
+		if
+			leave
+		else
+			i h7FFE + t0 3 eereadpage
+			if
+				leave
+			else
+				drop i h8000 +
+			then
+		then
+	h8000 +loop
+;
+
+\ white/orange wire
+[ifndef hcRx
+	26 wconstant hcRx
+]
+\ white/green wire
+[ifndef hcTx
+	27 wconstant hcTx
+]
+
+[ifndef _ready_led
+	23 wconstant _ready_led
+]
+
+c" QS__" prop W@ ccopy
+$S_con iodis $S_con cogreset 100 delms
+c" _ready_led dup pinout pinhi" $S_con cogx
+c" hcRx hcTx 57600 1 serafc" $S_con cogx 100 delms
+6 >con
+
+
+>dbg
+cr
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! c" Top of eeprom at: " .cstr fstop . cr
+forget forgetfence 
+c" boot.f - DONE PropForth Loaded~h0D~h0DLoading usrboot.f~h0D~h0D" .cstr hA state andnC!
+xdbg
+c" usrboot.f" _fsload
+...
+
+fswritec usrboot.f
+hA state orC!
+version W@ .cstr cr cr cr
+c" usrboot.f - DONE~h0D~h0D" .cstr hA state andnC!
+...
+
+
+
+fswritec btstat.f
+
+
+\ for the HC06
+\ green wire
+[ifndef hcProgPin
+	22 wconstant hcProgPin
+]
+\ white/orange wire
+[ifndef hcRx
+	26 wconstant hcRx
+]
+\ white/green wire
+[ifndef hcTx
+	27 wconstant hcTx
+]
+
+[ifndef hcBaud
+	d_230_400 4/ wconstant hcBaud
+]
+[ifndef hcSerialCog
+	0 wconstant hcSerialCog
+]
+
+[ifndef hcSend
+: hcSend
+\	cogid hcSerialCog iolink .cstr 1000 delms cogid iounlink cr
+	cogid hcSerialCog iolink .cstr 1000 delms cogid iounlink cr
+;
+
+]
+
+
+hcSerialCog cogreset 100 delms
+c" hcRx hcTx hcBaud 0 serafc" hcSerialCog cogx 100 delms
+\ 1 hcSerialCog sersetflags
+
+
+hcProgPin pinhi hcProgPin pinout
+
+c" AT" hcSend
+c" AT+VERSION" hcSend
+
+hcProgPin pinlo 
+
+...
+
+
+hcSerialCog cogreset 100 delms
+c" hcRx hcTx d_230400 4 u/ 0 serafc" hcSerialCog cogx 100 delms
+
+
+hcProgPin pinhi hcProgPin pinout
+
+c" AT" hcSend
+c" AT+VERSION" hcSend
+
+hcProgPin pinlo 
+
+
+hcProgPin pinhi hcProgPin pinout
+
+c" AT" hcSend
+c" AT+VERSION" hcSend
+c" AT+NAMESanciQStart" hcSend
+c" AT+PIN1111" hcSend
+c" AT+PN" hcSend
+c" AT+BAUD9" hcSend
+
+
+hcProgPin pinlo 
+
+\ after the hc05 is power cycled, the baud rate will change, not like the hc06
+
+

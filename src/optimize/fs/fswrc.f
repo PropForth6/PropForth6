@@ -1,11 +1,15 @@
 \
 \ _nk ( buf -- buf key)
+[ifndef _nk
 : _nk
 	dup h18 rshift swap _fsk swap
 ;
+]
+
 \
 \ same as fswrite but eliminates comments and whitespace
 \
+[ifndef fswritec
 : fswritec
 	cogid nfcog iolink
 	parsenw
@@ -93,3 +97,5 @@
 	." ...~h0D~h0D~h0D"
 	cogid iounlink
 ;
+]
+

@@ -1,0 +1,2722 @@
+
+ scriptFileName: scripts/fs/initFs.txt
+   logFileName: results/runLogs/fs/initFs.txt
+resultFileName: results/resultFiles/fs/initFs.txt
+outputFileName: 
+reboot
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+ fsKERNEL6.0-2015Oct18 13:18-0
+
+boot.f - Finding top of eeprom, Top of eeprom at: 65536 
+boot.f - DONE PropForth Loaded
+
+Loading usrboot.f
+
+Prop0 Cog5 ok
+xdbg
+Prop0 Cog5 ok
+c" usrboot.f" _fsload
+Prop0 Cog5 ok
+
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 18556  fsKERNEL6.0-2015Oct18 13:18-0
+
+Prop0 Cog6 ok
+\ fs - eeprom file system
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2 files
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsrd - the read functions
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fswr - the write fuctions
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This makes it easy to set up a file system, and then only have the read functions
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ available. Takes less code space and provides a measure of protection.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ IMPORTANT: Do not install this kernel on a system with on 32k of EEprom, such as the Demo board.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\           If you write files, result may be indeterminate.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ A very simple file system for eeprom. The goal is not a general file system, but a place to put text
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (or code) in eeprom so it can be dynamically loaded by propforth
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the eeprom area start is defined by fsbot and the top is defined by fstop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The files are in eeprom memory as such:
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2 bytes - length of the contents of the file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1 byte - length of the file name (this is a normal counted string, counted strings can be up
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\  255 bytes in length, the length here is limited for space reasons)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1 - 31 bytes - the file name
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0 - 65534 bytes - the contents of the file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the last file has a length of 65535 (0hFFFF)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the start of every file is aligned with eeprom pages, for efficient read and write, this is 64 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Status: 2010NOV24 Beta
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2011FEB03 - fix to align page reads to page addresses so crossing eeproms does not cause a problem _fsread
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2011MAY31 - stable, reformat, updated error codes, added error message for file not found, added RO option
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ main routines
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsload filename - reads filename and directs it to the next free forth cog, every additional nested fsload
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\     requires an additional free cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsread filename - reads the file and echos it directly to the terminal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fswrite filename - writes the file to the filesystem - takes input from the input until ...\0h0d is encounterd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\   - ie 3 dots followed by a carriage return
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsls   - lists the files
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsclear  - erases all files
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsdrop  - erases the last file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The most common problem is forgetting the ...\h0d at the end of the file you want to write. Usually an fsdrop will
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ erase the last file which is invalid.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ define only one of these, build_fsRO is useful when you want to be able to read files
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ but want to make sure no-one can write them
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ remember there are still eeprom write routines in the boot kernel
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ so safety is not guaranteed
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_fsrd
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef $C_a_doconl
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ constant ( x -- ) skip blanks parse the next word and create a constant, allocate a long, 4 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef constant
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ CONFIG PARAMETERS BEGIN
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fsbot
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fstop
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fsps
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ CONFIG PARAMETERS END
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lasti? ( -- t/f ) true if this is the last value of i in this loop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef lasti?
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ #C ( c1 -- ) prepend the character c1 to the number currently being formatted
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef #C
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ some very common formatting routines, for use with hex, decimal or octal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ will work with other bases, but not optimally 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _nd ( n1 -- n2 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _nd
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _ft ( n1 divisor -- cstr )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _ft
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _bf ( n1 -- cstr )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _bf
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .byte ( n1 -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .byte
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _wf ( n1 -- cstr )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _wf
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .word ( n1 -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .word
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _lf ( n1 -- cstr )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _lf
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .long ( n1 -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .long
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 1lock
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 1unlock
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ibound ( -- n1 ) the upper bound of i
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef ibound
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ invert ( n1 -- n2 ) bitwise invert n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef invert
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinin ( n1 -- ) set pin # n1 to an input
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinin
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinout ( n1 -- ) set pin # n1 to an output
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinout
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinlo ( n1 -- ) set pin # n1 to lo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinlo
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinhi ( n1 -- ) set pin # n1 to hi
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinhi
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ px ( t/f n1 -- ) set pin # n1 to h - true or l false
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef px
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ eeprom read and write routine for the prop proto board AT24CL256 eeprom on pin 28 sclk, 29 sda
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdai
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdao
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _scli
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sclo
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdal
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sdah
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _scll
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sclh
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _sda?
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _eestart ( -- ) start the data transfer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _eestart
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _eestop ( -- ) stop the data transfer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _eestop
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the eereadpage and eewritePage words assume the eeprom are 64kx8 and will address up to 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 8 sequential eeproms
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ eereadpage ( eeAddr addr u -- t/f ) return true if there was an error, use lock 1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef eereadpage 
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fnf ( --) file not found message
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fnf
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fspa ( addr1 -- addr2) addr2 is the next page aligned address after addr1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fspa
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsnext ( addr1 -- addr2 t/f) addr - the current file address, addr2 - the next addr, t/f - true if we have
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\    gone past the end of the eeprom. t0 -length of the current file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\    t1 - length of the file name (char)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsnext
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsrd ( addr1 addr2 n1 -- ) addr1 - the eepropm address to read, addr2 - the address of the read buffer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ n1 - the number of bytes to read
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsrd
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsfree ( -- n1 ) n1 is the first location in the file system, -1 if there are none
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsfree
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsfind ( cstr -- addr ) find the last file named cstr, addr is the eeprom address, 0 if not found
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsfind
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fslast ( -- addr ) find the last file, 0 if not found
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fnf
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsls ( -- ) list the files
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fsls
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsread ( cstr -- ) read file to output
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsread
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsp filename ( -- cstr ) filename, if cstr is 0 no file found
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsp
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsread filename ( -- ) prints filename to the output
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fsread
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsload ( cstr -- ) load the using the next free cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsload
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsload filename ( -- ) send the file to the next free forth cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fsload
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ this changes the name of the last onboot word
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_fsrd
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ onboot (n1 -- n1) execute file boot.f if it exists
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_fsrd
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fs - eeprom file system
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ A very simple file system for eeprom. The goal is not a general file system, but a place to put text
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ (or code) in eeprom so it can be dynamically loaded by propforth
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the eeprom area start is defined by fsbot and the top is defined by fstop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The files are in eeprom memory as such:
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2 bytes - length of the contents of the file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1 byte - length of the file name (this is a normal counted string, counted strings can be up
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\  255 bytes in length, the length here is limited for space reasons)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 1 - 31 bytes - the file name
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 0 - 65534 bytes - the contents of the file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the last file has a length of 65535 (0hFFFF)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ the start of every file is aligned with eeprom pages, for efficient read and write, this is 64 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ Status: 2010NOV24 Beta
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2011FEB03 - fix to align page reads to page addresses so crossing eeproms does not cause a problem (fsread)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2011MAY31 - stable, reformat, updated error codes, added error message for file not found, added RO option
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ main routines
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsload filename - reads filename and directs it to the next free forth cog, every additional nested fsload
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\     requires an additional free cog
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsread filename - reads the file and echos it directly to the terminal
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fswrite filename - writes the file to the filesystem - takes input from the input until ...\0x0d is encounterd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\   - ie 3 dots followed by a carriage return
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsls   - lists the files
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsclear  - erases all files
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsdrop  - erases the last file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ The most common problem is forgetting the ...\h0d at the end of the file you want to write. Usually an fsdrop will
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ erase the last file which is invalid.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef build_fswr
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ eewritepage ( eeAddr addr u -- t/f ) return true if there was an error, use lock 1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef eewritepage
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ EW@ ( eeAddr -- n1 )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef EW@
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ EW! ( n1 eeAddr -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef EW!
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fsk ( n1 -- n2) n1<<8 or a key from the input
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fsk
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _fswr ( addr1 addr2 n1 -- ) addr1 - the eepropm address to write, addr2 - the address to write from
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ n1 - the number of bytes to write
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _fswr
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsclr ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ : fsclr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\  padbl fstop fsbot
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ do
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\  i pad fsps _fswr 2e emit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsps +loop
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ -1 fsbot EW!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsclear ( -- ) erase all files and initialize the eeprom file system
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fsclear
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fswrite filename ( -- ) writes a file until ... followed immediately by a cr is encountered
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fswrite
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ fsdrop ( -- ) deletes last file
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fsdrop
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _nk ( buf -- buf key)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _nk
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _nk
+
+ dup h18 rshift swap _fsk swap
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ same as fswrite but eliminates comments and whitespace
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef fswritec
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fswritec
+
+ cogid nfcog iolink
+
+ parsenw
+
+ ." fswrite " .cstr cr
+
+\
+
+\ buffer 4 characters
+
+\
+
+ key _fsk _fsk _fsk
+
+ begin
+
+  dup h2E2E2E0D =
+
+  if
+
+   -1
+
+  else
+
+   _nk
+
+\
+
+\ drop lines between braces {}
+
+\
+
+   dup h7B =
+
+   if
+
+    drop
+
+    begin _nk h7D = until
+
+    _nk
+
+   then
+
+\
+
+\ drop comment lines
+
+\
+
+   dup h5C =
+
+   if
+
+    drop
+
+    begin _nk h0D = until
+
+   else
+
+    dup h0D =
+
+    if
+
+     drop
+
+    else
+
+\
+
+\ drop spaces and tabs at the beginning of a line
+
+\
+
+     begin
+
+      dup h20 = over h09 = or
+
+      if
+
+       drop _nk 0
+
+      else
+
+       -1
+
+      then
+
+     until
+
+\
+
+\ emit chars until we get a cr or find a ...CR  sequence
+
+\
+
+     dup h0D =
+
+     if
+
+      drop
+
+     else
+
+      begin
+
+       dup h22 =
+
+       if
+
+        emit begin _nk dup emit h22 = until
+
+        _nk
+
+       then
+
+       dup h20 = over h09 = or
+
+       if
+
+        begin drop _nk dup h20 <> over h09 <> and until
+
+        dup h0D <>
+
+        if space then
+
+       then
+
+       dup emit h0D <>
+
+       if
+
+        dup h2E2E2E0D =
+
+        if
+
+         -1
+
+        else
+
+         _nk 0
+
+        then
+
+       else
+
+        -1
+
+       then
+
+      until
+
+     then
+
+    then
+
+   then 
+
+   0
+
+  then
+
+ until
+
+ drop
+
+ ." ...~h0D~h0D~h0D"
+
+ cogid iounlink
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+fsclear
+Prop0 Cog6 ok
+fswritec boot.f
+hA state orC!
+1 wconstant forgetfence
+: findEETOP
+0
+h100000 h8000
+do
+i t0 2 eereadpage
+if
+leave
+else
+i h7FFE + t0 3 eereadpage
+if
+leave
+else
+drop i h8000 +
+then
+then
+h8000 +loop
+;
+[ifndef (forget)
+: (forget)
+dup
+if
+find
+if
+pfa>nfa nfa>lfa dup here W! W@ wlastnfa W!
+else
+_p?
+if
+.cstr h3F emit cr
+then
+then
+else
+drop
+then
+;
+]
+[ifndef forget
+: forget
+parsenw (forget)
+;
+]
+>dbg
+cr
+c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! c" Top of eeprom at: " .cstr fstop . cr
+forget forgetfence
+c" boot.f - DONE PropForth Loaded~h0D~h0DLoading usrboot.f~h0D~h0D" .cstr hA state andnC!
+xdbg
+c" usrboot.f" _fsload
+Prop0 Cog5 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok

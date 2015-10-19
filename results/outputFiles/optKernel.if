@@ -594,165 +594,165 @@ h_29E6 h_29C6 h_80 main p _main a $C_a_exit e
 
 h_29F2 h_29E8 h_80 fstart p lasterr p L@ p state p C@ a $C_a_litw w h_80 p and p pad p $S_cdsz a $C_a_litw w h_4 p - p 0 p fill p state p orC! p lasterr p L! a $C_a_litw w h_100 p io p W! a $C_a_litw w h_A p base p W! p init_coghere p lockdict p _finit p W@ p 0= a $C_a_0branch w h_BA p -1 p _finit p W! p freedict p (version) p version p W! p (prop) p prop p W! p _lockarray a $C_a_litw w h_8 p bounds a $C_a_2>r a $C_a_litw w h_F p i p C! a $C_a_(loop) w h_FFF6 a $C_a_litl w h_0 w h_FFFF w h_7FFF p clkfreq a $C_a_litw w h_3E8 p u/ p u/ p _maxms p L! p clkfreq a $C_a_litw w h_3E8 p u/ p _cpms p L! p cq w h_5F03 w h_6966 p find a $C_a_drop p 2+ p alignl p 4+ p cq w h_2408 w h_5F48 w h_6E65 w h_7274 w h_79 p find a $C_a_drop p 2+ p W! p cq w h_6302 w h_71 p find a $C_a_drop p cq w h_2405 w h_5F48 w h_7163 p find a $C_a_drop p 2+ p W! p cq w h_6402 w h_71 p find a $C_a_drop p cq w h_2405 w h_5F48 w h_7164 p find a $C_a_drop p 2+ p W! p cq w h_6F06 w h_626E w h_6F6F w h_74 p find a $C_a_drop p execute a $C_a_branch w h_4 p freedict p cogid p _rreg p $C_resetDreg a $C_a_COG! p cq w h_6F07 w h_726E w h_7365 w h_7465 p tbuf p ccopy p cogid p tbuf p cappendn p tbuf p find a $C_a_0branch w h_8 p execute a $C_a_branch w h_14 a $C_a_drop p cq w h_6F07 w h_726E w h_7365 w h_7465 p find a $C_a_drop p execute p main a $C_a_exit e
 
-h_2B38 h_29F4 h_80 onboot p $S_con p iodis p $S_con p cogreset p cq w h_5F04 w h_6264 w h_67 p find a $C_a_0branch w h_10 p 2+ p $S_con p cogio p swap p W! a $C_a_branch w h_4 a $C_a_drop a $C_a_litw w h_10 p delms p cq w h_6907 w h_696E w h_6374 w h_6E6F p $S_con p cogx a $C_a_litw w h_100 p delms p cogid p >con a $C_a_litw w h_8 p 0 a $C_a_2>r p i p cogid p <> p i p $S_con p <> p and a $C_a_0branch w h_6 p i p cogreset a $C_a_(loop) w h_FFE8 a $C_a_exit e
+h_2B38 h_29F4 h_80 onboot p $S_con p iodis p $S_con p cogreset p cq w h_5F04 w h_6264 w h_67 p find a $C_a_0branch w h_10 p 2+ p $S_con p cogio p swap p W! a $C_a_branch w h_4 a $C_a_drop a $C_a_litw w h_10 p delms p cq w h_6907 w h_696E w h_6374 w h_6E6F p $S_con p cogx a $C_a_litw w h_100 p delms p cogid p >con a $C_a_litw w h_8 p 0 a $C_a_2>r p i p cogid p <> p i p $S_con p <> p and a $C_a_0branch w h_6 p i p cogreset a $C_a_(loop) w h_FFE8 p >dbg p version p W@ p cr p .cstr p cr p xdbg a $C_a_exit e
 
-h_2BAA h_2B3A h_80 wl p here p W@ p lastnfa p dup p . p 2dup p - p . p dup p .strname p cr p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFE2 p 2drop a $C_a_exit e
+h_2BB8 h_2B3A h_80 wl p here p W@ p lastnfa p dup p . p 2dup p - p . p dup p .strname p cr p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFE2 p 2drop a $C_a_exit e
 
-h_2BDA h_2BAC h_80 >dbg p _dbg p io p 2+ p dup p W@ p ios p W! p W! p 2lock a $C_a_exit e
+h_2BE8 h_2BBA h_80 >dbg p _dbg p io p 2+ p dup p W@ p ios p W! p W! p 2lock a $C_a_exit e
 
-h_2BF6 h_2BDC h_80 xdbg p ios p W@ p io p 2+ p W! p 2unlock a $C_a_exit e
+h_2C04 h_2BEA h_80 xdbg p ios p W@ p io p 2+ p W! p 2unlock a $C_a_exit e
 
-h_2C0C h_2BF8 h_80 p>n p lastnfa p dup p dup a $C_a_litw w h_3 a $C_a_STat p < a $C_a_0branch w h_8 p -1 a $C_a_branch w h_E p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFDE p swap p 0<> p and p nip a $C_a_exit e
+h_2C1A h_2C06 h_80 p>n p lastnfa p dup p dup a $C_a_litw w h_3 a $C_a_STat p < a $C_a_0branch w h_8 p -1 a $C_a_branch w h_E p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFDE p swap p 0<> p and p nip a $C_a_exit e
 
-h_2C44 h_2C0E h_80 onreset p unlockall p $S_con p cogid p <> a $C_a_0branch w h_36 p >dbg p cr p dq w h_5207 w h_5345 w h_5445 w h_203A p cogid p . p lasterr p W@ p dup p . p p>n p .strname a $C_a_litw w h_4 p spaces p errdata p W@ p dup p . p p>n p .strname p cr p xdbg a $C_a_litw w h_4 p state p orC! p version p W@ p cds p W! p 0 p lasterr p L! a $C_a_exit e
+h_2C52 h_2C1C h_80 onreset p unlockall p $S_con p cogid p <> a $C_a_0branch w h_36 p >dbg p cr p dq w h_5207 w h_5345 w h_5445 w h_203A p cogid p . p lasterr p W@ p dup p . p p>n p .strname a $C_a_litw w h_4 p spaces p errdata p W@ p dup p . p p>n p .strname p cr p xdbg a $C_a_litw w h_4 p state p orC! p version p W@ p cds p W! p 0 p lasterr p L! a $C_a_exit e
 
-h_2CA6 h_2C46 h_80 lockdict p 0 p lock a $C_a_exit e
+h_2CB4 h_2C54 h_80 lockdict p 0 p lock a $C_a_exit e
 
-h_2CB8 h_2CA8 h_80 freedict p 0 p unlock a $C_a_exit e
+h_2CC6 h_2CB6 h_80 freedict p 0 p unlock a $C_a_exit e
 
-h_2CCC h_2CBA h_80 u>= a $C_a__xasm2>flag w h_310E a $C_a_exit e
+h_2CDA h_2CC8 h_80 u>= a $C_a__xasm2>flag w h_310E a $C_a_exit e
 
-h_2CDA h_2CCE h_80 serafc p cq w h_5307 w h_5245 w h_4641 w h_2043 p pad p ccopy p dup a $C_a_0branch w h_E p cq w h_2004 w h_4346 w h_20 a $C_a_branch w h_A p cq w h_4E04 w h_4346 w h_20 p pad p cappend p over p 4* p pad p cappendn p cq w h_2004 w h_5854 w h_3A p pad p cappend a $C_a_litw w h_3 a $C_a_STat p pad p cappendn p cq w h_2004 w h_5852 w h_3A p pad p cappend p 2 a $C_a_STat p pad p cappendn p pad p numpad p ccopy p numpad p cds p W! a $C_a_litw w h_4 p state p andnC! p pad p L! p 4* p clkfreq p swap p u/ p pad a $C_a_litw w h_C p + p L! p >m p tuck p pad p 4+ p L! p >m p tuck p pad a $C_a_litw w h_8 p + p L! p over a $C_a__maskouthi p dira a $C_a_COGat p over p andn p 2 a $C_a_STat p or p dira a $C_a_COG! a $C_a_litw w h_100 p io p L! p _serafc a $C_a_exit e
+h_2CE8 h_2CDC h_80 serafc p cq w h_5307 w h_5245 w h_4641 w h_2043 p pad p ccopy p dup a $C_a_0branch w h_E p cq w h_2004 w h_4346 w h_20 a $C_a_branch w h_A p cq w h_4E04 w h_4346 w h_20 p pad p cappend p over p 4* p pad p cappendn p cq w h_2004 w h_5854 w h_3A p pad p cappend a $C_a_litw w h_3 a $C_a_STat p pad p cappendn p cq w h_2004 w h_5852 w h_3A p pad p cappend p 2 a $C_a_STat p pad p cappendn p pad p numpad p ccopy p numpad p cds p W! a $C_a_litw w h_4 p state p andnC! p pad p L! p 4* p clkfreq p swap p u/ p pad a $C_a_litw w h_C p + p L! p >m p tuck p pad p 4+ p L! p >m p tuck p pad a $C_a_litw w h_8 p + p L! p over a $C_a__maskouthi p dira a $C_a_COGat p over p andn p 2 a $C_a_STat p or p dira a $C_a_COG! a $C_a_litw w h_100 p io p L! p _serafc a $C_a_exit e
 
-h_2DA6 h_2CDC h_80 initcon p $S_txpin p $S_rxpin p $S_baud p $S_flowControl p serafc a $C_a_exit w h_0 e
+h_2DB4 h_2CEA h_80 initcon p $S_txpin p $S_rxpin p $S_baud p $S_flowControl p serafc a $C_a_exit e
 
-h_2DC0 h_2DA8 h_80 $C_varEnd a $C_a_doconw w h_FB e
+h_2DCC h_2DB6 h_80 $C_varEnd a $C_a_doconw w h_FB e
 
-h_2DD0 h_2DC2 h_80 $C_rsTop a $C_a_doconw w h_FB e
+h_2DDC h_2DCE h_80 $C_rsTop a $C_a_doconw w h_FB e
 
-h_2DE0 h_2DD2 h_80 $C_stTop a $C_a_doconw w h_E5 e
+h_2DEC h_2DDE h_80 $C_stTop a $C_a_doconw w h_E5 e
 
-h_2DF0 h_2DE2 h_80 $C_this a $C_a_doconw w h_E4 e
+h_2DFC h_2DEE h_80 $C_this a $C_a_doconw w h_E4 e
 
-h_2E00 h_2DF2 h_80 $C_rsPtr a $C_a_doconw w h_C7 e
+h_2E0C h_2DFE h_80 $C_rsPtr a $C_a_doconw w h_C7 e
 
-h_2E10 h_2E02 h_80 $C_stPtr a $C_a_doconw w h_C6 e
+h_2E1C h_2E0E h_80 $C_stPtr a $C_a_doconw w h_C6 e
 
-h_2E20 h_2E12 h_80 $C_resetDreg a $C_a_doconw w h_C5 e
+h_2E2C h_2E1E h_80 $C_resetDreg a $C_a_doconw w h_C5 e
 
-h_2E36 h_2E22 h_80 $C_a_lasterr a $C_a_doconw w h_A1 e
+h_2E42 h_2E2E h_80 $C_a_lasterr a $C_a_doconw w h_A1 e
 
-h_2E4C h_2E38 h_80 $C_a_0branch a $C_a_doconw w h_9C e
+h_2E58 h_2E44 h_80 $C_a_0branch a $C_a_doconw w h_9C e
 
-h_2E60 h_2E4E h_80 $C_a_(+loop) a $C_a_doconw w h_91 e
+h_2E6C h_2E5A h_80 $C_a_(+loop) a $C_a_doconw w h_91 e
 
-h_2E74 h_2E62 h_80 $C_a_(loop) a $C_a_doconw w h_8F e
+h_2E80 h_2E6E h_80 $C_a_(loop) a $C_a_doconw w h_8F e
 
-h_2E86 h_2E76 h_80 $C_a_>r a $C_a_doconw w h_8B e
+h_2E92 h_2E82 h_80 $C_a_>r a $C_a_doconw w h_8B e
 
-h_2E94 h_2E88 h_80 $C_a_2>r a $C_a_doconw w h_88 e
+h_2EA0 h_2E94 h_80 $C_a_2>r a $C_a_doconw w h_88 e
 
-h_2EA4 h_2E96 h_80 $C_a_r> a $C_a_doconw w h_84 e
+h_2EB0 h_2EA2 h_80 $C_a_r> a $C_a_doconw w h_84 e
 
-h_2EB2 h_2EA6 h_80 $C_a__maskoutlo a $C_a_doconw w h_81 e
+h_2EBE h_2EB2 h_80 $C_a__maskoutlo a $C_a_doconw w h_81 e
 
-h_2EC8 h_2EB4 h_80 $C_a__maskouthi a $C_a_doconw w h_80 e
+h_2ED4 h_2EC0 h_80 $C_a__maskouthi a $C_a_doconw w h_80 e
 
-h_2EDE h_2ECA h_80 $C_a__maskin a $C_a_doconw w h_7D e
+h_2EEA h_2ED6 h_80 $C_a__maskin a $C_a_doconw w h_7D e
 
-h_2EF2 h_2EE0 h_80 $C_a_next a $C_a_doconw w h_75 e
+h_2EFE h_2EEC h_80 $C_a_next a $C_a_doconw w h_75 e
 
-h_2F02 h_2EF4 h_80 $C_a_exit a $C_a_doconw w h_73 e
+h_2F0E h_2F00 h_80 $C_a_exit a $C_a_doconw w h_73 e
 
-h_2F14 h_2F04 h_80 $C_a_litw a $C_a_doconw w h_6F e
+h_2F20 h_2F10 h_80 $C_a_litw a $C_a_doconw w h_6F e
 
-h_2F24 h_2F16 h_80 $C_a_litl a $C_a_doconw w h_69 e
+h_2F30 h_2F22 h_80 $C_a_litl a $C_a_doconw w h_69 e
 
-h_2F34 h_2F26 h_80 $C_a_doconl a $C_a_doconw w h_64 e
+h_2F40 h_2F32 h_80 $C_a_doconl a $C_a_doconw w h_64 e
 
-h_2F46 h_2F36 h_80 $C_a_dovarw a $C_a_doconw w h_61 e
+h_2F52 h_2F42 h_80 $C_a_dovarw a $C_a_doconw w h_61 e
 
-h_2F58 h_2F48 h_80 $C_a_dovarl a $C_a_doconw w h_5F e
+h_2F64 h_2F54 h_80 $C_a_dovarl a $C_a_doconw w h_5F e
 
-h_2F6A h_2F5A h_80 $C_a_doconw a $C_a_doconw w h_5C e
+h_2F76 h_2F66 h_80 $C_a_doconw a $C_a_doconw w h_5C e
 
-h_2F7C h_2F6C h_80 $C_a_branch a $C_a_doconw w h_58 e
+h_2F88 h_2F78 h_80 $C_a_branch a $C_a_doconw w h_58 e
 
-h_2F8E h_2F7E h_80 $C_a_COG! a $C_a_doconw w h_54 e
+h_2F9A h_2F8A h_80 $C_a_COG! a $C_a_doconw w h_54 e
 
-h_2F9E h_2F90 h_80 $C_a_ST! a $C_a_doconw w h_4F e
+h_2FAA h_2F9C h_80 $C_a_ST! a $C_a_doconw w h_4F e
 
-h_2FAE h_2FA0 h_80 $C_a_RS! a $C_a_doconw w h_49 e
+h_2FBA h_2FAC h_80 $C_a_RS! a $C_a_doconw w h_49 e
 
-h_2FBE h_2FB0 h_80 $C_a_COGat a $C_a_doconw w h_45 e
+h_2FCA h_2FBC h_80 $C_a_COGat a $C_a_doconw w h_45 e
 
-h_2FD0 h_2FC0 h_80 $C_a_STat a $C_a_doconw w h_40 e
+h_2FDC h_2FCC h_80 $C_a_STat a $C_a_doconw w h_40 e
 
-h_2FE0 h_2FD2 h_80 $C_a_RSat a $C_a_doconw w h_3A e
+h_2FEC h_2FDE h_80 $C_a_RSat a $C_a_doconw w h_3A e
 
-h_2FF0 h_2FE2 h_80 $C_a_drop a $C_a_doconw w h_38 e
+h_2FFC h_2FEE h_80 $C_a_drop a $C_a_doconw w h_38 e
 
-h_3000 h_2FF2 h_80 $C_a__xasm2>0 a $C_a_doconw w h_33 e
+h_300C h_2FFE h_80 $C_a__xasm2>0 a $C_a_doconw w h_33 e
 
-h_3014 h_3002 h_80 $C_a__xasm1>1 a $C_a_doconw w h_2E e
+h_3020 h_300E h_80 $C_a__xasm1>1 a $C_a_doconw w h_2E e
 
-h_3028 h_3016 h_80 $C_a__xasm2>1 a $C_a_doconw w h_28 e
+h_3034 h_3022 h_80 $C_a__xasm2>1 a $C_a_doconw w h_28 e
 
-h_303C h_302A h_80 $C_a__xasm2>1IMM a $C_a_doconw w h_25 e
+h_3048 h_3036 h_80 $C_a__xasm2>1IMM a $C_a_doconw w h_25 e
 
-h_3054 h_303E h_80 $C_a__xasm2>flag a $C_a_doconw w h_16 e
+h_3060 h_304A h_80 $C_a__xasm2>flag a $C_a_doconw w h_16 e
 
-h_306C h_3056 h_80 $C_a__xasm2>flagIMM a $C_a_doconw w h_13 e
+h_3078 h_3062 h_80 $C_a__xasm2>flagIMM a $C_a_doconw w h_13 e
 
-h_3086 h_306E h_80 $C_a_lxasm a $C_a_doconw w h_3 e
+h_3092 h_307A h_80 $C_a_lxasm a $C_a_doconw w h_3 e
 
-h_3098 h_3088 h_80 $C_IP a $C_a_doconw w h_2 e
+h_30A4 h_3094 h_80 $C_IP a $C_a_doconw w h_2 e
 
-h_30A6 h_309A h_80 (version) p cq w h_6F1E w h_7470 w h_454B w h_4E52 w h_4C45 w h_2E36 w h_2D30 w h_3032 w h_3531 w h_634F w h_3174 w h_2037 w h_3731 w h_313A w h_2D36 w h_30 a $C_a_exit e
+h_30B2 h_30A6 h_80 (version) p cq w h_6F1E w h_7470 w h_454B w h_4E52 w h_4C45 w h_2E36 w h_2D30 w h_3032 w h_3531 w h_634F w h_3174 w h_2038 w h_3830 w h_353A w h_2D39 w h_30 a $C_a_exit e
 
-h_30D6 h_30A8 h_80 um* a $C_a_lxasm w h_0 w h_20FB w h_4194 w h_72B2 w h_5CFD w h_200 w h_A0FC w h_9200 w h_A0FD w h_9400 w h_A0FD w h_9001 w h_2BFD w h_104 w h_5C4C w h_9400 w h_81BD w h_2C9 w h_C8BC w h_1 w h_2DFC w h_9201 w h_34FD w h_100 w h_5C54 w h_90CA w h_A0BD w h_54A4 w h_5CFD w h_9001 w h_A0BD w h_73 w h_5C7C e
+h_30E2 h_30B4 h_80 um* a $C_a_lxasm w h_0 w h_20FB w h_41A0 w h_72B2 w h_5CFD w h_200 w h_A0FC w h_9200 w h_A0FD w h_9400 w h_A0FD w h_9001 w h_2BFD w h_104 w h_5C4C w h_9400 w h_81BD w h_2C9 w h_C8BC w h_1 w h_2DFC w h_9201 w h_34FD w h_100 w h_5C54 w h_90CA w h_A0BD w h_54A4 w h_5CFD w h_9001 w h_A0BD w h_73 w h_5C7C e
 
-h_3120 h_30D8 h_80 um/mod a $C_a_lxasm w h_22FB w h_41E0 w h_72B2 w h_5CFD w h_98C8 w h_A0BD w h_72B3 w h_5CFD w h_9240 w h_A0FD w h_200 w h_A0FC w h_9001 w h_2DFD w h_9801 w h_35FD w h_201 w h_35FC w h_200 w h_84B0 w h_200 w h_E18C w h_9401 w h_34FD w h_9301 w h_E4FD w h_9001 w h_A0BD w h_54A4 w h_5CFD w h_90CA w h_A0BD w h_73 w h_5C7C e
+h_312C h_30E4 h_80 um/mod a $C_a_lxasm w h_22FB w h_41EC w h_72B2 w h_5CFD w h_98C8 w h_A0BD w h_72B3 w h_5CFD w h_9240 w h_A0FD w h_200 w h_A0FC w h_9001 w h_2DFD w h_9801 w h_35FD w h_201 w h_35FC w h_200 w h_84B0 w h_200 w h_E18C w h_9401 w h_34FD w h_9301 w h_E4FD w h_9001 w h_A0BD w h_54A4 w h_5CFD w h_90CA w h_A0BD w h_73 w h_5C7C e
 
-h_3170 h_3122 h_80 cstr= a $C_a_lxasm w h_0 w h_1AFB w h_4230 w h_72B2 w h_5CFD w h_200 w h_BC w h_201 w h_80FC w h_9001 w h_84FD w h_9200 w h_BD w h_1 w h_80FC w h_9001 w h_80FD w h_94C8 w h_BD w h_92CA w h_863D w h_300 w h_E4E8 w h_90C4 w h_78BD w h_73 w h_5C7C e
+h_317C h_312E h_80 cstr= a $C_a_lxasm w h_0 w h_1AFB w h_423C w h_72B2 w h_5CFD w h_200 w h_BC w h_201 w h_80FC w h_9001 w h_84FD w h_9200 w h_BD w h_1 w h_80FC w h_9001 w h_80FD w h_94C8 w h_BD w h_92CA w h_863D w h_300 w h_E4E8 w h_90C4 w h_78BD w h_73 w h_5C7C e
 
-h_31B0 h_3172 h_80 name= a $C_a_lxasm w h_0 w h_24FB w h_4270 w h_72B2 w h_5CFD w h_200 w h_BC w h_21F w h_60FC w h_1 w h_80FC w h_94C8 w h_BD w h_941F w h_60FD w h_9201 w h_A0BD w h_201 w h_80FC w h_109 w h_5C7C w h_9200 w h_BD w h_1 w h_80FC w h_9001 w h_80FD w h_94C8 w h_BD w h_92CA w h_863D w h_305 w h_E4E8 w h_90C4 w h_78BD w h_73 w h_5C7C e
+h_31BC h_317E h_80 name= a $C_a_lxasm w h_0 w h_24FB w h_427C w h_72B2 w h_5CFD w h_200 w h_BC w h_21F w h_60FC w h_1 w h_80FC w h_94C8 w h_BD w h_941F w h_60FD w h_9201 w h_A0BD w h_201 w h_80FC w h_109 w h_5C7C w h_9200 w h_BD w h_1 w h_80FC w h_9001 w h_80FD w h_94C8 w h_BD w h_92CA w h_863D w h_305 w h_E4E8 w h_90C4 w h_78BD w h_73 w h_5C7C e
 
-h_3204 h_31B2 h_80 _dictsearch a $C_a_lxasm w h_32FB w h_42C8 w h_72B2 w h_5CFD w h_9600 w h_A0BD w h_98C8 w h_A0BD w h_200 w h_BC w h_21F w h_60FC w h_1 w h_80FC w h_94C8 w h_BD w h_941F w h_60FD w h_9201 w h_A0BD w h_201 w h_80FC w h_10B w h_5C7C w h_9200 w h_BD w h_1 w h_80FC w h_9001 w h_80FD w h_94C8 w h_BD w h_92CA w h_863D w h_307 w h_E4E8 w h_90CC w h_A0BD w h_73 w h_5C68 w h_9802 w h_84FD w h_90CC w h_6BD w h_73 w h_5C68 w h_CB w h_A0BC w h_FE w h_5C7C e
+h_3210 h_31BE h_80 _dictsearch a $C_a_lxasm w h_32FB w h_42D4 w h_72B2 w h_5CFD w h_9600 w h_A0BD w h_98C8 w h_A0BD w h_200 w h_BC w h_21F w h_60FC w h_1 w h_80FC w h_94C8 w h_BD w h_941F w h_60FD w h_9201 w h_A0BD w h_201 w h_80FC w h_10B w h_5C7C w h_9200 w h_BD w h_1 w h_80FC w h_9001 w h_80FD w h_94C8 w h_BD w h_92CA w h_863D w h_307 w h_E4E8 w h_90CC w h_A0BD w h_73 w h_5C68 w h_9802 w h_84FD w h_90CC w h_6BD w h_73 w h_5C68 w h_CB w h_A0BC w h_FE w h_5C7C e
 
-h_3278 h_3206 h_80 padbl a $C_a_lxasm w h_0 w h_12FB w h_4338 w h_97F0 w h_A0BD w h_9604 w h_80FD w h_9220 w h_A0FD w h_6CB w h_83E w h_9604 w h_80FD w h_92FF w h_E4FD w h_73 w h_5C7C w h_2020 w h_2020 e
+h_3284 h_3212 h_80 padbl a $C_a_lxasm w h_0 w h_12FB w h_4344 w h_97F0 w h_A0BD w h_9604 w h_80FD w h_9220 w h_A0FD w h_6CB w h_83E w h_9604 w h_80FD w h_92FF w h_E4FD w h_73 w h_5C7C w h_2020 w h_2020 e
 
-h_32A8 h_327A h_80 _accept a $C_a_lxasm w h_5CFB w h_4368 w h_54A4 w h_5CFD w h_3F0 w h_A0BC w h_202 w h_80FC w h_9801 w h_4BD w h_2DD w h_80FC w h_1 w h_BC w h_8 w h_627C w h_9800 w h_A0D5 w h_2DA w h_84FC w h_9001 w h_A0BD w h_927E w h_A0FD w h_95F0 w h_4BD w h_9500 w h_627D w h_107 w h_5C54 w h_100 w h_A0FC w h_1F0 w h_43C w h_940D w h_867D w h_9201 w h_A0E9 w h_11E w h_5C68 w h_9408 w h_867D w h_115 w h_5C68 w h_9420 w h_48FD w h_94C8 w h_3D w h_9001 w h_80FD w h_11E w h_5C7C w h_5122 w h_5CFE w h_9420 w h_A0FD w h_5122 w h_5CFE w h_9001 w h_84FD w h_9001 w h_48BD w h_94C8 w h_3D w h_9202 w h_80FD w h_927E w h_4CFD w h_9408 w h_A0FD w h_5122 w h_5CFE w h_9307 w h_E4FD w h_9001 w h_84BD w h_73 w h_5C7C w h_9800 w h_867D w h_128 w h_5C68 w h_CC w h_4BC w h_100 w h_627C w h_124 w h_5C68 w h_94CC w h_43D w h_0 w h_5C7C e
+h_32B4 h_3286 h_80 _accept a $C_a_lxasm w h_5CFB w h_4374 w h_54A4 w h_5CFD w h_3F0 w h_A0BC w h_202 w h_80FC w h_9801 w h_4BD w h_2DD w h_80FC w h_1 w h_BC w h_8 w h_627C w h_9800 w h_A0D5 w h_2DA w h_84FC w h_9001 w h_A0BD w h_927E w h_A0FD w h_95F0 w h_4BD w h_9500 w h_627D w h_107 w h_5C54 w h_100 w h_A0FC w h_1F0 w h_43C w h_940D w h_867D w h_9201 w h_A0E9 w h_11E w h_5C68 w h_9408 w h_867D w h_115 w h_5C68 w h_9420 w h_48FD w h_94C8 w h_3D w h_9001 w h_80FD w h_11E w h_5C7C w h_5122 w h_5CFE w h_9420 w h_A0FD w h_5122 w h_5CFE w h_9001 w h_84FD w h_9001 w h_48BD w h_94C8 w h_3D w h_9202 w h_80FD w h_927E w h_4CFD w h_9408 w h_A0FD w h_5122 w h_5CFE w h_9307 w h_E4FD w h_9001 w h_84BD w h_73 w h_5C7C w h_9800 w h_867D w h_128 w h_5C68 w h_CC w h_4BC w h_100 w h_627C w h_124 w h_5C68 w h_94CC w h_43D w h_0 w h_5C7C e
 
-h_336C h_32AA h_80 .str a $C_a_lxasm w h_0 w h_20FB w h_442C w h_72B2 w h_5CFD w h_0 w h_867C w h_99F0 w h_A095 w h_9802 w h_80D5 w h_2CC w h_694 w h_109 w h_5C68 w h_94C8 w h_BD w h_9001 w h_80FD w h_9201 w h_4BD w h_9300 w h_627D w h_104 w h_5C68 w h_9401 w h_43D w h_102 w h_E4FC w h_72B3 w h_5CFD w h_73 w h_5C7C e
+h_3378 h_32B6 h_80 .str a $C_a_lxasm w h_0 w h_20FB w h_4438 w h_72B2 w h_5CFD w h_0 w h_867C w h_99F0 w h_A095 w h_9802 w h_80D5 w h_2CC w h_694 w h_109 w h_5C68 w h_94C8 w h_BD w h_9001 w h_80FD w h_9201 w h_4BD w h_9300 w h_627D w h_104 w h_5C68 w h_9401 w h_43D w h_102 w h_E4FC w h_72B3 w h_5CFD w h_73 w h_5C7C e
 
-h_33B8 h_336E h_80 _fkey? a $C_a_lxasm w h_16FB w h_4478 w h_C8 w h_4BC w h_100 w h_627C w h_2C4 w h_78BC w h_102 w h_5C54 w h_9300 w h_A0FD w h_92C8 w h_43D w h_9000 w h_A0BD w h_54A4 w h_5CFD w h_9001 w h_A0BD w h_73 w h_5C7C e
+h_33C4 h_337A h_80 _fkey? a $C_a_lxasm w h_16FB w h_4484 w h_C8 w h_4BC w h_100 w h_627C w h_2C4 w h_78BC w h_102 w h_5C54 w h_9300 w h_A0FD w h_92C8 w h_43D w h_9000 w h_A0BD w h_54A4 w h_5CFD w h_9001 w h_A0BD w h_73 w h_5C7C e
 
-h_33F0 h_33BA h_80 fkey? a $C_a_lxasm w h_0 w h_16FB w h_44B0 w h_54A4 w h_5CFD w h_91F0 w h_4BD w h_9100 w h_627D w h_C4 w h_78BC w h_103 w h_5C54 w h_9300 w h_A0FD w h_93F0 w h_43D w h_54A4 w h_5CFD w h_9000 w h_A0BD w h_73 w h_5C7C e
+h_33FC h_33C6 h_80 fkey? a $C_a_lxasm w h_0 w h_16FB w h_44BC w h_54A4 w h_5CFD w h_91F0 w h_4BD w h_9100 w h_627D w h_C4 w h_78BC w h_103 w h_5C54 w h_9300 w h_A0FD w h_93F0 w h_43D w h_54A4 w h_5CFD w h_9000 w h_A0BD w h_73 w h_5C7C e
 
-h_3428 h_33F2 h_80 key a $C_a_lxasm w h_10FB w h_44E4 w h_54A4 w h_5CFD w h_91F0 w h_4BD w h_9100 w h_627D w h_FD w h_5C54 w h_100 w h_A0FC w h_1F0 w h_43C w h_73 w h_5C7C e
+h_3434 h_33FE h_80 key a $C_a_lxasm w h_10FB w h_44F0 w h_54A4 w h_5CFD w h_91F0 w h_4BD w h_9100 w h_627D w h_FD w h_5C54 w h_100 w h_A0FC w h_1F0 w h_43C w h_73 w h_5C7C e
 
-h_3450 h_342A h_80 _femit? a $C_a_lxasm w h_12FB w h_4510 w h_72B2 w h_5CFD w h_90FF w h_60FD w h_200 w h_4BC w h_300 w h_627C w h_92C4 w h_7CBD w h_9000 w h_415 w h_90C9 w h_A0BD w h_73 w h_5C7C e
+h_345C h_3436 h_80 _femit? a $C_a_lxasm w h_12FB w h_451C w h_72B2 w h_5CFD w h_90FF w h_60FD w h_200 w h_4BC w h_300 w h_627C w h_92C4 w h_7CBD w h_9000 w h_415 w h_90C9 w h_A0BD w h_73 w h_5C7C e
 
-h_3480 h_3452 h_80 femit? a $C_a_lxasm w h_1AFB w h_4540 w h_90FF w h_60FD w h_3F0 w h_A0BC w h_202 w h_80FC w h_9201 w h_6BD w h_94C4 w h_78BD w h_106 w h_5C68 w h_2C9 w h_4BC w h_300 w h_627C w h_94C4 w h_7CBD w h_90C9 w h_415 w h_90CA w h_A0BD w h_73 w h_5C7C e
+h_348C h_345E h_80 femit? a $C_a_lxasm w h_1AFB w h_454C w h_90FF w h_60FD w h_3F0 w h_A0BC w h_202 w h_80FC w h_9201 w h_6BD w h_94C4 w h_78BD w h_106 w h_5C68 w h_2C9 w h_4BC w h_300 w h_627C w h_94C4 w h_7CBD w h_90C9 w h_415 w h_90CA w h_A0BD w h_73 w h_5C7C e
 
-h_34C0 h_3482 h_80 emit a $C_a_lxasm w h_0 w h_18FB w h_4580 w h_72B2 w h_5CFD w h_FF w h_60FC w h_3F0 w h_A0BC w h_202 w h_80FC w h_9201 w h_6BD w h_106 w h_5C68 w h_2C9 w h_4BC w h_300 w h_627C w h_102 w h_5C68 w h_C9 w h_43C w h_73 w h_5C7C e
+h_34CC h_348E h_80 emit a $C_a_lxasm w h_0 w h_18FB w h_458C w h_72B2 w h_5CFD w h_FF w h_60FC w h_3F0 w h_A0BC w h_202 w h_80FC w h_9201 w h_6BD w h_106 w h_5C68 w h_2C9 w h_4BC w h_300 w h_627C w h_102 w h_5C68 w h_C9 w h_43C w h_73 w h_5C7C e
 
-h_34FC h_34C2 h_80 skipbl a $C_a_lxasm w h_24FB w h_45BC w h_1F0 w h_A0BC w h_DC w h_80FC w h_200 w h_4BC w h_280 w h_877C w h_10C w h_5C4C w h_9280 w h_A0FD w h_9201 w h_84BD w h_204 w h_80FC w h_3F0 w h_80BC w h_9601 w h_BD w h_9620 w h_867D w h_201 w h_80E8 w h_9305 w h_E4E9 w h_204 w h_84FC w h_3F0 w h_84BC w h_200 w h_43C w h_73 w h_5C7C e
+h_3508 h_34CE h_80 skipbl a $C_a_lxasm w h_24FB w h_45C8 w h_1F0 w h_A0BC w h_DC w h_80FC w h_200 w h_4BC w h_280 w h_877C w h_10C w h_5C4C w h_9280 w h_A0FD w h_9201 w h_84BD w h_204 w h_80FC w h_3F0 w h_80BC w h_9601 w h_BD w h_9620 w h_867D w h_201 w h_80E8 w h_9305 w h_E4E9 w h_204 w h_84FC w h_3F0 w h_84BC w h_200 w h_43C w h_73 w h_5C7C e
 
-h_3550 h_34FE h_80 _eeread a $C_a_lxasm w h_40FB w h_4610 w h_103 w h_5C7C w h_0 w h_2000 w h_0 w h_1000 w h_D w h_0 w h_98FF w h_A0BD w h_9901 w h_E4FD w h_0 w h_5C7C w h_C8 w h_A0BC w h_9000 w h_A0FD w h_ECFD w h_64BF w h_9208 w h_A0FD w h_500 w h_5CFE w h_FBF2 w h_613D w h_9001 w h_34FD w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_500 w h_5CFE w h_9307 w h_E4FD w h_0 w h_867C w h_E8FD w h_7CBF w h_ECFD w h_68BF w h_500 w h_5CFE w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_E8FD w h_64BF w h_500 w h_5CFE w h_73 w h_5C7C e
+h_355C h_350A h_80 _eeread a $C_a_lxasm w h_40FB w h_461C w h_103 w h_5C7C w h_0 w h_2000 w h_0 w h_1000 w h_D w h_0 w h_98FF w h_A0BD w h_9901 w h_E4FD w h_0 w h_5C7C w h_C8 w h_A0BC w h_9000 w h_A0FD w h_ECFD w h_64BF w h_9208 w h_A0FD w h_500 w h_5CFE w h_FBF2 w h_613D w h_9001 w h_34FD w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_500 w h_5CFE w h_9307 w h_E4FD w h_0 w h_867C w h_E8FD w h_7CBF w h_ECFD w h_68BF w h_500 w h_5CFE w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_E8FD w h_64BF w h_500 w h_5CFE w h_73 w h_5C7C e
 
-h_35DC h_3552 h_80 _eewrite a $C_a_lxasm w h_0 w h_3EFB w h_46A0 w h_103 w h_5C7C w h_0 w h_2000 w h_0 w h_1000 w h_D w h_0 w h_98FF w h_A0BD w h_9901 w h_E4FD w h_0 w h_5C7C w h_9208 w h_A0FD w h_9080 w h_627D w h_E8FD w h_7CBF w h_500 w h_5CFE w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_9001 w h_2CFD w h_500 w h_5CFE w h_9304 w h_E4FD w h_ECFD w h_64BF w h_FBF2 w h_623D w h_90C4 w h_7CBD w h_500 w h_5CFE w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_500 w h_5CFE w h_E8FD w h_64BF w h_ECFD w h_68BF w h_73 w h_5C7C e
+h_35E8 h_355E h_80 _eewrite a $C_a_lxasm w h_0 w h_3EFB w h_46AC w h_103 w h_5C7C w h_0 w h_2000 w h_0 w h_1000 w h_D w h_0 w h_98FF w h_A0BD w h_9901 w h_E4FD w h_0 w h_5C7C w h_9208 w h_A0FD w h_9080 w h_627D w h_E8FD w h_7CBF w h_500 w h_5CFE w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_9001 w h_2CFD w h_500 w h_5CFE w h_9304 w h_E4FD w h_ECFD w h_64BF w h_FBF2 w h_623D w h_90C4 w h_7CBD w h_500 w h_5CFE w h_E8FE w h_68BF w h_500 w h_5CFE w h_500 w h_5CFE w h_E8FE w h_64BF w h_500 w h_5CFE w h_E8FD w h_64BF w h_ECFD w h_68BF w h_73 w h_5C7C e
 
-h_3668 h_35DE h_80 xisnumber a $C_a_lxasm w h_0 w h_5CFB w h_472C w h_92C8 w h_A0BD w h_72B3 w h_5CFD w h_94C8 w h_A0BD w h_90C4 w h_A0BD w h_1F0 w h_A0BC w h_D2 w h_80FC w h_200 w h_A0FC w h_96CA w h_BD w h_967A w h_867D w h_240 w h_A0E8 w h_9668 w h_867D w h_210 w h_A0E8 w h_9664 w h_867D w h_20A w h_A0E8 w h_9662 w h_867D w h_202 w h_A0E8 w h_200 w h_867C w h_200 w h_4A8 w h_9401 w h_80D5 w h_9201 w h_84D5 w h_96CA w h_BD w h_962D w h_867D w h_9401 w h_80E9 w h_9201 w h_84E9 w h_96CA w h_BD w h_9401 w h_80FD w h_965F w h_867D w h_127 w h_5E68 w h_9630 w h_84FD w h_9609 w h_C37D w h_11E w h_5C78 w h_9607 w h_84FD w h_960A w h_C37D w h_96C4 w h_A0B1 w h_9626 w h_C37D w h_123 w h_5C78 w h_9603 w h_84FD w h_9627 w h_C37D w h_96C4 w h_A0B1 w h_9601 w h_873D w h_96C4 w h_A0B1 w h_9600 w h_A0CD w h_90CB w h_62BD w h_9314 w h_E4D5 w h_73 w h_5C7C e
+h_3674 h_35EA h_80 xisnumber a $C_a_lxasm w h_0 w h_5CFB w h_4738 w h_92C8 w h_A0BD w h_72B3 w h_5CFD w h_94C8 w h_A0BD w h_90C4 w h_A0BD w h_1F0 w h_A0BC w h_D2 w h_80FC w h_200 w h_A0FC w h_96CA w h_BD w h_967A w h_867D w h_240 w h_A0E8 w h_9668 w h_867D w h_210 w h_A0E8 w h_9664 w h_867D w h_20A w h_A0E8 w h_9662 w h_867D w h_202 w h_A0E8 w h_200 w h_867C w h_200 w h_4A8 w h_9401 w h_80D5 w h_9201 w h_84D5 w h_96CA w h_BD w h_962D w h_867D w h_9401 w h_80E9 w h_9201 w h_84E9 w h_96CA w h_BD w h_9401 w h_80FD w h_965F w h_867D w h_127 w h_5E68 w h_9630 w h_84FD w h_9609 w h_C37D w h_11E w h_5C78 w h_9607 w h_84FD w h_960A w h_C37D w h_96C4 w h_A0B1 w h_9626 w h_C37D w h_123 w h_5C78 w h_9603 w h_84FD w h_9627 w h_C37D w h_96C4 w h_A0B1 w h_9601 w h_873D w h_96C4 w h_A0B1 w h_9600 w h_A0CD w h_90CB w h_62BD w h_9314 w h_E4D5 w h_73 w h_5C7C e
 
-h_3730 h_366A h_80 xnumber a $C_a_lxasm w h_68FB w h_47F0 w h_92C8 w h_A0BD w h_72B3 w h_5CFD w h_94C8 w h_A0BD w h_9000 w h_A0FD w h_1F0 w h_A0BC w h_D2 w h_80FC w h_200 w h_A0FC w h_96CA w h_BD w h_967A w h_867D w h_240 w h_A0E8 w h_9668 w h_867D w h_210 w h_A0E8 w h_9664 w h_867D w h_20A w h_A0E8 w h_9662 w h_867D w h_202 w h_A0E8 w h_200 w h_867C w h_200 w h_4A8 w h_9401 w h_80D5 w h_9201 w h_84D5 w h_96CA w h_BD w h_962D w h_867D w h_98C4 w h_78BD w h_9401 w h_80E9 w h_9201 w h_84E9 w h_96CA w h_BD w h_9401 w h_80FD w h_965F w h_867D w h_12B w h_5C68 w h_9630 w h_84FD w h_9609 w h_C37D w h_11F w h_5C78 w h_9607 w h_84FD w h_960A w h_C37D w h_96C4 w h_A0B1 w h_9626 w h_C37D w h_124 w h_5C78 w h_9603 w h_84FD w h_9627 w h_C37D w h_96C4 w h_A0B1 w h_C8 w h_A0BC w h_90CB w h_A0BD w h_9601 w h_A0BD w h_9601 w h_2BFD w h_9000 w h_80B1 w h_1 w h_2CFC w h_127 w h_5C54 w h_9315 w h_E4FD w h_9800 w h_867D w h_90C8 w h_A495 w h_73 w h_5C7C e
+h_373C h_3676 h_80 xnumber a $C_a_lxasm w h_68FB w h_47FC w h_92C8 w h_A0BD w h_72B3 w h_5CFD w h_94C8 w h_A0BD w h_9000 w h_A0FD w h_1F0 w h_A0BC w h_D2 w h_80FC w h_200 w h_A0FC w h_96CA w h_BD w h_967A w h_867D w h_240 w h_A0E8 w h_9668 w h_867D w h_210 w h_A0E8 w h_9664 w h_867D w h_20A w h_A0E8 w h_9662 w h_867D w h_202 w h_A0E8 w h_200 w h_867C w h_200 w h_4A8 w h_9401 w h_80D5 w h_9201 w h_84D5 w h_96CA w h_BD w h_962D w h_867D w h_98C4 w h_78BD w h_9401 w h_80E9 w h_9201 w h_84E9 w h_96CA w h_BD w h_9401 w h_80FD w h_965F w h_867D w h_12B w h_5C68 w h_9630 w h_84FD w h_9609 w h_C37D w h_11F w h_5C78 w h_9607 w h_84FD w h_960A w h_C37D w h_96C4 w h_A0B1 w h_9626 w h_C37D w h_124 w h_5C78 w h_9603 w h_84FD w h_9627 w h_C37D w h_96C4 w h_A0B1 w h_C8 w h_A0BC w h_90CB w h_A0BD w h_9601 w h_A0BD w h_9601 w h_2BFD w h_9000 w h_80B1 w h_1 w h_2CFC w h_127 w h_5C54 w h_9315 w h_E4FD w h_9800 w h_867D w h_90C8 w h_A495 w h_73 w h_5C7C e
 
-h_380C h_3732 h_80 init_coghere a $C_a_litw w h_12F p coghere p W! a $C_a_exit e
+h_3818 h_373E h_80 init_coghere a $C_a_litw w h_12F p coghere p W! a $C_a_exit e
 
-h_3826 h_380E h_80 build_BootOpt a $C_a_doconw w h_FB e
+h_3832 h_381A h_80 build_BootOpt a $C_a_doconw w h_FB e
 
-h_383A h_3828 h_80 u* p um* a $C_a_drop a $C_a_exit e
+h_3846 h_3834 h_80 u* p um* a $C_a_drop a $C_a_exit e
 
-h_3846 h_383C h_80 u/mod p 0 p swap p um/mod a $C_a_exit e
+h_3852 h_3848 h_80 u/mod p 0 p swap p um/mod a $C_a_exit e
 
-h_3856 h_3848 h_80 u/ p u/mod p nip a $C_a_exit e
+h_3862 h_3854 h_80 u/ p u/mod p nip a $C_a_exit e
 
 -1 
 
 \ initialNewhere h_18 
 
-\ newhere h_3862 
+\ newhere h_386E 
 
-\ lastNewNFA h_3856 
+\ lastNewNFA h_3862 
 

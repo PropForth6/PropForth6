@@ -38,8 +38,9 @@
 \ erase the last file which is invalid.
 
 
-
+[ifndef build_fswr
 1 wconstant build_fswr
+]
 
 \
 \
@@ -96,6 +97,7 @@
 ]
 \ _fswr ( addr1 addr2 n1 -- ) addr1 - the eepropm address to write, addr2 - the address to write from
 \ n1 - the number of bytes to write
+[ifndef _fswr
 : _fswr
 	dup >r rot dup r> + fstop 1- >
 	if
@@ -106,6 +108,8 @@
 		hA ERR
 	then
 ;
+]
+
 \ fsclr ( -- )
 \ : fsclr
 \ 	padbl fstop fsbot
@@ -116,10 +120,14 @@
 \ ;
 \
 \ fsclear ( -- ) erase all files and initialize the eeprom file system
+[ifndef fsclear
 : fsclear
 	-1 fsbot EW!
 ;
+]
+
 \ fswrite filename ( -- ) writes a file until ... followed immediately by a cr is encountered
+[ifndef fswrite
 : fswrite
 	_fsfree dup -1 <> parsenw dup rot and
 	 if
@@ -167,8 +175,10 @@
 	then
 	padbl
 ;
+]
 
 \ fsdrop ( -- ) deletes last file
+[ifndef fsdrop
 : fsdrop
 	_fslast dup -1 = 
 	if
@@ -177,3 +187,5 @@
 		hFFFF swap EW!
 	then
 ;
+]
+

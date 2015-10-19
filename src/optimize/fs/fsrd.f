@@ -96,9 +96,9 @@ fswrite aloha.f
 \ remember there are still eeprom write routines in the boot kernel
 \ so safety is not guaranteed
 \
-
-1 wconstant build_fsrd
-
+[ifndef build_fsrd
+	1 wconstant build_fsrd
+]
 [ifndef $C_a_doconl
     h62 wconstant $C_a_doconl
 ]
@@ -114,10 +114,17 @@ fswrite aloha.f
 \
 \ CONFIG PARAMETERS BEGIN
 \
-h8000	constant	fsbot		\ the start adress in eeprom for the file system
-h10000	constant	fstop		\ the end address in the eeprom for the file system
-h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
-					\ and should work with larger as well. MUST BE A POWER OF 2
+
+[ifndef fsbot
+	h8000	constant	fsbot		\ the start adress in eeprom for the file system
+]
+[ifndef fstop
+	h10000	constant	fstop		\ the end address in the eeprom for the file system
+]
+[ifndef fsps
+	h40	wconstant	fsps			\ a page size which should work with 32kx8 & 64kx8 eeproms
+									\ and should work with larger as well. MUST BE A POWER OF 2
+]
 \
 \ CONFIG PARAMETERS END
 \
@@ -408,7 +415,6 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 ;
 ]
 
-
 \ the eereadpage and eewritePage words assume the eeprom are 64kx8 and will address up to 
 \ 8 sequential eeproms
 \ eereadpage ( eeAddr addr u -- t/f ) return true if there was an error, use lock 1
@@ -435,19 +441,24 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 ]
 
 \ _fspa ( addr1 -- addr2) addr2 is the next page aligned address after addr1
+[ifndef _fspa
 : _fspa
 	fsps 1- + fsps 1- andn
 ;
+]
 
 \ _fsnext ( addr1 -- addr2 t/f) addr - the current file address, addr2 - the next addr, t/f - true if we have
 \				gone past the end of the eeprom. t0 -length of the current file
 \				t1 - length of the file name (char)
+[ifndef _fsnext
 : _fsnext
 	t0 W@ t1 C@ + 2+ 1+ + _fspa dup fstop >=
 ;
+]
 
 \ _fsrd ( addr1 addr2 n1 -- ) addr1 - the eepropm address to read, addr2 - the address of the read buffer
 \ n1 - the number of bytes to read
+[ifndef _fsrd
 : _fsrd
 	dup >r rot dup r> + fstop 1- >
 	if
@@ -458,8 +469,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 		hA ERR
 	then
 ;
+]
 
 \ _fsfree ( -- n1 ) n1 is the first location in the file system, -1 if there are none
+[ifndef _fsfree
 : _fsfree
 	-1 fsbot
 	begin
@@ -473,8 +486,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 	until
 	drop
 ;
+]
 
 \ _fsfind ( cstr -- addr ) find the last file named cstr, addr is the eeprom address, 0 if not found
+[ifndef _fsfind
 : _fsfind
 	fsbot 0 >r
 	begin
@@ -492,8 +507,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 	until
 	2drop r>
 ;
+]
 
 \ _fslast ( -- addr ) find the last file, 0 if not found
+[ifndef _fnf
 : _fslast
 	0 fsbot
 	begin
@@ -511,6 +528,7 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 
 
 \ fsfree ( -- ) print out free bytes in the eeprom file system
+[ifndef fsfree
 : fsfree
 	_fsfree dup -1 =
 	if
@@ -520,8 +538,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 	then
 	cr .long ."  bytes free in EEPROM file system" cr
 ;
+]
 
 \ fsls ( -- ) list the files
+[ifndef fsls
 : fsls
 	cr fsbot
 	begin
@@ -536,8 +556,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 	until
 	drop fsfree
 ;
+]
 
 \ _fsread ( cstr -- ) read file to output
+[ifndef _fsread
 : _fsread
 	_fsfind dup
 	if
@@ -559,8 +581,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 	then
 	padbl
 ;
+]
 
 \ _fsp filename ( -- cstr ) filename, if cstr is 0 no file found
+[ifndef _fsp
 : _fsp
 	parsenw dup
 	if
@@ -570,9 +594,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 		then
 	then
 ;
-		
+]	
 
 \ fsread filename ( -- ) prints filename to the output
+[ifndef fsread
 : fsread
 	_fsp dup 
 	if
@@ -581,8 +606,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 		drop _fnf
 	then
 ;
+]
 
 \ _fsload ( cstr -- ) load the using the next free cog
+[ifndef _fsload
 : _fsload
 	dup _fsfind
 	if
@@ -592,8 +619,10 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 		drop
 	then
 ;
+]
 
 \ fsload filename ( -- ) send the file to the next free forth cog
+[ifndef fsload
 : fsload 
 	_fsp dup
 	if
@@ -602,13 +631,15 @@ h40	wconstant	fsps		\ a page size which should work with 32kx8 & 64kx8 eeproms
 		drop _fnf
 	then
 ;
-
+]
 
 \ this changes the name of the last onboot word
 \
+[ifndef build_fsrd
 c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
-
+]
 \ onboot (n1 -- n1) execute file boot.f if it exists
+[ifndef build_fsrd
 : onboot
 	onb001
 \ do not execute boot.f if escape has been hit
@@ -617,3 +648,5 @@ c" onboot" find drop pfa>nfa 1+ c" onb001" C@++ rot swap cmove
 		c" boot.f" _fsload
 	then
 ;
+]
+

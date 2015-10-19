@@ -2377,6 +2377,7 @@ freedict
 			i cogreset
 		then
 	loop
+	>dbg version W@ cr .cstr cr xdbg
 ;
 \
 \

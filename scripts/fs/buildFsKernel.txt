@@ -1,0 +1,39 @@
+						L results/runLogs/fs/buildFsKernel.txt
+						R results/resultFiles/fs/buildFsKernel.txt
+\
+\ Reboot
+\
+	b 0					X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\ words to be added / replaced
+\
+	e 1	t 1000			X	hex cr c" here: " .cstr here W@ . (version) dup . .cstr cr cr
+	e 0 t 3000
+						X	(version) 16 - dup . 64 dump
+						Y	c" ~h20fsKERNEL6.0-
+						SDS
+						X	-0"	(version) ccopy
+						S	src/optimize/fs/fsrd.f
+						S	src/optimize/fs/fswr.f
+\
+\ forthimager.f
+\						
+						S	src/forthimager.f
+\
+\
+\ make fsKernel.eeprom
+\
+		t 1000	e 0		X	hA state orC!
+		t 3000	c 0		O	results/outputFiles/fs/fsKernel.eeprom
+						X	fbinout
+						CO
+	e 1	t 1000	c 1		X	hA state andnC!
+	
+	CR CL
+
+

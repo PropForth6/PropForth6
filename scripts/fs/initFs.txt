@@ -1,0 +1,25 @@
+						L results/runLogs/fs/initFs.txt
+						R results/resultFiles/fs/initFs.txt
+\
+\ Reboot
+\
+	b 0					X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\ words to be added / replaced
+\
+						S	src/optimize/fs/fsrd.f
+						S	src/optimize/fs/fswr.f
+						S	src/optimize/fs/fswrc.f
+						X	fsclear
+						S	src/optimize/fs/bootStart.f
+						S	src/optimize/fs/findEETop.f
+						S	src/optimize/dev/Forget.f
+						S	src/optimize/fs/bootEnd.f
+	CR CL
+
+

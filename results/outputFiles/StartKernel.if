@@ -652,189 +652,189 @@ h_2D8A h_2D6A h_80 main p _main a $C_a_exit e
 
 h_2D96 h_2D8C h_80 fstart p lasterr p L@ p state p C@ a $C_a_litw w h_80 p and p pad p $S_cdsz a $C_a_litw w h_4 p - p 0 p fill p state p orC! p lasterr p L! a $C_a_litw w h_100 p io p W! a $C_a_litw w h_A p base p W! p init_coghere p lockdict p _finit p W@ p 0= a $C_a_0branch w h_BA p -1 p _finit p W! p freedict p (version) p version p W! p (prop) p prop p W! p _lockarray a $C_a_litw w h_8 p bounds a $C_a_2>r a $C_a_litw w h_F p i p C! a $C_a_(loop) w h_FFF6 a $C_a_litl w h_0 w h_FFFF w h_7FFF p clkfreq a $C_a_litw w h_3E8 p u/ p u/ p _maxms p L! p clkfreq a $C_a_litw w h_3E8 p u/ p _cpms p L! p cq w h_5F03 w h_6966 p find a $C_a_drop p 2+ p alignl p 4+ p cq w h_2408 w h_5F48 w h_6E65 w h_7274 w h_79 p find a $C_a_drop p 2+ p W! p cq w h_6302 w h_71 p find a $C_a_drop p cq w h_2405 w h_5F48 w h_7163 p find a $C_a_drop p 2+ p W! p cq w h_6402 w h_71 p find a $C_a_drop p cq w h_2405 w h_5F48 w h_7164 p find a $C_a_drop p 2+ p W! p cq w h_6F06 w h_626E w h_6F6F w h_74 p find a $C_a_drop p execute a $C_a_branch w h_4 p freedict p cogid p _rreg p $C_resetDreg a $C_a_COG! p cq w h_6F07 w h_726E w h_7365 w h_7465 p tbuf p ccopy p cogid p tbuf p cappendn p tbuf p find a $C_a_0branch w h_8 p execute a $C_a_branch w h_14 a $C_a_drop p cq w h_6F07 w h_726E w h_7365 w h_7465 p find a $C_a_drop p execute p main a $C_a_exit e
 
-h_2EDC h_2D98 h_80 onboot p $S_con p iodis p $S_con p cogreset p cq w h_5F04 w h_6264 w h_67 p find a $C_a_0branch w h_10 p 2+ p $S_con p cogio p swap p W! a $C_a_branch w h_4 a $C_a_drop a $C_a_litw w h_10 p delms p cq w h_6907 w h_696E w h_6374 w h_6E6F p $S_con p cogx a $C_a_litw w h_100 p delms p cogid p >con a $C_a_litw w h_8 p 0 a $C_a_2>r p i p cogid p <> p i p $S_con p <> p and a $C_a_0branch w h_6 p i p cogreset a $C_a_(loop) w h_FFE8 a $C_a_exit e
+h_2EDC h_2D98 h_80 onboot p $S_con p iodis p $S_con p cogreset p cq w h_5F04 w h_6264 w h_67 p find a $C_a_0branch w h_10 p 2+ p $S_con p cogio p swap p W! a $C_a_branch w h_4 a $C_a_drop a $C_a_litw w h_10 p delms p cq w h_6907 w h_696E w h_6374 w h_6E6F p $S_con p cogx a $C_a_litw w h_100 p delms p cogid p >con a $C_a_litw w h_8 p 0 a $C_a_2>r p i p cogid p <> p i p $S_con p <> p and a $C_a_0branch w h_6 p i p cogreset a $C_a_(loop) w h_FFE8 p >dbg p version p W@ p cr p .cstr p cr p xdbg a $C_a_exit e
 
-h_2F4E h_2EDE h_80 wl p here p W@ p lastnfa p dup p . p 2dup p - p . p dup p .strname p cr p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFE2 p 2drop a $C_a_exit e
+h_2F5C h_2EDE h_80 wl p here p W@ p lastnfa p dup p . p 2dup p - p . p dup p .strname p cr p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFE2 p 2drop a $C_a_exit e
 
-h_2F7E h_2F50 h_80 >dbg p _dbg p io p 2+ p dup p W@ p ios p W! p W! p 2lock a $C_a_exit e
+h_2F8C h_2F5E h_80 >dbg p _dbg p io p 2+ p dup p W@ p ios p W! p W! p 2lock a $C_a_exit e
 
-h_2F9A h_2F80 h_80 xdbg p ios p W@ p io p 2+ p W! p 2unlock a $C_a_exit e
+h_2FA8 h_2F8E h_80 xdbg p ios p W@ p io p 2+ p W! p 2unlock a $C_a_exit e
 
-h_2FB0 h_2F9C h_80 p>n p lastnfa p dup p dup a $C_a_litw w h_3 a $C_a_STat p < a $C_a_0branch w h_8 p -1 a $C_a_branch w h_E p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFDE p swap p 0<> p and p nip a $C_a_exit e
+h_2FBE h_2FAA h_80 p>n p lastnfa p dup p dup a $C_a_litw w h_3 a $C_a_STat p < a $C_a_0branch w h_8 p -1 a $C_a_branch w h_E p nip p dup p nfa>lfa p W@ p dup p 0= a $C_a_0branch w h_FFDE p swap p 0<> p and p nip a $C_a_exit e
 
-h_2FE8 h_2FB2 h_80 onreset p unlockall p $S_con p cogid p <> a $C_a_0branch w h_36 p >dbg p cr p dq w h_5207 w h_5345 w h_5445 w h_203A p cogid p . p lasterr p W@ p dup p . p p>n p .strname a $C_a_litw w h_4 p spaces p errdata p W@ p dup p . p p>n p .strname p cr p xdbg a $C_a_litw w h_4 p state p orC! p version p W@ p cds p W! p 0 p lasterr p L! a $C_a_exit e
+h_2FF6 h_2FC0 h_80 onreset p unlockall p $S_con p cogid p <> a $C_a_0branch w h_36 p >dbg p cr p dq w h_5207 w h_5345 w h_5445 w h_203A p cogid p . p lasterr p W@ p dup p . p p>n p .strname a $C_a_litw w h_4 p spaces p errdata p W@ p dup p . p p>n p .strname p cr p xdbg a $C_a_litw w h_4 p state p orC! p version p W@ p cds p W! p 0 p lasterr p L! a $C_a_exit e
 
-h_304A h_2FEA h_80 lockdict p 0 p lock a $C_a_exit e
+h_3058 h_2FF8 h_80 lockdict p 0 p lock a $C_a_exit e
 
-h_305C h_304C h_80 freedict p 0 p unlock a $C_a_exit e
+h_306A h_305A h_80 freedict p 0 p unlock a $C_a_exit e
 
-h_306E h_305E h_80 u* p 0 a $C_a_litw w h_20 p 0 a $C_a_2>r p over p 1 p and a $C_a_0branch w h_8 p 2 a $C_a_STat p + p 2 a $C_a_STat p 1 p lshift p 2 a $C_a_ST! a $C_a_litw w h_1 a $C_a_STat p 1 p rshift a $C_a_litw w h_1 a $C_a_ST! a $C_a_(loop) w h_FFD2 p nip p nip a $C_a_exit e
+h_307C h_306C h_80 u* p 0 a $C_a_litw w h_20 p 0 a $C_a_2>r p over p 1 p and a $C_a_0branch w h_8 p 2 a $C_a_STat p + p 2 a $C_a_STat p 1 p lshift p 2 a $C_a_ST! a $C_a_litw w h_1 a $C_a_STat p 1 p rshift a $C_a_litw w h_1 a $C_a_ST! a $C_a_(loop) w h_FFD2 p nip p nip a $C_a_exit e
 
-h_30B4 h_3070 h_80 u>= a $C_a__xasm2>flag w h_310E a $C_a_exit e
+h_30C2 h_307E h_80 u>= a $C_a__xasm2>flag w h_310E a $C_a_exit e
 
-h_30C0 h_30B6 h_80 u/mod p 1 a $C_a_litw w h_1F p 0 a $C_a_2>r p over p 0< a $C_a_0branch w h_8 p leave a $C_a_branch w h_E p swap p 1 p lshift p swap p 1 p lshift a $C_a_(loop) w h_FFE4 p 0 a $C_a_litw w h_20 p 0 a $C_a_2>r a $C_a_litw w h_3 a $C_a_STat a $C_a_litw w h_3 a $C_a_STat p u>= a $C_a_0branch w h_1A a $C_a_litw w h_3 a $C_a_STat a $C_a_litw w h_3 a $C_a_STat p - a $C_a_litw w h_3 a $C_a_ST! p over p + p swap p 1 p rshift p swap p rot p 1 p rshift p rot2 p over p 0= a $C_a_0branch w h_4 p leave a $C_a_(loop) w h_FFBA p nip p nip a $C_a_exit e
+h_30CE h_30C4 h_80 u/mod p 1 a $C_a_litw w h_1F p 0 a $C_a_2>r p over p 0< a $C_a_0branch w h_8 p leave a $C_a_branch w h_E p swap p 1 p lshift p swap p 1 p lshift a $C_a_(loop) w h_FFE4 p 0 a $C_a_litw w h_20 p 0 a $C_a_2>r a $C_a_litw w h_3 a $C_a_STat a $C_a_litw w h_3 a $C_a_STat p u>= a $C_a_0branch w h_1A a $C_a_litw w h_3 a $C_a_STat a $C_a_litw w h_3 a $C_a_STat p - a $C_a_litw w h_3 a $C_a_ST! p over p + p swap p 1 p rshift p swap p rot p 1 p rshift p rot2 p over p 0= a $C_a_0branch w h_4 p leave a $C_a_(loop) w h_FFBA p nip p nip a $C_a_exit e
 
-h_3148 h_30C2 h_80 u/ p u/mod p nip a $C_a_exit e
+h_3156 h_30D0 h_80 u/ p u/mod p nip a $C_a_exit e
 
-h_3154 h_314A h_80 cstr= p over p C@ p over p C@ p = a $C_a_0branch w h_32 p -1 p rot p 1+ p rot p C@++ p bounds a $C_a_2>r p dup p C@ p i p C@ p <> a $C_a_0branch w h_A p nip p 0 p swap p leave p 1+ a $C_a_(loop) w h_FFE6 a $C_a_drop a $C_a_branch w h_6 p 2drop p 0 a $C_a_exit e
+h_3162 h_3158 h_80 cstr= p over p C@ p over p C@ p = a $C_a_0branch w h_32 p -1 p rot p 1+ p rot p C@++ p bounds a $C_a_2>r p dup p C@ p i p C@ p <> a $C_a_0branch w h_A p nip p 0 p swap p leave p 1+ a $C_a_(loop) w h_FFE6 a $C_a_drop a $C_a_branch w h_6 p 2drop p 0 a $C_a_exit e
 
-h_31A0 h_3156 h_80 name= p over p C@ a $C_a_litw w h_1F p and p over p C@ a $C_a_litw w h_1F p and p = a $C_a_0branch w h_38 p -1 p rot p 1+ p rot p C@++ a $C_a_litw w h_1F p and p bounds a $C_a_2>r p dup p C@ p i p C@ p <> a $C_a_0branch w h_A p nip p 0 p swap p leave p 1+ a $C_a_(loop) w h_FFE6 a $C_a_drop a $C_a_branch w h_6 p 2drop p 0 a $C_a_exit e
+h_31AE h_3164 h_80 name= p over p C@ a $C_a_litw w h_1F p and p over p C@ a $C_a_litw w h_1F p and p = a $C_a_0branch w h_38 p -1 p rot p 1+ p rot p C@++ a $C_a_litw w h_1F p and p bounds a $C_a_2>r p dup p C@ p i p C@ p <> a $C_a_0branch w h_A p nip p 0 p swap p leave p 1+ a $C_a_(loop) w h_FFE6 a $C_a_drop a $C_a_branch w h_6 p 2drop p 0 a $C_a_exit e
 
-h_31FE h_31A2 h_80 _dictsearch p swap p 2dup p name= a $C_a_0branch w h_8 p -1 a $C_a_branch w h_8 p nfa>next p dup p 0= a $C_a_0branch w h_FFEA p nip a $C_a_exit e
+h_320C h_31B0 h_80 _dictsearch p swap p 2dup p name= a $C_a_0branch w h_8 p -1 a $C_a_branch w h_8 p nfa>next p dup p 0= a $C_a_0branch w h_FFEA p nip a $C_a_exit e
 
-h_322A h_3200 h_80 serafc p cq w h_5307 w h_5245 w h_4641 w h_2043 p pad p ccopy p dup a $C_a_0branch w h_E p cq w h_2004 w h_4346 w h_20 a $C_a_branch w h_A p cq w h_4E04 w h_4346 w h_20 p pad p cappend p over p 4* p pad p cappendn p cq w h_2004 w h_5854 w h_3A p pad p cappend a $C_a_litw w h_3 a $C_a_STat p pad p cappendn p cq w h_2004 w h_5852 w h_3A p pad p cappend p 2 a $C_a_STat p pad p cappendn p pad p numpad p ccopy p numpad p cds p W! a $C_a_litw w h_4 p state p andnC! p pad p L! p 4* p clkfreq p swap p u/ p pad a $C_a_litw w h_C p + p L! p >m p tuck p pad p 4+ p L! p >m p tuck p pad a $C_a_litw w h_8 p + p L! p over a $C_a__maskouthi p dira a $C_a_COGat p over p andn p 2 a $C_a_STat p or p dira a $C_a_COG! a $C_a_litw w h_100 p io p L! p _serafc a $C_a_exit e
+h_3238 h_320E h_80 serafc p cq w h_5307 w h_5245 w h_4641 w h_2043 p pad p ccopy p dup a $C_a_0branch w h_E p cq w h_2004 w h_4346 w h_20 a $C_a_branch w h_A p cq w h_4E04 w h_4346 w h_20 p pad p cappend p over p 4* p pad p cappendn p cq w h_2004 w h_5854 w h_3A p pad p cappend a $C_a_litw w h_3 a $C_a_STat p pad p cappendn p cq w h_2004 w h_5852 w h_3A p pad p cappend p 2 a $C_a_STat p pad p cappendn p pad p numpad p ccopy p numpad p cds p W! a $C_a_litw w h_4 p state p andnC! p pad p L! p 4* p clkfreq p swap p u/ p pad a $C_a_litw w h_C p + p L! p >m p tuck p pad p 4+ p L! p >m p tuck p pad a $C_a_litw w h_8 p + p L! p over a $C_a__maskouthi p dira a $C_a_COGat p over p andn p 2 a $C_a_STat p or p dira a $C_a_COG! a $C_a_litw w h_100 p io p L! p _serafc a $C_a_exit e
 
-h_32F6 h_322C h_80 initcon p $S_txpin p $S_rxpin p $S_baud p $S_flowControl p serafc a $C_a_exit e
+h_3304 h_323A h_80 initcon p $S_txpin p $S_rxpin p $S_baud p $S_flowControl p serafc a $C_a_exit e
 
-h_330E h_32F8 h_80 (version) p cq w h_5320 w h_4154 w h_5452 w h_454B w h_4E52 w h_4C45 w h_2E36 w h_2D30 w h_3032 w h_3531 w h_634F w h_3174 w h_2037 w h_3631 w h_353A w h_2D39 w h_30 a $C_a_exit e
+h_331A h_3306 h_80 (version) p cq w h_5320 w h_4154 w h_5452 w h_454B w h_4E52 w h_4C45 w h_2E36 w h_2D30 w h_3032 w h_3531 w h_634F w h_3174 w h_2038 w h_3830 w h_343A w h_2D32 w h_30 a $C_a_exit e
 
-h_3340 h_3310 h_80 $C_varEnd a $C_a_doconw w h_FB e
+h_334C h_331C h_80 $C_varEnd a $C_a_doconw w h_FB e
 
-h_3350 h_3342 h_80 $C_rsTop a $C_a_doconw w h_FB e
+h_335C h_334E h_80 $C_rsTop a $C_a_doconw w h_FB e
 
-h_3360 h_3352 h_80 $C_rsBot a $C_a_doconw w h_E5 e
+h_336C h_335E h_80 $C_rsBot a $C_a_doconw w h_E5 e
 
-h_3370 h_3362 h_80 $C_stTop a $C_a_doconw w h_E5 e
+h_337C h_336E h_80 $C_stTop a $C_a_doconw w h_E5 e
 
-h_3380 h_3372 h_80 $C_this a $C_a_doconw w h_E4 e
+h_338C h_337E h_80 $C_this a $C_a_doconw w h_E4 e
 
-h_338E h_3382 h_80 $C_stBot a $C_a_doconw w h_CD e
+h_339A h_338E h_80 $C_stBot a $C_a_doconw w h_CD e
 
-h_339E h_3390 h_80 $C_treg6 a $C_a_doconw w h_CC e
+h_33AA h_339C h_80 $C_treg6 a $C_a_doconw w h_CC e
 
-h_33AE h_33A0 h_80 $C_treg5 a $C_a_doconw w h_CB e
+h_33BA h_33AC h_80 $C_treg5 a $C_a_doconw w h_CB e
 
-h_33BE h_33B0 h_80 $C_treg4 a $C_a_doconw w h_CA e
+h_33CA h_33BC h_80 $C_treg4 a $C_a_doconw w h_CA e
 
-h_33CE h_33C0 h_80 $C_treg3 a $C_a_doconw w h_C9 e
+h_33DA h_33CC h_80 $C_treg3 a $C_a_doconw w h_C9 e
 
-h_33DE h_33D0 h_80 $C_cogdata a $C_a_doconw w h_C9 e
+h_33EA h_33DC h_80 $C_cogdata a $C_a_doconw w h_C9 e
 
-h_33F0 h_33E0 h_80 $C_stTOS a $C_a_doconw w h_C8 e
+h_33FC h_33EC h_80 $C_stTOS a $C_a_doconw w h_C8 e
 
-h_3400 h_33F2 h_80 $C_rsPtr a $C_a_doconw w h_C7 e
+h_340C h_33FE h_80 $C_rsPtr a $C_a_doconw w h_C7 e
 
-h_3410 h_3402 h_80 $C_stPtr a $C_a_doconw w h_C6 e
+h_341C h_340E h_80 $C_stPtr a $C_a_doconw w h_C6 e
 
-h_3420 h_3412 h_80 $C_resetDreg a $C_a_doconw w h_C5 e
+h_342C h_341E h_80 $C_resetDreg a $C_a_doconw w h_C5 e
 
-h_3434 h_3422 h_80 $C_fLongMask a $C_a_doconw w h_C4 e
+h_3440 h_342E h_80 $C_fLongMask a $C_a_doconw w h_C4 e
 
-h_3448 h_3436 h_80 $C_fAddrMask a $C_a_doconw w h_C3 e
+h_3454 h_3442 h_80 $C_fAddrMask a $C_a_doconw w h_C3 e
 
-h_345C h_344A h_80 $C_fCondMask a $C_a_doconw w h_C2 e
+h_3468 h_3456 h_80 $C_fCondMask a $C_a_doconw w h_C2 e
 
-h_3470 h_345E h_80 $C_fDestInc a $C_a_doconw w h_C1 e
+h_347C h_346A h_80 $C_fDestInc a $C_a_doconw w h_C1 e
 
-h_3482 h_3472 h_80 $C_a_rsPop_ret a $C_a_doconw w h_C0 e
+h_348E h_347E h_80 $C_a_rsPop_ret a $C_a_doconw w h_C0 e
 
-h_3498 h_3484 h_80 $C_a_rsPop1 a $C_a_doconw w h_BF e
+h_34A4 h_3490 h_80 $C_a_rsPop1 a $C_a_doconw w h_BF e
 
-h_34AA h_349A h_80 $C_a_rsPop a $C_a_doconw w h_BA e
+h_34B6 h_34A6 h_80 $C_a_rsPop a $C_a_doconw w h_BA e
 
-h_34BC h_34AC h_80 $C_a_stpopC_treg_ret a $C_a_doconw w h_B9 e
+h_34C8 h_34B8 h_80 $C_a_stpopC_treg_ret a $C_a_doconw w h_B9 e
 
-h_34D8 h_34BE h_80 $C_a_stPop_ret a $C_a_doconw w h_B9 e
+h_34E4 h_34CA h_80 $C_a_stPop_ret a $C_a_doconw w h_B9 e
 
-h_34EE h_34DA h_80 $C_a_stPop1 a $C_a_doconw w h_B8 e
+h_34FA h_34E6 h_80 $C_a_stPop1 a $C_a_doconw w h_B8 e
 
-h_3500 h_34F0 h_80 $C_a_stPop a $C_a_doconw w h_B3 e
+h_350C h_34FC h_80 $C_a_stPop a $C_a_doconw w h_B3 e
 
-h_3512 h_3502 h_80 $C_a_stpopC_treg a $C_a_doconw w h_B2 e
+h_351E h_350E h_80 $C_a_stpopC_treg a $C_a_doconw w h_B2 e
 
-h_352A h_3514 h_80 $C_a_rsPush_ret a $C_a_doconw w h_B1 e
+h_3536 h_3520 h_80 $C_a_rsPush_ret a $C_a_doconw w h_B1 e
 
-h_3540 h_352C h_80 $C_a_rsPush1 a $C_a_doconw w h_AF e
+h_354C h_3538 h_80 $C_a_rsPush1 a $C_a_doconw w h_AF e
 
-h_3554 h_3542 h_80 $C_a_rsPush a $C_a_doconw w h_AB e
+h_3560 h_354E h_80 $C_a_rsPush a $C_a_doconw w h_AB e
 
-h_3566 h_3556 h_80 $C_a_stPush_ret a $C_a_doconw w h_AA e
+h_3572 h_3562 h_80 $C_a_stPush_ret a $C_a_doconw w h_AA e
 
-h_357C h_3568 h_80 $C_a_stPush1 a $C_a_doconw w h_A8 e
+h_3588 h_3574 h_80 $C_a_stPush1 a $C_a_doconw w h_A8 e
 
-h_3590 h_357E h_80 $C_a_stPush a $C_a_doconw w h_A4 e
+h_359C h_358A h_80 $C_a_stPush a $C_a_doconw w h_A4 e
 
-h_35A2 h_3592 h_80 $C_a_lasterr a $C_a_doconw w h_A1 e
+h_35AE h_359E h_80 $C_a_lasterr a $C_a_doconw w h_A1 e
 
-h_35B6 h_35A4 h_80 $C_a_reset a $C_a_doconw w h_A0 e
+h_35C2 h_35B0 h_80 $C_a_reset a $C_a_doconw w h_A0 e
 
-h_35C8 h_35B8 h_80 $C_a_0branch a $C_a_doconw w h_9C e
+h_35D4 h_35C4 h_80 $C_a_0branch a $C_a_doconw w h_9C e
 
-h_35DC h_35CA h_80 $C_a_(+loop) a $C_a_doconw w h_91 e
+h_35E8 h_35D6 h_80 $C_a_(+loop) a $C_a_doconw w h_91 e
 
-h_35F0 h_35DE h_80 $C_a_(loop) a $C_a_doconw w h_8F e
+h_35FC h_35EA h_80 $C_a_(loop) a $C_a_doconw w h_8F e
 
-h_3602 h_35F2 h_80 $C_a_>r a $C_a_doconw w h_8B e
+h_360E h_35FE h_80 $C_a_>r a $C_a_doconw w h_8B e
 
-h_3610 h_3604 h_80 $C_a_2>r a $C_a_doconw w h_88 e
+h_361C h_3610 h_80 $C_a_2>r a $C_a_doconw w h_88 e
 
-h_3620 h_3612 h_80 $C_a_r> a $C_a_doconw w h_84 e
+h_362C h_361E h_80 $C_a_r> a $C_a_doconw w h_84 e
 
-h_362E h_3622 h_80 $C_a__maskoutlo a $C_a_doconw w h_81 e
+h_363A h_362E h_80 $C_a__maskoutlo a $C_a_doconw w h_81 e
 
-h_3644 h_3630 h_80 $C_a__maskouthi a $C_a_doconw w h_80 e
+h_3650 h_363C h_80 $C_a__maskouthi a $C_a_doconw w h_80 e
 
-h_365A h_3646 h_80 $C_a__maskin a $C_a_doconw w h_7D e
+h_3666 h_3652 h_80 $C_a__maskin a $C_a_doconw w h_7D e
 
-h_366E h_365C h_80 $C_a_next a $C_a_doconw w h_75 e
+h_367A h_3668 h_80 $C_a_next a $C_a_doconw w h_75 e
 
-h_367E h_3670 h_80 $C_a_exit a $C_a_doconw w h_73 e
+h_368A h_367C h_80 $C_a_exit a $C_a_doconw w h_73 e
 
-h_368E h_3680 h_80 $C_a_litw1 a $C_a_doconw w h_71 e
+h_369A h_368C h_80 $C_a_litw1 a $C_a_doconw w h_71 e
 
-h_36A0 h_3690 h_80 $C_a_litw a $C_a_doconw w h_6F e
+h_36AC h_369C h_80 $C_a_litw a $C_a_doconw w h_6F e
 
-h_36B0 h_36A2 h_80 $C_a_litl a $C_a_doconw w h_69 e
+h_36BC h_36AE h_80 $C_a_litl a $C_a_doconw w h_69 e
 
-h_36C0 h_36B2 h_80 $C_a_doconl a $C_a_doconw w h_64 e
+h_36CC h_36BE h_80 $C_a_doconl a $C_a_doconw w h_64 e
 
-h_36D2 h_36C2 h_80 $C_a_dovarw a $C_a_doconw w h_61 e
+h_36DE h_36CE h_80 $C_a_dovarw a $C_a_doconw w h_61 e
 
-h_36E4 h_36D4 h_80 $C_a_dovarl a $C_a_doconw w h_5F e
+h_36F0 h_36E0 h_80 $C_a_dovarl a $C_a_doconw w h_5F e
 
-h_36F6 h_36E6 h_80 $C_a_doconw a $C_a_doconw w h_5C e
+h_3702 h_36F2 h_80 $C_a_doconw a $C_a_doconw w h_5C e
 
-h_3708 h_36F8 h_80 $C_a_branch a $C_a_doconw w h_58 e
+h_3714 h_3704 h_80 $C_a_branch a $C_a_doconw w h_58 e
 
-h_371A h_370A h_80 $C_a_COG! a $C_a_doconw w h_54 e
+h_3726 h_3716 h_80 $C_a_COG! a $C_a_doconw w h_54 e
 
-h_372A h_371C h_80 $C_a_ST! a $C_a_doconw w h_4F e
+h_3736 h_3728 h_80 $C_a_ST! a $C_a_doconw w h_4F e
 
-h_373A h_372C h_80 $C_a_RS! a $C_a_doconw w h_49 e
+h_3746 h_3738 h_80 $C_a_RS! a $C_a_doconw w h_49 e
 
-h_374A h_373C h_80 $C_a_COGat a $C_a_doconw w h_45 e
+h_3756 h_3748 h_80 $C_a_COGat a $C_a_doconw w h_45 e
 
-h_375C h_374C h_80 $C_a_STat a $C_a_doconw w h_40 e
+h_3768 h_3758 h_80 $C_a_STat a $C_a_doconw w h_40 e
 
-h_376C h_375E h_80 $C_a_RSat a $C_a_doconw w h_3A e
+h_3778 h_376A h_80 $C_a_RSat a $C_a_doconw w h_3A e
 
-h_377C h_376E h_80 $C_a_drop a $C_a_doconw w h_38 e
+h_3788 h_377A h_80 $C_a_drop a $C_a_doconw w h_38 e
 
-h_378C h_377E h_80 $C_a__xasm2>0 a $C_a_doconw w h_33 e
+h_3798 h_378A h_80 $C_a__xasm2>0 a $C_a_doconw w h_33 e
 
-h_37A0 h_378E h_80 $C_a__xasm1>1 a $C_a_doconw w h_2E e
+h_37AC h_379A h_80 $C_a__xasm1>1 a $C_a_doconw w h_2E e
 
-h_37B4 h_37A2 h_80 $C_a__xasm2>1 a $C_a_doconw w h_28 e
+h_37C0 h_37AE h_80 $C_a__xasm2>1 a $C_a_doconw w h_28 e
 
-h_37C8 h_37B6 h_80 $C_a__xasm2>1IMM a $C_a_doconw w h_25 e
+h_37D4 h_37C2 h_80 $C_a__xasm2>1IMM a $C_a_doconw w h_25 e
 
-h_37E0 h_37CA h_80 $C_a__xasm2>flag a $C_a_doconw w h_16 e
+h_37EC h_37D6 h_80 $C_a__xasm2>flag a $C_a_doconw w h_16 e
 
-h_37F8 h_37E2 h_80 $C_a__xasm2>flagIMM a $C_a_doconw w h_13 e
+h_3804 h_37EE h_80 $C_a__xasm2>flagIMM a $C_a_doconw w h_13 e
 
-h_3812 h_37FA h_80 $C_a_lxasm a $C_a_doconw w h_3 e
+h_381E h_3806 h_80 $C_a_lxasm a $C_a_doconw w h_3 e
 
-h_3824 h_3814 h_80 $C_IP a $C_a_doconw w h_2 e
+h_3830 h_3820 h_80 $C_IP a $C_a_doconw w h_2 e
 
-h_3830 h_3826 h_80 $C_treg2 a $C_a_doconw w h_1 e
+h_383C h_3832 h_80 $C_treg2 a $C_a_doconw w h_1 e
 
-h_3840 h_3832 h_80 $C_treg1 a $C_a_doconw w h_0 e
+h_384C h_383E h_80 $C_treg1 a $C_a_doconw w h_0 e
 
 -1 
 
 \ initialNewhere h_18 
 
-\ newhere h_3850 
+\ newhere h_385C 
 
-\ lastNewNFA h_3840 
+\ lastNewNFA h_384C 
 

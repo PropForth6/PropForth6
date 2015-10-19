@@ -14,3 +14,8 @@ mkdir runLogs/mp
 mkdir resultFiles/mp
 mkdir outputFiles/mp
 
+mkdir runLogs/fs
+mkdir resultFiles/fs
+mkdir outputFiles/fs
+
+

@@ -1,10 +1,10 @@
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:29.270145809 -0700 PDT 
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:03.564958921 -0700 PDT 
  scriptFileName: scripts/mp/buildMpKernel.txt
    logFileName: results/runLogs/buildMpKernel-10.txt
 resultFileName: 
 outputFileName: 
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:29.27099125 -0700 PDT 
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:03.566417367 -0700 PDT 
  scriptFileName: scripts/mp/buildMpKernel.txt
    logFileName: results/runLogs/buildMpKernel-10.txt
 resultFileName: results/resultFiles/buildMpKernel-10.txt
@@ -13,105 +13,105 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:29.271485481 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:03.567236833 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:29.271522563 -0700 PDT SENDING: reboot
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:29.271551905 -0700 PDT DONE SENDING waiting for output: reboot
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:29.271560892 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:34.466135944 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:34.466234312 -0700 PDT DONE: reboot
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:03.567277953 -0700 PDT SENDING: reboot
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:03.567307621 -0700 PDT DONE SENDING waiting for output: reboot
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:03.567319239 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:08.726523588 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:08.726584898 -0700 PDT DONE: reboot
 \
 \ check Forth
 \
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:34.572184487 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:08.831048558 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:34.572367884 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:34.572440368 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:34.572476031 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:35.602089808 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:35.602134526 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:08.831082502 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:08.83110607 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:08.831120618 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:09.860957251 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:09.861016678 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ words to be added / replaced
 \
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:35.706683044 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:09.966766678 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:35.706716998 -0700 PDT SENDING: c" mpKERNEL6.0----
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:35.706731935 -0700 PDT DONE SENDING waiting for output: c" mpKERNEL6.0----
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:35.706738735 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:38.721164222 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:38.721239498 -0700 PDT DONE: c" mpKERNEL6.0----
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:38.825598844 -0700 PDT SEND: [2015Oct17 17:37]
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:38.82656354 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:09.966788136 -0700 PDT SENDING: c" mpKERNEL6.0-
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:09.96680788 -0700 PDT DONE SENDING waiting for output: c" mpKERNEL6.0-
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:09.966816184 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:12.984088206 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:12.984149749 -0700 PDT DONE: c" mpKERNEL6.0-
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:13.092307637 -0700 PDT SEND: [2015Oct18 09:20]
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:13.093176174 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:38.826667067 -0700 PDT SENDING: -0" version W@ ccopy
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:38.826786973 -0700 PDT DONE SENDING waiting for output: -0" version W@ ccopy
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:38.826819109 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:41.843513248 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:41.843618761 -0700 PDT DONE: -0" version W@ ccopy
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:41.950737147 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:13.093218635 -0700 PDT SENDING: -0" version W@ ccopy
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:13.093261049 -0700 PDT DONE SENDING waiting for output: -0" version W@ ccopy
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:13.093277174 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:16.125488174 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:16.125555374 -0700 PDT DONE: -0" version W@ ccopy
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:16.227392473 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:41.950973107 -0700 PDT SENDING: src/optimize/mp/mpdef.f
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:41.978642051 -0700 PDT DONE SENDING waiting for output: src/optimize/mp/mpdef.f
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:41.978724107 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:45.155176778 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:45.155309334 -0700 PDT DONE: src/optimize/mp/mpdef.f
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:45.259820493 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:16.227485098 -0700 PDT SENDING: src/optimize/mp/mpdef.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:16.254145247 -0700 PDT DONE SENDING waiting for output: src/optimize/mp/mpdef.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:16.25419971 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:19.413512247 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:19.413577019 -0700 PDT DONE: src/optimize/mp/mpdef.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:19.524496563 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:45.259981897 -0700 PDT SENDING: src/optimize/mp/mp.f
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:45.906821775 -0700 PDT DONE SENDING waiting for output: src/optimize/mp/mp.f
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:45.906938085 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:52.412568142 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:52.412860632 -0700 PDT DONE: src/optimize/mp/mp.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:19.524569512 -0700 PDT SENDING: src/optimize/mp/mp.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:20.238142098 -0700 PDT DONE SENDING waiting for output: src/optimize/mp/mp.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:20.238192009 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:26.630617622 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:26.630728276 -0700 PDT DONE: src/optimize/mp/mp.f
 \
 \ forthimager.f
 \						
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:52.518265387 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:26.735914046 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:52.518370745 -0700 PDT SENDING: src/forthimager.f
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:52.624801527 -0700 PDT DONE SENDING waiting for output: src/forthimager.f
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:52.62494262 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:56.131897545 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:56.132080802 -0700 PDT DONE: src/forthimager.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:26.735962242 -0700 PDT SENDING: src/forthimager.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:26.858197085 -0700 PDT DONE SENDING waiting for output: src/forthimager.f
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:26.858248425 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:30.356538871 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:30.356607924 -0700 PDT DONE: src/forthimager.f
 \
 \
 \ make devKernel.eeprom
 \
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:56.236058311 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:30.460418074 -0700 PDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:56.236091812 -0700 PDT SENDING: hA state orC!
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:56.236113774 -0700 PDT DONE SENDING waiting for output: hA state orC!
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:56.236123254 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:57.253171605 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:57.253305832 -0700 PDT DONE: hA state orC!
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:57.356777306 -0700 PDT 
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:30.46046784 -0700 PDT SENDING: hA state orC!
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:30.460513162 -0700 PDT DONE SENDING waiting for output: hA state orC!
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:30.460530431 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:31.480236554 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:31.480310787 -0700 PDT DONE: hA state orC!
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:31.593139873 -0700 PDT 
  scriptFileName: scripts/mp/buildMpKernel.txt
    logFileName: results/runLogs/buildMpKernel-10.txt
 resultFileName: results/resultFiles/buildMpKernel-10.txt
 outputFileName: results/outputFiles/mp/mpKernel.eeprom
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:57.357149533 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:31.593463703 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:57.35721433 -0700 PDT SENDING: fbinout
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:57.357240654 -0700 PDT DONE SENDING waiting for output: fbinout
-scripts/mp/buildMpKernel.txt::2015-10-17 17:37:57.357251124 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:00.359944999 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:00.360052524 -0700 PDT DONE: fbinout
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:00.462093295 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:08.348379311 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:08.349033632 -0700 PDT 
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:31.593520469 -0700 PDT SENDING: fbinout
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:31.593549027 -0700 PDT DONE SENDING waiting for output: fbinout
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:31.593556027 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:34.603826697 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:34.603921606 -0700 PDT DONE: fbinout
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:34.70698256 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:42.583603402 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:42.58400223 -0700 PDT 
  scriptFileName: scripts/mp/buildMpKernel.txt
    logFileName: results/runLogs/buildMpKernel-10.txt
 resultFileName: results/resultFiles/buildMpKernel-10.txt
 outputFileName: 
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:08.349717038 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:42.584810172 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:08.349838301 -0700 PDT SENDING: hA state andnC!
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:08.349893805 -0700 PDT DONE SENDING waiting for output: hA state andnC!
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:08.349908365 -0700 PDT WAIT STARTED
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:09.373386621 -0700 PDT WAIT DONE
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:09.373472724 -0700 PDT DONE: hA state andnC!
-scripts/mp/buildMpKernel.txt::2015-10-17 17:38:09.478390999 -0700 PDT 
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:42.584839865 -0700 PDT SENDING: hA state andnC!
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:42.584861634 -0700 PDT DONE SENDING waiting for output: hA state andnC!
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:42.584867883 -0700 PDT WAIT STARTED
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:43.615346286 -0700 PDT WAIT DONE
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:43.615442419 -0700 PDT DONE: hA state andnC!
+scripts/mp/buildMpKernel.txt::2015-10-18 09:20:43.726063123 -0700 PDT 
  scriptFileName: scripts/mp/buildMpKernel.txt
    logFileName: results/runLogs/buildMpKernel-10.txt
 resultFileName: 
