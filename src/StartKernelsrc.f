@@ -21,7 +21,7 @@
 \ This word is assembled and built as part of the build process, or the current version is used.
 \
 \ the version string is set by the build process
-\ : (version) c" PropForth v6.0 2013Dec20 17:00 0" ;
+\ : (version) c" PropForth v6.0 2015Oct20 17:43 0" ;
 \
 \
 \
@@ -53,7 +53,7 @@ wvariable propid 0 propid W!
 \
 \ the version string is set by the build process
 \
-\ : (version) c" PropForth v6.0 2013Dec20 17:00 0" ;
+: (version) c" PropForth v6.0 2015Oct20 18:21 0" ;
 \
 \
 \ pointers to the prop and version strings 
