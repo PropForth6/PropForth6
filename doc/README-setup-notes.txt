@@ -152,7 +152,27 @@ cd Linux
 
 =========================================================
 
+git checkout - create / switch branches
 
+create a new branch:
+> git checkout -b yyyymmdd_USERIDgoal
+
+switch to existing  branch:
+> git checkout branchname
+
+examples:
+
+create a new branch for me to work on
+
+> git checkout -b 20151018_dougbranch
+
+============
+switch to existing branch - don't use the -b
+
+> git checkout dev
+> git checkout 20151018_dougbranch
+
+NOTE: Save your edits and files BEFORE switching branches, any open files will be trashed
 
 
 
