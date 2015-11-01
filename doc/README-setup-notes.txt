@@ -1,178 +1,321 @@
 [Notes for setting up PropForth6 and tools, git and github]
 
-[ Begin general setup instructions ]
+These notes are DRAFT.  The might be broken into separate sections, for now it is one big list. The activities covered are:
 
-[setup]
+1. Install and set up the Linux software tools.
+2. Set up your Linux Environment variables
+3. set up GIT so you can send your changes back out to the rest of us
+4. set up the propforth build automation 
+5. Set up GO environment 
+6. run the pr.sh script to configure the terminal window as the build automation window
+7. compile/install the goterm programs 
+8. Connect the USB cable to the Physical Prop Board
+9. Add/change the source code text files on your branch, and push tese back to github to share with the rest of the team
+
+**************************************************
+1. Install and set up the Linux software tools.
+**************************************************
+
+Setup the linux tools. You dont have to do much more than run several commands, these only take a couple minutes.
+Copy/paste the follwing into a command line terminal window.  These install the terminal program minicon, the compiler to build the go communications programs, the go language support. 
+
+[setup linux - install tools]
+[code]
 sudo apt-get install minicom
 sudo apt-get install build-essential
+[/code]
+
 [install go from website go1.5.linux-amd64.tar.gz]
-sudo tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
+[code]
+sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
+[/code]
 
-[NOTE: If you see a meessage to install the GCCgo, maybe you missed the step:]
-export PATH=$PATH:/usr/local/go/bin
+Notice: when you type "go" into the command prompt, the response is still "go is not currently installed"
+We need to EXPORT the environment variable for the session.
 
-*************************************************
+*******************************************
+2. Set up your Linux Environment variables
+*******************************************
+
+You can run the following every time you open a new terminal window to compile the go code,
+or you can add these lines to your /etc/profile (for a system-wide installation) or $HOME/.profile:
+
+[To add line to your $HOME/.profile]
+[code]
+sudo edit /etc/profile
+[/code]
+
+[Add this line to the end of the file]
+[code]
+export PATH=$PATH:/usr/local/go/bin
+[/code]
+[save the changes to the file]
+
+[EXPORT for this session only]
+[code]
+export PATH=$PATH:/usr/local/go/bin
+[/code]
+
+*********************************************************************
+3. set up GIT so you can send your changes back out to the rest of us
+*********************************************************************
+[Git is install by default on most linux.  Install as needed on windows]
 
 [Ensure your git user.name  and git user.email are set if you wish to contribute to github]
-[git user.name is the user name you use to log in to github.]
-[notice that you cannot use you email to log in to github]
-
+[code]
 git config --list
-git config --global user.name "prof-braino"
+[/code]
 
 [git commands]
-[  -- clone the PF6 repository]
+[code]
 git clone https://github.com/PropForth6/PropForth6.git
+cd PropForth6/
+[/code]
 
-cd to PF6
+[display current branches]
+[code]
+git branch
+[/code]
+[display current branches with information]
+[code]
+git branch -v
+[/code]
 
-[check the current branch (should be master by default)]
-git branch 
-[notice there are no other branches visible yet]
+[checkout the devbranch as your starting point]
+[code]
+git checkout dev
+[/code]
 
-[see the list of active branches]
-git branch -a
-[see that there are other branches, including dev, and whatever sal and the others are working on]
+[create a new branch in the form YYYMMDD_topic]
+[code]
+git branch YYYYMMDD_topic 
+[/code]
+(example git branch 20151231_braino_fix_readme)
 
-[retrieve the dev branch so you have the current state to work from]
+[checkout the branch]
+[code]
+git checkout YYYMMDD_topic
+[/code]
+(example git checkout 20151231_braino_fix_readme)
 
-[switch to dev branch (we do all development dev branched from the previous master)]
-git checkout -b dev origin/dev
+===========================================================
+[OR you can do both create branch and checkout in one step]
+[create a new branch by 'checking out' the new branch name]
+git checkout -b YYYMMDD_topic
+===========================================================
 
-[at this point, you should have the dev branch, which is that most recent snapshot of the code, test by sal]
-[this should be an "everything working" starting point for you further development]
+*********************************************************************************
+4. edit the configuration files so the propforth build automation runs on your PC
+*********************************************************************************
 
-[ END general setup instructions ]
+.............................................................................................................
+before we start contributing any changes, we need to finish setting up the tools
+The propforth repository we just cloned to our PC has 
+automated build and test tools built in.  To finsih seting these up, we need to run the go language compiler.
+.............................................................................................................
 
-=========================================================
+The propforth build automation relies primarily on Sal's terminal communications program written is go language.
 
-[Begin Propforth Development workflow instructions]
+All the work is done, all we have to do is run a script to build the programs on this PC. 
 
-[create a new branch for me (doug) to work in for testing]
-[branch naming convention YYYYMMDDusernameDevelomentObjective]
-[on October 18, 2015, doug's task was to run the build test]
-[NOTE branch is created when we use the CHECKOUT command]
-git checkout -b  20151018dougbuildtest
+The following needs to be done only once on the PC, until something changes (which is rare). 
 
-[task 1 add a file]
-[ -- in a text editor, create any new file, save it; ]
-[ -- example is dougCreated.txt in doc directory ]
-
-[check the created file is noticed]
-git status
-[should report "doc/dougCreated.txt" is modified and needs to be added, in RED]
-
-[add the file (add all the new files in the directory that need adding)]
-git add . 
-
-[check state with git sttatus]
-git status
-
-[shows the files are ready to commit, in green
-
-[task 2 update an existing  file]
-[ -- in an text editor, edit any file, and save]
-
-[check state with git sttatus]
-git status
-
-[shows the file is mdified]
-
-[add the changed file (to the staging area) with an explanatory message]
-
-git commit -a -m "updated setup docs"
-
-[check status]
-
-[PUSH changes up to repository on github]
-
-git push -u --all
-
-[git asks for your git username and password. Message indicate the branch changes were uploaded to the repository]
-[at this point, your should be able to see your branch and updates in the github repository]
-
-[End Propforth Development workflow instructions]
-
-=========================================================
-
-[Begin instructions to run the Propforth6 build process]
-
-[NOTE you must change the virtual serial port to match you system]
-[on OSX, sal uses /dev/cu.usbserial-FTY2XPAM]
-[on Linux, braino uses /dev/ttyUSB0]
-[the repository is set to sal's OSX by default]
-[NON OSX must changecheck these each time]
-the files affected are:
-/home/<userID>/PropForth6/tools/serial_proxy/serial_proxy.conf
-/home/<userID>/PropForth6/Linux/build.sh
-
+[CHECK----EDIT the serial_proxy.conf to /dev/ttyUSB0 ??????]
+change
+-s /dev/XXXXXXXXXXXx -S -P -A -b 230400 -a -e
+into
+-s /dev/ttyUSB0 -S -P -A -b 230400 -a -e
 
 [compile the go serial at least once]
+[code]
 cd tools/
 cd serial_proxy/
-[make build.sh executable]
+[/code]
+[set build.sh executable, and run build.sh]
+[code]
 ./build.sh
-ls 
+ls -alF
+[/code]
 [see that serial_proxy executable was created]
+
+=========== begin script to set up tool environment variables =================
+
+***********************************************************************************************
+5. Set up GO environment and install (complie) the communication programs written in go language
+***********************************************************************************************
+
+----- this is the part that was missing. It comes from the go lang install instructions.....
+ * Add /usr/local/go/bin to the PATH environment variable. You can do this by adding this line to your /etc/profile (for a system-wide installation) or $HOME/.profile:
+[code]
+sudo edit /etc/profile
+[/code]
+ * [Add this line to the end of the file]
+[code]
+export PATH=$PATH:/usr/local/go/bin
+[/code]
+ * [save the changes to the file]
+----- this is the part that was missing. It comes from the go lang install instructions.....
+
+****************************************************************************************
+6.  run the pr.sh script to configure the terminal window as the build automation window
+****************************************************************************************
 
 [MUST run pr.sh in the terminal before the build and text script tools will work]
 [pr.sh must be run again in any new windw. I.E. if something does't work, probably you didn't run the pr.sh in that terminal yet]
+
+[display the environment variables, and notice that the PATH entries have s no propforth6 or go entries]
+[code]
+env
+[/code]
+
+[switch to the go surce directory and run the script to set up the environmaet variables]
+
+[code]
 cd ..
 cd mygo/
 ./pr.sh
 env
+[/code]
+
 [notice that a PropForth6 entry has been added the PATH environment variable]
-[notice that the PropForth6 entry to the PATH environment variable is local to THIS TERMINAL WINDOW ONLY.  If you open another termainal, this will not be present until you run the ./pr.sh script]
+[notice that the PropForth6 entry to the PATH environment variable is local to THIS TERMINAL WINDOW ONLY.]  
+[If you open another termainal, this will not be present until you run the ./pr.sh script]
+
+Notice: when you type "go" into the command prompt after the environment variables are set, 
+the response is no longer "go is not currently installed"; 
+Now the response is  the "go" help context display. 
+
+=========== end script to set up tool environment variables =================
+
+**************************************
+7. compile/install the goterm programs 
+**************************************
+
+
+============ begin build/install the go termnal communication programs === 
 
 [install the go programs at least once]
+[code]
 go install goterm
 go install goproxyterm
+[/code]
+
 [notice a bin directoy was created in mygo, containing executables for goterm and goproxyterm]
+[code]
 goterm
+[/code]
 [notice the goterm help message when gotern is executed without parameters]
 
-[Move to the Linux directory...]
+============ end build/install the go termnal communication programs === 
+
+============ physical connection of the Parallax Propeller P8X32A =====================
+
+***************************************************
+8. Connect the USB cable to the Physical Prop Board
+***************************************************
+
+[Move to the Linux directory...e.g /home/braino/PropForth6/Linux]
+[code]
 cd ..
 cd ..
 cd Linux
+[/code]
 
-[CONNECT the PROPELLER BOARD and VIRTUAL COMMPORT]
-[notice if you run the buildall script without the board connected you get the goterrm help menu 17 times]
+[CONNECT the PROPELLER BOARD / VIRTUAL COMMPORT via USB cable]
+[The cable must be connect/powered on for the PC to detect the virtual comm port]
+[notice if you run the buildall script WITHOUT the board connected you get the goterrm help menu 17 times]
 
 [Devices -> USB Devices -> Parallax Inc Propeller Quickstart [1000] ]   Quickstart Rev B
 [Devices -> USB Devices -> FTDI FT231X USB UART [1000] ]                Quickstart Rev B
 [Devices -> USB Devices -> FTDI FT232R USB UART [0600] ]  Quickstart Rev A
 
+[code]
 ./build.sh
+[/code]
 
 [NOTE: BUILDALL.SH is NOT the top script, if things don't work, check you ran build.sh]
 
-[END instructions to run the Propforth6 build process]
+At this point the ./build.sh script should run, and build the proforth kernels from source. 
+The entire process takes under an hour, about 45 minutes on my machines
 
-=========================================================
+The unmodified source code should generate files in  ./PropForth6/results
+that are IDENTICAL to the files supplied in ./PropForth6/refResults
 
-git checkout - create / switch branches
+NOTE: the tools know to ignore things like timestamps, user names, and PC specific path names.
+The source  code and image files will be identical if set up correctly.
 
-create a new branch:
-> git checkout -b yyyymmdd_USERIDgoal
+Once you are satisfied the automation functions, you can start to modify the source to create custom kernels. 
 
-switch to existing  branch:
-> git checkout branchname
+************************************************************************************************************************
+9. Add/change the source code text files on your branch, and push tese back to github to share with the rest of the team
+************************************************************************************************************************
 
-examples:
+==============================================================================================================
+Now we have all the Propforth environment and tools set up.  We can add or cnahge an files, 
+and contribute those back into the project.
+Start by create perhaps some documentation on how our function is going to work
+==============================================================================================================
 
-create a new branch for me to work on
+[create file, do some work; then add the file to the repository]
+[first, check the status, see the new or changed file is untracked] 
+[code]
+git status
+[/code]
+[add the file ad all others (to the staging area so it can be sent to the repository)]
+[code]
+git add .
+[/code]
+[see that is is ready]
+[code]
+git status
+[/code]
+[commit the changed files to the branch]
+[code]
+git commit -m "messge that says what you are committing"
+[/code]
 
-> git checkout -b 20151018_dougbranch
+===========================================================
+[OR you can do both add and commit in one step]
+git commit -a -m "messge that says what you are committing"
+===========================================================
 
-============
-switch to existing branch - don't use the -b
+[Push the changed you committed to your branch up to github so the rest of the team can see it]
+[code]
+git push -u --all
+[/code]
+(this asks your github username and password)
+(you must be registered to push to github, ad your  username must be part of the team)
 
-> git checkout dev
-> git checkout 20151018_dougbranch
+[see that you are up to date]
+[code]
+git status
+[/code]
 
-NOTE: Save your edits and files BEFORE switching branches, any open files will be trashed
+================
+
+[subsequent contribuation using the same branch, for example on aa later day]
+[so a week went by since your last commit.  Check for new material from other contributors]
+[the log is a scrollable list of the commits so far. exit the log using "q"]
+[code]
+git log
+[/code]
+
+[fetch the list of changes from the github repository]
+[code]
+git fetch 
+[/code]
+
+[pull the found changes to my machine]
+[code]
+git pull --all
+[/code]
+
+[now are are ready to continue development]
+
+== end git new branch ================================================================================
+
+
+
 
 
 
