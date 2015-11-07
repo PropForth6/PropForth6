@@ -22,6 +22,7 @@ Copy/paste the follwing into a command line terminal window.  These install the 
 [setup linux - install tools]
 [code]
 sudo apt-get install minicom
+sudo adduser $USER dialout
 sudo apt-get install build-essential
 [/code]
 
