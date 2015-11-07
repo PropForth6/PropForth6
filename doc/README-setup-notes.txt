@@ -25,7 +25,7 @@ sudo apt-get install minicom
 sudo apt-get install build-essential
 [/code]
 
-[install go from website go1.5.linux-amd64.tar.gz]
+[install go from https://golang.org/ website go1.5.linux-amd64.tar.gz]
 [code]
 sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
 [/code]
