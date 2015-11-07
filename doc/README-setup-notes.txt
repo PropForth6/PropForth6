@@ -33,9 +33,9 @@ sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
 Notice: when you type "go" into the command prompt, the response is still "go is not currently installed"
 We need to EXPORT the environment variable for the session.
 
-*******************************************
-2. Set up your Linux Environment variables
-*******************************************
+*************************************************
+2. Set up your Linux Environment variables for GO
+*************************************************
 
 You can run the following every time you open a new terminal window to compile the go code,
 or you can add these lines to your /etc/profile (for a system-wide installation) or $HOME/.profile:
@@ -55,6 +55,9 @@ export PATH=$PATH:/usr/local/go/bin
 [code]
 export PATH=$PATH:/usr/local/go/bin
 [/code]
+
+Notice: Now when you type "go" into the command prompt, the response is now the go help menu. Success!
+If you start a later session and do not see the help menu you may need to EXPORT the environment variable for the session.
 
 *********************************************************************
 3. set up GIT so you can send your changes back out to the rest of us
