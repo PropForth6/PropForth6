@@ -23,6 +23,7 @@ Copy/paste the follwing into a command line terminal window.  These install the 
 [code]
 sudo apt-get install minicom
 sudo adduser $USER dialout
+sudo chmod a+rw /dev/ttyUSB0
 sudo apt-get install build-essential
 [/code]
 
