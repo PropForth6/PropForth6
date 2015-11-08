@@ -1,0 +1,43 @@
+# open terminal window
+cd PropForth6/
+
+# check go
+ ~/PropForth6 $ go
+The program 'go' is currently not installed. You can install it by typing:
+sudo apt-get install gccgo-go
+
+# EXPORT
+~/PropForth6 $ export PATH=$PATH:/usr/local/go/bin
+# check go
+ ~/PropForth6 $ go
+# [see go help menu prompt]
+
+
+# run pr.sh
+cd ~/PropForth6/tools/mygo 
+./pr.sh
+
+# ---------------------------
+
+# try goterm, if error, must install
+goterm
+
+# change to linux directory
+
+cd ~/PropForth6/Linux
+
+# this loads the file. in about 2 seconds
+# Linux/bstl.linux  -p 3  refResults/outputFiles/dev/devKernel.eeprom /dev/ttyUSB0 230400
+# version W@ .cstr
+# optKERNEL6.0-2015Oct12 11:08-0Prop0 Cog6 ok
+
+# Linux/bstl.linux  -p 3  refResults/outputFiles/mp/mpOptKernel.eeprom /dev/ttyUSB0 230400
+# version W@ .cstr
+# mpOptKERNEL6.0-2015Oct12 11:49-0Prop0 Cog6 ok
+
+Linux/bstl.linux  -p 3  results/outputFiles/dev/devKernel.eeprom /dev/ttyUSB0 230400
+# version W@ .cstr
+# devKERNEL6.0-2015Oct20 23:07-0Prop0 Cog6 ok
+
+
+Linux/bstl.linux  -p 3  refResults/outputFiles/dev/PF5.5DevKernel.eeprom /dev/ttyUSB0 230400
