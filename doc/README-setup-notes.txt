@@ -60,6 +60,11 @@ openspin
 
 you can copy this to the directory where it is needed below
 
+command to produce an EEPROM file (using spin file in this directory) is
+[code]
+./openspin -e StartKernel.spin 
+[/code]
+
 
 [**************************************]
 install propgcc - in progress
