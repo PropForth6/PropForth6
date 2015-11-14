@@ -41,6 +41,14 @@ sudo minicom -o
 sudo apt-get install build-essential
 [/code]
 
+[**************************************]
+install opensin - in progress
+[**************************************]
+install propgcc - in progress
+[**************************************]
+
+
+
 [install go from https://golang.org/ website go1.5.1.linux-amd64.tar.gz]
 [code]
 sudo tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
