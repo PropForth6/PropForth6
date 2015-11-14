@@ -24,6 +24,20 @@ Copy/paste the follwing into a command line terminal window.  These install the 
 sudo apt-get install minicom
 sudo adduser $USER dialout
 sudo chmod a+rw /dev/ttyUSB0
+[/code]
+
+[minicom setup]
+[code]
+sudo minicom -o
+[serial port sertup > a - serial device: /dev/ttyUSB0]
+[screen and keyboard > p - add linefeed : yes]
+[save as dfl]
+[exit]
+[/code]
+
+
+[this installs compile basic support]
+[code]
 sudo apt-get install build-essential
 [/code]
 
