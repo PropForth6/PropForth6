@@ -27,9 +27,9 @@ sudo chmod a+rw /dev/ttyUSB0
 sudo apt-get install build-essential
 [/code]
 
-[install go from https://golang.org/ website go1.5.linux-amd64.tar.gz]
+[install go from https://golang.org/ website go1.5.1.linux-amd64.tar.gz]
 [code]
-sudo tar -C /usr/local -xzf go1.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
 [/code]
 
 Notice: when you type "go" into the command prompt, the response is still "go is not currently installed"
