@@ -43,6 +43,24 @@ sudo apt-get install build-essential
 
 [**************************************]
 install opensin - in progress
+[clone the openspin git repository from github]
+https://github.com/parallaxinc/OpenSpin.git
+cd ~
+git clone https://github.com/parallaxinc/OpenSpin.git
+cd OpenSpin
+[run the make comand, this automatically find the makefile and comples openspin]
+make
+you should many lines with g++ -Wall -g -static -o /home/....
+this can take a while depending on your pc.
+in the directory ~/OpenSpin/build
+you should find an executable:
+[code]
+openspin
+[/code]
+
+you can copy this to the directory where it is needed below
+
+
 [**************************************]
 install propgcc - in progress
 [**************************************]
