@@ -166,9 +166,17 @@ export PATH=$PATH:/usr/local/go/bin
  * [save the changes to the file]
 ----- this is the part that was missing. It comes from the go lang install instructions.....
 
+Notice: when you type "go" into the command prompt after the environment variables are set, 
+the response is no longer "go is not currently installed"; 
+Now the response is  the "go" help context display. 
+
 ****************************************************************************************
 6.  run the pr.sh script to configure the terminal window as the build automation window
 ****************************************************************************************
+
+[This runs a script to set envirnment variables for GOTERM]
+[ GOTERM is the routine that handles seriall communication to the prop]
+[If you open another termainal, this will not be present until you run the ./pr.sh script]
 
 [MUST run pr.sh in the terminal before the build and text script tools will work]
 [pr.sh must be run again in any new windw. I.E. if something does't work, probably you didn't run the pr.sh in that terminal yet]
@@ -191,9 +199,9 @@ env
 [notice that the PropForth6 entry to the PATH environment variable is local to THIS TERMINAL WINDOW ONLY.]  
 [If you open another termainal, this will not be present until you run the ./pr.sh script]
 
-Notice: when you type "go" into the command prompt after the environment variables are set, 
-the response is no longer "go is not currently installed"; 
-Now the response is  the "go" help context display. 
+Notice: when you type "goterm" into the command prompt before the environment variables are set, 
+(or before the goterm is compiled/installed)
+the response is "goterm is not currently installed".
 
 =========== end script to set up tool environment variables =================
 
@@ -215,6 +223,18 @@ go install goproxyterm
 goterm
 [/code]
 [notice the goterm help message when gotern is executed without parameters]
+
+
+Notice: when you type "goterm" into the command prompt after the environment variables are set, 
+the response is no longer "goterm is not currently installed"; 
+Now the response is  the "goterm" help context display. 
+
+If you get a message "goterm not installed" when you know your've already done this,
+it means you need to run the pr.sh script in this current termnal window
+
+navigate to 
+~/PropForth6/tools/mygo/pr.sh
+and run the script from that directory.
 
 ============ end build/install the go termnal communication programs === 
 
