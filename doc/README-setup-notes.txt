@@ -71,6 +71,11 @@ If you start a later session and do not see the help menu you may need to EXPORT
 git config --list
 [/code]
 
+[set your github username and registration email if you wish to contribute back to a project]
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+
 [git commands]
 [code]
 git clone https://github.com/PropForth6/PropForth6.git
