@@ -12,7 +12,6 @@ sudo apt-get install gccgo-go
  ~/PropForth6 $ go
 # [see go help menu prompt]
 
-
 # run pr.sh
 cd ~/PropForth6/tools/mygo 
 ./pr.sh
@@ -39,5 +38,19 @@ Linux/bstl.linux  -p 3  results/outputFiles/dev/devKernel.eeprom /dev/ttyUSB0 23
 # version W@ .cstr
 # devKERNEL6.0-2015Oct20 23:07-0Prop0 Cog6 ok
 
-
 Linux/bstl.linux  -p 3  refResults/outputFiles/dev/PF5.5DevKernel.eeprom /dev/ttyUSB0 230400
+
+# ----------------------------------------------------
+# to compile spin files using openspin
+#
+# NOTE: -e option specifies to create an EEprom image
+./openspin -e StartKernel.spin
+# 
+
+# ----------------------------------------------------
+# to load using propeller-loader
+#
+# NOTE: -r option runs the firmware after load completes, otherwise loader does not terminate
+# NOTE: -e option specifies EEprom image
+./propeller-load -r -e StartKernel-openspin.eeprom
+#
