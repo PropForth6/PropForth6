@@ -3,39 +3,9 @@
    logFileName: results/runLogs/fs/initFs.txt
 resultFileName: results/resultFiles/fs/initFs.txt
 outputFileName: 
-reboot
-
-RESET: 0 0 ?    0 ?
-
-RESET: 1 0 ?    0 ?
-
-RESET: 2 0 ?    0 ?
-
-RESET: 3 0 ?    0 ?
-
-RESET: 4 0 ?    0 ?
-
-RESET: 5 0 ?    0 ?
-
- fsKERNEL6.0-2015Oct18 13:18-0
-
-boot.f - Finding top of eeprom, Top of eeprom at: 65536 
-boot.f - DONE PropForth Loaded
-
-Loading usrboot.f
-
-Prop0 Cog5 ok
-xdbg
-Prop0 Cog5 ok
-c" usrboot.f" _fsload
-Prop0 Cog5 ok
-
-
-RESET: 6 0 ?    0 ?
-Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 18556  fsKERNEL6.0-2015Oct18 13:18-0
+here: 17328 devKERNEL6.0-2015Oct18 09:08-0
 
 Prop0 Cog6 ok
 \ fs - eeprom file system
@@ -354,10 +324,13 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef build_fsrd
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ 1 wconstant build_fsrd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -417,30 +390,41 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef fsbot
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ h8000 constant fsbot  \ the start adress in eeprom for the file system
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef fstop
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ h10000 constant fstop  \ the end address in the eeprom for the file system
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef fsps
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+ h40 wconstant fsps   \ a page size which should work with 32kx8 & 64kx8 eeproms
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+         \ and should work with larger as well. MUST BE A POWER OF 2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1343,14 +1327,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fnf
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fnf
+
+ cr ." FILE NOT FOUND" cr
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1364,14 +1351,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fspa
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fspa
+
+ fsps 1- + fsps 1- andn
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1393,14 +1383,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fsnext
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fsnext
+
+ t0 W@ t1 C@ + 2+ 1+ + _fspa dup fstop >=
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1418,28 +1411,31 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fsrd
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fsrd
+
+ dup >r rot dup r> + fstop 1- >
+
+ if
+
+  hB ERR
+
+ then
+
+ rot2 eereadpage
+
+ if
+
+  hA ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1453,34 +1449,37 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fsfree
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fsfree
+
+ -1 fsbot
+
+ begin
+
+\ read 3 bytes into t0, t1 and process
+
+  dup t0 3 _fsrd t0 W@ hFFFF =
+
+  if
+
+   nip dup -1
+
+  else
+
+   _fsnext
+
+  then
+
+ until
+
+ drop
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1494,42 +1493,45 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fsfind
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fsfind
+
+ fsbot 0 >r
+
+ begin
+
+\ read namesizemax 1F + 3 bytes into t0, t1, and tbuf
+
+  dup t0 h22 _fsrd t0 W@ hFFFF =
+
+  if
+
+   -1
+
+  else
+
+   over t1 cstr=
+
+   if
+
+    r> drop dup >r
+
+   then
+
+   _fsnext
+
+  then
+
+ until
+
+ 2drop r>
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -1612,276 +1614,35 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef fsls
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
+: fsls
 
-Prop0 Cog6 ok
+ cr fsbot
 
-Prop0 Cog6 ok
-\ _fsread ( cstr -- ) read file to output
-Prop0 Cog6 ok
+ begin
 
-Prop0 Cog6 ok
-[ifndef _fsread
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
-Prop0 Cog6 ok
+\ read namesizemax 1F + 3 bytes into t0, t1, and tbuf
 
-Prop0 Cog6 ok
+  dup t0 h22 _fsrd t0 W@ hFFFF =
 
-Prop0 Cog6 ok
+  if
 
-Prop0 Cog6 ok
-\ _fsp filename ( -- cstr ) filename, if cstr is 0 no file found
-Prop0 Cog6 ok
+   -1
 
-Prop0 Cog6 ok
-[ifndef _fsp
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
-Prop0 Cog6 ok
+  else
 
-Prop0 Cog6 ok
+   dup .long space t0 W@ .word space t1 .cstr cr
 
-Prop0 Cog6 ok
+   _fsnext
 
-Prop0 Cog6 ok
-\ fsread filename ( -- ) prints filename to the output
-Prop0 Cog6 ok
+  then
 
-Prop0 Cog6 ok
-[ifndef fsread
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
-Prop0 Cog6 ok
+ until
 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-\ _fsload ( cstr -- ) load the using the next free cog
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-[ifndef _fsload
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-\ fsload filename ( -- ) send the file to the next free forth cog
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-[ifndef fsload
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-\ this changes the name of the last onboot word
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-\
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-[ifndef build_fsrd
-.
-.
-.
-.
-]
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-\ onboot (n1 -- n1) execute file boot.f if it exists
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-[ifndef build_fsrd
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
+ drop fsfree
+UNDEFINED WORD fsfree
 Prop0 Cog6 ok
 \ fs - eeprom file system
 Prop0 Cog6 ok
@@ -2044,10 +1805,13 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef build_fswr
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant build_fswr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -2186,14 +1950,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fsk
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fsk
+
+ h8 lshift key or
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -2207,28 +1974,31 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _fswr
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fswr
+
+ dup >r rot dup r> + fstop 1- >
+
+ if
+
+  hA ERR 
+
+ then
+
+ rot2 eewritepage
+
+ if
+
+  hA ERR
+
+ then
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -2278,14 +2048,17 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef fsclear
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fsclear
+
+ -1 fsbot EW!
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -2299,103 +2072,105 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef fswrite
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fswrite
+
+ _fsfree dup -1 <> parsenw dup rot and
+
+  if
+
+\ set the file length to 0, copy in the file name
+
+  0 pad W! dup C@ 2+ 1+ pad + swap pad 2+ ccopy
+
+\ find the first free page
+
+  0 swap key _fsk _fsk _fsk
+
+\ ( eaddr1 n1 addr2 n2 ) eaddr - start of file in the eeprom, n1 - bytes written so far, addr2 - next addr in the pad,
+
+\ n2 - a 4 byte key buffer
+
+  begin
+
+\ check to see if we have a ... at the end of a line
+
+   h2E2E2E0D over = if
+
+    -1
+
+   else
+
+\ get a key from the key buffer, write it the the pad
+
+    tuck h18 rshift
+
+    dup emit
+
+    over C! 1+ tuck pad - fsps =
+
+    if
+
+\ we have a page worth of data, write it out
+
+     nip rot2 2dup + pad fsps _fswr fsps + rot pad swap
+
+    then 
+
+\ get another key   
+
+    _fsk 0
+
+   then
+
+  until
+
+\ any keys left?
+
+  drop pad - dup 0> if
+
+\ write the leftover, not a full page
+
+  >r 2dup + pad r> dup >r _fswr r> +
+
+  else 
+
+   drop
+
+  then
+
+\ write the length of FFFF for the next file
+
+  2dup + hFFFF swap _fspa dup fstop 1- <
+
+  if
+
+   EW!
+
+  else
+
+   2drop
+
+  then 
+
+\ subtract the length of the filename +1, and the 2 bytes which are the length of the file, and update the length of the file 
+
+  over 2+ EC@ 2+ 1+ - swap EW!
+
+ else
+
+  2drop clearkeys 
+
+ then
+
+ padbl
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -2409,31 +2184,13 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef fsdrop
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-]
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
+: fsdrop
 
-Prop0 Cog6 ok
-
+ _fslast dup -1 = 
+UNDEFINED WORD _fslast
 Prop0 Cog6 ok
 \
 Prop0 Cog6 ok
@@ -2664,6 +2421,89 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 fsclear
+Prop0 Cog6 ok
+fswritec fswritec.f
+[ifndef _nk
+: _nk
+dup h18 rshift swap _fsk swap
+;
+]
+[ifndef fswritec
+: fswritec
+cogid nfcog iolink
+parsenw
+." fswrite " .cstr cr
+key _fsk _fsk _fsk
+begin
+dup h2E2E2E0D =
+if
+-1
+else
+_nk
+dup h7B =
+if
+drop
+begin _nk h7D = until
+_nk
+then
+dup h5C =
+if
+drop
+begin _nk h0D = until
+else
+dup h0D =
+if
+drop
+else
+begin
+dup h20 = over h09 = or
+if
+drop _nk 0
+else
+-1
+then
+until
+dup h0D =
+if
+drop
+else
+begin
+dup h22 =
+if
+emit begin _nk dup emit h22 = until
+_nk
+then
+dup h20 = over h09 = or
+if
+begin drop _nk dup h20 <> over h09 <> and until
+dup h0D <>
+if space then
+then
+dup emit h0D <>
+if
+dup h2E2E2E0D =
+if
+-1
+else
+_nk 0
+then
+else
+-1
+then
+until
+then
+then
+then
+0
+then
+until
+drop
+." ...~h0D~h0D~h0D"
+cogid iounlink
+;
+]
+Prop0 Cog5 ok
+
 Prop0 Cog6 ok
 fswritec boot.f
 hA state orC!

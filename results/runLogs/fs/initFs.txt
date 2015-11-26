@@ -1,95 +1,106 @@
-scripts/fs/initFs.txt::2015-10-18 16:16:49.51444584 -0700 PDT 
+scripts/fs/initFs.txt::2015-11-25 19:20:41.47076141 -0800 PST 
  scriptFileName: scripts/fs/initFs.txt
    logFileName: results/runLogs/fs/initFs.txt
 resultFileName: 
 outputFileName: 
 
-scripts/fs/initFs.txt::2015-10-18 16:16:49.518039269 -0700 PDT 
+scripts/fs/initFs.txt::2015-11-25 19:20:41.47157083 -0800 PST 
  scriptFileName: scripts/fs/initFs.txt
    logFileName: results/runLogs/fs/initFs.txt
 resultFileName: results/resultFiles/fs/initFs.txt
 outputFileName: 
 
 \
-\ Reboot
-\
-scripts/fs/initFs.txt::2015-10-18 16:16:49.518610234 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
-
-scripts/fs/initFs.txt::2015-10-18 16:16:49.518656814 -0700 PDT SENDING: reboot
-scripts/fs/initFs.txt::2015-10-18 16:16:49.51867623 -0700 PDT DONE SENDING waiting for output: reboot
-scripts/fs/initFs.txt::2015-10-18 16:16:49.518683411 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:16:55.037388221 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:16:55.037420286 -0700 PDT DONE: reboot
-\
 \ check Forth
 \
-scripts/fs/initFs.txt::2015-10-18 16:16:55.139517659 -0700 PDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:20:41.47322454 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:16:55.139559421 -0700 PDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/fs/initFs.txt::2015-10-18 16:16:55.139583051 -0700 PDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/fs/initFs.txt::2015-10-18 16:16:55.13959221 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:16:56.178181025 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:16:56.178216407 -0700 PDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/fs/initFs.txt::2015-11-25 19:20:41.473255042 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/fs/initFs.txt::2015-11-25 19:20:41.47328272 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/fs/initFs.txt::2015-11-25 19:20:41.473289448 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:20:42.49775168 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:20:42.497803584 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ words to be added / replaced
 \
-scripts/fs/initFs.txt::2015-10-18 16:16:56.280442132 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:20:42.604754954 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:16:56.280524644 -0700 PDT SENDING: src/optimize/fs/fsrd.f
-scripts/fs/initFs.txt::2015-10-18 16:16:56.900935486 -0700 PDT DONE SENDING waiting for output: src/optimize/fs/fsrd.f
-scripts/fs/initFs.txt::2015-10-18 16:16:56.900965704 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:01.528399899 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:01.528468177 -0700 PDT DONE: src/optimize/fs/fsrd.f
-scripts/fs/initFs.txt::2015-10-18 16:17:01.629056072 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:20:42.604835596 -0800 PST SENDING: src/optimize/fs/fsrd.f
+scripts/fs/initFs.txt::2015-11-25 19:20:43.242293225 -0800 PST DONE SENDING waiting for output: src/optimize/fs/fsrd.f
+scripts/fs/initFs.txt::2015-11-25 19:20:43.242337084 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:20:49.026885954 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:20:49.026976862 -0800 PST DONE: src/optimize/fs/fsrd.f
+scripts/fs/initFs.txt::2015-11-25 19:20:49.128328617 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:17:01.629087624 -0700 PDT SENDING: src/optimize/fs/fswr.f
-scripts/fs/initFs.txt::2015-10-18 16:17:01.889247764 -0700 PDT DONE SENDING waiting for output: src/optimize/fs/fswr.f
-scripts/fs/initFs.txt::2015-10-18 16:17:01.889304986 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:05.398111375 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:05.398203102 -0700 PDT DONE: src/optimize/fs/fswr.f
-scripts/fs/initFs.txt::2015-10-18 16:17:05.503071731 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:20:49.128371832 -0800 PST SENDING: src/optimize/fs/fswr.f
+scripts/fs/initFs.txt::2015-11-25 19:20:49.386362156 -0800 PST DONE SENDING waiting for output: src/optimize/fs/fswr.f
+scripts/fs/initFs.txt::2015-11-25 19:20:49.386412042 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:20:54.200032442 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:20:54.200091634 -0800 PST DONE: src/optimize/fs/fswr.f
+scripts/fs/initFs.txt::2015-11-25 19:20:54.306184419 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:17:05.50311127 -0700 PDT SENDING: src/optimize/fs/fswrc.f
-scripts/fs/initFs.txt::2015-10-18 16:17:05.589396714 -0700 PDT DONE SENDING waiting for output: src/optimize/fs/fswrc.f
-scripts/fs/initFs.txt::2015-10-18 16:17:05.589515081 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:08.941061505 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:08.941108486 -0700 PDT DONE: src/optimize/fs/fswrc.f
-scripts/fs/initFs.txt::2015-10-18 16:17:09.043882196 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:20:54.306225896 -0800 PST SENDING: src/optimize/fs/fswrc.f
+scripts/fs/initFs.txt::2015-11-25 19:20:54.391523366 -0800 PST DONE SENDING waiting for output: src/optimize/fs/fswrc.f
+scripts/fs/initFs.txt::2015-11-25 19:20:54.391570801 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:20:57.755693563 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:20:57.75575004 -0800 PST DONE: src/optimize/fs/fswrc.f
+scripts/fs/initFs.txt::2015-11-25 19:20:57.858633821 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:17:09.043924956 -0700 PDT SENDING: fsclear
-scripts/fs/initFs.txt::2015-10-18 16:17:09.043954321 -0700 PDT DONE SENDING waiting for output: fsclear
-scripts/fs/initFs.txt::2015-10-18 16:17:09.043961949 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:12.05903243 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:12.059091746 -0700 PDT DONE: fsclear
-scripts/fs/initFs.txt::2015-10-18 16:17:12.160683277 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:20:57.858721818 -0800 PST SENDING: fsclear
+scripts/fs/initFs.txt::2015-11-25 19:20:57.858761047 -0800 PST DONE SENDING waiting for output: fsclear
+scripts/fs/initFs.txt::2015-11-25 19:20:57.858770987 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:00.888579044 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:00.88864333 -0800 PST DONE: fsclear
+scripts/fs/initFs.txt::2015-11-25 19:21:00.989571935 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:17:12.160724943 -0700 PDT SENDING: src/optimize/fs/bootStart.f
-scripts/fs/initFs.txt::2015-10-18 16:17:12.165429427 -0700 PDT DONE SENDING waiting for output: src/optimize/fs/bootStart.f
-scripts/fs/initFs.txt::2015-10-18 16:17:12.165471877 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:15.183068783 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:15.183104472 -0700 PDT DONE: src/optimize/fs/bootStart.f
-scripts/fs/initFs.txt::2015-10-18 16:17:15.287662167 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:21:00.989627861 -0800 PST SENDING: fswritec fswritec.f
+scripts/fs/initFs.txt::2015-11-25 19:21:00.989675247 -0800 PST DONE SENDING waiting for output: fswritec fswritec.f
+scripts/fs/initFs.txt::2015-11-25 19:21:00.989686195 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:04.001981209 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:04.002056937 -0800 PST DONE: fswritec fswritec.f
+scripts/fs/initFs.txt::2015-11-25 19:21:04.106701556 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:17:15.287681618 -0700 PDT SENDING: src/optimize/fs/findEETop.f
-scripts/fs/initFs.txt::2015-10-18 16:17:15.30688262 -0700 PDT DONE SENDING waiting for output: src/optimize/fs/findEETop.f
-scripts/fs/initFs.txt::2015-10-18 16:17:15.30690807 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:18.355279882 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:18.355346206 -0700 PDT DONE: src/optimize/fs/findEETop.f
-scripts/fs/initFs.txt::2015-10-18 16:17:18.460110659 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:21:04.106739713 -0800 PST SENDING: src/optimize/fs/fswrc.f
+scripts/fs/initFs.txt::2015-11-25 19:21:04.185314616 -0800 PST DONE SENDING waiting for output: src/optimize/fs/fswrc.f
+scripts/fs/initFs.txt::2015-11-25 19:21:04.185355959 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:07.4062848 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:07.406349645 -0800 PST DONE: src/optimize/fs/fswrc.f
+scripts/fs/initFs.txt::2015-11-25 19:21:07.511688357 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:17:18.460132311 -0700 PDT SENDING: src/optimize/dev/Forget.f
-scripts/fs/initFs.txt::2015-10-18 16:17:18.485094511 -0700 PDT DONE SENDING waiting for output: src/optimize/dev/Forget.f
-scripts/fs/initFs.txt::2015-10-18 16:17:18.485120555 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:21.555515304 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:21.555559064 -0700 PDT DONE: src/optimize/dev/Forget.f
-scripts/fs/initFs.txt::2015-10-18 16:17:21.659012594 -0700 PDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/fs/initFs.txt::2015-11-25 19:21:07.511713206 -0800 PST SENDING: ...
+scripts/fs/initFs.txt::2015-11-25 19:21:07.511737092 -0800 PST DONE SENDING waiting for output: ...
+scripts/fs/initFs.txt::2015-11-25 19:21:07.511743612 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:10.570727063 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:10.570795898 -0800 PST DONE: ...
+scripts/fs/initFs.txt::2015-11-25 19:21:10.675610789 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/fs/initFs.txt::2015-10-18 16:17:21.659042357 -0700 PDT SENDING: src/optimize/fs/bootEnd.f
-scripts/fs/initFs.txt::2015-10-18 16:17:21.676936358 -0700 PDT DONE SENDING waiting for output: src/optimize/fs/bootEnd.f
-scripts/fs/initFs.txt::2015-10-18 16:17:21.676981106 -0700 PDT WAIT STARTED
-scripts/fs/initFs.txt::2015-10-18 16:17:24.808226699 -0700 PDT WAIT DONE
-scripts/fs/initFs.txt::2015-10-18 16:17:24.808293219 -0700 PDT DONE: src/optimize/fs/bootEnd.f
-scripts/fs/initFs.txt::2015-10-18 16:17:24.910893927 -0700 PDT 
+scripts/fs/initFs.txt::2015-11-25 19:21:10.675647403 -0800 PST SENDING: src/optimize/fs/bootStart.f
+scripts/fs/initFs.txt::2015-11-25 19:21:10.679471857 -0800 PST DONE SENDING waiting for output: src/optimize/fs/bootStart.f
+scripts/fs/initFs.txt::2015-11-25 19:21:10.679514803 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:13.702147811 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:13.702202208 -0800 PST DONE: src/optimize/fs/bootStart.f
+scripts/fs/initFs.txt::2015-11-25 19:21:13.807385281 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/initFs.txt::2015-11-25 19:21:13.807423655 -0800 PST SENDING: src/optimize/fs/findEETop.f
+scripts/fs/initFs.txt::2015-11-25 19:21:13.825602073 -0800 PST DONE SENDING waiting for output: src/optimize/fs/findEETop.f
+scripts/fs/initFs.txt::2015-11-25 19:21:13.825642675 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:16.873364936 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:16.873491387 -0800 PST DONE: src/optimize/fs/findEETop.f
+scripts/fs/initFs.txt::2015-11-25 19:21:16.980763939 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/initFs.txt::2015-11-25 19:21:16.980831788 -0800 PST SENDING: src/optimize/dev/Forget.f
+scripts/fs/initFs.txt::2015-11-25 19:21:17.003327811 -0800 PST DONE SENDING waiting for output: src/optimize/dev/Forget.f
+scripts/fs/initFs.txt::2015-11-25 19:21:17.003371464 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:20.067627631 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:20.067674794 -0800 PST DONE: src/optimize/dev/Forget.f
+scripts/fs/initFs.txt::2015-11-25 19:21:20.173843573 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/initFs.txt::2015-11-25 19:21:20.173878227 -0800 PST SENDING: src/optimize/fs/bootEnd.f
+scripts/fs/initFs.txt::2015-11-25 19:21:20.189319747 -0800 PST DONE SENDING waiting for output: src/optimize/fs/bootEnd.f
+scripts/fs/initFs.txt::2015-11-25 19:21:20.189362656 -0800 PST WAIT STARTED
+scripts/fs/initFs.txt::2015-11-25 19:21:23.31638046 -0800 PST WAIT DONE
+scripts/fs/initFs.txt::2015-11-25 19:21:23.316452483 -0800 PST DONE: src/optimize/fs/bootEnd.f
+scripts/fs/initFs.txt::2015-11-25 19:21:23.422172833 -0800 PST 
  scriptFileName: scripts/fs/initFs.txt
    logFileName: results/runLogs/fs/initFs.txt
 resultFileName: 

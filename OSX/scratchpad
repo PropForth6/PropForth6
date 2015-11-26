@@ -114,7 +114,7 @@ fswritec fswritec
 ...
 
 
-fswritec boot.f
+fswrite boot.f
 hA state orC!
 1 wconstant forgetfence
 
@@ -184,11 +184,16 @@ hA state orC!
 ]
 
 c" QS__" prop W@ ccopy
-$S_con iodis $S_con cogreset 100 delms
-c" _ready_led dup pinout pinhi" $S_con cogx
-c" hcRx hcTx 57600 1 serafc" $S_con cogx 100 delms
-6 >con
+cog?
+\ $S_con iodis 
 
+$S_con cogreset 100 delms
+\ c" _ready_led dup pinout pinhi" $S_con cogx
+\ c" hcRx hcTx 57600 1 serafc" $S_con cogx 100 delms
+c" 31 30 57600 1 serafc" $S_con cogx 100 delms
+\ 6 >con
+
+cog?
 
 >dbg
 cr
@@ -196,7 +201,7 @@ c" boot.f - Finding top of eeprom, " .cstr findEETOP ' fstop 2+ alignl L! c" Top
 forget forgetfence 
 c" boot.f - DONE PropForth Loaded~h0D~h0DLoading usrboot.f~h0D~h0D" .cstr hA state andnC!
 xdbg
-c" usrboot.f" _fsload
+\ c" usrboot.f" _fsload
 ...
 
 fswritec usrboot.f

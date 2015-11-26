@@ -1,7 +1,7 @@
 
  scriptFileName: scripts/fs/buildFsKernelSpin.txt
-   logFileName: results/runLogs/buildDevKernelSpin.txt
-resultFileName: results/resultFiles/buildDevKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
 outputFileName: 
 reboot
 
@@ -18,6 +18,18 @@ RESET: 4 0 ?    0 ?
 RESET: 5 0 ?    0 ?
 
  fsKERNEL6.0-2015Oct18 13:18-0
+
+boot.f - Finding top of eeprom, Top of eeprom at: 65536 
+boot.f - DONE PropForth Loaded
+
+Loading usrboot.f
+
+Prop0 Cog5 ok
+xdbg
+Prop0 Cog5 ok
+c" usrboot.f" _fsload
+Prop0 Cog5 ok
+
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
@@ -408,12 +420,12 @@ Prop0 Cog6 ok
 hA state orC!
 
  scriptFileName: scripts/fs/buildFsKernelSpin.txt
-   logFileName: results/runLogs/buildDevKernelSpin.txt
-resultFileName: results/resultFiles/buildDevKernelSpin.txt
-outputFileName: results/outputFiles/dev/devKernel.spin
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
+outputFileName: results/outputFiles/fs/fsKernel.spin
 
  scriptFileName: scripts/fs/buildFsKernelSpin.txt
-   logFileName: results/runLogs/buildDevKernelSpin.txt
-resultFileName: results/resultFiles/buildDevKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
 outputFileName: 
 Prop0 Cog6 ok

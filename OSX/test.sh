@@ -1,3 +1,3 @@
 
-bash -v fs/initFs.sh /dev/cu.usbserial-FTY2XPAM 230400
+bash -v fs/initFs.sh /dev/cu.usbserial-A1013QW3 230400
 

@@ -1,0 +1,83 @@
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:22.041148943 -0800 PST 
+ scriptFileName: scripts/fs/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: 
+outputFileName: 
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:22.042205171 -0800 PST 
+ scriptFileName: scripts/fs/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
+outputFileName: 
+
+\
+\ Reboot
+\
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:22.042788205 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:22.042816889 -0800 PST SENDING: reboot
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:22.042837785 -0800 PST DONE SENDING waiting for output: reboot
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:22.042844687 -0800 PST WAIT STARTED
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:27.548793108 -0800 PST WAIT DONE
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:27.548863771 -0800 PST DONE: reboot
+\
+\ check Forth
+\
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:27.653488372 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:27.653542706 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:27.653580134 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:27.653593352 -0800 PST WAIT STARTED
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:28.686045472 -0800 PST WAIT DONE
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:28.686097846 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+\
+\ Load spinImage.f
+\
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:28.791485481 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:28.791611891 -0800 PST SENDING: src/spinImage.f
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:28.957053536 -0800 PST DONE SENDING waiting for output: src/spinImage.f
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:28.957114185 -0800 PST WAIT STARTED
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:32.724010155 -0800 PST WAIT DONE
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:32.724062958 -0800 PST DONE: src/spinImage.f
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:32.824875431 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:32.824952751 -0800 PST SENDING: hA state orC!
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:32.825038595 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:32.825053967 -0800 PST WAIT STARTED
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:33.843369001 -0800 PST WAIT DONE
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:33.843442667 -0800 PST DONE: hA state orC!
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:33.946549097 -0800 PST 
+ scriptFileName: scripts/fs/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
+outputFileName: results/outputFiles/fs/fsKernel.spin
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:33.94705974 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:33.947079614 -0800 PST SENDING: spinImage
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:33.947133764 -0800 PST DONE SENDING waiting for output: spinImage
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:26:33.94715215 -0800 PST WAIT STARTED
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:00.557191171 -0800 PST WAIT DONE
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:00.557337896 -0800 PST DONE: spinImage
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:00.660332657 -0800 PST WAIT STARTED
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:03.665696329 -0800 PST WAIT DONE
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:03.666146688 -0800 PST 
+ scriptFileName: scripts/fs/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
+outputFileName: 
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:03.666902262 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:03.666922894 -0800 PST SENDING: hA state andnC!
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:03.66694461 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:03.666951284 -0800 PST WAIT STARTED
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:04.689810104 -0800 PST WAIT DONE
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:04.689868443 -0800 PST DONE: hA state andnC!
+scripts/fs/buildFsKernelSpin.txt::2015-11-24 21:27:04.791214894 -0800 PST 
+ scriptFileName: scripts/fs/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: 
+outputFileName: 
+
