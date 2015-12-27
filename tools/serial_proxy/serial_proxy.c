@@ -80,12 +80,17 @@ FILE* logfileFp = NULL;
 pthread_mutex_t	debug_mutex;
 
 // once multiple threads are started, access this routine only with debug_mutex locked
+
+char __my_print__buf[ 16384];
 void __my_print( const char *format, va_list arg_list) {
+	if( !quiet_mode || logfileFp != NULL) {
+		vsprintf( __my_print__buf, format, arg_list);
+	}
 	if(!quiet_mode) {
-		vfprintf( stdout, format, arg_list);
+		fputs(__my_print__buf, stdout);
 	}
 	if( logfileFp != NULL) {
-		vfprintf( logfileFp, format, arg_list);
+		fputs(__my_print__buf, logfileFp);
 		fflush(logfileFp);
 	}
 }
@@ -1045,21 +1050,11 @@ PortThreadParameters port_thread_parameters;
 SerialThreadParameters serial_thread_parameters;
 char arg_buffer[ MAX_ARG_BUFFER], *fargv[ MAX_ARGC];
 int main (int argc, char *argv[]) {
-	char *P, buf[256], rev[16];
+	char *P, buf[256], *rev = "1.0";
 	FILE *f;
 	
 	program_name = argv[0];
 	P = strrchr( __FILE__, '_');
-	if( P == NULL) {
-		P = "_???.c";
-	}
-	strcpy( rev, P+1);
-	P = strrchr( rev , '.');
-	if( P == NULL) {
-		strcpy( rev, "???");
-	} else {
-		*P = '\0';
-	}
 	if( argc == 1 && ( (NULL != (f = fopen("./serial_proxy.conf","r"))) || (NULL != (f = fopen("/etc/serial_proxy.conf","r")))  ) ) {
 		strcpy( arg_buffer, program_name);
 		while( NULL != fgets( buf, sizeof(buf), f)) {
