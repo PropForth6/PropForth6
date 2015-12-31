@@ -37,17 +37,18 @@ static char* usage_str=" [OPTION]...\n\tProxies a serial port to tcp-ip. If this
 \t/etc/serial_proxy.conf is used for parameters.\n\n\
 \t-h, --help\t\t\tHelp.\n\
 \t-L, --logfile=\t\t\tlogfile\n\
-\t-q, --quiet\t\t\tTurns on quiet mode. All information & debug is supppressed. (off)\n\
+\t-q, --quiet\t\t\tTurns on quiet mode. All information & debug to console is supppressed. (off)\n\
 \t-S, --debug_serial\t\tTurns on serial port debugging. (off)\n\
 \t-l, --loopback\t\t\tTurns on loopback, serial port is not used. (off)\n\
 \t-s, --serial_device=\t\tSerial port to use. (/dev/ttyUSB0)\n\
 \t-b, --baud=\t\t\tBaud rate 230400 | 115200 | 57600 | 19200 | 9600 | 1200. (230400)\n\
 \t-a, --advanced_flow_control\tTurns on advanced flow control. (off)\n\
 \t-A, --debug_afc\t\t\tTurns on advanced flow control debugging. (off)\n\
+\t-T, --debug_telnet\t\tTurns on telnet control debugging. (off)\n\
 \t-p, --port=\t\t\tTcp-ip port. (4000)\n\
 \t-r, --raw\t\t\tTreat tcp-ip port as a raw port, otherwise as a telnet port. (off)\n\
 \t-e, --expand_cr\t\t\tIf a telnet port, expand cr to cf lf. (off)\n\
-\t-P, --debug_port\t\tTurns on tcp-ip port debugging. (off)\n";
+\t-P, --debug_port\t\tTurns on tcp-ip port debugging. (off)\n\n";
 
 
 #define AFC_ACK_SIZE 256 // value fixed by protocol definition
@@ -200,8 +201,6 @@ struct option long_options[] = {
 	{"loopback",		no_argument, &loopback_mode, 1},
 	{"serial_device",	required_argument, 0, 's'},
 	{"baud",		required_argument, 0, 'b'},
-	{"serial_inbuf_size",	required_argument, 0, 'I'},
-	{"serial_outbuf_size",	required_argument, 0, 'O'},
 	{"advanced_flow_control",	no_argument, &advanced_flow_control, 1},
 	{"debug_afc",	no_argument, &debug_afc, 1},
 	{"port",		required_argument,	0, 'p'},
@@ -222,7 +221,7 @@ int cmdlinetoi(char* val) {
 
 void parse_options(int argc, char *argv[]) {
 	int c, option_index = 0;
-	while (-1 != (c = getopt_long (argc, argv, "hL:qSls:b:B:aAp:reP", long_options, &option_index))) {
+	while (-1 != (c = getopt_long (argc, argv, "hL:qSls:b:aAp:reP", long_options, &option_index))) {
 		switch (c) {
 			case 'h':
 			case '?':
@@ -1050,7 +1049,7 @@ PortThreadParameters port_thread_parameters;
 SerialThreadParameters serial_thread_parameters;
 char arg_buffer[ MAX_ARG_BUFFER], *fargv[ MAX_ARGC];
 int main (int argc, char *argv[]) {
-	char *P, buf[256], *rev = "1.0";
+	char *P, buf[256], *rev = "1.03";
 	FILE *f;
 	
 	program_name = argv[0];
