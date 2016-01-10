@@ -31,10 +31,29 @@ call buildOptKernel.bat
 echo buildOptKernel.bat result: %domakeerr%
 if %domakeerr% neq 0 goto end
 
-call buildMpOptKernel.bat
-echo  buildMpOptKernel.bat result: %domakeerr%
+call buildOptKernelSpin.bat
+echo buildOptKernelSpin.bat result: %domakeerr%
 if %domakeerr% neq 0 goto end
 
+call dev\buildDevKernel.bat
+echo buildDevKernel.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
+
+call dev\buildDevKernelSpin.bat
+echo buildDevKernelSpin.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
+
+call mp\buildMpKernel.bat
+echo buildMpKernel.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
+
+call mp\buildMpKernelSpin.bat
+echo buildMpKernelSpin.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
+
+call dev\buildlac.bat
+echo buildlac.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
 
 :end
 echo buildall.bat result: %domakeerr%

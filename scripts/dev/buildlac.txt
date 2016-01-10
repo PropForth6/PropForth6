@@ -1,0 +1,27 @@
+						L results/runLogs/dev/buildlac.txt
+						R results/resultFiles/dev/buildlac.txt
+\
+						X	reboot
+\
+\ check Forth
+\
+	e 1	t 1000			X	cr c" here: " .cstr here W@ . (version) .cstr cr cr
+	e 0 t 3000
+\
+\
+\ Load asm.f
+\
+						S	results/outputFiles/asm.f
+						
+						X	hA state orC!
+						O	results/outputFiles/dev/lac.f
+						SR	src/optimize/Lac/lacDef.f
+
+		t 10000			S	src/optimize/Lac/lacAsmSrc.f
+		t 3000			SR	src/optimize/Lac/lacSrc.f
+						CO
+						X	hA state andnC!
+						
+						CR CL
+
+

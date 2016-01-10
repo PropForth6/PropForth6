@@ -17,3 +17,4 @@ bash -v dev/buildDevKernelSpin.sh "$@"
 bash -v mp/buildMpKernel.sh "$@"
 bash -v mp/buildMpKernelSpin.sh "$@"
 
+bash -v dev/buildlac.sh "$@"

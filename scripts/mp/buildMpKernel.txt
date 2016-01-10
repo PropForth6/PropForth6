@@ -12,10 +12,9 @@
 \
 \ words to be added / replaced
 \
-						Y	: (version) c" mpKERNEL6.0-
+						Y	c" mpKERNEL6.0----
 						SDS
-						X	-0"	;
-						X	(version) version W!
+						X	-0"	version W@ ccopy
 						S	src/optimize/mp/mpdef.f
 						S	src/optimize/mp/mp.f
 \

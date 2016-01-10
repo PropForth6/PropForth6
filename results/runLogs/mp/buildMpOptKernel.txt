@@ -1,0 +1,742 @@
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:30.319507739 -0500 CDT 
+ scriptFileName: scripts/mp/buildMpOptKernel.txt
+   logFileName: results/runLogs/mp/buildMpOptKernel.txt
+resultFileName: 
+outputFileName: 
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:30.319858406 -0500 CDT 
+ scriptFileName: scripts/mp/buildMpOptKernel.txt
+   logFileName: results/runLogs/mp/buildMpOptKernel.txt
+resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
+outputFileName: 
+
+\
+\ Reboot
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:30.320132293 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:30.320144084 -0500 CDT SENDING: reboot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:30.32015362 -0500 CDT DONE SENDING waiting for output: reboot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:30.320156792 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:36.145479572 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:36.145517084 -0500 CDT DONE: reboot
+\
+\ check Forth
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:36.246373361 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:36.246403311 -0500 CDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:36.246422765 -0500 CDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:36.246432188 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:37.463068461 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:37.463125167 -0500 CDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+\
+\ Load forthmaker.f
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:37.563683914 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:37.563726252 -0500 CDT SENDING: src/forthmaker.f
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:37.893910977 -0500 CDT DONE SENDING waiting for output: src/forthmaker.f
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:09:37.893929276 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:03.626433251 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:03.626482205 -0500 CDT DONE: src/forthmaker.f
+\
+\ words to be added / replaced
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:03.727127946 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:03.727138608 -0500 CDT SENDING: : (version) c" mpOptKERNEL6.0-
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:03.727149011 -0500 CDT DONE SENDING waiting for output: : (version) c" mpOptKERNEL6.0-
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:03.727157922 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:06.733234737 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:06.733258208 -0500 CDT DONE: : (version) c" mpOptKERNEL6.0-
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:06.833467089 -0500 CDT SEND: [2015Oct20 23:10]
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:06.833606428 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:06.833624095 -0500 CDT SENDING: -0" ;
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:06.833638437 -0500 CDT DONE SENDING waiting for output: -0" ;
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:06.833642081 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:09.89392989 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:09.893963184 -0500 CDT DONE: -0" ;
+\
+\ Load mpOptimize.f
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:09.994768102 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:09.994790537 -0500 CDT SENDING: results/outputFiles/mpOptimize.f
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:10.659612284 -0500 CDT DONE SENDING waiting for output: results/outputFiles/mpOptimize.f
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:10:10.659644499 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:24.137565222 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:24.137621522 -0500 CDT DONE: results/outputFiles/mpOptimize.f
+\
+\ words to be deleted
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:24.239342308 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:24.239377698 -0500 CDT SENDING: 1 wconstant forthmakerdeletefence
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:24.239411771 -0500 CDT DONE SENDING waiting for output: 1 wconstant forthmakerdeletefence
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:24.239423125 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:25.31336298 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:25.313401727 -0500 CDT DONE: 1 wconstant forthmakerdeletefence
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:25.41375139 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:25.413775041 -0500 CDT SENDING: 1 wconstant _xis
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:25.413789858 -0500 CDT DONE SENDING waiting for output: 1 wconstant _xis
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:25.413793632 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:26.484065517 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:26.484107184 -0500 CDT DONE: 1 wconstant _xis
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:26.584452989 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:26.584477872 -0500 CDT SENDING: 1 wconstant isnumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:26.584493722 -0500 CDT DONE SENDING waiting for output: 1 wconstant isnumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:26.584499028 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:27.654816689 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:27.654860858 -0500 CDT DONE: 1 wconstant isnumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:27.755186123 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:27.755208692 -0500 CDT SENDING: 1 wconstant isunumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:27.755225555 -0500 CDT DONE SENDING waiting for output: 1 wconstant isunumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:27.755230177 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:28.826599445 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:28.826654416 -0500 CDT DONE: 1 wconstant isunumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:28.927155924 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:28.927181423 -0500 CDT SENDING: 1 wconstant isdigit
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:28.927199913 -0500 CDT DONE SENDING waiting for output: 1 wconstant isdigit
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:28.927203959 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:29.998262515 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:29.998307717 -0500 CDT DONE: 1 wconstant isdigit
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:30.098825315 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:30.098846001 -0500 CDT SENDING: 1 wconstant _xnu
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:30.098860118 -0500 CDT DONE SENDING waiting for output: 1 wconstant _xnu
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:30.098863578 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:31.169180328 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:31.169240591 -0500 CDT DONE: 1 wconstant _xnu
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:31.269621246 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:31.26964254 -0500 CDT SENDING: 1 wconstant number
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:31.269658328 -0500 CDT DONE SENDING waiting for output: 1 wconstant number
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:31.26966199 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:32.340892701 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:32.340930558 -0500 CDT DONE: 1 wconstant number
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:32.441558225 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:32.441603161 -0500 CDT SENDING: 1 wconstant unumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:32.441641245 -0500 CDT DONE SENDING waiting for output: 1 wconstant unumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:32.441653406 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:33.512614953 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:33.512643629 -0500 CDT DONE: 1 wconstant unumber
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:33.613059978 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:33.613083016 -0500 CDT SENDING: 1 wconstant todigit
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:33.613098516 -0500 CDT DONE SENDING waiting for output: 1 wconstant todigit
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:33.613101998 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:34.68447585 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:34.684504411 -0500 CDT DONE: 1 wconstant todigit
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:34.78488456 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:34.784905918 -0500 CDT SENDING: $C_treg1 wconstant $C_treg1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:34.784920523 -0500 CDT DONE SENDING waiting for output: $C_treg1 wconstant $C_treg1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:34.784924009 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:35.835269671 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:35.835307976 -0500 CDT DONE: $C_treg1 wconstant $C_treg1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:35.936155733 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:35.936177248 -0500 CDT SENDING: $C_treg2 wconstant $C_treg2
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:35.936192185 -0500 CDT DONE SENDING waiting for output: $C_treg2 wconstant $C_treg2
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:35.936197497 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:36.987090371 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:36.987153198 -0500 CDT DONE: $C_treg2 wconstant $C_treg2
+\						X	$C_IP					wconstant	$C_IP
+\						X	$C_a_lxasm				wconstant	$C_a_lxasm
+\						X	$C_a__xasm2>flagIMM		wconstant	$C_a__xasm2>flagIMM
+\						X	$C_a__xasm2>flag		wconstant	$C_a__xasm2>flag
+\						X	$C_a__xasm2>1IMM		wconstant	$C_a__xasm2>1IMM
+\						X	$C_a__xasm2>1			wconstant	$C_a__xasm2>1
+\						X	$C_a__xasm1>1			wconstant	$C_a__xasm1>1
+\						X	$C_a__xasm2>0			wconstant	$C_a__xasm2>0
+\						X	$C_a_drop				wconstant	$C_a_drop
+\						X	$C_a_RSat				wconstant	$C_a_RSat
+\						X	$C_a_STat				wconstant	$C_a_STat
+\						X	$C_a_COGat				wconstant	$C_a_COGat
+\						X	$C_a_RS!				wconstant	$C_a_RS!
+\						X	$C_a_ST!				wconstant	$C_a_ST!
+\						X	$C_a_COG!				wconstant	$C_a_COG!
+\						X	$C_a_branch				wconstant	$C_a_branch
+\						X	$C_a_doconw				wconstant	$C_a_doconw
+\						X	$C_a_dovarl				wconstant	$C_a_dovarl
+\						X	$C_a_dovarw				wconstant	$C_a_dovarw
+\						X	$C_a_doconl				wconstant	$C_a_doconl
+\						X	$C_a_litl				wconstant	$C_a_litl
+\						X	$C_a_litw				wconstant	$C_a_litw
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:37.099291809 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:37.099317834 -0500 CDT SENDING: $C_a_litw1 wconstant $C_a_litw1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:37.099341558 -0500 CDT DONE SENDING waiting for output: $C_a_litw1 wconstant $C_a_litw1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:37.099351888 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:38.151918417 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:38.151974275 -0500 CDT DONE: $C_a_litw1 wconstant $C_a_litw1
+\						X	$C_a_exit				wconstant	$C_a_exit
+\						X	$C_a_next				wconstant	$C_a_next
+\						X	$C_a__maskin			wconstant	$C_a__maskin
+\						X	$C_a__maskouthi			wconstant	$C_a__maskouthi
+\						X	$C_a__maskoutlo			wconstant	$C_a__maskoutlo
+\						X	$C_a_r>					wconstant	$C_a_r>
+\						X	$C_a_2>r				wconstant	$C_a_2>r
+\						X	$C_a_>r					wconstant	$C_a_>r
+\						X	$C_a_(loop)				wconstant	$C_a_(loop)
+\						X	$C_a_(+loop)			wconstant	$C_a_(+loop)
+\						X	$C_a_0branch			wconstant	$C_a_0branch
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:38.255488964 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:38.255504874 -0500 CDT SENDING: $C_a_reset wconstant $C_a_reset
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:38.255516833 -0500 CDT DONE SENDING waiting for output: $C_a_reset wconstant $C_a_reset
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:38.255521563 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:39.308510311 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:39.308542272 -0500 CDT DONE: $C_a_reset wconstant $C_a_reset
+\						X	$C_a_lasterr			wconstant	$C_a_lasterr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:39.41054376 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:39.410577836 -0500 CDT SENDING: $C_a_stPush wconstant $C_a_stPush
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:39.410612283 -0500 CDT DONE SENDING waiting for output: $C_a_stPush wconstant $C_a_stPush
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:39.410622479 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:40.465280632 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:40.46532311 -0500 CDT DONE: $C_a_stPush wconstant $C_a_stPush
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:40.565838115 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:40.565859578 -0500 CDT SENDING: $C_a_stPush1 wconstant $C_a_stPush1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:40.56588584 -0500 CDT DONE SENDING waiting for output: $C_a_stPush1 wconstant $C_a_stPush1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:40.565889874 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:41.620229506 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:41.620269801 -0500 CDT DONE: $C_a_stPush1 wconstant $C_a_stPush1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:41.720840411 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:41.720867772 -0500 CDT SENDING: $C_a_stPush_ret wconstant $C_a_stPush_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:41.72088939 -0500 CDT DONE SENDING waiting for output: $C_a_stPush_ret wconstant $C_a_stPush_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:41.720897398 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:42.776952229 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:42.776998228 -0500 CDT DONE: $C_a_stPush_ret wconstant $C_a_stPush_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:42.877439118 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:42.877460045 -0500 CDT SENDING: $C_a_rsPush wconstant $C_a_rsPush
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:42.877485215 -0500 CDT DONE SENDING waiting for output: $C_a_rsPush wconstant $C_a_rsPush
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:42.877489645 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:43.93279506 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:43.932832486 -0500 CDT DONE: $C_a_rsPush wconstant $C_a_rsPush
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:44.033394781 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:44.033421954 -0500 CDT SENDING: $C_a_rsPush1 wconstant $C_a_rsPush1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:44.033442843 -0500 CDT DONE SENDING waiting for output: $C_a_rsPush1 wconstant $C_a_rsPush1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:44.033448199 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:45.089546028 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:45.089583459 -0500 CDT DONE: $C_a_rsPush1 wconstant $C_a_rsPush1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:45.190303304 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:45.19033369 -0500 CDT SENDING: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:45.190361987 -0500 CDT DONE SENDING waiting for output: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:45.190370276 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:46.247331224 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:46.247380972 -0500 CDT DONE: $C_a_rsPush_ret wconstant $C_a_rsPush_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:46.347978551 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:46.348000618 -0500 CDT SENDING: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:46.348020863 -0500 CDT DONE SENDING waiting for output: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:46.348025039 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:47.404004409 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:47.404046199 -0500 CDT DONE: $C_a_stpopC_treg wconstant $C_a_stpopC_treg
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:47.504524098 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:47.504551719 -0500 CDT SENDING: $C_a_stPop wconstant $C_a_stPop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:47.50648821 -0500 CDT DONE SENDING waiting for output: $C_a_stPop wconstant $C_a_stPop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:47.506496017 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:48.561924035 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:48.561954573 -0500 CDT DONE: $C_a_stPop wconstant $C_a_stPop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:48.662803733 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:48.662838385 -0500 CDT SENDING: $C_a_stPop1 wconstant $C_a_stPop1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:48.662873651 -0500 CDT DONE SENDING waiting for output: $C_a_stPop1 wconstant $C_a_stPop1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:48.662882104 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:49.719808392 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:49.719844807 -0500 CDT DONE: $C_a_stPop1 wconstant $C_a_stPop1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:49.820323352 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:49.820380118 -0500 CDT SENDING: $C_a_stPop_ret wconstant $C_a_stPop_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:49.820404754 -0500 CDT DONE SENDING waiting for output: $C_a_stPop_ret wconstant $C_a_stPop_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:49.820408393 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:50.876367057 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:50.876393749 -0500 CDT DONE: $C_a_stPop_ret wconstant $C_a_stPop_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:50.976852054 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:50.976876862 -0500 CDT SENDING: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:50.976893951 -0500 CDT DONE SENDING waiting for output: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:50.976899415 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:52.035167708 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:52.035209112 -0500 CDT DONE: $C_a_stpopC_treg_ret wconstant $C_a_stpopC_treg_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:52.135627877 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:52.13564971 -0500 CDT SENDING: $C_a_rsPop wconstant $C_a_rsPop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:52.13566525 -0500 CDT DONE SENDING waiting for output: $C_a_rsPop wconstant $C_a_rsPop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:52.135668721 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:53.191807456 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:53.191858437 -0500 CDT DONE: $C_a_rsPop wconstant $C_a_rsPop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:53.295108742 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:53.295171148 -0500 CDT SENDING: $C_a_rsPop1 wconstant $C_a_rsPop1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:53.295228532 -0500 CDT DONE SENDING waiting for output: $C_a_rsPop1 wconstant $C_a_rsPop1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:53.295264457 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:54.353432102 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:54.353498757 -0500 CDT DONE: $C_a_rsPop1 wconstant $C_a_rsPop1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:54.453924304 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:54.453946246 -0500 CDT SENDING: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:54.45396195 -0500 CDT DONE SENDING waiting for output: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:54.453965715 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:55.511104131 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:55.511147083 -0500 CDT DONE: $C_a_rsPop_ret wconstant $C_a_rsPop_ret
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:55.611525777 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:55.61155044 -0500 CDT SENDING: $C_fDestInc wconstant $C_fDestInc
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:55.611573587 -0500 CDT DONE SENDING waiting for output: $C_fDestInc wconstant $C_fDestInc
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:55.61157911 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:56.669990808 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:56.670028165 -0500 CDT DONE: $C_fDestInc wconstant $C_fDestInc
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:56.770505354 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:56.770530136 -0500 CDT SENDING: $C_fCondMask wconstant $C_fCondMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:56.770547728 -0500 CDT DONE SENDING waiting for output: $C_fCondMask wconstant $C_fCondMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:56.770551671 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:57.828807784 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:57.828840259 -0500 CDT DONE: $C_fCondMask wconstant $C_fCondMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:57.929253594 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:57.929278668 -0500 CDT SENDING: $C_fAddrMask wconstant $C_fAddrMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:57.929294817 -0500 CDT DONE SENDING waiting for output: $C_fAddrMask wconstant $C_fAddrMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:57.929298603 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:58.987590842 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:58.987643501 -0500 CDT DONE: $C_fAddrMask wconstant $C_fAddrMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:59.088154036 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:59.088171804 -0500 CDT SENDING: $C_fLongMask wconstant $C_fLongMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:59.088186539 -0500 CDT DONE SENDING waiting for output: $C_fLongMask wconstant $C_fLongMask
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:11:59.088195639 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:00.147269033 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:00.147311998 -0500 CDT DONE: $C_fLongMask wconstant $C_fLongMask
+\						X	$C_resetDreg			wconstant	$C_resetDreg
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:00.248000764 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:00.248028307 -0500 CDT SENDING: $C_stPtr wconstant $C_stPtr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:00.248045594 -0500 CDT DONE SENDING waiting for output: $C_stPtr wconstant $C_stPtr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:00.248051218 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:01.305039582 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:01.305121033 -0500 CDT DONE: $C_stPtr wconstant $C_stPtr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:01.405865455 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:01.405906221 -0500 CDT SENDING: $C_rsPtr wconstant $C_rsPtr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:01.40593983 -0500 CDT DONE SENDING waiting for output: $C_rsPtr wconstant $C_rsPtr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:01.40594824 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:02.463778213 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:02.463812013 -0500 CDT DONE: $C_rsPtr wconstant $C_rsPtr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:02.564186137 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:02.564206704 -0500 CDT SENDING: $C_stTOS wconstant $C_stTOS
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:02.564226406 -0500 CDT DONE SENDING waiting for output: $C_stTOS wconstant $C_stTOS
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:02.564230798 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:03.622370497 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:03.622399592 -0500 CDT DONE: $C_stTOS wconstant $C_stTOS
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:03.722850406 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:03.72286838 -0500 CDT SENDING: $C_cogdata wconstant $C_cogdata
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:03.72288625 -0500 CDT DONE SENDING waiting for output: $C_cogdata wconstant $C_cogdata
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:03.722889936 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:04.781064228 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:04.781089235 -0500 CDT DONE: $C_cogdata wconstant $C_cogdata
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:04.881448032 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:04.881466773 -0500 CDT SENDING: $C_treg3 wconstant $C_treg3
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:04.881482197 -0500 CDT DONE SENDING waiting for output: $C_treg3 wconstant $C_treg3
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:04.881485746 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:05.940991505 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:05.941038614 -0500 CDT DONE: $C_treg3 wconstant $C_treg3
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:06.041457811 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:06.041494699 -0500 CDT SENDING: $C_treg4 wconstant $C_treg4
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:06.041522323 -0500 CDT DONE SENDING waiting for output: $C_treg4 wconstant $C_treg4
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:06.041528963 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:07.101567236 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:07.101593074 -0500 CDT DONE: $C_treg4 wconstant $C_treg4
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:07.202026624 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:07.202050828 -0500 CDT SENDING: $C_treg5 wconstant $C_treg5
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:07.202067261 -0500 CDT DONE SENDING waiting for output: $C_treg5 wconstant $C_treg5
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:07.202071031 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:08.263321214 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:08.263348909 -0500 CDT DONE: $C_treg5 wconstant $C_treg5
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:08.364126223 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:08.364147939 -0500 CDT SENDING: $C_treg6 wconstant $C_treg6
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:08.364162779 -0500 CDT DONE SENDING waiting for output: $C_treg6 wconstant $C_treg6
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:08.36416673 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:09.426046222 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:09.426095366 -0500 CDT DONE: $C_treg6 wconstant $C_treg6
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:09.526451693 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:09.526472663 -0500 CDT SENDING: $C_stBot wconstant $C_stBot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:09.526488143 -0500 CDT DONE SENDING waiting for output: $C_stBot wconstant $C_stBot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:09.526493943 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:10.587768546 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:10.587828766 -0500 CDT DONE: $C_stBot wconstant $C_stBot
+\						X	$C_this					wconstant	$C_this
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:10.688521209 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:10.688531867 -0500 CDT SENDING: $C_stTop wconstant $C_stTop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:10.688542295 -0500 CDT DONE SENDING waiting for output: $C_stTop wconstant $C_stTop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:10.688545737 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:11.750762924 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:11.750843796 -0500 CDT DONE: $C_stTop wconstant $C_stTop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:11.851255494 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:11.851277614 -0500 CDT SENDING: $C_rsBot wconstant $C_rsBot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:11.851293814 -0500 CDT DONE SENDING waiting for output: $C_rsBot wconstant $C_rsBot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:11.851297614 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:12.914464478 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:12.91449628 -0500 CDT DONE: $C_rsBot wconstant $C_rsBot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:13.014906115 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:13.014945813 -0500 CDT SENDING: $C_rsTop wconstant $C_rsTop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:13.014977007 -0500 CDT DONE SENDING waiting for output: $C_rsTop wconstant $C_rsTop
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:13.014983133 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:14.078305248 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:14.078335566 -0500 CDT DONE: $C_rsTop wconstant $C_rsTop
+\						X	$C_varEnd				wconstant	$C_varEnd
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:14.179334961 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:14.179348742 -0500 CDT SENDING: $V_state wconstant $V_state
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:14.179360428 -0500 CDT DONE SENDING waiting for output: $V_state wconstant $V_state
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:14.179363972 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:15.258152084 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:15.258200918 -0500 CDT DONE: $V_state wconstant $V_state
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:15.358744524 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:15.358770215 -0500 CDT SENDING: $V_numchan wconstant $V_numchan
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:15.35878977 -0500 CDT DONE SENDING waiting for output: $V_numchan wconstant $V_numchan
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:15.358794735 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:16.432989068 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:16.433037905 -0500 CDT DONE: $V_numchan wconstant $V_numchan
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:16.533696014 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:16.533719703 -0500 CDT SENDING: $V_>in wconstant $V_>in
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:16.533739878 -0500 CDT DONE SENDING waiting for output: $V_>in wconstant $V_>in
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:16.533744401 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:17.608689139 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:17.608752954 -0500 CDT DONE: $V_>in wconstant $V_>in
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:17.709145071 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:17.709166471 -0500 CDT SENDING: $V_>out wconstant $V_>out
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:17.709182127 -0500 CDT DONE SENDING waiting for output: $V_>out wconstant $V_>out
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:17.709186006 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:18.786261072 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:18.786289362 -0500 CDT DONE: $V_>out wconstant $V_>out
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:18.886701487 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:18.886724637 -0500 CDT SENDING: $V_coghere wconstant $V_coghere
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:18.886749272 -0500 CDT DONE SENDING waiting for output: $V_coghere wconstant $V_coghere
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:18.886752949 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:19.961108472 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:19.961145491 -0500 CDT DONE: $V_coghere wconstant $V_coghere
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:20.061529095 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:20.061555609 -0500 CDT SENDING: $V_execword wconstant $V_execword
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:20.061579244 -0500 CDT DONE SENDING waiting for output: $V_execword wconstant $V_execword
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:20.061591774 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:21.136856674 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:21.136894621 -0500 CDT DONE: $V_execword wconstant $V_execword
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:21.237291259 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:21.237312148 -0500 CDT SENDING: $V_base wconstant $V_base
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:21.237327745 -0500 CDT DONE SENDING waiting for output: $V_base wconstant $V_base
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:21.237331608 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:22.315515641 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:22.315546878 -0500 CDT DONE: $V_base wconstant $V_base
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:22.41588261 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:22.41590527 -0500 CDT SENDING: $V_cds wconstant $V_cds
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:22.415920757 -0500 CDT DONE SENDING waiting for output: $V_cds wconstant $V_cds
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:22.415924667 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:23.49209261 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:23.492137797 -0500 CDT DONE: $V_cds wconstant $V_cds
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:23.592522982 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:23.592555076 -0500 CDT SENDING: $V_errdata wconstant $V_errdata
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:23.592575686 -0500 CDT DONE SENDING waiting for output: $V_errdata wconstant $V_errdata
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:23.592590237 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:24.668774005 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:24.668803583 -0500 CDT DONE: $V_errdata wconstant $V_errdata
+\						X	$V_lasterr				wconstant	$V_lasterr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:24.769522799 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:24.769540935 -0500 CDT SENDING: $V_ios wconstant $V_ios
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:24.769556774 -0500 CDT DONE SENDING waiting for output: $V_ios wconstant $V_ios
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:24.769561453 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:25.846596477 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:25.846625956 -0500 CDT DONE: $V_ios wconstant $V_ios
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:25.947779268 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:25.947832847 -0500 CDT SENDING: $V_numpad wconstant $V_numpad
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:25.947888759 -0500 CDT DONE SENDING waiting for output: $V_numpad wconstant $V_numpad
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:25.94790167 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:27.024338769 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:27.024375901 -0500 CDT DONE: $V_numpad wconstant $V_numpad
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:27.124754286 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:27.124775793 -0500 CDT SENDING: $V_tbuf wconstant $V_tbuf
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:27.124797076 -0500 CDT DONE SENDING waiting for output: $V_tbuf wconstant $V_tbuf
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:27.124800801 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:28.204212653 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:28.204249783 -0500 CDT DONE: $V_tbuf wconstant $V_tbuf
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:28.304608895 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:28.30463051 -0500 CDT SENDING: $V_t1 wconstant $V_t1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:28.304645596 -0500 CDT DONE SENDING waiting for output: $V_t1 wconstant $V_t1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:28.30464928 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:29.381027274 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:29.381075765 -0500 CDT DONE: $V_t1 wconstant $V_t1
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:29.48142805 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:29.481449941 -0500 CDT SENDING: $V_t0 wconstant $V_t0
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:29.481465103 -0500 CDT DONE SENDING waiting for output: $V_t0 wconstant $V_t0
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:29.481468744 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:30.558745515 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:30.558806143 -0500 CDT DONE: $V_t0 wconstant $V_t0
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:30.659277599 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:30.659308141 -0500 CDT SENDING: $V_lc wconstant $V_lc
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:30.659331037 -0500 CDT DONE SENDING waiting for output: $V_lc wconstant $V_lc
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:30.659336574 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:31.737707398 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:31.737735769 -0500 CDT DONE: $V_lc wconstant $V_lc
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:31.838505965 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:31.838527692 -0500 CDT SENDING: $V_pad wconstant $V_pad
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:31.838552118 -0500 CDT DONE SENDING waiting for output: $V_pad wconstant $V_pad
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:31.838555887 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:32.917493441 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:32.91752034 -0500 CDT DONE: $V_pad wconstant $V_pad
+\						X	$H_dq					wconstant	$H_dq
+\						X	$H_cq					wconstant	$H_cq
+\						X	$H_entry				wconstant	$H_entry
+\						X	$S_con					wconstant	$S_con
+\						X	$S_flowControl			wconstant	$S_flowControl
+\						X	$S_baud					wconstant	$S_baud
+\						X	$S_rxpin				wconstant	$S_rxpin
+\						X	$S_txpin				wconstant	$S_txpin
+\						X	$S_cdsz					wconstant	$S_cdsz
+\						X	$S_numcogs				wconstant	$S_numcogs
+\
+\ make optKernel.if
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:33.022207835 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:33.022226618 -0500 CDT SENDING: hA state orC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:33.022244245 -0500 CDT DONE SENDING waiting for output: hA state orC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:33.02225044 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:34.025318262 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:34.0253538 -0500 CDT DONE: hA state orC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:34.126054855 -0500 CDT 
+ scriptFileName: scripts/mp/buildMpOptKernel.txt
+   logFileName: results/runLogs/mp/buildMpOptKernel.txt
+resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
+outputFileName: results/outputFiles/mpOptKernel.if
+
+\
+\ forthmaker
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:34.126406406 -0500 CDT  20000 cps  Receive Delay 40s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:34.126414534 -0500 CDT SENDING: h18 forthmaker
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:34.126424107 -0500 CDT DONE SENDING waiting for output: h18 forthmaker
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:12:34.126427551 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:16.617767391 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:16.617810537 -0500 CDT DONE: h18 forthmaker
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:16.718038859 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:17.718194675 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:17.718276946 -0500 CDT 
+ scriptFileName: scripts/mp/buildMpOptKernel.txt
+   logFileName: results/runLogs/mp/buildMpOptKernel.txt
+resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
+outputFileName: 
+
+\
+\ Reboot
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:17.718610211 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:17.718624951 -0500 CDT SENDING: reboot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:17.718635972 -0500 CDT DONE SENDING waiting for output: reboot
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:17.718639457 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:23.577411265 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:23.577439609 -0500 CDT DONE: reboot
+\
+\ check Forth
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:23.678616408 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:23.678652977 -0500 CDT SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:23.678677151 -0500 CDT DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:23.678689814 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:24.895695578 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:24.895743984 -0500 CDT DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:24.99610066 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:24.996121871 -0500 CDT SENDING: h7FFF dup dictend W! memend W!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:24.99613629 -0500 CDT DONE SENDING waiting for output: h7FFF dup dictend W! memend W!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:24.996139923 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:26.198364382 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:26.198396343 -0500 CDT DONE: h7FFF dup dictend W! memend W!
+\
+\
+\ Load forthbuilder.f
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:26.299043784 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:26.299086025 -0500 CDT SENDING: src/forthbuilder.f
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:26.685854699 -0500 CDT DONE SENDING waiting for output: src/forthbuilder.f
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:26.685885084 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:54.756739892 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:54.756773816 -0500 CDT DONE: src/forthbuilder.f
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:54.857324968 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:54.857354852 -0500 CDT SENDING: forthbuilder
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:54.857380093 -0500 CDT DONE SENDING waiting for output: forthbuilder
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:54.857383759 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:55.860609699 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:55.860643637 -0500 CDT DONE: forthbuilder
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:55.961204184 -0500 CDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:55.961241056 -0500 CDT SENDING: results/outputFiles/mpOptKernel.if
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:58.964947757 -0500 CDT DONE SENDING waiting for output: results/outputFiles/mpOptKernel.if
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:15:58.964991104 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:44.363355403 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:44.363415925 -0500 CDT DONE: results/outputFiles/mpOptKernel.if
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:44.463761261 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:44.463794624 -0500 CDT SENDING: forthbuilderpass2
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:44.463820775 -0500 CDT DONE SENDING waiting for output: forthbuilderpass2
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:44.463824724 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:45.467622663 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:45.467665171 -0500 CDT DONE: forthbuilderpass2
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:45.568698757 -0500 CDT  20000 cps  Receive Delay 5s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:45.56874093 -0500 CDT SENDING: results/outputFiles/mpOptKernel.if
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:48.570832202 -0500 CDT DONE SENDING waiting for output: results/outputFiles/mpOptKernel.if
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:16:48.570859212 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:13.211353232 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:13.211401589 -0500 CDT DONE: results/outputFiles/mpOptKernel.if
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:13.311750452 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:13.311781134 -0500 CDT SENDING: hex
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:13.311801447 -0500 CDT DONE SENDING waiting for output: hex
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:13.311809266 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:14.342779986 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:14.342832811 -0500 CDT DONE: hex
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:14.443078847 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:14.443105357 -0500 CDT SENDING: _fbPatch
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:14.443137089 -0500 CDT DONE SENDING waiting for output: _fbPatch
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:14.443141872 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:16.380662473 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:16.380715829 -0500 CDT DONE: _fbPatch
+\
+\
+\ make optKernel.eeprom
+\
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:16.482054957 -0500 CDT  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:16.482106547 -0500 CDT SENDING: hA state orC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:16.482150683 -0500 CDT DONE SENDING waiting for output: hA state orC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:16.482165216 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:17.485459339 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:17.485487177 -0500 CDT DONE: hA state orC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:17.585961345 -0500 CDT 
+ scriptFileName: scripts/mp/buildMpOptKernel.txt
+   logFileName: results/runLogs/mp/buildMpOptKernel.txt
+resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
+outputFileName: results/outputFiles/mp/mpOptKernel.eeprom
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:17.588082871 -0500 CDT  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:17.588093714 -0500 CDT SENDING: fbinout
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:17.588103775 -0500 CDT DONE SENDING waiting for output: fbinout
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:17.588107299 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:20.58824798 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:20.588274833 -0500 CDT DONE: fbinout
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:20.688613446 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:27.155928253 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:27.156042201 -0500 CDT 
+ scriptFileName: scripts/mp/buildMpOptKernel.txt
+   logFileName: results/runLogs/mp/buildMpOptKernel.txt
+resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
+outputFileName: 
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:27.156517693 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:27.156546009 -0500 CDT SENDING: hA state andnC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:27.156576005 -0500 CDT DONE SENDING waiting for output: hA state andnC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:27.156584918 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:28.253569689 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:28.253608956 -0500 CDT DONE: hA state andnC!
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:28.35388809 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:28.353915118 -0500 CDT SENDING: hex count0 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:28.353930342 -0500 CDT DONE SENDING waiting for output: hex count0 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:28.353933864 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:29.441341101 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:29.441388446 -0500 CDT DONE: hex count0 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:29.541675459 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:29.541701099 -0500 CDT SENDING: count1 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:29.54171753 -0500 CDT DONE SENDING waiting for output: count1 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:29.541732277 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:30.62695309 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:30.626983201 -0500 CDT DONE: count1 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:30.727543565 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:30.727564782 -0500 CDT SENDING: count2 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:30.727579094 -0500 CDT DONE SENDING waiting for output: count2 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:30.727582565 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:31.812798317 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:31.81286899 -0500 CDT DONE: count2 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:31.913243633 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:31.913265431 -0500 CDT SENDING: count3 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:31.913279977 -0500 CDT DONE SENDING waiting for output: count3 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:31.913283476 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:32.998576959 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:32.998628493 -0500 CDT DONE: count3 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:33.09963788 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:33.099723654 -0500 CDT SENDING: count4 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:33.099864611 -0500 CDT DONE SENDING waiting for output: count4 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:33.099894218 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:34.184383976 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:34.184416691 -0500 CDT DONE: count4 W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:34.287019054 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:34.287054857 -0500 CDT SENDING: bytecount W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:34.287079469 -0500 CDT DONE SENDING waiting for output: bytecount W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:34.28708282 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:35.372132474 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:35.372181318 -0500 CDT DONE: bytecount W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:35.472495754 -0500 CDT  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:35.472517178 -0500 CDT SENDING: checksum W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:35.472531219 -0500 CDT DONE SENDING waiting for output: checksum W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:35.472534583 -0500 CDT WAIT STARTED
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:36.558043524 -0500 CDT WAIT DONE
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:36.558081297 -0500 CDT DONE: checksum W@ .
+scripts/mp/buildMpOptKernel.txt::2015-10-20 23:18:36.65859546 -0500 CDT 
+ scriptFileName: scripts/mp/buildMpOptKernel.txt
+   logFileName: results/runLogs/mp/buildMpOptKernel.txt
+resultFileName: 
+outputFileName: 
+

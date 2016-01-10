@@ -1,3 +1,5 @@
+// +build linux darwin
+
 package serial
 //
 //TODO: update to use conlog, windows version is up to data 2013-12-29
