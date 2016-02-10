@@ -32,6 +32,9 @@ Normal use:
 #include <unistd.h>
 #include <signal.h>
 
+// IOS FIX
+#include <sys/ioctl.h>
+
 static char* usage_str=" [OPTION]...\n\tProxies a serial port to tcp-ip. If this program is invoked with no parameters\n\
 \t./serial_proxy.conf is used for parameters. or if not found\n\
 \t/etc/serial_proxy.conf is used for parameters.\n\n\
@@ -41,7 +44,7 @@ static char* usage_str=" [OPTION]...\n\tProxies a serial port to tcp-ip. If this
 \t-S, --debug_serial\t\tTurns on serial port debugging. (off)\n\
 \t-l, --loopback\t\t\tTurns on loopback, serial port is not used. (off)\n\
 \t-s, --serial_device=\t\tSerial port to use. (/dev/ttyUSB0)\n\
-\t-b, --baud=\t\t\tBaud rate 230400 | 115200 | 57600 | 19200 | 9600 | 1200. (230400)\n\
+\t-b, --baud=\t\t\tBaud rate 230400 | 115200 | 57600 | 19200 | 9600 | 1200 | nonstandard. (230400)\n\
 \t-a, --advanced_flow_control\tTurns on advanced flow control. (off)\n\
 \t-A, --debug_afc\t\t\tTurns on advanced flow control debugging. (off)\n\
 \t-T, --debug_telnet\t\tTurns on telnet control debugging. (off)\n\
@@ -128,7 +131,7 @@ void my_printbuf( int direction, char *name, char*buf, int count) {
 		my_print("<-%6s %16lu %10lu (%03u)::[", name, now, elapsed, count);
 	}
 	for( i = 0; i < count; ) {
-		for(clen = 0; clen < (sizeof(dbuf) - 4) && i < count; i++, clen++) {
+		for(clen = 0; clen < (sizeof(dbuf) - 5) && i < count; i++, clen++) {
 			c = buf[i];
 			if( c < ' ' || c > '~' || c == ']') {
 				sprintf(&dbuf[clen], "{%02X}", 0xFF & c);
@@ -843,6 +846,7 @@ void *serialRawRWMain(void *);
 void initSerialPort(SerialThreadParameters *tp) {
 	struct termios tio;
 	speed_t speed;
+	int nonStandardBaud = 0;
 	
 	my_debug( -1, "initSerialPort [%s]\n", tp->serDevice);
 	if( -1 == (tp->fd = open(tp->serDevice, O_RDWR | O_NOCTTY)) ) {
@@ -880,13 +884,48 @@ void initSerialPort(SerialThreadParameters *tp) {
 			speed = B1200;
 			break;
 		default:
-			my_error( "invalid baud rate.\n");
+			my_log( "Non Standard Baud Rate. [%ld]\n", tp->baud);
+			nonStandardBaud = -1;
+			speed = B230400;
 	}
 	if( -1 == cfsetispeed(&tio, speed) || -1 ==  cfsetospeed(&tio, speed)){
 		my_error( "setting baud rate\n");
 	}
 	if( -1 == tcsetattr( tp->fd, TCSANOW, &tio)) {
 		my_error( "setting serial attributes\n");
+	}
+	if( nonStandardBaud) {
+		// OSX ONLY SOLUTION
+
+		/*
+		 * Sets the input speed and output speed to a non-traditional baud rate
+		 */
+		#define IOSSIOSPEED    _IOW('T', 2, speed_t)
+		#define IOSSIOSPEED_32    _IOW('T', 2, user_shspeed_t)
+		#define IOSSIOSPEED_64    _IOW('T', 2, user_speed_t)
+
+		speed = tp->baud;
+		if( -1 == ioctl (tp->fd, IOSSIOSPEED, &speed, 1)) {
+			my_error( "setting non standard baud rate\n");
+		}
+		
+		
+		// LINUX SOLUTION - untested
+		/*
+			struct serial_struct ser;
+			ioctl (fd_, TIOCGSERIAL, &ser);
+			// set custom divisor
+			ser.custom_divisor = ser.baud_base / baudrate_;
+			// update flags
+			ser.flags &= ~ASYNC_SPD_MASK;
+			ser.flags |= ASYNC_SPD_CUST;
+			
+			if (ioctl (fd_, TIOCSSERIAL, ser) < 0)
+			{
+			  // error
+			}
+
+		*/
 	}
 	if( pthread_create(&tp->serialWriteThread, NULL, serialWriteMain, (void*) tp)) {
 		my_error("cannot create serial port raw read thread\n");
