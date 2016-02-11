@@ -31,6 +31,7 @@ Normal use:
 #include <errno.h>
 #include <unistd.h>
 #include <signal.h>
+#include <unistd.h>
 
 // IOS FIX
 #include <sys/ioctl.h>
@@ -45,6 +46,7 @@ static char* usage_str=" [OPTION]...\n\tProxies a serial port to tcp-ip. If this
 \t-l, --loopback\t\t\tTurns on loopback, serial port is not used. (off)\n\
 \t-s, --serial_device=\t\tSerial port to use. (/dev/ttyUSB0)\n\
 \t-b, --baud=\t\t\tBaud rate 230400 | 115200 | 57600 | 19200 | 9600 | 1200 | nonstandard. (230400)\n\
+\t-d, --line_delay=\t\tDelay upon receipt of CR from telnet in microseconds. (00)\n\
 \t-a, --advanced_flow_control\tTurns on advanced flow control. (off)\n\
 \t-A, --debug_afc\t\t\tTurns on advanced flow control debugging. (off)\n\
 \t-T, --debug_telnet\t\tTurns on telnet control debugging. (off)\n\
@@ -78,6 +80,7 @@ int port = 4000;
 int raw_mode = 0;
 int expand_cr_mode = 0;
 int debug_port = 0;
+int line_delay = 0;
 FILE* logfileFp = NULL;
 
 // this mutex is used to keep debugging output from multiple threads readable
@@ -131,7 +134,7 @@ void my_printbuf( int direction, char *name, char*buf, int count) {
 		my_print("<-%6s %16lu %10lu (%03u)::[", name, now, elapsed, count);
 	}
 	for( i = 0; i < count; ) {
-		for(clen = 0; clen < (sizeof(dbuf) - 5) && i < count; i++, clen++) {
+		for(clen = 0; clen < (sizeof(dbuf) - 6) && i < count; i++, clen++) {
 			c = buf[i];
 			if( c < ' ' || c > '~' || c == ']') {
 				sprintf(&dbuf[clen], "{%02X}", 0xFF & c);
@@ -141,7 +144,8 @@ void my_printbuf( int direction, char *name, char*buf, int count) {
 			}
 		}
 		dbuf[clen]= '\0';
-		my_print( dbuf);
+		my_print("%s", dbuf);
+		//my_print( dbuf);
 	}
 	my_print( "] ");
 }
@@ -204,6 +208,7 @@ struct option long_options[] = {
 	{"loopback",		no_argument, &loopback_mode, 1},
 	{"serial_device",	required_argument, 0, 's'},
 	{"baud",		required_argument, 0, 'b'},
+	{"line_delay",		required_argument, 0, 'd'},
 	{"advanced_flow_control",	no_argument, &advanced_flow_control, 1},
 	{"debug_afc",	no_argument, &debug_afc, 1},
 	{"port",		required_argument,	0, 'p'},
@@ -224,7 +229,7 @@ int cmdlinetoi(char* val) {
 
 void parse_options(int argc, char *argv[]) {
 	int c, option_index = 0;
-	while (-1 != (c = getopt_long (argc, argv, "hL:qSls:b:aAp:reP", long_options, &option_index))) {
+	while (-1 != (c = getopt_long (argc, argv, "hL:qSls:b:d:aAp:reP", long_options, &option_index))) {
 		switch (c) {
 			case 'h':
 			case '?':
@@ -248,6 +253,10 @@ void parse_options(int argc, char *argv[]) {
 			case 'b':
 				baud= cmdlinetoi(optarg);
 				baud = (baud < 0) ? 0: baud;
+			break;
+			case 'd':
+				line_delay= cmdlinetoi(optarg);
+				line_delay = (line_delay < 0) ? 0: line_delay;
 			break;
 			case 'a':
 				advanced_flow_control = 1;
@@ -591,8 +600,13 @@ void *portReadMain(void *in) {
 						i += 2;
 						d--;
 					} else {
-						if( (ebuf[d] = buf[i]) == '\x0D' && i+1 < bytes_read && (buf[i+1] == '\x00' || buf[i+1] == '\x0A') ) {
-							i++;
+						if( (ebuf[d] = buf[i]) == '\x0D') {
+							if( i+1 < bytes_read && (buf[i+1] == '\x00' || buf[i+1] == '\x0A') ) {
+								i++;
+							}
+							if( line_delay > 0) {
+								usleep( line_delay);
+							}
 						}
 					}
 				}
@@ -1129,8 +1143,8 @@ int main (int argc, char *argv[]) {
 	} else {
 		my_print("\n%s  REV %s starting with:\nquiet_mode=%d\nlogfile=%s\ndebug_serial=%d\nloopback_mode=%d\n", program_name, rev, quiet_mode, logfile, debug_serial, loopback_mode);
 		if( !loopback_mode) {
-			my_print("serial_device=%s\nbaud=%d\nadvanced_flow_control=%d\ndebug_afc=%d\n",
-				serial_device, baud, advanced_flow_control, debug_afc);
+			my_print("serial_device=%s\nbaud=%d\nline_delay=%d micro-seconds\nadvanced_flow_control=%d\ndebug_afc=%d\n",
+				serial_device, baud, line_delay, advanced_flow_control, debug_afc);
 		}
 		my_print("port=%d\nraw_mode=%d\n", port, raw_mode);
 		if( !raw_mode) {
