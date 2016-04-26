@@ -610,7 +610,7 @@ void *portReadMain(void *in) {
 							}
 							d++;
 							bq_appendbuf(tp->from, ebuf, d);
-							d = 0;
+							d = -1;
 							if( line_delay > 0) {
 								usleep( line_delay);
 							}
