@@ -608,11 +608,12 @@ void *portReadMain(void *in) {
 							if( i+1 < bytes_read && (buf[i+1] == '\x00' || buf[i+1] == '\x0A') ) {
 								i++;
 							}
+							d++;
+							bq_appendbuf(tp->from, ebuf, d);
+							d = 0;
 							if( line_delay > 0) {
 								usleep( line_delay);
 							}
-							bq_appendbuf(tp->from, ebuf, d);
-							d = 0;
 						}
 					}
 				}
