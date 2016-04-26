@@ -11,8 +11,8 @@ _xinfreq= 5_000_000
 dlrS_con= $0007
 dlrS_flowControl= $FFFF
 dlrS_baud= $E100
-dlrS_rxpin= $001F
-dlrS_txpin= $001E
+dlrS_rxpin= $001B
+dlrS_txpin= $001A
 dlrS_cdsz= $00E0
 dlrS_numcogs= $0008
 

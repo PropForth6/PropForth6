@@ -144,7 +144,11 @@ void my_printbuf( int direction, char *name, char*buf, int count) {
 			}
 		}
 		dbuf[clen]= '\0';
-		my_print("%s", dbuf);
+		if( count - i > 12) {
+			my_print("%s]\n                                            [", dbuf);
+		} else {		
+			my_print("%s", dbuf);
+		}
 		//my_print( dbuf);
 	}
 	my_print( "] ");
@@ -607,6 +611,8 @@ void *portReadMain(void *in) {
 							if( line_delay > 0) {
 								usleep( line_delay);
 							}
+							bq_appendbuf(tp->from, ebuf, d);
+							d = 0;
 						}
 					}
 				}
