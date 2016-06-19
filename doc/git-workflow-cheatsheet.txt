@@ -1,31 +1,59 @@
-* Join the project
+*** Join the project
+** this creates a Propforth6 directory, and downloads all the files.
+** NOTE there are only two files in the default master at this point (during initial development), this is intentional
 git clone https://github.com/PropForth6/PropForth6.git
 cd PropForth6/
 
-* See the branches
+* See the current BRANCH
 git branch
 git branch -v
 
-* Start from the 'dev' branch
+[master by default]
+
+* CHECKOUT the 'dev' branch as your code base starting point. DEV is the current "good", always start from dev
 git checkout dev
 
-* make a branch for your task 
-git branch YYYYMMDD_topic 
-git checkout YYYYMMDD_topic 
+* make a BRANCH for your task
+git branch YYYYMMDD_topic
+git checkout YYYYMMDD_topic
 git log
 
-* sync with team at the start of each day
-git fetch 
-git pull --all
-git status
+[Now all the code files are visible & in your branch, and ready for your changes]
 
-* Add your changes from today
+* UPDATE any file (ex README.txt "I started branch x today" ) to have a "first change"
+edit readme.txt
+
+* ADD your changed files from today
 git add .
 git status
 
-git commit -m "what I did" 
+* COMMIT - include a commit message explaining what you contributed
+git commit -m "what I did"
 
-* share your changes with everybody, requires a git userid
+* PUSH the changes to register your new branch with the main project
+git push -u --all
+git status
+
+** your branch is now setup.  The above setup is done only once at the start of a new branch.
+Use the steps below for daily work
+
+*** sync with team at the start of each day.
+**This picks up everybody's rescent changes for you.
+
+* FETCH
+git fetch
+git pull --all
+git status
+
+* ADD your changes from today
+git add .
+git status
+
+* COMMIT
+git commit -m "what I did"
+
+** share your changes with everybody, requires a git userid
+* PUSH
 git push -u --all
 git status
 
