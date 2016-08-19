@@ -2,18 +2,23 @@
 
 These notes are DRAFT.  The might be broken into separate sections, for now it is one big list. The activities covered are:
 
-1. Install and set up the Linux software tools.
-2. Set up your Linux Environment variables
+1. Install and set up the Linux/OSX/Windows software tools.
+2. Set up your Linux/OSX/Windows Environment variables
 3. set up GIT so you can send your changes back out to the rest of us
 4. set up the propforth build automation
 5. Set up GO environment
-6. run the pr.sh script to configure the terminal window as the build automation window
+6. run the script (Linux/OSX: ~/PropForth6/tools/mygo  pr.sh)(Windows: ~/PropForth6/tools/pr.bat)   to configure the terminal window as the build automation window
 7. compile/install the goterm programs
 8. Connect the USB cable to the Physical Prop Board
 9. Add/change the source code text files on your branch, and push tese back to github to share with the rest of the team
 
 **************************************************
-1. Install and set up the Linux software tools.
+1. Install and set up the  software tools.
+**************************************************
+1a. Linux/OSX
+1b. Windows
+**************************************************
+1a. Install and set up the Linux/OSX software tools.
 **************************************************
 
 Setup the linux tools. You dont have to do much more than run several commands, these only take a couple minutes.
@@ -67,12 +72,9 @@ command to produce an EEPROM file (using spin file in this directory) is
 ./openspin -e StartKernel.spin
 [/code]
 
-
 [**************************************]
 install propgcc - in progress
 [**************************************]
-
-
 
 [install go from https://golang.org/ website go1.5.1.linux-amd64.tar.gz]
 [code]
@@ -81,6 +83,14 @@ sudo tar -C /usr/local -xzf go1.5.1.linux-amd64.tar.gz
 
 Notice: when you type "go" into the command prompt, the response is still "go is not currently installed"
 We need to EXPORT the environment variable for the session.
+
+**************************************************
+1b. Install and set up the Windows software tools.
+**************************************************
+same as above except:
+instead of minicom, windows users should install Teraterm
+instead of port /dev/ttyUSB0, windows users will use COM3 (whichever COMx port appears on you system when the USB to Serial connect is plugged in
+instead EXPORT variable, Windows users run the pr.bat script
 
 *************************************************
 2. Set up your Linux Environment variables for GO
@@ -110,6 +120,11 @@ If you start a later session and do not see the help menu you may need to EXPORT
 
 *********************************************************************
 3. set up GIT so you can send your changes back out to the rest of us
+*********************************************************************
+3a. set up GIT (Linux/OSX)
+3b. set up GIT (Windows)
+*********************************************************************
+3a. set up GIT (Linux/OSX)
 *********************************************************************
 [Git is install by default on most linux.  Install as needed on windows]
 
@@ -161,9 +176,17 @@ git checkout YYYMMDD_topic
 git checkout -b YYYMMDD_topic
 ===========================================================
 
+*********************************************************************
+3b. set up GIT (Windows)
+*********************************************************************
+Install GitGUI
+
 *********************************************************************************
 4. edit the configuration files so the propforth build automation runs on your PC
 *********************************************************************************
+4a. OSX: /dev/cu.usbserial-FTY2XPAM
+4b. Linux: /dev/ttyUSB0
+4c. Windows: COM3
 
 .............................................................................................................
 before we start contributing any changes, we need to finish setting up the tools
@@ -259,6 +282,10 @@ the response is "goterm is not currently installed".
 
 ============ begin build/install the go termnal communication programs ===
 
+[Linux/OSX/Windows] Navigate to the GO directory:
+
+cd ~/PropForth6/tools/mygo
+
 [install the go programs at least once]
 [code]
 go install goterm
@@ -324,7 +351,7 @@ The source  code and image files will be identical if set up correctly.
 Once you are satisfied the automation functions, you can start to modify the source to create custom kernels.
 
 ************************************************************************************************************************
-9. Add/change the source code text files on your branch, and push tese back to github to share with the rest of the team
+9. ADVANCED: Add/change the source code text files on your branch, and push tese back to github to share with the rest of the team
 ************************************************************************************************************************
 
 ==============================================================================================================
@@ -332,6 +359,11 @@ Now we have all the Propforth environment and tools set up.  We can add or cnahg
 and contribute those back into the project.
 Start by create perhaps some documentation on how our function is going to work
 ==============================================================================================================
+
+NOTE: You do NOT need to perform this step at your initial setup, as you won't likely have code to contribute back for a while.
+Skip this for now.
+
+Return to this step when you wish download the git repository for PropForth6, create your very own branch, make changes and send those changed back up to the repository.
 
 [create file, do some work; then add the file to the repository]
 [first, check the status, see the new or changed file is untracked]
