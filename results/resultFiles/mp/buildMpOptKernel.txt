@@ -1,5 +1,5 @@
 
- scriptFileName: scripts/mp/buildMpOptKernel.txt
+ scriptFileName: scripts\mp\buildMpOptKernel.txt
    logFileName: results/runLogs/mp/buildMpOptKernel.txt
 resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
 outputFileName: 
@@ -17,13 +17,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2015Oct18 08:42-0
+STARTKERNEL6.0-2025Dec25 14:04-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2015Oct18 08:42-0
+here: 14428 STARTKERNEL6.0-2025Dec25 14:04-0
 
 Prop0 Cog6 ok
 
@@ -886,7 +886,7 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-: (version) c" mpOptKERNEL6.0-2015Oct18 09:11-0" ;
+: (version) c" mpOptKERNEL6.0-2025Dec25 14:33-0" ;
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
@@ -2376,12 +2376,12 @@ $V_pad wconstant $V_pad
 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts/mp/buildMpOptKernel.txt
+ scriptFileName: scripts\mp\buildMpOptKernel.txt
    logFileName: results/runLogs/mp/buildMpOptKernel.txt
 resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
 outputFileName: results/outputFiles/mpOptKernel.if
 
- scriptFileName: scripts/mp/buildMpOptKernel.txt
+ scriptFileName: scripts\mp\buildMpOptKernel.txt
    logFileName: results/runLogs/mp/buildMpOptKernel.txt
 resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
 outputFileName: 
@@ -2398,13 +2398,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2015Oct18 08:42-0
+STARTKERNEL6.0-2025Dec25 14:04-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2015Oct18 08:42-0
+here: 14428 STARTKERNEL6.0-2025Dec25 14:04-0
 
 Prop0 Cog6 ok
 h7FFF dup dictend W! memend W!
@@ -4204,12 +4204,12 @@ _fbPatch
 -1 -1 -1 3C -1 -1 2880 -1 38 -1 2 4398 -1 CC -1 38 -1 A1 4614 CC 4614 -7F026A00 CC -7F026934 4614 7FFF -1 4EAC 7FFF -1 4EBA 3B74 -1 4E9E 386C -1 4E92 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts/mp/buildMpOptKernel.txt
+ scriptFileName: scripts\mp\buildMpOptKernel.txt
    logFileName: results/runLogs/mp/buildMpOptKernel.txt
 resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
 outputFileName: results/outputFiles/mp/mpOptKernel.eeprom
 
- scriptFileName: scripts/mp/buildMpOptKernel.txt
+ scriptFileName: scripts\mp\buildMpOptKernel.txt
    logFileName: results/runLogs/mp/buildMpOptKernel.txt
 resultFileName: results/resultFiles/mp/buildMpOptKernel.txt
 outputFileName: 
@@ -4227,4 +4227,4 @@ count4 W@ .
 bytecount W@ .
 8000 Prop0 Cog6 ok
 checksum W@ .
-D5A6 Prop0 Cog6 ok
+D58B Prop0 Cog6 ok

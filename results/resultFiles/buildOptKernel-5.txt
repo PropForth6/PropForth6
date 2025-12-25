@@ -1,5 +1,5 @@
 
- scriptFileName: scripts/buildOptKernel-5.txt
+ scriptFileName: scripts\buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
 outputFileName: 
@@ -17,13 +17,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2015Oct18 08:42-0
+STARTKERNEL6.0-2025Dec25 14:04-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2015Oct18 08:42-0
+here: 14428 STARTKERNEL6.0-2025Dec25 14:04-0
 
 Prop0 Cog6 ok
 
@@ -886,7 +886,7 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-: (version) c" optKERNEL6.0-2015Oct18 08:59-0" ;
+: (version) c" optKERNEL6.0-2025Dec25 14:21-0" ;
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
@@ -1872,12 +1872,12 @@ $V_pad wconstant $V_pad
 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts/buildOptKernel-5.txt
+ scriptFileName: scripts\buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
 outputFileName: results/outputFiles/optKernel.if
 
- scriptFileName: scripts/buildOptKernel-5.txt
+ scriptFileName: scripts\buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
 outputFileName: 
@@ -1894,13 +1894,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2015Oct18 08:42-0
+STARTKERNEL6.0-2025Dec25 14:04-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2015Oct18 08:42-0
+here: 14428 STARTKERNEL6.0-2025Dec25 14:04-0
 
 Prop0 Cog6 ok
 wvariable lastNewNFA
@@ -3694,12 +3694,12 @@ _fbPatch
 -1 -1 -1 3C -1 -1 29FC -1 38 -1 2 4398 -1 CC -1 38 -1 A1 4614 CC 4614 -7F026A00 CC -7F026934 4614 7FB8 -1 4EAC 7FB8 -1 4EBA 386E -1 4E9E 386C -1 4E92 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts/buildOptKernel-5.txt
+ scriptFileName: scripts\buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
 outputFileName: results/outputFiles/optKernel.eeprom
 
- scriptFileName: scripts/buildOptKernel-5.txt
+ scriptFileName: scripts\buildOptKernel-5.txt
    logFileName: results/runLogs/buildOptKernel-5.txt
 resultFileName: results/resultFiles/buildOptKernel-5.txt
 outputFileName: 
@@ -3717,4 +3717,4 @@ count4 W@ .
 bytecount W@ .
 8000 Prop0 Cog6 ok
 checksum W@ .
-7762 Prop0 Cog6 ok
+7739 Prop0 Cog6 ok

@@ -8,7 +8,7 @@ These notes are DRAFT.  The might be broken into separate sections, for now it i
 4. set up the propforth build automation 
 5. Set up GO environment 
 6. run the pr.sh script to configure the terminal window as the build automation window
-7. compile/install the goterm programs 
+7. compile/install the gocmd programs 
 8. Connect the USB cable to the Physical Prop Board
 9. Add/change the source code text files on your branch, and push tese back to github to share with the rest of the team
 
@@ -219,8 +219,8 @@ Now the response is  the "go" help context display.
 6.  run the pr.sh script to configure the terminal window as the build automation window
 ****************************************************************************************
 
-[This runs a script to set envirnment variables for GOTERM]
-[ GOTERM is the routine that handles seriall communication to the prop]
+[This runs a script to set envirnment variables for gocmd]
+[ gocmd is the routine that handles seriall communication to the prop]
 [If you open another termainal, this will not be present until you run the ./pr.sh script]
 
 [MUST run pr.sh in the terminal before the build and text script tools will work]
@@ -244,14 +244,14 @@ env
 [notice that the PropForth6 entry to the PATH environment variable is local to THIS TERMINAL WINDOW ONLY.]  
 [If you open another termainal, this will not be present until you run the ./pr.sh script]
 
-Notice: when you type "goterm" into the command prompt before the environment variables are set, 
-(or before the goterm is compiled/installed)
-the response is "goterm is not currently installed".
+Notice: when you type "gocmd" into the command prompt before the environment variables are set, 
+(or before the gocmd is compiled/installed)
+the response is "gocmd is not currently installed".
 
 =========== end script to set up tool environment variables =================
 
 **************************************
-7. compile/install the goterm programs 
+7. compile/install the gocmd programs 
 **************************************
 
 
@@ -259,22 +259,22 @@ the response is "goterm is not currently installed".
 
 [install the go programs at least once]
 [code]
-go install goterm
+go install gocmd
 go install goproxyterm
 [/code]
 
-[notice a bin directoy was created in mygo, containing executables for goterm and goproxyterm]
+[notice a bin directoy was created in mygo, containing executables for gocmd and goproxyterm]
 [code]
-goterm
+gocmd
 [/code]
-[notice the goterm help message when gotern is executed without parameters]
+[notice the gocmd help message when gotern is executed without parameters]
 
 
-Notice: when you type "goterm" into the command prompt after the environment variables are set, 
-the response is no longer "goterm is not currently installed"; 
-Now the response is  the "goterm" help context display. 
+Notice: when you type "gocmd" into the command prompt after the environment variables are set, 
+the response is no longer "gocmd is not currently installed"; 
+Now the response is  the "gocmd" help context display. 
 
-If you get a message "goterm not installed" when you know your've already done this,
+If you get a message "gocmd not installed" when you know your've already done this,
 it means you need to run the pr.sh script in this current termnal window
 
 navigate to 

@@ -1,5 +1,5 @@
 
- scriptFileName: scripts/fs/buildFsKernelSpin.txt
+ scriptFileName: scripts\dev\buildDevKernelSpin.txt
    logFileName: results/runLogs/buildDevKernelSpin.txt
 resultFileName: results/resultFiles/buildDevKernelSpin.txt
 outputFileName: 
@@ -17,13 +17,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
- fsKERNEL6.0-2015Oct18 13:18-0
+devKERNEL6.0-2025Dec25 14:30-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 18556  fsKERNEL6.0-2015Oct18 13:18-0
+here: 17328 devKERNEL6.0-2025Dec25 14:30-0
 
 Prop0 Cog6 ok
 
@@ -407,12 +407,12 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts/fs/buildFsKernelSpin.txt
+ scriptFileName: scripts\dev\buildDevKernelSpin.txt
    logFileName: results/runLogs/buildDevKernelSpin.txt
 resultFileName: results/resultFiles/buildDevKernelSpin.txt
 outputFileName: results/outputFiles/dev/devKernel.spin
 
- scriptFileName: scripts/fs/buildFsKernelSpin.txt
+ scriptFileName: scripts\dev\buildDevKernelSpin.txt
    logFileName: results/runLogs/buildDevKernelSpin.txt
 resultFileName: results/resultFiles/buildDevKernelSpin.txt
 outputFileName: 
