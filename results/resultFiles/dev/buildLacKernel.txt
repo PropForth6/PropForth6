@@ -1,0 +1,3470 @@
+
+ scriptFileName: scripts/dev/buildLacKernel.txt
+   logFileName: results/runLogs/dev/buildLacKernel.txt
+resultFileName: results/resultFiles/dev/buildLacKernel.txt
+outputFileName: 
+reboot
+
+RESET: 0 0 ?    0 ?
+
+RESET: 1 0 ?    0 ?
+
+RESET: 2 0 ?    0 ?
+
+RESET: 3 0 ?    0 ?
+
+RESET: 4 0 ?    0 ?
+
+RESET: 5 0 ?    0 ?
+
+devKERNEL6.0-2025Dec25 14:30-0
+
+RESET: 6 0 ?    0 ?
+Prop0 Cog6 ok
+cr c" here: " .cstr here W@ . (version) .cstr cr cr
+
+here: 17328 devKERNEL6.0-2025Dec25 14:30-0
+
+Prop0 Cog6 ok
+c" lacKERNEL6.0-2025Dec27 11:10-0" version W@ ccopy
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant build_LacKernel
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ These words are all optional words.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant build_LogicAnalyzer
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ a cog special register
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef ctra
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F8 wconstant ctra
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ a cog special register
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef ctrb
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1F9 wconstant ctrb 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ a cog special register
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef frqa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1FA wconstant frqa 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ a cog special register
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef frqb
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1FB wconstant frqb 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ a cog special register
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef phsa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1FC wconstant phsa 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ a cog special register
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef phsb
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h1FD wconstant phsb 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _la_asample41+ forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h113  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD98C8 l, h5CFD72B3 l, hA0BD96C8 l, h5CFD72B3 l, hA0BD94C8 l, h5CFD72B3 l, hA0BD92C8 l, h5CFD72B3 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BC02C8 l, h5CFD72B3 l, hA0BC00C8 l, hA0BD9001 l, hF03D94CC l, hF03D96CC l, hA0BD99F2 l, hA0BD97F1 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h80BD96C9 l, h83D9800 l, hF8BD96C9 l, hA0BD99F2 l, h80FC0004 l, hE4FC030D l, h5C7C0073 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _la_asample18+ forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h11A  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD98C8 l, h5CFD72B3 l, hA0BD96C8 l, h5CFD72B3 l, hA0BD94C8 l, h5CFD72B3 l, hA0BD92C8 l, h5CFD72B3 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5CFD72B3 l, hA0BC00C8 l, hA0FC03F0 l, h84FC0318 l, hA0BD9001 l, hF03D94CC l, hF03D96CC l, hA0BE31F2 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD97F1 l, h80BD96C9 l, hF8BD96C9 l, hA0BE33F2 l, h80BE1EC1 l, hE4FC030E l, hA0BC02C8 l, h83E3000 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h80BE26C1 l, h80FC0004 l, hE4FC0313 l, h5C7C0073 l, 0 l, 0 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _la_asample4 forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h11E  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD98C8 l, h5CFD72B3 l, hA0BD96C8 l, h5CFD72B3 l, hA0BD94C8 l, h5CFD72B3 l, h5CFD72B3 l, h5CFD72B3 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BC00C8 l, hA0FC03F0 l, h84FC0201 l, h54BE2201 l, h84FC031D l, hA0BD9001 l, hA0BE3B19 l, h54FE3B1D l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h80BE14C1 l, h80BE16C1 l, h80FE1601 l, hE4FC030A l, h50FE3513 l, hA0BC011A l, h5C7C011B l, hA0BC02C8 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h83E3A00 l, h80BE28C1 l, h80FC0004 l, hE4FC0314 l, h5C7C0073 l, hA0BC01F2 l, h5C7C0000 l, hF03D94CC l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hF03D96CC l, 0 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+lockdict create _la_asample1 forthentry
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+$C_a_lxasm w, h117  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BD98C8 l, h5CFD72B3 l, hA0BC00C8 l, hA0FC03F0 l, h84FC0201 l, h54BE1601 l, h84FC0316 l, hA0BD9001 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA0BE2D13 l, h54FE2D16 l, h80BE08C1 l, h80BE0AC1 l, h80FE0A01 l, hE4FC0304 l, h50FE290D l, hA0BC0114 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C0115 l, hA0BC02C8 l, h83E2C00 l, h80BE1CC1 l, h80FC0010 l, hE4FC030E l, h5C7C0073 l, hA0BC01F2 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h5C7C0000 l, hF8FD9800 l, 0 l, 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+freedict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ pinout ( n1 -- ) set pin # n1 to an output
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef pinout
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ variable ( -- ) skip blanks parse the next word and create a variable, allocate a long, 4 bytes
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef variable
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ abs ( n1 -- abs_n1 ) absolute value of n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef abs
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ waitcnt ( n1 n2 -- n1 ) \ wait until n1, add n2 to n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef waitcnt
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ 2* ( n1 -- n1<<1 ) n2 is shifted logically left 1 bit
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef 2*
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ key? ( -- t/f) true if there is a key ready for input
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef key?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: key?
+
+
+ io W@ h100 and 0=
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u*/mod ( u1 u2 u3 -- u4 u5 ) u5 = (u1*u2)/u3, u4 is the remainder. Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef u*/mod
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ u*/ ( u1 u2 u3 -- u4 ) u4 = (u1*u2)/u3 Uses a 64bit intermediate result.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef u*/
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _cfo ( n1 -- n2 ) n1 - desired frequency, n2 freq a 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _cfo
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _cfo clkfreq 1- min 0 swap clkfreq um/mod swap clkfreq 2/ >= abs + ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ setHza ( n1 n2 -- ) n1 is the pin, n2 is the freq, uses ctra
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ set the pin oscillating at the specified frequency
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef setHza
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: setHza _cfo frqa COG! dup pinout h10000000 + ctra COG! ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ qHzb ( n1 n2 -- n3 ) n1 - the pin, n2 - the # of msec to sample, n3 the frequency
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef qHzb
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: qHzb
+
+
+ swap h28000000 + 1 frqb COG! ctrb COG!
+
+
+ h3000 min clkfreq over h3E8 u*/ h310 - phsb COG@ swap cnt COG@ + 0 waitcnt
+
+
+ phsb COG@ nip swap - h3E8 rot u*/ ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ setHzb ( n1 n2 -- ) n1 is the pin, n2 is the freq, uses ctrb
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ set the pin oscillating at the specified frequency
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef setHzb
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: setHzb _cfo frqb COG! dup pinout h10000000 + ctrb COG! ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ crcl ( -- ) cr and clear the line (for an ansi terminal)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef crcl
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: crcl ." ~h0D~h1B~h5B~h4B" ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ hm ( -- ) ansi home
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef hm
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: hm ." ~h1B~h5B~h48" ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ hmclr ( -- ) ansi home and clear screen
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef hmclr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: hmclr ." ~h1B~h5B~h48~h1B~h5B~h4A" ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ #C ( c1 -- ) prepend the character c1 to the number currently being formatted
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef #C
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ todigit ( c1 -- n1 ) converts character to a number 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef todigit
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ isdigit ( c1 -- t/f ) true if is it a valid digit according to base
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef isdigit
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _nf ( n1 -- cstr ) formats n1 to a fixed format 16 wide, leading spaces variable, one trailing space
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef _nf
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _nf
+
+
+ <# bl #C # # # h2C #C # # # h2C #C # # #  h2C #C # # # #>
+
+
+ dup C@++ bounds
+
+
+ do
+
+
+  i C@ dup isdigit swap todigit 0<> and  
+
+
+  if
+
+
+   leave
+
+
+   
+
+
+  else
+
+
+   bl i C!
+
+
+  then
+
+
+ loop
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ .num ( n1 -- ) print n1 as a fixed format number
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef .num
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: .num
+
+
+ _nf .cstr
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef freeDictStart
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ freeDictStart ( -- addr ) the start address of the unused dictionary, long aligned
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: freeDictStart
+
+
+ here W@ alignl
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef freeDictEnd
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ freeDictEnd ( -- addr ) the end address of the unused dictionary, long aligned
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: freeDictEnd
+
+
+ dictend W@ h3 andn
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+[ifndef zeroFreeDict
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ zeroFreeDict ( -- ) zeros out all the unused dictionary
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: zeroFreeDict
+
+
+ freeDictEnd freeDictStart
+
+
+ do
+
+
+  0 i L!
+
+
+ h4 +loop
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ This block is low level code which sets up and manipulates the assembler necessary 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ variable definitions and addresses for assembler routines
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_asample41+ ( baseaddr numsamples samplecycle triggerbefore triggerafter triggermask -- numsamples)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_asample18+ ( baseaddr numsamples samplecycle triggerbefore triggerafter triggermask -- numsamples)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_asample4 ( baseaddr numsamples samplecycle triggerbefore triggerafter triggermask -- numsamples)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_sample1 ( baseaddr startcount -- numsamples )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ this variable which is used to synch the 4 cogs which are doing interleaved sampling
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_s1time
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _la_s1addr
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ this variable value is the first of 4 sequential cogs used to sample every clock cycle, default to this cog 2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _la_s1cog 2 _la_s1cog W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _la_s1size
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_is1 ( -- ) this is the interleaved routine used by 4 cogs to sample very clock cycle
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_is1
+
+
+ _la_s1addr W@ cogid _la_s1cog W@ - 2* 2* +
+
+
+ _la_s1time L@ cogid _la_s1cog W@ - +
+
+
+ _la_asample1
+
+
+ 2* 2* _la_s1size W!
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_sample1 ( baseaddr numsamples samplecycle triggerbefore triggerafter triggermask -- numsamples)
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_sample1
+
+
+ 3drop 2drop
+
+
+ _la_s1addr W!
+
+
+ _la_s1cog W@ dup cogreset
+
+
+ 1+ dup cogreset
+
+
+ 1+ dup cogreset
+
+
+ 1+ cogreset
+
+
+ zeroFreeDict
+
+
+ h10 delms
+
+
+ clkfreq cnt COG@ + _la_s1time L!
+
+
+ c" _la_is1"
+
+
+ dup _la_s1cog W@ cogx
+
+
+ dup _la_s1cog W@ 1+ cogx
+
+
+ dup _la_s1cog W@ 2+ cogx
+
+
+ _la_s1cog W@ h3 + cogx
+
+
+ _la_s1time L@ h8000 + 0 waitcnt drop
+
+
+ _la_s1size W@
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_sample ( baseaddr numsamples samplecycle triggerbefore triggerafter triggermask -- numSamples )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_sample
+
+
+\ force a reload of the sampling routines into cog memory
+
+
+ 0 build_BootOpt COG!
+
+
+ h4 ST@ h310 >=
+
+
+ if
+
+
+  h3 ST@ h29 >=
+
+
+  if
+
+
+   _la_asample41+
+
+
+  else
+
+
+
+
+
+   h3 ST@ h12 >=
+
+
+   if
+
+
+    _la_asample18+
+
+
+   else
+
+
+
+
+
+    h3 ST@ h4 =
+
+
+    if
+
+
+     _la_asample4
+
+
+    else
+
+
+ 
+
+
+     h3 ST@ 1 =
+
+
+     if
+
+
+      _la_sample1
+
+
+     else
+
+
+
+
+
+      3drop 3drop 0
+
+
+     then
+
+
+    then
+
+
+   then
+
+
+  then
+
+
+ else
+
+
+  3drop 3drop 0
+
+
+ then
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_mask -1 _la_mask L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_displayPin ( n1 n2 -- ) show 256 samples starting at position n1 for pin n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_displayPin
+
+
+ >m dup _la_mask L@ and
+
+
+ if
+
+
+  swap 2* 2* freeDictStart + h400 bounds
+
+
+  do
+
+
+   i L@ over and if h2D else h5F then emit
+
+
+  h4 +loop
+
+
+ else
+
+
+  drop
+
+
+  h80 0
+
+
+  do
+
+
+   h58 emit
+
+
+  loop
+
+
+ then
+
+
+ drop
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _la_current 0 _la_current W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable _la_end h80 _la_end W!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_trigger 0 _la_trigger L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_triggerEdge 1 _la_triggerEdge L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_lastTriggerEdge 1 _la_lastTriggerEdge L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_triggerFrequency 0 _la_triggerFrequency L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_sampleInterval h28 _la_sampleInterval L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_lastSampleInterval h28 _la_lastSampleInterval L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+variable _la_L10nc
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_L10nc 10,000,000 / (clkfreq/1000) - the number of nS per clock count x 10
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_L1 ( n1 -- ) emit n1 as decimal ###.#
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_L1
+
+
+ hA u/mod swap <# # drop h2E #C # # # #> .cstr
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_LST ( n1 -- ) emit n1 in (x)Seconds format
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_LST
+
+
+ _la_L10nc L@ u* dup h2710 <
+
+
+ if
+
+
+  _la_L1 ."  nS"
+
+
+ else
+
+
+  h3E8 u/ dup h2710 <
+
+
+  if
+
+
+   _la_L1 ."  uS"
+
+
+  else
+
+
+   h3E8 u/ dup h2710 <
+
+
+   if
+
+
+    _la_L1 ."  mS"
+
+
+   else
+
+
+    drop
+
+
+ thens
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _lacv ( -- ) print out vertical lines every 16 position leaving 2 spaces at the beginning
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _lacv
+
+
+ h11 spaces h7C emit
+
+
+ h7 0
+
+
+ do
+
+
+  hF spaces h7C emit
+
+
+ loop
+
+
+ cr
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_interval ( n1 -- ) adjust the sample interval by n1
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_interval
+
+
+ _la_sampleInterval L@
+
+
+ dup _la_lastSampleInterval L!
+
+
+ over +
+
+
+ _la_sampleInterval L!
+
+
+ 0<
+
+
+ if
+
+
+  _la_sampleInterval L@ h12 <
+
+
+  if
+
+
+   _la_sampleInterval L@ h4 <
+
+
+   if
+
+
+    1
+
+
+    _la_triggerEdge L@ _la_lastTriggerEdge L!
+
+
+    0 _la_triggerEdge L!
+
+
+   else
+
+
+    h4
+
+
+   then
+
+
+   _la_sampleInterval L!
+
+
+  then
+
+
+ else
+
+
+  _la_sampleInterval L@ h12 <
+
+
+  if
+
+
+   _la_sampleInterval L@ h4 <
+
+
+   if
+
+
+    h4
+
+
+    0 _la_triggerEdge L!
+
+
+   else
+
+
+    h12
+
+
+   then
+
+
+   _la_sampleInterval L!
+
+
+  then
+
+
+ then
+
+
+ _la_lastSampleInterval L@ 1 =
+
+
+ _la_sampleInterval L@ 1 <> and
+
+
+ if
+
+
+  _la_lastTriggerEdge L@ _la_triggerEdge L!
+
+
+ then
+
+
+
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_dStart ( flag flag n1 -- 0 -1 ) adjust the starting diplay position
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_dStart
+
+
+ _la_current W@ + 0 max
+
+
+ _la_end W@ h80 - 0 max min
+
+
+ _la_current W!
+
+
+ 2drop 0 -1
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_pin ( n1 -- ) adjust the trigger pin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_pin
+
+
+ _la_trigger L@ + 0 max h1F min
+
+
+ _la_triggerEdge L@ 0= _la_sampleInterval 1 =  or
+
+
+ if
+
+
+  0 _la_triggerFrequency L!
+
+
+ else
+
+
+  dup hF0 qHzb _la_triggerFrequency L!
+
+
+ then
+
+
+ _la_trigger L!
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_k1 ( key flag -- key flag ) process key input
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_k1
+
+
+ over h60 < if
+
+
+  over h41 = if
+
+
+   1 _la_interval
+
+
+  else over h43 = if
+
+
+   h64 _la_dStart
+
+
+  else over h44 = if
+
+
+   h64 _la_interval
+
+
+  else over h46 = if
+
+
+   h3E8 _la_interval
+
+
+  else over h47 = if
+
+
+   h2710 _la_interval
+
+
+  else over h53 = if
+
+
+   hA _la_interval
+
+
+  else over h56 = if
+
+
+   h3E8 _la_dStart
+
+
+  else over h58 = if
+
+
+   hA _la_dStart
+
+
+  else over h5A = if
+
+
+   1 _la_dStart
+
+
+  then then then then then then then then then
+
+
+ else
+
+
+  over h61 = if
+
+
+   -1 _la_interval
+
+
+  else over h63 = if
+
+
+   h-64 _la_dStart
+
+
+  else over h64 = if
+
+
+   h-64 _la_interval
+
+
+  else over h66 = if
+
+
+   h-3E8 _la_interval
+
+
+  else over h67 = if
+
+
+   h-2710 _la_interval
+
+
+  else over h73 = if
+
+
+   h-A _la_interval
+
+
+  else over h76 = if
+
+
+   h-3E8 _la_dStart
+
+
+  else over h78 = if
+
+
+   h-A _la_dStart
+
+
+  over h7A = if
+
+
+   -1 _la_dStart
+
+
+  then then then then then then then then then
+
+
+ then
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_h ( -- ) display header
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_h
+
+
+ hm crcl
+
+
+ ."     Trigger Pin      -q    +Q: " _la_triggerEdge W@ 0= if ." NONE" else  _la_trigger L@ . then crcl
+
+
+ ."    Trigger Edge   -w +W SPACE: " _la_triggerEdge L@ 0=
+
+
+  if ." NONE" else  _la_triggerEdge L@ 0< if ." --__" else  ." __--" else  then then crcl
+
+
+ ." Trigger Frequency         eE : "
+
+
+ _la_triggerEdge L@ if _la_triggerFrequency L@ .num else ." NO TRIGGER FOUND" then crcl
+
+
+  
+
+
+ ." Sample Interval -asdfg +ASDFG: " _la_sampleInterval L@ dup _la_LST  .num ." clock cycles" crcl
+
+
+ ."          Sample     <ENTER>" crcl
+
+
+ ."          Quit         <ESC>" crcl
+
+
+ ." Sample Display  -zxcv  +ZXCV : " _la_current W@ .num ." clock cycles of " _la_end W@ .num crcl
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ _la_k ( -- key flag ) process key input
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _la_k
+
+
+\ ( key 0 -- )
+
+
+ key 0
+
+
+ over h71 = if
+
+
+  -1 _la_pin
+
+
+ else over h51 = if
+
+
+  1 _la_pin
+
+
+ else over h65 = if
+
+
+  _la_trigger L@ h3E8 qHzb _la_triggerFrequency L!
+
+
+ else over h45 = if
+
+
+  _la_trigger L@ h7D0 qHzb _la_triggerFrequency L!
+
+
+ else over h20 = if
+
+
+  0 _la_triggerEdge L!
+
+
+  0 _la_trigger L!
+
+
+  0 _la_triggerFrequency L!
+
+
+ else over h77 = if
+
+
+  -1 _la_triggerEdge L!
+
+
+  0 _la_pin
+
+
+ else over h57 = if
+
+
+  1 _la_triggerEdge L!
+
+
+  0 _la_pin
+
+
+ else over hD = if
+
+
+  _la_sampleInterval L@ 1 =
+
+
+  if
+
+
+   hmclr
+
+
+  then
+
+
+\ _la_sample ( baseaddr numsamples samplecycle triggerbefore triggerafter triggermask -- numSamples )
+
+
+   zeroFreeDict
+
+
+   freeDictStart
+
+
+   freeDictEnd over - 2/ 2/
+
+
+   _la_sampleInterval L@
+
+
+
+
+
+   _la_triggerFrequency L@
+
+
+   if
+
+
+    _la_triggerEdge L@ 0>
+
+
+    if
+
+
+     0
+
+
+     _la_trigger L@ >m
+
+
+     dup
+
+
+    else
+
+
+     _la_trigger L@ >m
+
+
+     0
+
+
+     over
+
+
+    then
+
+
+   else
+
+
+    0 0 0
+
+
+   then
+
+
+   _la_sample
+
+
+   _la_end W! 
+
+
+\  then
+
+
+
+
+
+  2drop 0 -1
+
+
+ else over h1B = if
+
+
+  2drop -1 -1
+
+
+ else over h05 = if
+
+
+  2drop -1 -1
+
+
+ thens
+
+
+ _la_k1
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ lac ( -- )
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: lac
+
+
+ 0 _la_pin
+
+
+ zeroFreeDict
+
+
+ hmclr _la_h
+
+
+
+
+
+ begin
+
+
+  0
+
+
+  begin
+
+
+   drop key?
+
+
+   if
+
+
+    _la_k _la_h
+
+
+   else
+
+
+    0 0
+
+
+   then
+
+
+  until
+
+
+  dup 0=
+
+
+  if
+
+
+   h20 0
+
+
+   do
+
+
+    _lacv
+
+
+    space space
+
+
+    _la_current W@ h10 + h100 bounds
+
+
+    do
+
+
+     h7 spaces _la_current W@ _la_sampleInterval L@ i u* + _la_LST h7C emit 
+
+
+    h10 +loop
+
+
+    cr
+
+
+    _lacv
+
+
+
+
+
+    i h4 bounds
+
+
+    do
+
+
+     h1F i - dup <# # # #> .cstr
+
+
+     _la_current W@ swap _la_displayPin
+
+
+     crcl
+
+
+    loop
+
+
+   h4 +loop
+
+
+   hm
+
+
+  then
+
+
+
+
+
+ until
+
+
+ hmclr
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ la_displaySamples ( n1 n2 -- ) display samples starting at position n1 for 8 pins starting at pin n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: la_displaySamples
+
+
+ dup h8 + swap
+
+
+ do
+
+
+  i <# # # #> .cstr
+
+
+  dup i _la_displayPin
+
+
+  cr
+
+
+ loop drop
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ la_sampleNoTrigger ( n1 -- ) sample every n1 clocks and display 128 samples starting from position 0
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: la_sampleNoTrigger
+
+
+ >r
+
+
+ freeDictStart freeDictEnd over - 2/ 2/
+
+
+ r>
+
+
+ 0 0 0 _la_sample drop
+
+
+  0 0  la_displaySamples
+
+
+  0 h8  la_displaySamples
+
+
+  0 h10 la_displaySamples
+
+
+  0 h18 la_displaySamples
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ la_sample+Trigger ( n1 n2 -- ) sample every n1 clock +ve edge and display 128 samples starting from position 0,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ trigger on pin n2
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: la_sample+Trigger
+
+
+ >r >r
+
+
+ freeDictStart freeDictEnd over - 2/ 2/
+
+
+ r>
+
+
+  0 r> >m dup _la_sample drop
+
+
+  0 0  la_displaySamples
+
+
+  0 h8  la_displaySamples
+
+
+  0 h10 la_displaySamples
+
+
+  0 h18 la_displaySamples
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ la_sample-Trigger ( n1 n2 -- ) sample every n1 clock -ve edge and display 128 samples starting from position 0,
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+\ trigger on la_triggerPin
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: la_sample-Trigger
+
+
+ >r >r
+
+
+ freeDictStart freeDictEnd over - 2/ 2/
+
+
+ r>
+
+
+  r> >m 0 over _la_sample drop
+
+
+  0 0  la_displaySamples
+
+
+  0 h8  la_displaySamples
+
+
+  0 h10 la_displaySamples
+
+
+  0 h18 la_displaySamples
+
+
+;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+1 wconstant forthimagefence
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable savehere
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable savewlastnfa
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable checksum
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+wvariable bytecount
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: _fb checksum W+! 1 bytecount W+! ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: fbinout
+
+ here W@ savehere W!
+
+ wlastnfa W@ savewlastnfa W!
+
+ c" forthimagefence" find drop pfa>nfa 2- dup here W!
+
+ W@ wlastnfa W!
+
+ 0 _finit W!
+
+ 
+
+ 0 checksum W!
+
+ 0 bytecount W!
+
+ 
+
+ 0 5 C! 
+
+ 
+
+ _cd 0
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+  
+
+ _cd $S_cdsz 8 u* bounds
+
+ do
+
+  0 _fb
+
+  loop
+
+ 
+
+ here W@ _cd $S_cdsz 8 u* +
+
+ do 
+
+  i C@ _fb
+
+  loop
+
+  
+
+ h7FB8 here W@ - 0
+
+ do
+
+  0 _fb
+
+  loop
+
+
+
+ h_35 _fb h_C7 _fb h_14 _fb h_35 _fb
+
+ h_2C _fb h_32 _fb h_00 _fb h_00 _fb
+
+
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 0 _fb 0 _fb 0 _fb h_0 _fb
+
+ 
+
+ h38 0 do
+
+  0 _fb
+
+  loop  
+
+  
+
+ h_14 checksum W@ - h_FF and 5 C!
+
+
+
+ _cd 0
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ _cd $S_cdsz 8 u* bounds
+
+ do
+
+  0 emit
+
+  loop
+
+ 
+
+ here W@ _cd $S_cdsz 8 u* +
+
+ do 
+
+  i C@ emit
+
+  loop
+
+  
+
+ h7FB8 here W@ - 0
+
+ do
+
+  0 emit
+
+  loop
+
+
+
+ h_35 emit h_C7 emit h_14 emit h_35 emit
+
+ h_2C emit h_32 emit h_00 emit h_00 emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ h_FF emit h_FF emit h_F9 emit h_FF emit
+
+ 
+
+ h38 0 do
+
+  0 emit
+
+  loop
+
+  
+
+ savehere W@ here W!
+
+ savewlastnfa W@ wlastnfa W!
+
+ -1 _finit W!
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+{
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+}
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+hA state orC!
+
+ scriptFileName: scripts/dev/buildLacKernel.txt
+   logFileName: results/runLogs/dev/buildLacKernel.txt
+resultFileName: results/resultFiles/dev/buildLacKernel.txt
+outputFileName: results/outputFiles/dev/lacKernel.eeprom
+
+ scriptFileName: scripts/dev/buildLacKernel.txt
+   logFileName: results/runLogs/dev/buildLacKernel.txt
+resultFileName: results/resultFiles/dev/buildLacKernel.txt
+outputFileName: 
+Prop0 Cog6 ok

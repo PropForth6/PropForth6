@@ -52,6 +52,15 @@ call dev\buildlac.bat
 echo buildlac.bat result: %domakeerr%
 if %domakeerr% neq 0 goto end
 
+call dev\buildLacKernel.bat
+echo buildLacKernel.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
+
+call dev\buildLacKernelSpin.bat
+echo builLacKernelSpin.bat result: %domakeerr%
+if %domakeerr% neq 0 goto end
+
+
 :end
 echo buildall.bat result: %domakeerr%
 

@@ -273,11 +273,11 @@ wvariable _la_s1size
 variable _la_mask -1 _la_mask L!
 
 
-\ _la_displayPin ( n1 n2 -- ) show 128 samples starting at position n1 for pin n2
+\ _la_displayPin ( n1 n2 -- ) show 256 samples starting at position n1 for pin n2
 : _la_displayPin
 	>m dup _la_mask L@ and
 	if
-		swap 2* 2* freeDictStart + h200 bounds
+		swap 2* 2* freeDictStart + h400 bounds
 		do
 			i L@ over and if h2D else h5F then emit
 		h4 +loop
@@ -522,6 +522,8 @@ h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
 		2drop 0 -1
 	else over h1B = if
 		2drop -1 -1
+	else over h05 = if
+		2drop -1 -1
 	thens
 	_la_k1
 ;
@@ -549,7 +551,7 @@ h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
 			do
 				_lacv
 				space space
-				_la_current W@ h10 + h80 bounds
+				_la_current W@ h10 + h100 bounds
 				do
 					h7 spaces _la_current W@ _la_sampleInterval L@ i u* + _la_LST h7C emit 
 				h10 +loop
