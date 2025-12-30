@@ -334,7 +334,7 @@ h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
 \ _lacv ( -- ) print out vertical lines every 16 position leaving 2 spaces at the beginning
 : _lacv
 	h11 spaces h7C emit
-	h7 0
+	hF 0
 	do
 		hF spaces h7C emit
 	loop
@@ -462,7 +462,7 @@ h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
 		
 	." Sample Interval -asdfg +ASDFG: " _la_sampleInterval L@ dup _la_LST  .num ." clock cycles" crcl
 	."          Sample     <ENTER>" crcl
-	."          Quit         <ESC>" crcl
+	."          Quit         <ESC> or ^E" crcl
 	." Sample Display  -zxcv  +ZXCV : " _la_current W@ .num ." clock cycles of " _la_end W@ .num crcl
 ;
 

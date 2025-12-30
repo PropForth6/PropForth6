@@ -906,7 +906,7 @@ h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
 
 	h11 spaces h7C emit
 
-	h7 0
+	hF 0
 
 	do
 
@@ -1162,7 +1162,7 @@ h989680 clkfreq h3E8 u/ u/ _la_L10nc L!
 
 	."          Sample     <ENTER>" crcl
 
-	."          Quit         <ESC>" crcl
+	."          Quit         <ESC> or ^E" crcl
 
 	." Sample Display  -zxcv  +ZXCV : " _la_current W@ .num ." clock cycles of " _la_end W@ .num crcl
 

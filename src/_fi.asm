@@ -9,7 +9,6 @@ C_treg2
 \
 C_IP
 						0
-
 C_a_lxasm
                         add     C_IP , # 3
                         andn    C_IP , # 3
@@ -38,7 +37,7 @@ C_a__xasm2>flagIMM
                         add     C_IP , # 2
                         jmp		# __a__xasm2>flag1
 C_a__xasm2>flag
-                        jmpret		C_a_stpopC_treg_ret , # C_a_stpopC_treg
+                        jmpret	C_a_stpopC_treg_ret , # C_a_stpopC_treg
 __a__xasm2>flag1
                         rdword  C_treg6 , C_IP
                         movi    __a__xasm2>flagi , C_treg6
@@ -111,10 +110,10 @@ C_a_STat
                                                
 C_a_COGat
                         movs    __a_COGatget , C_stTOS
-\ necessary , really needs to be documented
+\ necessary , as we have just modified the instruction
                         nop
 __a_COGatget
-						mov     C_stTOS , C_stTOS
+			mov     C_stTOS , C_stTOS
                         jmp # C_a_next
 
 C_a_RS!
@@ -135,7 +134,7 @@ C_a_COG!
                         movd    __a_COG!put , C_stTOS
                         jmpret	C_a_stPop_ret , # C_a_stPop
 __a_COG!put
-						mov     C_stTOS , C_stTOS    
+			mov     C_stTOS , C_stTOS    
                         jmp		# C_a_drop
 C_a_branch
 \ the next word

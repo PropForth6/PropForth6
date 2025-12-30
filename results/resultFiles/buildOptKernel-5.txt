@@ -17,13 +17,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2025Dec25 14:04-0
+STARTKERNEL6.0-2025Dec29 14:55-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2025Dec25 14:04-0
+here: 14428 STARTKERNEL6.0-2025Dec29 14:55-0
 
 Prop0 Cog6 ok
 
@@ -886,7 +886,7 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-: (version) c" optKERNEL6.0-2025Dec25 14:21-0" ;
+: (version) c" optKERNEL6.0-2025Dec29 15:12-0" ;
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
@@ -1894,13 +1894,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2025Dec25 14:04-0
+STARTKERNEL6.0-2025Dec29 14:55-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2025Dec25 14:04-0
+here: 14428 STARTKERNEL6.0-2025Dec29 14:55-0
 
 Prop0 Cog6 ok
 wvariable lastNewNFA
@@ -3717,4 +3717,4 @@ count4 W@ .
 bytecount W@ .
 8000 Prop0 Cog6 ok
 checksum W@ .
-7739 Prop0 Cog6 ok
+773E Prop0 Cog6 ok
