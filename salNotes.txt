@@ -1,0 +1,102 @@
+
+: tt
+hFB
+
+c" um*"					.cstr h10B	4 spaces hFC - dup . 4 spaces + dup . cr
+c" um/mod"				.cstr h10C	4 spaces hFC - dup . 4 spaces + dup . cr
+c" cstr="				.cstr h108	4 spaces hFC - dup . 4 spaces + dup . cr
+c" name="				.cstr h10D	4 spaces hFC - dup . 4 spaces + dup . cr
+c" _dictsearch"			.cstr h114	4 spaces hFC - dup . 4 spaces + dup . cr
+c" padbl"				.cstr h104	4 spaces hFC - dup . 4 spaces + dup . cr
+c" _accept"				.cstr h129	4 spaces hFC - dup . 4 spaces + dup . cr
+c" .str"				.cstr h10B	4 spaces hFC - dup . 4 spaces + dup . cr
+c" _fkey?"				.cstr h106	4 spaces hFC - dup . 4 spaces + dup . cr
+c" fkey?"				.cstr h106	4 spaces hFC - dup . 4 spaces + dup . cr
+c" key"					.cstr h103	4 spaces hFC - dup . 4 spaces + dup . cr
+c" _femit?"				.cstr h104	4 spaces hFC - dup . 4 spaces + dup . cr
+c" femit?"				.cstr h108	4 spaces hFC - dup . 4 spaces + dup . cr
+c" emit"				.cstr h107	4 spaces hFC - dup . 4 spaces + dup . cr
+c" skipbl"				.cstr h10D	4 spaces hFC - dup . 4 spaces + dup . cr
+c" _eeread"				.cstr h11B	4 spaces hFC - dup . 4 spaces + dup . cr
+c" _eewrite"			.cstr h11A	4 spaces hFC - dup . 4 spaces + dup . cr
+c" xisnumber"			.cstr h129	4 spaces hFC - dup . 4 spaces + dup . cr
+c" xnumber"				.cstr h12F	4 spaces hFC - dup . 4 spaces + dup . cr
+drop
+;
+
+
+   		15   FB		
+   	16   10B
+   	12   11B
+ name=    	17   13B
+_dictsearch	24   15B
+padbl    	8    17B   
+_accept    	45   18B
+.str    	15   1BB
+_fkey?    	10
+fkey?    	10
+key    		7
+_femit?    	8
+femit?    	12
+emit    	11
+skipbl    	17
+_eeread    	31  13C
+_eewrite    30  15C
+xisnumber   45	17C
+xnumber 	51	1AC	
+Prop0 Cog6 ok	1E0
+
+ FB 10 um*     cstr= 
+10B 10 um/mod
+11B 10 
+12B 11 name=     
+13C 20 _eeread  
+15C 20 _eewrite  skipbl
+17C 20 xisnumber  
+1AC 34 xnumber     
+1E0
+
+
+h106  hFC  1- tuck - st? h9 lshift swap h1FF and st? or st? here W@ alignl h10 lshift or st?
+
+
+
+
+Prop0 Cog6 ok
+ tt
+tt 
+    um*    F     10A
+     um/mod    10     11A
+    cstr=    C     126
+    name=    11     137
+    _dictsearch    18     14F
+    padbl    8     157
+   _accept    2D     184
+    .str    F     193
+    _fkey?    A     19D
+    fkey?    A     1A7
+    key    7     1AE
+    _femit?    8     1B6
+    femit?    C     1C2
+    emit    B     1CD
+    skipbl    11     1DE
+    _eeread    1F     1FD
+    _eewrite    1E     21B
+    xisnumber    2D     248
+    xnumber    33     27B
+Prop0 Cog6 ok
+
+ FB 33 xnumber xisnumber _accept 
+12E 1F _eewrite _eeread _dictsearch
+14D 11 name= skipbl um*
+15E 11 um/mod  .str 
+170 0C cstr= femit?
+17C 0B emit
+187 0A _fkey?
+191 0A fkey?
+19B 08 padbl
+1A3 08 _femit?
+1AB 08 key
+1B3 3D
+
+

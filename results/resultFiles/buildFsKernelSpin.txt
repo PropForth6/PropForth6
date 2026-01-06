@@ -1,7 +1,7 @@
 
- scriptFileName: scripts\dev\buildLacKernelSpin.txt
-   logFileName: results/runLogs/buildLacKernelSpin.txt
-resultFileName: results/resultFiles/buildLacKernelSpin.txt
+ scriptFileName: scripts/dev/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
 outputFileName: 
 reboot
 
@@ -17,13 +17,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-lacKERNEL6.0-2026Jan04 17:19-0
+fsrKERNEL6.0-2026Jan04 17:22-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 21426 lacKERNEL6.0-2026Jan04 17:19-0
+here: 18110 fsrKERNEL6.0-2026Jan04 17:22-0
 
 Prop0 Cog6 ok
 
@@ -407,13 +407,13 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts\dev\buildLacKernelSpin.txt
-   logFileName: results/runLogs/buildLacKernelSpin.txt
-resultFileName: results/resultFiles/buildLacKernelSpin.txt
-outputFileName: results/outputFiles/dev/lacKernel.spin
+ scriptFileName: scripts/dev/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
+outputFileName: results/outputFiles/dev/fsKernel.spin
 
- scriptFileName: scripts\dev\buildLacKernelSpin.txt
-   logFileName: results/runLogs/buildLacKernelSpin.txt
-resultFileName: results/resultFiles/buildLacKernelSpin.txt
+ scriptFileName: scripts/dev/buildFsKernelSpin.txt
+   logFileName: results/runLogs/buildFsKernelSpin.txt
+resultFileName: results/resultFiles/buildFsKernelSpin.txt
 outputFileName: 
 Prop0 Cog6 ok

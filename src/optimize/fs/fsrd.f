@@ -60,8 +60,6 @@ Usage example:
 	type fsload demo - loads demo, which loads the other 3 files
 
 
-fl
-
 \ some simple files for testing
 fswrite demo
 fsload hello.f
@@ -87,8 +85,9 @@ fswrite aloha.f
 
 \ end of example files
 
-
 }
+
+
 \
 \ define only one of these, build_fsRO is useful when you want to be able to read files
 \ but want to make sure no-one can write them
@@ -510,7 +509,7 @@ fswrite aloha.f
 ]
 
 \ _fslast ( -- addr ) find the last file, 0 if not found
-[ifndef _fnf
+[ifndef _fslast
 : _fslast
 	0 fsbot
 	begin

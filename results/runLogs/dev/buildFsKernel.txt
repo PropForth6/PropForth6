@@ -1,0 +1,112 @@
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:02.9974842 -0800 PST 
+ scriptFileName: scripts/dev/buildFsKernel.txt
+   logFileName: results/runLogs/dev/buildFsKernel.txt
+resultFileName: 
+outputFileName: 
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:03.0244207 -0800 PST 
+ scriptFileName: scripts/dev/buildFsKernel.txt
+   logFileName: results/runLogs/dev/buildFsKernel.txt
+resultFileName: results/resultFiles/dev/buildFsKernel.txt
+outputFileName: 
+
+\
+\ Reboot
+\
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:03.0412384 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:03.0412384 -0800 PST SENDING: reboot
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:03.0412384 -0800 PST DONE SENDING waiting for output: reboot
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:03.0412384 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:08.2581234 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:08.2581234 -0800 PST DONE: reboot
+\
+\ check Forth
+\
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:08.4042527 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:08.4042527 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:08.4042527 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:08.4042527 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:09.4352404 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:09.4352404 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+\
+\ words to be added / replaced
+\
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:09.573992 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:09.573992 -0800 PST SENDING: c" fsrKERNEL6.0-
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:09.573992 -0800 PST DONE SENDING waiting for output: c" fsrKERNEL6.0-
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:09.573992 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:12.5856904 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:12.5856904 -0800 PST DONE: c" fsrKERNEL6.0-
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:12.690799 -0800 PST SEND: [2026Jan04 17:22]
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:12.7066178 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:12.7066178 -0800 PST SENDING: -0" version W@ ccopy
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:12.7066178 -0800 PST DONE SENDING waiting for output: -0" version W@ ccopy
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:12.7066178 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:15.7343381 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:15.7343381 -0800 PST DONE: -0" version W@ ccopy
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:15.8510784 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:15.8510784 -0800 PST SENDING: src/optimize/dev/fsrd.f
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:16.4141289 -0800 PST DONE SENDING waiting for output: src/optimize/dev/fsrd.f
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:16.4141289 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:21.6635189 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:21.6645254 -0800 PST DONE: src/optimize/dev/fsrd.f
+\
+\ forthimager.f
+\						
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:21.7917512 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:21.7917512 -0800 PST SENDING: src/forthimager.f
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:21.8907901 -0800 PST DONE SENDING waiting for output: src/forthimager.f
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:21.8907901 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:25.4165908 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:25.4165908 -0800 PST DONE: src/forthimager.f
+\
+\
+\ make devKernel.eeprom
+\
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:25.5495654 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:25.5495654 -0800 PST SENDING: hA state orC!
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:25.5495654 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:25.5495654 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:26.5635213 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:26.5635213 -0800 PST DONE: hA state orC!
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:26.700108 -0800 PST 
+ scriptFileName: scripts/dev/buildFsKernel.txt
+   logFileName: results/runLogs/dev/buildFsKernel.txt
+resultFileName: results/resultFiles/dev/buildFsKernel.txt
+outputFileName: results/outputFiles/dev/fsKernel.eeprom
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:26.7093572 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:26.7093572 -0800 PST SENDING: fbinout
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:26.7093572 -0800 PST DONE SENDING waiting for output: fbinout
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:26.7093572 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:29.7094045 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:29.7094045 -0800 PST DONE: fbinout
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:29.8142419 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:37.7361723 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:37.7361723 -0800 PST 
+ scriptFileName: scripts/dev/buildFsKernel.txt
+   logFileName: results/runLogs/dev/buildFsKernel.txt
+resultFileName: results/resultFiles/dev/buildFsKernel.txt
+outputFileName: 
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:37.7551764 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:37.7551764 -0800 PST SENDING: hA state andnC!
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:37.7551764 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:37.7551764 -0800 PST WAIT STARTED
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:38.7722109 -0800 PST WAIT DONE
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:38.7722109 -0800 PST DONE: hA state andnC!
+scripts/dev/buildFsKernel.txt::2026-01-04 17:22:38.8768366 -0800 PST 
+ scriptFileName: scripts/dev/buildFsKernel.txt
+   logFileName: results/runLogs/dev/buildFsKernel.txt
+resultFileName: 
+outputFileName: 
+
