@@ -1,0 +1,70 @@
+
+Welcome to PropForth 6
+
+PropForth is an interactice command line monitor for code development on the Parallax Propeller microcontroler devices. (link to P8X32A).  PropForth 6 is very similar to PropForth 5.5,  with PF6 have more capable communications to the workstation (explained in PROPFORTH 6 SOFTWARE ENVIRONMENT below). 
+
+USECASE
+
+Propforth is designed for "bit-banging", deterministic exectution, and interactive devlopment of embbedded applications on the Parallax P8X32A microcontroler.  The functional scope of the prop is envisioned to be direct interfacing between the P8X32A and arbitrary external custom circuitry.  The prop chip can toggle and read i/o at a resolution of 12.5 nanaseconds, and propforth allows us to interactively manipulate and examine the microcontroller and its i/o interfaces.   For example, reading sensors, preprocessing sensor data in realtime, controlling acuators to 12.5 ns precision, data logging, and similar, all all well suited for the prop's abilities.  
+
+While the prop is very capable and  useful to manipulate and monitor i/o pin interfaces to external hardware, the prop is NOT most capable part for other functionality.  Workstaion functionality is best allocated to a workstation, fancy GUI user interfaces are best allocated to equipment with built in HDMI, large databases are best allocated to something that is designed to handle databases.  Propforth design intention is to handle the sensors and actuators, and allow communication of data to whatever subsystem consumes that data.    
+
+Propforth does not attempt to replace any other speicalized microcontroller or operating system.  When we need a Linux OS, we can talk to a Raspberry Pi. When we need access to the Apple ecosystem, we can talk to an OSX laptop or desktop.    When we need to talk to a full blown development PC with internent access anddatabases, etc, we can talk to windows systems.   The main idea is to encourage the proper tool for the specific task at hand. 
+
+
+To keep things simple, small and fast, propforth is an implentation of FORTH customized for the prop. If you know FORTH, you should notice propforth is more or less a minimal subset of the FORTH programming language.  FORTH code from other implementations will most likely not run directly in PropForth without modification.  This is be design, and due to each FORTH being custom to the hardware and applications for which is was designed.  If you know FORTH, you should be able to get running with liitle learning curve.  
+
+Often the prop can appear to implement a full blow operating system, this is not the case.  The command line, "file system", I/O, etc and give the feel of OS level functions.  But these remain the basic functions.  While it is POSSIBLE to implement a full blow OS on a prop using propforth, PF6 does not, as the prop is small and fast and everybody other existing OS already does that for us, so why bother.
+
+If you are unfamilliar with FORTH, there can be a learning curve.  If FORTH is a deal-breaker, please look elsewhere for your tools.  No problem, FORTH is not for everybody.  Folks that are used many layers of abstraction between the hardware and the code can find FORTH awkward.  PropForth in particular is not what we would choose to implement windows or android applications.  If you are interested in implementing realtime hardware drivers for your custom circuitry, then Propforth might be fun for you. 
+
+DEVELOPMENT ENVIRONMENT (PROPFORTH 6 development Team)
+
+The development model places the developer at PC workstation. The PC workstation run an OS that has specific complatibility with early 21rst century linux systems.  Specifically, the Propforth team tends to use:
+* Ubuntu Linux and its derivative (I tend to use Linux Mint MATE)
+* OSX as Apple OSX is built on Linux and tends to be compatible
+* Windows 10 and 11 as these support Windows Subsystem for Windows (WSL)
+
+The main developer has tended to use and OSX PC, and the main tester tends to use windows PC (as these support my favoritye games).   Ubuntu is used to ensure the verify the commonality between OSX and Windows. 
+
+The PROPFORTH6 team develop the PF6 functionality and test it so you don't have to.  We apply the releases to our projects and ensure everything works are expected. 
+
+Any individual is welcome to fork and modify the code.  However, tend to limit kernel functionality to the minimum needed to implement and test kernel functionality.  Additional functionality as kept separate as extensions is seprately compile libraies.  We don't let the kernel get bigger in favory of maximizing space for applications.
+
+
+USER ENVIRONMENT (Developers of custom applictoions, this is YOU, the reader)
+
+Any workstation you chose that runs something like the three OS envirments above should be sufficient.  Simply down load the GIT repository (https://github.com/PropForth6/PropForth6/)  and start reading the instructions.  If you get stuck, send a message and I will attempt to correct the instructions until you are successful. 
+
+USER APPLICATION DEVELOPMENT ENVIRONMENT HARDWARE
+
+The development team uses the P832A Quickstart Board and the Propeller Project Board USB. Both of these run of a single USB mini cable.  Either of these should be have identically to our testbeds.   We also have the Propeller Proto Board,   the Professional DEvelopment Board, the Demo Board, and a few others; the main differents is these other items need a separate power supply (e.g. a 7 volt wall wart) and the indiviual items have various additional hardware occupying some of the I/O realestate.   Anything that runs a prop chip should function identically to what we use, apart from any non-standard hardware. 
+
+PROPFORTH 6 SOFTWARE ENVIRONMENT
+
+The PC workstation talks to PropForth 6 via GOTERM.  GOTERM is terminal communications application written in Go (See what we did there?). 
+
+** WHY DID WE SWITCH FROM TERATERM/MINICOM/PICOCOM/SCREEN/TTY? **
+
+PF5.5 used Teraterm, and this was mostly fine.  However, and communication go faster and faster, the inconsistencies in the RS232 standard(s) caused hickups.  Specifically, the flowcontrol presented issues.  Something hardware flowcontrol or software flowcontrol behaved in such a way that we couldn't properly control flow. Once things settled on USB virtual serial ports, is became clear that dropping the legacy RS232 issues would be a benefit (to us).   Yes, it is understood that it would also be a change to you, then end user, but the beneifts are too great forgo.   The solution is use GOTERM.
+
+To use GOTERM, find the goterm executatble for your system in the GIT archive you downloaded.  If for some reason that doesn't work right off the bat (we had issues in the past) download GO programming language for your installation and compile GOTERM from the source code included in the GIT archive. 
+
+GOTERM
+
+What does GOTERM provide for us?  Previously, would paste propforth source code into the command line to add our code functionality to the proforth dictionary. Sometimes we would have conditions where too much text would choke the input, and it was annoying.   Now, using GOTERM with propforth 6,  we can paste in whatever source code text we want, and it just goes and doesn't choke.   ITs very fast.  Goterm also provides the automation fucntions we use in our test automation; we can send scripts, log output, switch control mode and command mode; and do all this on the fly under scripted programatic control.   Its quite nifty.  And you can just use the command line if you wish and skip the fancy automation stuff.   But its all there and you will be using the environment the development team has, so questions and issues should be easier to support.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
