@@ -120,6 +120,7 @@ Terminal commands:(must be at start of a new line and paramaters on the same lin
 --speedEcho                 - remote echo characters for a speedTest (speedTest client)
 --speedSend y y z           - runs a speed sending ata only with x bytes, blocksize of y bytes (max for udp is 1024),  block delay z nanoseconds  (defaults are 1000000 1024 100000)
 --speedReceive				- receive from speedSend and reports 
+--cps x                     - set the transmit rate to x characters per second
 
 Multiplexor protocol:
 
@@ -142,6 +143,7 @@ func main() {
 	var profile string
 	var profileFlag bool
 	var configFile string
+	var cps uint64
 
 	versionString = "Version 5.0"
 
@@ -695,6 +697,8 @@ func main() {
 						if immediateDelay > 0 {
 							time.Sleep(time.Duration(immediateDelay) * time.Millisecond)
 						}
+					case "--cps":
+						cps = getUint(fe[1], cps)
 					case "--dataCaptureTimeout":
 						timeout := uint64(600)
 						if len(fe) > 1 {
@@ -745,6 +749,10 @@ func main() {
 					default:
 						changeState(IDLE_STATE)
 						toHost <- []byte(fc)
+						if cps > 0 {
+							cpsDelay := (time.Second * time.Duration(len(fc))) / time.Duration(cps)
+							time.Sleep(cpsDelay)
+						}
 					}
 				}
 			}
