@@ -119,7 +119,7 @@ h800010005 d!
 
 
 
---cps 10000
+
 \ _i2s ( clockMask lrMask dataOutMask dataAddr ackAddr -- )
 build_BootOpt :rasm
 	            mov	    __ackAddr , $C_stTOS

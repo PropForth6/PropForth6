@@ -43,7 +43,7 @@ type Profile struct {
 	XboxController         bool `json:"xboxControllerFlag"`
 	XboxControllerDebug    bool `json:"xboxControllerDebugFlag"`
 	UseFastMux             bool `json:"useFastMux"`
-	AfcFlowControl         bool `json:"afcFlowControl"`
+	Afc                    bool `json:"afc"`
 
 	IpToSerialFlag bool `json:"ipToSerialFlag"`
 
@@ -56,6 +56,7 @@ type Profile struct {
 	NumMux             int64 `json:"numMux"`
 	RemotePort         int64 `json:"remotePort"`
 	SerialResetTimeout int64 `json:"serialResetTimeout"`
+	Cps                int64 `json:"cps"`
 
 	Name       string `json:"name"`
 	LogPrefix  string `json:"logPrefix"`
@@ -139,11 +140,10 @@ XX...ZZ number of bytes specified by N
 func main() {
 	var sp *SerialPort
 	var err error
-	var timestampInterval, logHours, lineDelayMs, port, baud, muxPort, remotePort, numMux, serialResetTimeout int
+	var timestampInterval, logHours, lineDelayMs, port, baud, muxPort, remotePort, numMux, serialResetTimeout, cps int
 	var profile string
 	var profileFlag bool
 	var configFile string
-	var cps uint64
 
 	versionString = "Version 5.0"
 
@@ -162,11 +162,12 @@ func main() {
 	flag.BoolVar(&cc.XboxController, "xbox", false, "Enable Xbox controller")
 	flag.BoolVar(&cc.XboxControllerDebug, "xboxDebug", false, "Enable Xbox controller debug")
 	flag.BoolVar(&cc.UseFastMux, "useFastMux", false, "Uses the fast multiplexor")
-	flag.BoolVar(&cc.AfcFlowControl, "afcFlowControl", false, "Uses afc flow control")
+	flag.BoolVar(&cc.Afc, "afc", false, "Uses Afc flow control")
 
 	flag.BoolVar(&cc.IpToSerialFlag, "ipToSerial", false, "Route ip to serial port")
 
 	flag.IntVar(&serialResetTimeout, "serialResetTimeout", 0, "In milliseconds, reset the serial port if nothing received for n ms")
+	flag.IntVar(&cps, "cps", 0, "Characters / sec output rate, 0 means as fast as possible")
 	flag.IntVar(&baud, "baud", defaultBaud, "Baud rate")
 	flag.IntVar(&remotePort, "remotePort", 0, "Remote port, if remote host is not specified console will be available on this port via tcp/ip")
 	flag.IntVar(&lineDelayMs, "lineDelay", 0, "Send line delay in milliseconds")
@@ -187,6 +188,7 @@ func main() {
 	flag.Parse()
 
 	cc.SerialResetTimeout = int64(serialResetTimeout)
+	cc.Cps = int64(cps)
 	cc.TimestampInterval = int64(timestampInterval)
 	cc.LogHours = int64(logHours)
 	cc.LineDelayMs = int64(lineDelayMs)
@@ -260,8 +262,8 @@ func main() {
 			if isFlagSpecified("useFastMux") {
 				gg.UseFastMux = cc.UseFastMux
 			}
-			if isFlagSpecified("afcFlowControl") {
-				gg.AfcFlowControl = cc.AfcFlowControl
+			if isFlagSpecified("afc") {
+				gg.Afc = cc.Afc
 			}
 			if isFlagSpecified("suppressBlankLineDelay") {
 				gg.SuppressBlankLineDelay = cc.SuppressBlankLineDelay
@@ -275,6 +277,9 @@ func main() {
 
 			if isFlagSpecified("serialResetTimeout") {
 				gg.SerialResetTimeout = cc.SerialResetTimeout
+			}
+			if isFlagSpecified("cps") {
+				gg.Cps = cc.Cps
 			}
 			if isFlagSpecified("baud") {
 				gg.Baud = cc.Baud
@@ -348,8 +353,8 @@ func main() {
 	if cc.SerialPort == "" && cc.Port <= 0 && !cc.Loopback {
 		cc.Help = true
 	}
-	runString = fmt.Sprintf("goterm compileDate: %s gitRepo: %s gitBranch: %s\ngitHash: %s\nVersion: %s\nhelp: [%v] profile: [%s] ipToSerial: [%v] loopback: [%v] debug: [%v] expandLf: [%v] expandCr: [%v] crc: [%v] filterHex: [%v]\nserialPort: [%v] baud: [%d] serialResetTimeout: %d\nremotePort: [%d] remoteHost: [%s] \nport: [%d] host: [%s] udp: [%v]\ntimestampInterval: [%v] logDir:[%s] logFlag: [%v] logPrefix: [%s] logHours: [%d]\nnumMux: [%d] useFastMux [%v] afcFlowControl [%v]  muxHost: [%s] muxPort: [%d]\nlineDelay: [%d] suppressBlankLineDelay: [%v]\nxBoxController: %v xBoxControllerDebug: %v\n",
-		compileDate, gitRepo, gitBranch, gitHash, versionString, cc.Help, profile, cc.IpToSerialFlag, cc.Loopback, cc.Debug, cc.ExpandLf, cc.ExpandCr, cc.CrcFlag, cc.FilterHex, cc.SerialPort, cc.Baud, cc.SerialResetTimeout, cc.RemotePort, cc.RemoteHost, cc.Port, cc.Host, cc.UdpFlag, cc.TimestampInterval, cc.LogDir, cc.LogFlag, cc.LogPrefix, cc.LogHours, cc.NumMux, cc.UseFastMux, cc.AfcFlowControl, cc.MuxHost, cc.MuxPort, cc.LineDelayMs, cc.SuppressBlankLineDelay, cc.XboxController, cc.XboxControllerDebug)
+	runString = fmt.Sprintf("goterm compileDate: %s gitRepo: %s gitBranch: %s\ngitHash: %s\nVersion: %s\nhelp: [%v] profile: [%s] ipToSerial: [%v] loopback: [%v] debug: [%v] expandLf: [%v] expandCr: [%v] crc: [%v] filterHex: [%v]\nserialPort: [%v] baud: [%d] serialResetTimeout: %d cps: %d\nremotePort: [%d] remoteHost: [%s] \nport: [%d] host: [%s] udp: [%v]\ntimestampInterval: [%v] logDir:[%s] logFlag: [%v] logPrefix: [%s] logHours: [%d]\nnumMux: [%d] useFastMux [%v] afc [%v]  muxHost: [%s] muxPort: [%d]\nlineDelay: [%d] suppressBlankLineDelay: [%v]\nxBoxController: %v xBoxControllerDebug: %v\n",
+		compileDate, gitRepo, gitBranch, gitHash, versionString, cc.Help, profile, cc.IpToSerialFlag, cc.Loopback, cc.Debug, cc.ExpandLf, cc.ExpandCr, cc.CrcFlag, cc.FilterHex, cc.SerialPort, cc.Baud, cc.SerialResetTimeout, cc.Cps, cc.RemotePort, cc.RemoteHost, cc.Port, cc.Host, cc.UdpFlag, cc.TimestampInterval, cc.LogDir, cc.LogFlag, cc.LogPrefix, cc.LogHours, cc.NumMux, cc.UseFastMux, cc.Afc, cc.MuxHost, cc.MuxPort, cc.LineDelayMs, cc.SuppressBlankLineDelay, cc.XboxController, cc.XboxControllerDebug)
 	fmt.Printf("%s", runString)
 	if cc.Help {
 		fmt.Printf("\nConfig File [%s]   Valid profiles:\n", configFile)
@@ -384,7 +389,7 @@ func main() {
 		serafcFilter.LogChan = toLogConsole
 
 		if cc.NumMux <= 1 {
-			if !cc.AfcFlowControl {
+			if !cc.Afc {
 				go func() {
 					for {
 						t := <-toHost
@@ -424,7 +429,7 @@ func main() {
 				}()
 			}
 		} else {
-			if !cc.AfcFlowControl {
+			if !cc.Afc {
 				if cc.UseFastMux {
 					go fastMultiplexor(fromHost, toHost, fromPhy, toPhy, errChan, int(cc.NumMux), int(cc.MuxPort), cc.MuxHost, cc.XboxController, cc.XboxControllerDebug)
 				} else {
@@ -698,7 +703,8 @@ func main() {
 							time.Sleep(time.Duration(immediateDelay) * time.Millisecond)
 						}
 					case "--cps":
-						cps = getUint(fe[1], cps)
+						conCps := getUint(fe[1], 0)
+						cc.Cps = int64(conCps)
 					case "--dataCaptureTimeout":
 						timeout := uint64(600)
 						if len(fe) > 1 {
@@ -749,8 +755,8 @@ func main() {
 					default:
 						changeState(IDLE_STATE)
 						toHost <- []byte(fc)
-						if cps > 0 {
-							cpsDelay := (time.Second * time.Duration(len(fc))) / time.Duration(cps)
+						if cc.Cps > 0 {
+							cpsDelay := (time.Second * time.Duration(len(fc))) / time.Duration(cc.Cps)
 							time.Sleep(cpsDelay)
 						}
 					}
