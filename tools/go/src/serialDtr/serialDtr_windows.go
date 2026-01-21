@@ -1,17 +1,25 @@
-// +build windows
+//go:build windows
 
-package serial
+//
+//
+//
+
+//
+//
+
+package serialDtr
+
 // Serial io as raw as possible. 8 bits, no parity 1 stop bit, channel to provide DTR control
 //
-// comName := "com3" 
+// comName := "com3"
 // baudRate := 57600
 // debug := false
 //
 // chanFromSerial, chanToSerial, charDTRSerial, chanQuitSerial, err := SerialChannels( comName, baud, debug)
 //
 // chanFromSerial = byte data channel from serial
-// chanToSerial - byte data channel to serial 
-// chanDTRSerial - bool channel to control DTR - logical 1 means DTR active - rs232 level - +3-+15 volts 
+// chanToSerial - byte data channel to serial
+// chanDTRSerial - bool channel to control DTR - logical 1 means DTR active - rs232 level - +3-+15 volts
 // chanQuitSerial - send a bit on this channel to terminate
 //
 // based on http://code.google.com/p/goserial/
@@ -28,29 +36,28 @@ import (
 )
 
 type structDCB struct {
-	DCBlength, BaudRate uint32
-	flags [4]byte
-	wReserved, XonLim, XoffLim uint16
-	ByteSize, Parity, StopBits byte
+	DCBlength, BaudRate                            uint32
+	flags                                          [4]byte
+	wReserved, XonLim, XoffLim                     uint16
+	ByteSize, Parity, StopBits                     byte
 	XonChar, XoffChar, ErrorChar, EofChar, EvtChar byte
-	wReserved1 uint16
+	wReserved1                                     uint16
 }
 
 type structTimeouts struct {
-	ReadIntervalTimeout uint32
-	ReadTotalTimeoutMultiplier uint32
-	ReadTotalTimeoutConstant uint32
+	ReadIntervalTimeout         uint32
+	ReadTotalTimeoutMultiplier  uint32
+	ReadTotalTimeoutConstant    uint32
 	WriteTotalTimeoutMultiplier uint32
-	WriteTotalTimeoutConstant uint32
+	WriteTotalTimeoutConstant   uint32
 }
-//
+
 // This was necessary to ensure the serial driver behaves correctly in VirtualBox
 // This seems to fix the issue of dropping characters
-//
 var SendBlocksize int = 32
 var EnableSendBlockDelay bool = true
 
-func SerialChannels( name string, baud int, conLog chan string, debug bool) (chan byte, chan byte, chan bool, chan bool, error) {
+func SerialChannels(name string, baud int, conLog chan string, debug bool) (chan byte, chan byte, chan bool, chan bool, error) {
 	var serFile *os.File
 	var handle syscall.Handle
 	var rl sync.Mutex
@@ -58,20 +65,20 @@ func SerialChannels( name string, baud int, conLog chan string, debug bool) (cha
 	var ro *syscall.Overlapped
 	var wo *syscall.Overlapped
 
-	chFromSerial := make(chan byte,8192)
-	chToSerial := make(chan byte,8192)
+	chFromSerial := make(chan byte, 8192)
+	chToSerial := make(chan byte, 8192)
 	chQuitSerial := make(chan bool)
 	chDTRSerial := make(chan bool)
 
-	if len(name) >0 && name[0] != '\\' {
+	if len(name) > 0 && name[0] != '\\' {
 		name = "\\\\.\\" + name
 	}
-	handle, err := syscall.CreateFile( syscall.StringToUTF16Ptr(name),
+	handle, err := syscall.CreateFile(syscall.StringToUTF16Ptr(name),
 		syscall.GENERIC_READ|syscall.GENERIC_WRITE, 0, nil, syscall.OPEN_EXISTING,
 		syscall.FILE_ATTRIBUTE_NORMAL|syscall.FILE_FLAG_OVERLAPPED, 0)
 
 	if err == nil {
-		serFile = os.NewFile( uintptr(handle), name)
+		serFile = os.NewFile(uintptr(handle), name)
 	}
 	if err == nil {
 		err = setCommState(handle, baud)
@@ -91,22 +98,22 @@ func SerialChannels( name string, baud int, conLog chan string, debug bool) (cha
 	if err == nil {
 		wo, err = newOverlapped()
 	}
-	
-	if  err != nil {
-		err = errors.New( "OpenPort ERROR: " + err.Error())
+
+	if err != nil {
+		err = errors.New("OpenPort ERROR: " + err.Error())
 	} else {
-		chFromSerial = make( chan byte, 8192)
-		chQuitFrom := make( chan bool)
+		chFromSerial = make(chan byte, 8192)
+		chQuitFrom := make(chan bool)
 		go func() {
 			var count int
 			var done uint32
 			then := time.Now()
-			datain := make( []byte, 8192)
+			datain := make([]byte, 8192)
 			for q := false; q == false; {
 				rl.Lock()
 				readerr := resetEvent(ro.HEvent)
 				if readerr == nil {
-					readerr = syscall.ReadFile(handle , datain, &done, ro)
+					readerr = syscall.ReadFile(handle, datain, &done, ro)
 					if readerr == syscall.ERROR_IO_PENDING {
 						count, readerr = getOverlappedResult(handle, ro)
 					} else {
@@ -114,48 +121,48 @@ func SerialChannels( name string, baud int, conLog chan string, debug bool) (cha
 					}
 				}
 				rl.Unlock()
-				
+
 				din := datain[:count]
 
 				if debug && len(din) > 0 {
 					now := time.Now()
 					ds1 := fmt.Sprintf("(%v(%d)", now.Sub(then), len(din))
 					then = now
-					for _, c := range( din) {
+					for _, c := range din {
 						if c < byte(0x20) || c > byte(0x7E) {
-							ds1 += fmt.Sprintf("{%02X}",c)
+							ds1 += fmt.Sprintf("{%02X}", c)
 						} else {
 							ds1 += fmt.Sprintf("%c", c)
 						}
 					}
-					conLog <- ds1+")\n"
+					conLog <- ds1 + ")\n"
 				}
-				for _, c := range( din) {
+				for _, c := range din {
 					chFromSerial <- c
 				}
 				select {
-  				case q = <-chQuitFrom:
+				case q = <-chQuitFrom:
 				default:
 				}
 				time.Sleep(10)
 			}
 		}()
 
-		chToSerial = make( chan byte, 8192)
-		chQuitTo := make( chan bool)
+		chToSerial = make(chan byte, 8192)
+		chQuitTo := make(chan bool)
 		go func() {
-			dataout := make( []byte, SendBlocksize)
-			var charDelay float64 = float64(10e9)/float64(baud) 
+			dataout := make([]byte, SendBlocksize)
+			var charDelay float64 = float64(10e9) / float64(baud)
 			var count, wcount int
 			var readflag bool
 			then := time.Now()
 			for q := false; q == false; {
 				select {
-				case q = <- chQuitTo:
-				case dataout[ 0] = <- chToSerial:
+				case q = <-chQuitTo:
+				case dataout[0] = <-chToSerial:
 					for readflag, wcount = true, 1; readflag && wcount < SendBlocksize; wcount++ {
-						select {                                      
-						case dataout[wcount] = <- chToSerial:
+						select {
+						case dataout[wcount] = <-chToSerial:
 						default:
 							readflag = false
 							wcount--
@@ -163,48 +170,48 @@ func SerialChannels( name string, baud int, conLog chan string, debug bool) (cha
 					}
 
 					dout := dataout[:wcount]
-					
+
 					if debug {
 						now := time.Now()
-						ds1 := fmt.Sprintf("\t[%v[%d]",now.Sub(then), len(dout))
+						ds1 := fmt.Sprintf("\t[%v[%d]", now.Sub(then), len(dout))
 						then = now
-						for _, c := range( dout) {
+						for _, c := range dout {
 							if c < byte(0x20) || c > byte(0x7E) {
-								ds1 += fmt.Sprintf("{%02X}",c)
+								ds1 += fmt.Sprintf("{%02X}", c)
 							} else {
 								ds1 += fmt.Sprintf("%c", c)
 							}
 						}
-						conLog <- ds1+"]\n"
+						conLog <- ds1 + "]\n"
 					}
 
 					wl.Lock()
 
 					writeerr := resetEvent(wo.HEvent)
-					var n uint32 = uint32( wcount)
-					if  writeerr == nil {
-						writeerr = syscall.WriteFile( handle, dout, &n, wo)
-						count = int( n)
+					var n uint32 = uint32(wcount)
+					if writeerr == nil {
+						writeerr = syscall.WriteFile(handle, dout, &n, wo)
+						count = int(n)
 						if writeerr == syscall.ERROR_IO_PENDING {
 							for i := 0; i < 10; i++ {
 								count, writeerr = getOverlappedResult(handle, wo)
 								if count != wcount {
-									conLog <- fmt.Sprintf( "Serial port write error3 %d %s %v %v %v\n", i,  writeerr, writeerr, count, wcount)
+									conLog <- fmt.Sprintf("Serial port write error3 %d %s %v %v %v\n", i, writeerr, writeerr, count, wcount)
 								} else {
 									break
 								}
-								time.Sleep( 10)
+								time.Sleep(10)
 							}
 						}
 					}
 					wl.Unlock()
 					if count != wcount {
-						conLog <- fmt.Sprintf( "Serial port write error1 %s %v %v %v\n", writeerr, writeerr, count, wcount)
+						conLog <- fmt.Sprintf("Serial port write error1 %s %v %v %v\n", writeerr, writeerr, count, wcount)
 					}
-//
-// It appears the drivers can overrun buffers in the serial USB devices, this ensure we never send data faster than the device
-// can transmit it
-//
+					//
+					// It appears the drivers can overrun buffers in the serial USB devices, this ensure we never send data faster than the device
+					// can transmit it
+					//
 					if EnableSendBlockDelay {
 						delay := int(charDelay * float64(wcount))
 						time.Sleep(time.Duration(delay))
@@ -213,23 +220,23 @@ func SerialChannels( name string, baud int, conLog chan string, debug bool) (cha
 			}
 		}()
 
-		chQuitDTR := make( chan bool)
+		chQuitDTR := make(chan bool)
 		go func() {
 			for q := false; q == false; {
 				select {
-				case q = <- chQuitDTR:
+				case q = <-chQuitDTR:
 				case dtr := <-chDTRSerial:
 					if dtr {
-						escapeCommFunction( handle, 5)
+						escapeCommFunction(handle, 5)
 					} else {
-						escapeCommFunction( handle, 6)
+						escapeCommFunction(handle, 6)
 					}
 				}
 			}
 		}()
-		
+
 		go func() {
-			<- chQuitSerial
+			<-chQuitSerial
 			_ = resetEvent(ro.HEvent)
 			_ = resetEvent(wo.HEvent)
 			serFile.Close()
@@ -299,9 +306,8 @@ func setCommState(handle syscall.Handle, baud int) error {
 	}
 	return nil
 }
-//
+
 // timeout set to be as short as possible
-//
 func setCommTimeouts(handle syscall.Handle) error {
 	var timeouts structTimeouts
 	const MAXDWORD = 1<<32 - 1
@@ -355,14 +361,11 @@ func newOverlapped() (*syscall.Overlapped, error) {
 func getOverlappedResult(handle syscall.Handle, overlapped *syscall.Overlapped) (int, error) {
 	var n int
 	r, _, err := syscall.Syscall6(nGetOverlappedResult, 4,
-	uintptr(handle),
-	uintptr(unsafe.Pointer(overlapped)),
-	uintptr(unsafe.Pointer(&n)), 1, 0, 0)
+		uintptr(handle),
+		uintptr(unsafe.Pointer(overlapped)),
+		uintptr(unsafe.Pointer(&n)), 1, 0, 0)
 	if r == 0 {
 		return n, err
 	}
 	return n, nil
 }
-
-
-

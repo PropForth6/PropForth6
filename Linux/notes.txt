@@ -16,7 +16,8 @@ Before attaching your USB device, ensure that a WSL command line is open. This w
 
 This doc assumes that you have usbipd-win 5.0.0 or higher installed
 
-List all of the USB devices connected to Windows by opening PowerShell in administrator mode and entering the following command. Once the devices are listed, select and copy the bus ID of the device you’d like to attach to WSL.
+List all of the USB devices connected to Windows by opening PowerShell in administrator mode and entering the following command. Once the devices are listed,
+select and copy the bus ID of the device you’d like to attach to WSL.
 
 PowerShell
 usbipd list

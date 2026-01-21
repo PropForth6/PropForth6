@@ -11,7 +11,7 @@ import (
 
 	"salsanci.com/propforth/src/cogCommandProcessor"
 	"salsanci.com/propforth/src/serafcFilter"
-	"salsanci.com/propforth/src/serial"
+	"salsanci.com/propforth/src/serialDtr"
 )
 
 var debug int = 0
@@ -65,7 +65,7 @@ func main() {
 			}
 		}
 		if err == nil {
-			chanFromSer, chanToSer, chanDTRSerial, chanQuitSerial, err = serial.SerialChannels(os.Args[1], baud, conLog, debug&2 != 0)
+			chanFromSer, chanToSer, chanDTRSerial, chanQuitSerial, err = serialDtr.SerialChannels(os.Args[1], baud, conLog, debug&2 != 0)
 			if fc != 0 {
 				serafcFilter.Debug = debug&4 != 0
 				chanFromSerial, chanToSerial = serafcFilter.ProtocolFilter(chanFromSer, chanToSer)

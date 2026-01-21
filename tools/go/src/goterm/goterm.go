@@ -17,6 +17,7 @@ import (
 	"github.com/jacobsa/go-serial/serial"
 	"salsanci.com/propforth/src/chanIp"
 	"salsanci.com/propforth/src/serafcFilter"
+	"salsanci.com/propforth/src/tone"
 )
 
 var compileDate, gitRepo, gitHash, gitBranch, versionString string
@@ -122,6 +123,9 @@ Terminal commands:(must be at start of a new line and paramaters on the same lin
 --speedSend y y z           - runs a speed sending ata only with x bytes, blocksize of y bytes (max for udp is 1024),  block delay z nanoseconds  (defaults are 1000000 1024 100000)
 --speedReceive				- receive from speedSend and reports 
 --cps x                     - set the transmit rate to x characters per second
+--tone x y                  - play a tone, x - freq in hz ( 300 - 7000), y - length in ms ( 100 - 10000) (windows only)
+--dtrOn                     - set dtr on (experimantal)
+--dtrOff                     - set dtr off (experimantal)
 
 Multiplexor protocol:
 
@@ -383,6 +387,8 @@ func main() {
 		ipToSerialToSerial := make(chan []byte, 100)
 		errChan := make(chan string, 100)
 
+		dtrChan := make(chan bool)
+
 		chanIp.Debug = cc.Debug
 		chanIp.LogChan = toLogConsole
 		serafcFilter.Debug = cc.Debug
@@ -568,7 +574,7 @@ func main() {
 				}
 			}()
 		} else if cc.IpToSerialFlag && (cc.SerialPort != "") && (cc.Port != 0) {
-			sp, err = NewSerial(cc.SerialPort, uint(cc.Baud), ipToSerialFromSerial, ipToSerialToSerial, uint(cc.SerialResetTimeout))
+			sp, err = NewSerial(cc.SerialPort, uint(cc.Baud), ipToSerialFromSerial, ipToSerialToSerial, dtrChan, uint(cc.SerialResetTimeout))
 			if err != nil {
 				toLogConsole <- fmt.Sprintf("goterm: serial ERROR [%v]", err)
 				time.Sleep(500 * time.Millisecond)
@@ -595,7 +601,7 @@ func main() {
 			}
 
 		} else if cc.SerialPort != "" {
-			sp, err = NewSerial(cc.SerialPort, uint(cc.Baud), fromPhy, toPhy, uint(cc.SerialResetTimeout))
+			sp, err = NewSerial(cc.SerialPort, uint(cc.Baud), fromPhy, toPhy, dtrChan, uint(cc.SerialResetTimeout))
 			if err != nil {
 				toLogConsole <- fmt.Sprintf("goterm: serial ERROR [%v]", err)
 				time.Sleep(500 * time.Millisecond)
@@ -752,6 +758,23 @@ func main() {
 						toHost <- []byte("!!speedEcho%%speedEcho$$speedEcho!!\n")
 						go speedSend(uint(total), uint(block), uint(delay))
 						go speedReceive()
+
+					case "--tone":
+						f := uint64(500)
+						d := uint64(500)
+						if len(fe) > 1 {
+							f = getUint(fe[1], f)
+						}
+						if len(fe) > 2 {
+							d = getUint(fe[2], d)
+						}
+						tone.Tone(int(f), int(d))
+					case "--dtrOn":
+						dtrChan <- true
+
+					case "--dtrOff":
+						dtrChan <- true
+
 					default:
 						changeState(IDLE_STATE)
 						toHost <- []byte(fc)
@@ -1065,6 +1088,9 @@ func putConsole(c chan string) string {
 		if cc.ExpandCr {
 			text = strings.ReplaceAll(text, "\r", "\r\n")
 		}
+		if strings.Contains(text, "\x07") {
+			tone.Tone(800, 1000)
+		}
 		if echoEnable && strings.Contains(text, "!!speedReceive%%speedReceive$$speedReceive!!") {
 			text = ""
 			go speedReceive()
@@ -1125,23 +1151,26 @@ func putConsole(c chan string) string {
 
 // SerialPort - Provides data transfer through a serial port
 type SerialPort struct {
-	port                           io.ReadWriteCloser
-	baud, serialResetTimeout       uint
-	debug                          bool
-	rxExit, txExit, rxDone, txDone chan bool
-	inCh                           chan<- []byte
-	outCh                          <-chan []byte
-	log                            chan<- string
-	options                        serial.OpenOptions
+	port                                    io.ReadWriteCloser
+	baud, serialResetTimeout                uint
+	debug                                   bool
+	rxExit, txExit, dtrExit, rxDone, txDone chan bool
+	inCh                                    chan<- []byte
+	outCh                                   <-chan []byte
+	dtrCh                                   <-chan bool
+	log                                     chan<- string
+	options                                 serial.OpenOptions
 }
 
-func NewSerial(portName string, baudrate uint, inputCh chan<- []byte, outputCh <-chan []byte, serialResetTimeoutMs uint) (*SerialPort, error) {
+func NewSerial(portName string, baudrate uint, inputCh chan<- []byte, outputCh <-chan []byte, dtrCh <-chan bool, serialResetTimeoutMs uint) (*SerialPort, error) {
 	var e error
 	s := new(SerialPort)
 	s.inCh = inputCh
 	s.outCh = outputCh
+	s.dtrCh = dtrCh
 	s.rxExit = make(chan bool)
 	s.txExit = make(chan bool)
+	s.dtrExit = make(chan bool)
 	s.rxDone = make(chan bool)
 	s.txDone = make(chan bool)
 	s.serialResetTimeout = serialResetTimeoutMs
@@ -1173,6 +1202,7 @@ func (s *SerialPort) run() {
 	for {
 		go s.doReceive()
 		go s.doSend()
+		go s.doDtr()
 		go func() {
 			for {
 				select {
@@ -1180,6 +1210,7 @@ func (s *SerialPort) run() {
 					s.rxExit <- true
 				case <-s.rxDone:
 					s.txExit <- true
+					s.dtrExit <- true
 				}
 				done <- true
 			}
@@ -1300,6 +1331,32 @@ func (s *SerialPort) doReceive() {
 		s.log <- "doReceive: SERIAL exiting"
 	}
 	s.rxDone <- true
+}
+
+func (s *SerialPort) doDtr() {
+	// var param uint
+	// var ep syscall.Errno
+	for f := true; f; {
+		select {
+		case dtr := <-s.dtrCh:
+			s.log <- fmt.Sprintf("doDtr: DTR  [%v]\n", dtr)
+			// if dtr {
+			// 	_, _, ep = syscall.Syscall(syscall.SYS_IOCTL, uintptr(s.port), syscall.TIOCMBIS, uintptr(unsafe.Pointer(&param)))
+			// } else {
+			// 	_, _, ep = syscall.Syscall(syscall.SYS_IOCTL, uintptr(s.port), syscall.TIOCMBIC, uintptr(unsafe.Pointer(&param)))
+			// }
+			// if ep != 0 {
+			// 	s.log <- fmt.Sprintf("SERIAL ERROR: DTR  error [%d]\n", ep)
+			// }
+
+		case <-s.dtrExit:
+			if s.debug && s.log != nil {
+				s.log <- "doDtr: SERIAL SEND - Exit request received, exiting send"
+			}
+			f = false
+		}
+
+	}
 }
 
 func (s *SerialPort) doSend() {
