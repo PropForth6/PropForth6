@@ -38,6 +38,10 @@ You should see the device you just attached and be able to interact with it usin
 Once you are done using the device in WSL, you can either physically disconnect the USB device or run this command from PowerShell:
 
 PowerShell
+
+usbipd list
+usbipd bind --busid 4-4
+usbipd attach --wsl --busid <busid>
 usbipd detach --busid <busid>
 
 

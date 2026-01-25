@@ -1,7 +1,7 @@
 
- scriptFileName: scripts\dev\buildLacKernelSpin.txt
-   logFileName: results/runLogs/buildLacKernelSpin.txt
-resultFileName: results/resultFiles/buildLacKernelSpin.txt
+ scriptFileName: scripts\buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: results/resultFiles/buildOptKernelSpin-7.txt
 outputFileName: 
 reboot
 
@@ -17,13 +17,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-lacKERNEL6.0-2026Jan04 17:19-0
+optKERNEL6.0-2026Jan21 18:55-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 21426 lacKERNEL6.0-2026Jan04 17:19-0
+here: 14446 optKERNEL6.0-2026Jan21 18:55-0
 
 Prop0 Cog6 ok
 
@@ -83,10 +83,13 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef 2*
-.
-.
-.
-.
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: 2* _xasm2>1IMM h0001 _cnip h05F _cnip ; 
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
 ]
 Prop0 Cog6 ok
 
@@ -407,13 +410,13 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts\dev\buildLacKernelSpin.txt
-   logFileName: results/runLogs/buildLacKernelSpin.txt
-resultFileName: results/resultFiles/buildLacKernelSpin.txt
-outputFileName: results/outputFiles/dev/lacKernel.spin
+ scriptFileName: scripts\buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: results/resultFiles/buildOptKernelSpin-7.txt
+outputFileName: results/outputFiles/optKernel.spin
 
- scriptFileName: scripts\dev\buildLacKernelSpin.txt
-   logFileName: results/runLogs/buildLacKernelSpin.txt
-resultFileName: results/resultFiles/buildLacKernelSpin.txt
+ scriptFileName: scripts\buildOptKernelSpin-7.txt
+   logFileName: results/runLogs/buildOptKernelSpin-7.txt
+resultFileName: results/resultFiles/buildOptKernelSpin-7.txt
 outputFileName: 
 Prop0 Cog6 ok

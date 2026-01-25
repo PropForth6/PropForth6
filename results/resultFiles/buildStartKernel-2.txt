@@ -1,11 +1,11 @@
 
- scriptFileName: scripts\buildStartKernel-2.txt
+ scriptFileName: scripts/buildStartKernel-2.txt
    logFileName: results/runLogs/buildStartKernel-2.txt
 resultFileName: results/resultFiles/buildStartKernel-2.txt
 outputFileName: 
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14300 TMP01KERNEL6.0-2026Jan04 16:26-0
+here: 14300 TMP01KERNEL6.0-2026Jan24 12:53-0
 
 Prop0 Cog6 ok
 \
@@ -8964,7 +8964,7 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-: (version) c" STARTKERNEL6.0-2026Jan04 16:36-0" ;
+: (version) c" STARTKERNEL6.0-2026Jan24 13:02-0" ;
 Prop0 Cog6 ok
 hFB wconstant $C_varEnd
 Prop0 Cog6 ok
@@ -9262,12 +9262,12 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts\buildStartKernel-2.txt
+ scriptFileName: scripts/buildStartKernel-2.txt
    logFileName: results/runLogs/buildStartKernel-2.txt
 resultFileName: results/resultFiles/buildStartKernel-2.txt
 outputFileName: results/outputFiles/StartKernel.if
 
- scriptFileName: scripts\buildStartKernel-2.txt
+ scriptFileName: scripts/buildStartKernel-2.txt
    logFileName: results/runLogs/buildStartKernel-2.txt
 resultFileName: results/resultFiles/buildStartKernel-2.txt
 outputFileName: 
@@ -9288,7 +9288,7 @@ RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14300 TMP01KERNEL6.0-2026Jan04 16:26-0
+here: 14300 TMP01KERNEL6.0-2026Jan24 12:53-0
 
 Prop0 Cog6 ok
 wvariable lastNewNFA
@@ -11164,12 +11164,12 @@ _fbPatch
 -1 -1 -1 3C -1 -1 2DA0 -1 38 -1 2 4318 -1 CC -1 38 -1 A1 4594 CC 4594 -7F026A00 CC -7F026934 4594 7FB8 -1 4E2C 7FB8 -1 4E3A 385C -1 4E1E 37EC -1 4E12 Prop0 Cog6 ok
 hA state orC!
 
- scriptFileName: scripts\buildStartKernel-2.txt
+ scriptFileName: scripts/buildStartKernel-2.txt
    logFileName: results/runLogs/buildStartKernel-2.txt
 resultFileName: results/resultFiles/buildStartKernel-2.txt
 outputFileName: results/outputFiles/StartKernel.eeprom
 
- scriptFileName: scripts\buildStartKernel-2.txt
+ scriptFileName: scripts/buildStartKernel-2.txt
    logFileName: results/runLogs/buildStartKernel-2.txt
 resultFileName: results/resultFiles/buildStartKernel-2.txt
 outputFileName: 
@@ -11187,4 +11187,4 @@ count4 W@ .
 bytecount W@ .
 8000 Prop0 Cog6 ok
 checksum W@ .
-4A37 Prop0 Cog6 ok
+4A2F Prop0 Cog6 ok

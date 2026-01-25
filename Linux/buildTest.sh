@@ -1,2 +1,2 @@
 #!/bin/bash
-linux/buildasm.sh "$@"
+bash -v linux/buildasm.sh "$@"
