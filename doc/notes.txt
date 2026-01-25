@@ -1,0 +1,10 @@
+
+Commands to attach usb device to linux (wsl)
+
+usbipd list
+usbipd bind --busid 4-4
+usbipd attach --wsl --busid <busid>
+usbipd detach --busid <busid>
+
+aliases ul ub ua ud 
+

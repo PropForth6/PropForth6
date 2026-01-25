@@ -1,3 +1,0 @@
-cd ..
-Linux/bstl.linux -p 3 results/outputFiles/Tmp01Kernel.eeprom
-gocmd $1 $2 1 v w r scripts/buildStartKernel-2.txt
