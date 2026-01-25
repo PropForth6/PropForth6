@@ -1,4 +1,0 @@
-set PROPCOMM=COM17
-set PROPBAUD=230400
-set PROPFLOWCONTROL=1
-call test.bat

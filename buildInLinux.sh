@@ -67,6 +67,14 @@ gocmd $serport $serbaud 1 v w r scripts/mp/buildMpKernelSpin.txt
 bstl.linux -p 3 results/outputFiles/dev/devKernel.eeprom
 gocmd $serport $serbaud 1 v w r scripts/dev/buildlac.txt
 
+# build LacKernel
+bstl.linux -p 3 results/outputFiles/dev/devKernel.eeprom
+gocmd $serport $serbaud 1 v w r scripts/dev/buildLacKernel.txt
+
+# build  LacKernel spin
+bstl.linux -p 3 results/outputFiles/dev/lacKernel.eeprom
+gocmd $serport $serbaud 1 v w r scripts/dev/buildLacKernelSpin.txt
+
 # build FsKernel
 bstl.linux -p 3 results/outputFiles/dev/devKernel.eeprom
 gocmd $serport $serbaud 1 v w r scripts/dev/buildFsKernel.txt

@@ -1,10 +1,10 @@
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:11.663128902 -0800 PST 
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:36.2609761 -0800 PST 
  scriptFileName: scripts/dev/buildDevKernel.txt
    logFileName: results/runLogs/dev/buildDevKernel.txt
 resultFileName: 
 outputFileName: 
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:11.666336491 -0800 PST 
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:36.2888427 -0800 PST 
  scriptFileName: scripts/dev/buildDevKernel.txt
    logFileName: results/runLogs/dev/buildDevKernel.txt
 resultFileName: results/resultFiles/dev/buildDevKernel.txt
@@ -13,105 +13,105 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:11.667633736 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:36.3063756 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:11.667991141 -0800 PST SENDING: reboot
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:11.668165101 -0800 PST DONE SENDING waiting for output: reboot
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:11.668369233 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:17.106392946 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:17.107080767 -0800 PST DONE: reboot
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:36.3075087 -0800 PST SENDING: reboot
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:36.3075087 -0800 PST DONE SENDING waiting for output: reboot
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:36.3080459 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:41.4448936 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:41.4448936 -0800 PST DONE: reboot
 \
 \ check Forth
 \
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:17.215581415 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:41.5909548 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:17.215838294 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:17.216239447 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:17.216445742 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:18.275471444 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:18.276214611 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:41.5909548 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:41.5909548 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:41.5909548 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:42.6160444 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:42.6160444 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ words to be added / replaced
 \
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:18.380931403 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:42.7557072 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:18.381396553 -0800 PST SENDING: c" devKERNEL6.0-
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:18.381834668 -0800 PST DONE SENDING waiting for output: c" devKERNEL6.0-
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:18.382336521 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:21.406436782 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:21.407038563 -0800 PST DONE: c" devKERNEL6.0-
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:21.513276663 -0800 PST SEND: [2026Jan24 13:28]
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:21.51425942 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:42.7557072 -0800 PST SENDING: c" devKERNEL6.0-
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:42.7557072 -0800 PST DONE SENDING waiting for output: c" devKERNEL6.0-
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:42.7557072 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:45.7700844 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:45.7700844 -0800 PST DONE: c" devKERNEL6.0-
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:45.8753378 -0800 PST SEND: [2026Jan25 06:30]
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:45.8908762 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:21.514664123 -0800 PST SENDING: -0" version W@ ccopy
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:21.515147618 -0800 PST DONE SENDING waiting for output: -0" version W@ ccopy
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:21.515835455 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:22.701625087 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:22.70229296 -0800 PST DONE: -0" version W@ ccopy
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:22.834090547 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:45.8908762 -0800 PST SENDING: -0" version W@ ccopy
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:45.8908762 -0800 PST DONE SENDING waiting for output: -0" version W@ ccopy
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:45.8908762 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:48.9091301 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:48.9091301 -0800 PST DONE: -0" version W@ ccopy
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:49.0526606 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:22.834812026 -0800 PST SENDING: src/optimize/dev/DevKernelDef.f
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:22.840178852 -0800 PST DONE SENDING waiting for output: src/optimize/dev/DevKernelDef.f
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:22.840377033 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:25.891943768 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:25.892814578 -0800 PST DONE: src/optimize/dev/DevKernelDef.f
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:26.030961982 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:49.0526606 -0800 PST SENDING: src/optimize/dev/DevKernelDef.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:49.0569546 -0800 PST DONE SENDING waiting for output: src/optimize/dev/DevKernelDef.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:49.0569546 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:52.0913643 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:52.0913643 -0800 PST DONE: src/optimize/dev/DevKernelDef.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:52.2353816 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:26.031687841 -0800 PST SENDING: src/optimize/dev/DevKernel.f
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:30.721159936 -0800 PST DONE SENDING waiting for output: src/optimize/dev/DevKernel.f
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:30.721300475 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:34.2842245 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:34.285309132 -0800 PST DONE: src/optimize/dev/DevKernel.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:52.2353816 -0800 PST SENDING: src/optimize/dev/DevKernel.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:56.6229148 -0800 PST DONE SENDING waiting for output: src/optimize/dev/DevKernel.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:30:56.6229148 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:00.1415228 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:00.1415228 -0800 PST DONE: src/optimize/dev/DevKernel.f
 \
 \ forthimager.f
 \						
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:34.393226754 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:00.2865778 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:34.39355983 -0800 PST SENDING: src/forthimager.f
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:34.657007752 -0800 PST DONE SENDING waiting for output: src/forthimager.f
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:34.657433957 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:38.071316552 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:38.072226063 -0800 PST DONE: src/forthimager.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:00.2865778 -0800 PST SENDING: src/forthimager.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:00.5336001 -0800 PST DONE SENDING waiting for output: src/forthimager.f
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:00.5336001 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:03.9148104 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:03.9148104 -0800 PST DONE: src/forthimager.f
 \
 \
 \ make devKernel.eeprom
 \
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:38.180764334 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:04.0473465 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:38.18104818 -0800 PST SENDING: hA state orC!
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:38.181424201 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:38.181684803 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:39.254220338 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:39.254981406 -0800 PST DONE: hA state orC!
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:39.36239898 -0800 PST 
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:04.0473465 -0800 PST SENDING: hA state orC!
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:04.0473465 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:04.0473465 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:05.0539503 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:05.0539503 -0800 PST DONE: hA state orC!
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:05.1849322 -0800 PST 
  scriptFileName: scripts/dev/buildDevKernel.txt
    logFileName: results/runLogs/dev/buildDevKernel.txt
 resultFileName: results/resultFiles/dev/buildDevKernel.txt
 outputFileName: results/outputFiles/dev/devKernel.eeprom
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:39.362994627 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:05.1930505 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:39.363178978 -0800 PST SENDING: fbinout
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:39.363366273 -0800 PST DONE SENDING waiting for output: fbinout
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:39.363529049 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:42.487526725 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:42.488235197 -0800 PST DONE: fbinout
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:42.591573796 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:49.893719311 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:49.896343544 -0800 PST 
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:05.1930505 -0800 PST SENDING: fbinout
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:05.1930505 -0800 PST DONE SENDING waiting for output: fbinout
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:05.1930505 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:08.1932321 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:08.1932321 -0800 PST DONE: fbinout
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:08.2977043 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:16.2658433 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:16.2658433 -0800 PST 
  scriptFileName: scripts/dev/buildDevKernel.txt
    logFileName: results/runLogs/dev/buildDevKernel.txt
 resultFileName: results/resultFiles/dev/buildDevKernel.txt
 outputFileName: 
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:49.897440259 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:16.2845797 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:49.897903589 -0800 PST SENDING: hA state andnC!
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:49.898120177 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:49.898575153 -0800 PST WAIT STARTED
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:50.91973558 -0800 PST WAIT DONE
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:50.920458113 -0800 PST DONE: hA state andnC!
-scripts/dev/buildDevKernel.txt::2026-01-24 13:28:51.02829219 -0800 PST 
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:16.2845797 -0800 PST SENDING: hA state andnC!
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:16.2851093 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:16.2851093 -0800 PST WAIT STARTED
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:17.2927924 -0800 PST WAIT DONE
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:17.2927924 -0800 PST DONE: hA state andnC!
+scripts/dev/buildDevKernel.txt::2026-01-25 06:31:17.3973866 -0800 PST 
  scriptFileName: scripts/dev/buildDevKernel.txt
    logFileName: results/runLogs/dev/buildDevKernel.txt
 resultFileName: 
