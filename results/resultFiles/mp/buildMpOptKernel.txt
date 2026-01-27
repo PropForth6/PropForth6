@@ -17,13 +17,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2026Jan25 06:08-0
+STARTKERNEL6.0-2026Jan26 14:10-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2026Jan25 06:08-0
+here: 14428 STARTKERNEL6.0-2026Jan26 14:10-0
 
 Prop0 Cog6 ok
 
@@ -886,7 +886,7 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-: (version) c" mpOptKERNEL6.0-2026Jan25 06:33-0" ;
+: (version) c" mpOptKERNEL6.0-2026Jan26 14:39-0" ;
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
@@ -2398,13 +2398,13 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-STARTKERNEL6.0-2026Jan25 06:08-0
+STARTKERNEL6.0-2026Jan26 14:10-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14428 STARTKERNEL6.0-2026Jan25 06:08-0
+here: 14428 STARTKERNEL6.0-2026Jan26 14:10-0
 
 Prop0 Cog6 ok
 h7FFF dup dictend W! memend W!
@@ -4227,4 +4227,4 @@ count4 W@ .
 bytecount W@ .
 8000 Prop0 Cog6 ok
 checksum W@ .
-D59A Prop0 Cog6 ok
+D5A0 Prop0 Cog6 ok

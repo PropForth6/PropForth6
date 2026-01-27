@@ -17,16 +17,16 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-devKERNEL6.0-2026Jan25 06:30-0
+devKERNEL6.0-2026Jan26 14:36-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 17328 devKERNEL6.0-2026Jan25 06:30-0
+here: 17592 devKERNEL6.0-2026Jan26 14:36-0
 
 Prop0 Cog6 ok
-c" lacKERNEL6.0-2026Jan25 06:47-0" version W@ ccopy
+c" lacKERNEL6.0-2026Jan26 16:27-0" version W@ ccopy
 Prop0 Cog6 ok
 \
 Prop0 Cog6 ok
@@ -272,17 +272,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef ctra
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-h1F8 wconstant ctra
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -302,17 +297,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef ctrb
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-h1F9 wconstant ctrb 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -332,17 +322,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef frqa
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-h1FA wconstant frqa 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -362,17 +347,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef frqb
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-h1FB wconstant frqb 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -392,17 +372,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef phsa
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-h1FC wconstant phsa 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -422,17 +397,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef phsb
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-h1FD wconstant phsb 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -899,17 +869,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef _cfo
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-: _cfo clkfreq 1- min 0 swap clkfreq um/mod swap clkfreq 2/ >= abs + ; 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -935,17 +900,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef setHza
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-: setHza _cfo frqa COG! dup pinout h10000000 + ctra COG! ; 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -965,26 +925,21 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef qHzb
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-: qHzb
-
-
- swap h28000000 + 1 frqb COG! ctrb COG!
-
-
- h3000 min clkfreq over h3E8 u*/ h310 - phsb COG@ swap cnt COG@ + 0 waitcnt
-
-
- phsb COG@ nip swap - h3E8 rot u*/ ; 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 
@@ -1010,17 +965,12 @@ Prop0 Cog6 ok
 
 Prop0 Cog6 ok
 [ifndef setHzb
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-: setHzb _cfo frqb COG! dup pinout h10000000 + ctrb COG! ; 
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
-
-Prop0 Cog6 ok
+.
+.
+.
+.
+.
+.
 ]
 Prop0 Cog6 ok
 

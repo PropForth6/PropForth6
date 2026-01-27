@@ -1031,18 +1031,44 @@ func isBlankLine(s string) bool {
 }
 
 func getConsole(c chan string) string {
+	fromConsole := make(chan string, 100000)
+	toC := make(chan string, 1)
+
+	go func() {
+		for {
+			select {
+			case t := <-toC:
+				fromConsole <- t
+
+			case <-time.After(100 * time.Millisecond):
+				for f := true; f; {
+					select {
+					case t := <-fromConsole:
+						c <- t
+					case <-time.After(time.Millisecond):
+						f = false
+					}
+				}
+			}
+		}
+	}()
+
 	reader := bufio.NewReader(os.Stdin)
 	for {
 		text, err := reader.ReadString('\n')
 		if err != nil {
 			toConsole <- fmt.Sprintf("\r\ngoterm: %s Console read ERROR [%s]\r\n", time.Now().Local(), err.Error())
 		} else {
-			if cc.ExpandLf {
-				text = strings.ReplaceAll(text, "\n", "\r\n")
-			}
-			c <- text
-			if cc.LineDelayMs > 0 && (!isBlankLine(text) || !cc.SuppressBlankLineDelay) {
-				time.Sleep(time.Duration(cc.LineDelayMs) * time.Millisecond)
+			if len(text) > 0 {
+				if cc.ExpandLf {
+					text = strings.ReplaceAll(text, "\n", "\r\n")
+				}
+				toC <- text
+				if cc.LineDelayMs > 0 && (!isBlankLine(text) || !cc.SuppressBlankLineDelay) {
+					time.Sleep(time.Duration(cc.LineDelayMs) * time.Millisecond)
+				}
+			} else {
+				time.Sleep(50 * time.Millisecond)
 			}
 		}
 	}

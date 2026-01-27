@@ -867,3 +867,89 @@
 	rnd h7F >
 ;
 ]
+
+\
+\ ( -- addr)
+[ifndef ctra
+h1F8	wconstant ctra
+]
+
+\
+\ ( -- addr)
+[ifndef ctrb
+h1F9	wconstant ctrb 
+]
+
+\
+\ ( -- addr)
+[ifndef frqa
+h1FA	wconstant frqa 
+]
+
+\
+\ ( -- addr)
+[ifndef frqb
+h1FB	wconstant frqb 
+]
+
+\
+\ ( -- addr)
+[ifndef phsa
+h1FC	wconstant phsa 
+]
+
+\
+\ ( -- addr)
+[ifndef phsb
+h1FD	wconstant phsb 
+]
+
+\
+\ abs ( n1 -- abs_n1 ) absolute value of n1
+[ifndef abs
+: abs
+	_xasm1>1 h151 _cnip
+;
+]
+
+\
+\ _cfo ( n1 -- n2 ) n1 - desired frequency, n2 freq a 
+[ifndef _cfo
+: _cfo clkfreq 1- min 0 swap clkfreq um/mod swap clkfreq 2/ >= abs + ; 
+]
+
+\
+\ setHza ( n1 n2 -- ) n1 is the pin, n2 is the freq, uses ctra
+\ set the pin oscillating at the specified frequency
+[ifndef setHza
+: setHza _cfo frqa COG! dup pinout h10000000 + ctra COG! ; 
+]
+
+\
+\ qHzb ( n1 n2 -- n3 ) n1 - the pin, n2 - the # of msec to sample, n3 the frequency
+[ifndef qHzb
+: qHzb
+	swap h28000000 + 1 frqb COG! ctrb COG!
+	h3000 min clkfreq over h3E8 u*/ h310 - phsb COG@ swap cnt COG@ + 0 waitcnt
+	phsb COG@ nip swap - h3E8 rot u*/ ; 
+]
+
+\
+\ setHzb ( n1 n2 -- ) n1 is the pin, n2 is the freq, uses ctrb
+\ set the pin oscillating at the specified frequency
+[ifndef setHzb
+: setHzb _cfo frqb COG! dup pinout h10000000 + ctrb COG! ; 
+]
+
+\
+\ ( -- t/f) if the esc key or CTL-E has been hit
+[ifnder esc?
+: esc?
+	fkey?
+	if 
+		dup h1B = swap 5 = or 
+	else 
+		drop 0 
+	then
+	;
+]

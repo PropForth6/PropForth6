@@ -1,10 +1,10 @@
-scripts/buildasm-0.txt::2026-01-25 05:48:47.0172832 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:51:22.112014092 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: 
 outputFileName: 
 
-scripts/buildasm-0.txt::2026-01-25 05:48:47.0403853 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:51:22.114257901 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
@@ -20,267 +20,267 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/buildasm-0.txt::2026-01-25 05:48:47.1750396 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:51:22.11700433 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:48:47.1750396 -0800 PST SENDING: reboot
-scripts/buildasm-0.txt::2026-01-25 05:48:47.1750396 -0800 PST DONE SENDING waiting for output: reboot
-scripts/buildasm-0.txt::2026-01-25 05:48:47.1750396 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:48:52.9891339 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:48:52.9891339 -0800 PST DONE: reboot
+scripts/buildasm-0.txt::2026-01-26 13:51:22.117216489 -0800 PST SENDING: reboot
+scripts/buildasm-0.txt::2026-01-26 13:51:22.117389278 -0800 PST DONE SENDING waiting for output: reboot
+scripts/buildasm-0.txt::2026-01-26 13:51:22.117494387 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:51:28.569372861 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:51:28.569824169 -0800 PST DONE: reboot
 \
 \ check Forth
 \
-scripts/buildasm-0.txt::2026-01-25 05:48:53.1341587 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:51:28.671857067 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:48:53.1341587 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildasm-0.txt::2026-01-25 05:48:53.1341587 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildasm-0.txt::2026-01-25 05:48:53.1341587 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:48:54.3527558 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:48:54.3527558 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildasm-0.txt::2026-01-26 13:51:28.672054574 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildasm-0.txt::2026-01-26 13:51:28.672273383 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildasm-0.txt::2026-01-26 13:51:28.672415239 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:51:29.872942988 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:51:29.873579697 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ Load asm.f
 \
-scripts/buildasm-0.txt::2026-01-25 05:48:54.5056528 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:51:29.977222952 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:48:54.5056528 -0800 PST SENDING: src/asm.f
-scripts/buildasm-0.txt::2026-01-25 05:49:40.8641792 -0800 PST DONE SENDING waiting for output: src/asm.f
-scripts/buildasm-0.txt::2026-01-25 05:49:40.8641792 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:49:49.9449057 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:49:49.9449057 -0800 PST DONE: src/asm.f
+scripts/buildasm-0.txt::2026-01-26 13:51:29.977431871 -0800 PST SENDING: src/asm.f
+scripts/buildasm-0.txt::2026-01-26 13:52:15.961653808 -0800 PST DONE SENDING waiting for output: src/asm.f
+scripts/buildasm-0.txt::2026-01-26 13:52:15.961926186 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:52:24.877835691 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:52:24.878561579 -0800 PST DONE: src/asm.f
 \
 \ Load _fi.asm - rebuild the kernel to generate symbols
 \
-scripts/buildasm-0.txt::2026-01-25 05:49:50.0880632 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:52:24.980493481 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:49:50.0880632 -0800 PST SENDING: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:49:50.0880632 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:49:50.0880632 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:49:53.1000227 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:49:53.1000227 -0800 PST DONE: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:49:53.2173029 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:52:24.980699562 -0800 PST SENDING: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:52:24.980995261 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:52:24.98120858 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:52:27.988462019 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:52:27.989021307 -0800 PST DONE: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:52:28.09262704 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/_fi.f
 
-scripts/buildasm-0.txt::2026-01-25 05:49:53.2654851 -0800 PST  20000 cps  Receive Delay 45s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:52:28.096348139 -0800 PST  20000 cps  Receive Delay 45s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:49:53.2654851 -0800 PST SENDING: src/_fi.asm
-scripts/buildasm-0.txt::2026-01-25 05:50:20.5896385 -0800 PST DONE SENDING waiting for output: src/_fi.asm
-scripts/buildasm-0.txt::2026-01-25 05:50:20.5896385 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:31.2187231 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:31.2187231 -0800 PST DONE: src/_fi.asm
-scripts/buildasm-0.txt::2026-01-25 05:51:31.3261757 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:34.3264002 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:34.3264002 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:52:28.096516357 -0800 PST SENDING: src/_fi.asm
+scripts/buildasm-0.txt::2026-01-26 13:52:55.71036752 -0800 PST DONE SENDING waiting for output: src/_fi.asm
+scripts/buildasm-0.txt::2026-01-26 13:52:55.71066196 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:07.363717606 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:07.364406975 -0800 PST DONE: src/_fi.asm
+scripts/buildasm-0.txt::2026-01-26 13:54:07.465455546 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:10.46720269 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:10.468960887 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: 
 
-scripts/buildasm-0.txt::2026-01-25 05:51:34.3387281 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:10.469750694 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:51:34.3387281 -0800 PST SENDING: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:51:34.3387281 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:51:34.3387281 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:37.5088486 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:37.5088486 -0800 PST DONE: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:54:10.470215008 -0800 PST SENDING: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:54:10.470625698 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:54:10.470920098 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:14.57257437 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:14.573032991 -0800 PST DONE: hA state andnC!
 \
 \ _sym.f, _optsym.f - generate the symbols
 \
-scripts/buildasm-0.txt::2026-01-25 05:51:37.6450669 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:14.674873064 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:51:37.6450669 -0800 PST SENDING: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:51:37.6450669 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:51:37.6450669 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:40.6641411 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:40.6641411 -0800 PST DONE: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:51:40.7861236 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:14.675086683 -0800 PST SENDING: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:54:14.675347714 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:54:14.675488557 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:17.682306207 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:17.682797425 -0800 PST DONE: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:54:17.786119888 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/_asmsym.f
 
-scripts/buildasm-0.txt::2026-01-25 05:51:40.7964633 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:17.786808566 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:51:40.7964633 -0800 PST SENDING: asmsymgen
-scripts/buildasm-0.txt::2026-01-25 05:51:40.7964633 -0800 PST DONE SENDING waiting for output: asmsymgen
-scripts/buildasm-0.txt::2026-01-25 05:51:40.7964633 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:45.469117 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:45.469117 -0800 PST DONE: asmsymgen
-scripts/buildasm-0.txt::2026-01-25 05:51:45.5739484 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:48.573975 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:48.573975 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:17.787076135 -0800 PST SENDING: asmsymgen
+scripts/buildasm-0.txt::2026-01-26 13:54:17.787331986 -0800 PST DONE SENDING waiting for output: asmsymgen
+scripts/buildasm-0.txt::2026-01-26 13:54:17.787507933 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:22.324263727 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:22.324637788 -0800 PST DONE: asmsymgen
+scripts/buildasm-0.txt::2026-01-26 13:54:22.425402947 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:25.426741746 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:25.428393729 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: 
 
-scripts/buildasm-0.txt::2026-01-25 05:51:48.5974979 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:25.433712761 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/_asmoptsym.f
 
-scripts/buildasm-0.txt::2026-01-25 05:51:48.6082785 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:25.434227583 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:51:48.6082785 -0800 PST SENDING: asmoptsymgen
-scripts/buildasm-0.txt::2026-01-25 05:51:48.6082785 -0800 PST DONE SENDING waiting for output: asmoptsymgen
-scripts/buildasm-0.txt::2026-01-25 05:51:48.6082785 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:53.4296776 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:53.4296776 -0800 PST DONE: asmoptsymgen
-scripts/buildasm-0.txt::2026-01-25 05:51:53.5339851 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:56.5343991 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:56.5343991 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:25.434456693 -0800 PST SENDING: asmoptsymgen
+scripts/buildasm-0.txt::2026-01-26 13:54:25.434657092 -0800 PST DONE SENDING waiting for output: asmoptsymgen
+scripts/buildasm-0.txt::2026-01-26 13:54:25.434947516 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:30.154708409 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:30.155221179 -0800 PST DONE: asmoptsymgen
+scripts/buildasm-0.txt::2026-01-26 13:54:30.256201442 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:33.257027842 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:33.258764857 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: 
 
-scripts/buildasm-0.txt::2026-01-25 05:51:56.5469499 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:33.259511996 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:51:56.5469499 -0800 PST SENDING: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:51:56.5469499 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:51:56.5469499 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:51:59.7082785 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:51:59.7082785 -0800 PST DONE: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:51:59.8163674 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:33.25973916 -0800 PST SENDING: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:54:33.259912174 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:54:33.260191253 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:36.429878416 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:36.430239711 -0800 PST DONE: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:54:36.531001868 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:51:59.8163674 -0800 PST SENDING: _rasme
-scripts/buildasm-0.txt::2026-01-25 05:51:59.8163674 -0800 PST DONE SENDING waiting for output: _rasme
-scripts/buildasm-0.txt::2026-01-25 05:51:59.8163674 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:52:02.8796459 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:52:02.8796459 -0800 PST DONE: _rasme
+scripts/buildasm-0.txt::2026-01-26 13:54:36.53146217 -0800 PST SENDING: _rasme
+scripts/buildasm-0.txt::2026-01-26 13:54:36.53197024 -0800 PST DONE SENDING waiting for output: _rasme
+scripts/buildasm-0.txt::2026-01-26 13:54:36.532257454 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:39.595512903 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:39.595884317 -0800 PST DONE: _rasme
 \
 \ Make asm.f - remake the assembler - this assembler will match the new kernel
 \
-scripts/buildasm-0.txt::2026-01-25 05:52:03.0437368 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:39.700727876 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/asm.f
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.0578632 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:39.701066099 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.0578632 -0800 PST ECHOING: 1 wconstant asm.f 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.0578632 -0800 PST DONE ECHOING: 1 wconstant asm.f
+scripts/buildasm-0.txt::2026-01-26 13:54:39.701200739 -0800 PST ECHOING: 1 wconstant asm.f 
+scripts/buildasm-0.txt::2026-01-26 13:54:39.701403553 -0800 PST DONE ECHOING: 1 wconstant asm.f
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.171789 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:39.802108241 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.171789 -0800 PST ECHOING: [ifndef variable 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.1723401 -0800 PST DONE ECHOING: [ifndef variable
+scripts/buildasm-0.txt::2026-01-26 13:54:39.802408382 -0800 PST ECHOING: [ifndef variable 
+scripts/buildasm-0.txt::2026-01-26 13:54:39.802603618 -0800 PST DONE ECHOING: [ifndef variable
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.3139098 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:39.903296492 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.3139098 -0800 PST ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.3139098 -0800 PST DONE ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ;
+scripts/buildasm-0.txt::2026-01-26 13:54:39.903640396 -0800 PST ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:39.903924824 -0800 PST DONE ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.4194634 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.004642614 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.4194634 -0800 PST ECHOING: ] 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.4194634 -0800 PST DONE ECHOING: ]
+scripts/buildasm-0.txt::2026-01-26 13:54:40.005274355 -0800 PST ECHOING: ] 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.005915818 -0800 PST DONE ECHOING: ]
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.5471804 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.10719629 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.5471804 -0800 PST ECHOING: variable asmDestBuffer -1 asmDestBuffer L! 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.5471804 -0800 PST DONE ECHOING: variable asmDestBuffer -1 asmDestBuffer L!
+scripts/buildasm-0.txt::2026-01-26 13:54:40.107795467 -0800 PST ECHOING: variable asmDestBuffer -1 asmDestBuffer L! 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.108159984 -0800 PST DONE ECHOING: variable asmDestBuffer -1 asmDestBuffer L!
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.666558 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.208864737 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.666558 -0800 PST ECHOING: \ stringmap mapname ( -- ) 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.666558 -0800 PST DONE ECHOING: \ stringmap mapname ( -- )
+scripts/buildasm-0.txt::2026-01-26 13:54:40.209251062 -0800 PST ECHOING: \ stringmap mapname ( -- ) 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.209463075 -0800 PST DONE ECHOING: \ stringmap mapname ( -- )
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.781051 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.310266118 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.781051 -0800 PST ECHOING: [ifndef stringmap 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.781051 -0800 PST DONE ECHOING: [ifndef stringmap
+scripts/buildasm-0.txt::2026-01-26 13:54:40.310601861 -0800 PST ECHOING: [ifndef stringmap 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.310780497 -0800 PST DONE ECHOING: [ifndef stringmap
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.8923734 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.411413557 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.8923734 -0800 PST ECHOING: : stringmap 
-scripts/buildasm-0.txt::2026-01-25 05:52:03.8923734 -0800 PST DONE ECHOING: : stringmap
+scripts/buildasm-0.txt::2026-01-26 13:54:40.411802621 -0800 PST ECHOING: : stringmap 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.412118172 -0800 PST DONE ECHOING: : stringmap
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.0159333 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.513238875 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.0159333 -0800 PST ECHOING: create forthentry $C_a_dovarw w, 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.0159333 -0800 PST DONE ECHOING: create forthentry $C_a_dovarw w,
+scripts/buildasm-0.txt::2026-01-26 13:54:40.51358301 -0800 PST ECHOING: create forthentry $C_a_dovarw w, 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.513841339 -0800 PST DONE ECHOING: create forthentry $C_a_dovarw w,
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.1212989 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.614702436 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.1212989 -0800 PST ECHOING: ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.1212989 -0800 PST DONE ECHOING: ;
+scripts/buildasm-0.txt::2026-01-26 13:54:40.615118495 -0800 PST ECHOING: ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.615657399 -0800 PST DONE ECHOING: ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.2271539 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.716494719 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.2271539 -0800 PST ECHOING: ] 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.2271539 -0800 PST DONE ECHOING: ]
+scripts/buildasm-0.txt::2026-01-26 13:54:40.716813377 -0800 PST ECHOING: ] 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.71711771 -0800 PST DONE ECHOING: ]
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.3517593 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.81780861 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.3517593 -0800 PST ECHOING: \ defineLocalLabel ( addr cstr -- ) 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.3517593 -0800 PST DONE ECHOING: \ defineLocalLabel ( addr cstr -- )
+scripts/buildasm-0.txt::2026-01-26 13:54:40.818145722 -0800 PST ECHOING: \ defineLocalLabel ( addr cstr -- ) 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.818410383 -0800 PST DONE ECHOING: \ defineLocalLabel ( addr cstr -- )
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.4660479 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:40.919083584 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.4660479 -0800 PST ECHOING: : defineLocalLabel 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.4660479 -0800 PST DONE ECHOING: : defineLocalLabel
+scripts/buildasm-0.txt::2026-01-26 13:54:40.919414955 -0800 PST ECHOING: : defineLocalLabel 
+scripts/buildasm-0.txt::2026-01-26 13:54:40.91967302 -0800 PST DONE ECHOING: : defineLocalLabel
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.6001594 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.020520031 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.6001594 -0800 PST ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.6001594 -0800 PST DONE ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict
+scripts/buildasm-0.txt::2026-01-26 13:54:41.020904599 -0800 PST ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.02125768 -0800 PST DONE ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.7062526 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.122077965 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.7062526 -0800 PST ECHOING: ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.7062526 -0800 PST DONE ECHOING: ;
+scripts/buildasm-0.txt::2026-01-26 13:54:41.122476098 -0800 PST ECHOING: ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.122734148 -0800 PST DONE ECHOING: ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.8186857 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.22366777 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.8186857 -0800 PST ECHOING: : definePatch 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.8186857 -0800 PST DONE ECHOING: : definePatch
+scripts/buildasm-0.txt::2026-01-26 13:54:41.22435073 -0800 PST ECHOING: : definePatch 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.224712034 -0800 PST DONE ECHOING: : definePatch
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.9327666 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.325428839 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.9327666 -0800 PST ECHOING: lockdict ccreate 
-scripts/buildasm-0.txt::2026-01-25 05:52:04.9327666 -0800 PST DONE ECHOING: lockdict ccreate
+scripts/buildasm-0.txt::2026-01-26 13:54:41.325823297 -0800 PST ECHOING: lockdict ccreate 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.326060197 -0800 PST DONE ECHOING: lockdict ccreate
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.0636276 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.426683688 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.0636276 -0800 PST ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.0636276 -0800 PST DONE ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal
+scripts/buildasm-0.txt::2026-01-26 13:54:41.427039738 -0800 PST ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.427406622 -0800 PST DONE ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.1949322 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.528509523 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.1949322 -0800 PST ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w, 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.1949322 -0800 PST DONE ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w,
+scripts/buildasm-0.txt::2026-01-26 13:54:41.528897118 -0800 PST ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w, 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.529178065 -0800 PST DONE ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w,
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.3084703 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.629904084 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.3084703 -0800 PST ECHOING: $C_a_exit w, 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.3084703 -0800 PST DONE ECHOING: $C_a_exit w,
+scripts/buildasm-0.txt::2026-01-26 13:54:41.630423211 -0800 PST ECHOING: $C_a_exit w, 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.630969796 -0800 PST DONE ECHOING: $C_a_exit w,
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.4242449 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.731930323 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.4242449 -0800 PST ECHOING: forthentry freedict 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.4242449 -0800 PST DONE ECHOING: forthentry freedict
+scripts/buildasm-0.txt::2026-01-26 13:54:41.732464016 -0800 PST ECHOING: forthentry freedict 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.732783318 -0800 PST DONE ECHOING: forthentry freedict
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.5304168 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.833705344 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.5304168 -0800 PST ECHOING: ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.5304168 -0800 PST DONE ECHOING: ;
+scripts/buildasm-0.txt::2026-01-26 13:54:41.83431994 -0800 PST ECHOING: ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:41.834772134 -0800 PST DONE ECHOING: ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.6519926 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.937225005 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.6519926 -0800 PST ECHOING: results/outputFiles/_asmsym.f
-scripts/buildasm-0.txt::2026-01-25 05:52:05.6546844 -0800 PST DONE ECHOING: results/outputFiles/_asmsym.f
-scripts/buildasm-0.txt::2026-01-25 05:52:05.7921083 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:41.937601162 -0800 PST ECHOING: results/outputFiles/_asmsym.f
+scripts/buildasm-0.txt::2026-01-26 13:54:41.947049269 -0800 PST DONE ECHOING: results/outputFiles/_asmsym.f
+scripts/buildasm-0.txt::2026-01-26 13:54:42.049841999 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:05.7921083 -0800 PST ECHOING: src/_asmSrc.f
-scripts/buildasm-0.txt::2026-01-25 05:52:05.8050814 -0800 PST DONE ECHOING: src/_asmSrc.f
-scripts/buildasm-0.txt::2026-01-25 05:52:05.909557 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:52:08.9100527 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:52:08.9100527 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:42.050151106 -0800 PST ECHOING: src/_asmSrc.f
+scripts/buildasm-0.txt::2026-01-26 13:54:42.146358889 -0800 PST DONE ECHOING: src/_asmSrc.f
+scripts/buildasm-0.txt::2026-01-26 13:54:42.246729453 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:45.2484308 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:45.249687035 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
@@ -289,133 +289,133 @@ outputFileName:
 \
 \ Make masm.f - remake the assembler - this assembler will match the new kernel symbols take less space
 \
-scripts/buildasm-0.txt::2026-01-25 05:52:08.9875792 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:45.281211794 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/asm.f
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.0100934 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:45.282990493 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.0100934 -0800 PST ECHOING: results/outputFiles/_asmoptsym.f
-scripts/buildasm-0.txt::2026-01-25 05:52:09.0132674 -0800 PST DONE ECHOING: results/outputFiles/_asmoptsym.f
-scripts/buildasm-0.txt::2026-01-25 05:52:09.1270451 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:45.283198493 -0800 PST ECHOING: results/outputFiles/_asmoptsym.f
+scripts/buildasm-0.txt::2026-01-26 13:54:45.31062237 -0800 PST DONE ECHOING: results/outputFiles/_asmoptsym.f
+scripts/buildasm-0.txt::2026-01-26 13:54:45.411082561 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.1270451 -0800 PST ECHOING: 1 wconstant asm.f 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.1270451 -0800 PST DONE ECHOING: 1 wconstant asm.f
+scripts/buildasm-0.txt::2026-01-26 13:54:45.41146473 -0800 PST ECHOING: 1 wconstant asm.f 
+scripts/buildasm-0.txt::2026-01-26 13:54:45.41172254 -0800 PST DONE ECHOING: 1 wconstant asm.f
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.2407235 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:45.512368193 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.2407235 -0800 PST ECHOING: [ifndef variable 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.2407235 -0800 PST DONE ECHOING: [ifndef variable
+scripts/buildasm-0.txt::2026-01-26 13:54:45.51265907 -0800 PST ECHOING: [ifndef variable 
+scripts/buildasm-0.txt::2026-01-26 13:54:45.512827703 -0800 PST DONE ECHOING: [ifndef variable
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.3827621 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:45.613443155 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.3827621 -0800 PST ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.3827621 -0800 PST DONE ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ;
+scripts/buildasm-0.txt::2026-01-26 13:54:45.6138083 -0800 PST ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:45.614029257 -0800 PST DONE ECHOING: : variable lockdict create $C_a_dovarl w, 0 l, forthentry freedict ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.4885376 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:45.714562429 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.4885376 -0800 PST ECHOING: ] 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.4885376 -0800 PST DONE ECHOING: ]
+scripts/buildasm-0.txt::2026-01-26 13:54:45.714909995 -0800 PST ECHOING: ] 
+scripts/buildasm-0.txt::2026-01-26 13:54:45.715181595 -0800 PST DONE ECHOING: ]
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.6164059 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:45.81589692 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.6164059 -0800 PST ECHOING: variable asmDestBuffer -1 asmDestBuffer L! 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.6164059 -0800 PST DONE ECHOING: variable asmDestBuffer -1 asmDestBuffer L!
+scripts/buildasm-0.txt::2026-01-26 13:54:45.816230797 -0800 PST ECHOING: variable asmDestBuffer -1 asmDestBuffer L! 
+scripts/buildasm-0.txt::2026-01-26 13:54:45.816419987 -0800 PST DONE ECHOING: variable asmDestBuffer -1 asmDestBuffer L!
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.7349299 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:45.916943337 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.7349299 -0800 PST ECHOING: \ stringmap mapname ( -- ) 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.7349299 -0800 PST DONE ECHOING: \ stringmap mapname ( -- )
+scripts/buildasm-0.txt::2026-01-26 13:54:45.917280603 -0800 PST ECHOING: \ stringmap mapname ( -- ) 
+scripts/buildasm-0.txt::2026-01-26 13:54:45.917449662 -0800 PST DONE ECHOING: \ stringmap mapname ( -- )
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.8491858 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:46.963514593 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.8491858 -0800 PST ECHOING: [ifndef stringmap 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.8491858 -0800 PST DONE ECHOING: [ifndef stringmap
+scripts/buildasm-0.txt::2026-01-26 13:54:46.963839474 -0800 PST ECHOING: [ifndef stringmap 
+scripts/buildasm-0.txt::2026-01-26 13:54:46.964090797 -0800 PST DONE ECHOING: [ifndef stringmap
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.9601018 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.064727791 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.9601018 -0800 PST ECHOING: : stringmap 
-scripts/buildasm-0.txt::2026-01-25 05:52:09.9601018 -0800 PST DONE ECHOING: : stringmap
+scripts/buildasm-0.txt::2026-01-26 13:54:47.065048842 -0800 PST ECHOING: : stringmap 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.065236212 -0800 PST DONE ECHOING: : stringmap
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.0833384 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.165862093 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.0833384 -0800 PST ECHOING: create forthentry $C_a_dovarw w, 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.0833384 -0800 PST DONE ECHOING: create forthentry $C_a_dovarw w,
+scripts/buildasm-0.txt::2026-01-26 13:54:47.166170842 -0800 PST ECHOING: create forthentry $C_a_dovarw w, 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.166413171 -0800 PST DONE ECHOING: create forthentry $C_a_dovarw w,
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.1890077 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.266861443 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.1890077 -0800 PST ECHOING: ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.1890077 -0800 PST DONE ECHOING: ;
+scripts/buildasm-0.txt::2026-01-26 13:54:47.26726723 -0800 PST ECHOING: ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.267591726 -0800 PST DONE ECHOING: ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.294429 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.368377539 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.294429 -0800 PST ECHOING: ] 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.294429 -0800 PST DONE ECHOING: ]
+scripts/buildasm-0.txt::2026-01-26 13:54:47.368749399 -0800 PST ECHOING: ] 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.369349626 -0800 PST DONE ECHOING: ]
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.4186109 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.470128457 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.4186109 -0800 PST ECHOING: \ defineLocalLabel ( addr cstr -- ) 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.4186109 -0800 PST DONE ECHOING: \ defineLocalLabel ( addr cstr -- )
+scripts/buildasm-0.txt::2026-01-26 13:54:47.470543235 -0800 PST ECHOING: \ defineLocalLabel ( addr cstr -- ) 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.470854685 -0800 PST DONE ECHOING: \ defineLocalLabel ( addr cstr -- )
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.5332719 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.571578522 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.5332719 -0800 PST ECHOING: : defineLocalLabel 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.5332719 -0800 PST DONE ECHOING: : defineLocalLabel
+scripts/buildasm-0.txt::2026-01-26 13:54:47.57198181 -0800 PST ECHOING: : defineLocalLabel 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.572388074 -0800 PST DONE ECHOING: : defineLocalLabel
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.6681051 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.673420011 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.6681051 -0800 PST ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.6681051 -0800 PST DONE ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict
+scripts/buildasm-0.txt::2026-01-26 13:54:47.674051566 -0800 PST ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.674393078 -0800 PST DONE ECHOING: lockdict ccreate $C_a_doconw w, w, forthentry freedict
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.7735985 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.774950669 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.7735985 -0800 PST ECHOING: ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.7735985 -0800 PST DONE ECHOING: ;
+scripts/buildasm-0.txt::2026-01-26 13:54:47.775338841 -0800 PST ECHOING: ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.77561315 -0800 PST DONE ECHOING: ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.8860321 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.876238219 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.8860321 -0800 PST ECHOING: : definePatch 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.8860321 -0800 PST DONE ECHOING: : definePatch
+scripts/buildasm-0.txt::2026-01-26 13:54:47.876560914 -0800 PST ECHOING: : definePatch 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.87688132 -0800 PST DONE ECHOING: : definePatch
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.9999774 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:47.977634493 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.9999774 -0800 PST ECHOING: lockdict ccreate 
-scripts/buildasm-0.txt::2026-01-25 05:52:10.9999774 -0800 PST DONE ECHOING: lockdict ccreate
+scripts/buildasm-0.txt::2026-01-26 13:54:47.978053739 -0800 PST ECHOING: lockdict ccreate 
+scripts/buildasm-0.txt::2026-01-26 13:54:47.978334982 -0800 PST DONE ECHOING: lockdict ccreate
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.13059 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:48.079326969 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.13059 -0800 PST ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.13059 -0800 PST DONE ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal
+scripts/buildasm-0.txt::2026-01-26 13:54:48.079843175 -0800 PST ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal 
+scripts/buildasm-0.txt::2026-01-26 13:54:48.080328901 -0800 PST DONE ECHOING: $H_cq w, dup here W@ ccopy C@ 1+ allot herewal
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.2612032 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:48.181001998 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.2612032 -0800 PST ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w, 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.2612032 -0800 PST DONE ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w,
+scripts/buildasm-0.txt::2026-01-26 13:54:48.181332834 -0800 PST ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w, 
+scripts/buildasm-0.txt::2026-01-26 13:54:48.181591569 -0800 PST DONE ECHOING: $C_a_litw w, h1FF and swap if h8000 or then w,
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.3742567 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:48.282119059 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.3742567 -0800 PST ECHOING: $C_a_exit w, 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.3742567 -0800 PST DONE ECHOING: $C_a_exit w,
+scripts/buildasm-0.txt::2026-01-26 13:54:48.282519151 -0800 PST ECHOING: $C_a_exit w, 
+scripts/buildasm-0.txt::2026-01-26 13:54:48.282727959 -0800 PST DONE ECHOING: $C_a_exit w,
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.4903599 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:48.383476857 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.4903599 -0800 PST ECHOING: forthentry freedict 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.4903599 -0800 PST DONE ECHOING: forthentry freedict
+scripts/buildasm-0.txt::2026-01-26 13:54:48.383898624 -0800 PST ECHOING: forthentry freedict 
+scripts/buildasm-0.txt::2026-01-26 13:54:48.384176864 -0800 PST DONE ECHOING: forthentry freedict
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.596418 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:48.484902616 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.596418 -0800 PST ECHOING: ; 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.596418 -0800 PST DONE ECHOING: ;
+scripts/buildasm-0.txt::2026-01-26 13:54:48.485366108 -0800 PST ECHOING: ; 
+scripts/buildasm-0.txt::2026-01-26 13:54:48.485595565 -0800 PST DONE ECHOING: ;
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.709281 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:48.586766514 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:11.709281 -0800 PST ECHOING: src/_asmSrc.f
-scripts/buildasm-0.txt::2026-01-25 05:52:11.7216749 -0800 PST DONE ECHOING: src/_asmSrc.f
-scripts/buildasm-0.txt::2026-01-25 05:52:11.8263168 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:52:14.8265634 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:52:14.8265634 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:54:48.587025968 -0800 PST ECHOING: src/_asmSrc.f
+scripts/buildasm-0.txt::2026-01-26 13:54:48.682221097 -0800 PST DONE ECHOING: src/_asmSrc.f
+scripts/buildasm-0.txt::2026-01-26 13:54:48.782866145 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:51.783797315 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:51.78510147 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
@@ -425,148 +425,148 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/buildasm-0.txt::2026-01-25 05:52:14.8422709 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:51.786464306 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:14.8422709 -0800 PST SENDING: reboot
-scripts/buildasm-0.txt::2026-01-25 05:52:14.8422709 -0800 PST DONE SENDING waiting for output: reboot
-scripts/buildasm-0.txt::2026-01-25 05:52:14.8422709 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:52:20.6736681 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:52:20.6736681 -0800 PST DONE: reboot
+scripts/buildasm-0.txt::2026-01-26 13:54:51.786650997 -0800 PST SENDING: reboot
+scripts/buildasm-0.txt::2026-01-26 13:54:51.786870409 -0800 PST DONE SENDING waiting for output: reboot
+scripts/buildasm-0.txt::2026-01-26 13:54:51.787184965 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:57.395287921 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:57.395789331 -0800 PST DONE: reboot
 \
 \ check Forth
 \
-scripts/buildasm-0.txt::2026-01-25 05:52:20.8198488 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:57.497840978 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:20.8198488 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildasm-0.txt::2026-01-25 05:52:20.8198488 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/buildasm-0.txt::2026-01-25 05:52:20.8198488 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:52:22.0374885 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:52:22.0374885 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildasm-0.txt::2026-01-26 13:54:57.498254891 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildasm-0.txt::2026-01-26 13:54:57.498453009 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/buildasm-0.txt::2026-01-26 13:54:57.498624138 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:54:58.723677249 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:54:58.724129699 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ Load asm.f - the new assembler which will match the new kernel
 \
-scripts/buildasm-0.txt::2026-01-25 05:52:22.198646 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:54:58.827279856 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:52:22.198646 -0800 PST SENDING: results/outputFiles/asm.f
-scripts/buildasm-0.txt::2026-01-25 05:53:24.627022 -0800 PST DONE SENDING waiting for output: results/outputFiles/asm.f
-scripts/buildasm-0.txt::2026-01-25 05:53:24.627022 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:53:34.5045928 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:53:34.5045928 -0800 PST DONE: results/outputFiles/asm.f
+scripts/buildasm-0.txt::2026-01-26 13:54:58.827475964 -0800 PST SENDING: results/outputFiles/asm.f
+scripts/buildasm-0.txt::2026-01-26 13:56:01.265628579 -0800 PST DONE SENDING waiting for output: results/outputFiles/asm.f
+scripts/buildasm-0.txt::2026-01-26 13:56:01.265881945 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:56:10.87589693 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:56:10.876226424 -0800 PST DONE: results/outputFiles/asm.f
 \
 \ Load _bt.asm - the boot loader, used by the fpga version
 \
-scripts/buildasm-0.txt::2026-01-25 05:53:34.6497514 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:56:10.977983313 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:53:34.6497514 -0800 PST SENDING: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:53:34.6497514 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:53:34.6497514 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:53:37.6601891 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:53:37.6601891 -0800 PST DONE: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:53:37.7775606 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:56:10.978202363 -0800 PST SENDING: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:56:10.978355959 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:56:10.978649822 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:56:13.985538078 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:56:13.985968098 -0800 PST DONE: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:56:14.088343907 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/_bt.f
 
-scripts/buildasm-0.txt::2026-01-25 05:53:37.8089908 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:56:14.090479563 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:53:37.8089908 -0800 PST SENDING: src/_bt.asm
-scripts/buildasm-0.txt::2026-01-25 05:53:37.8350514 -0800 PST DONE SENDING waiting for output: src/_bt.asm
-scripts/buildasm-0.txt::2026-01-25 05:53:37.8350514 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:53:41.5831252 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:53:41.5831252 -0800 PST DONE: src/_bt.asm
-scripts/buildasm-0.txt::2026-01-25 05:53:41.6878045 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:53:44.6878946 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:53:44.6878946 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:56:14.090704942 -0800 PST SENDING: src/_bt.asm
+scripts/buildasm-0.txt::2026-01-26 13:56:14.11794123 -0800 PST DONE SENDING waiting for output: src/_bt.asm
+scripts/buildasm-0.txt::2026-01-26 13:56:14.118123261 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:56:17.816861847 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:56:17.817243316 -0800 PST DONE: src/_bt.asm
+scripts/buildasm-0.txt::2026-01-26 13:56:17.917845198 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:56:20.918339308 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:56:20.919557222 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: 
 
-scripts/buildasm-0.txt::2026-01-25 05:53:44.7002769 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:56:20.920062502 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:53:44.7002769 -0800 PST SENDING: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:53:44.7002769 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:53:44.7002769 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:53:47.8139145 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:53:47.8139145 -0800 PST DONE: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:56:20.920271972 -0800 PST SENDING: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:56:20.920490693 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:56:20.920762508 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:56:24.021698311 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:56:24.022048275 -0800 PST DONE: hA state andnC!
 \
 \ Load _serafc.asm - serial driver with flow control
 \
-scripts/buildasm-0.txt::2026-01-25 05:53:47.9567249 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:56:24.124186925 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:53:47.9567249 -0800 PST SENDING: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:53:47.9567249 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:53:47.9567249 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:53:50.9691138 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:53:50.9691138 -0800 PST DONE: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:53:51.0887191 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:56:24.124589987 -0800 PST SENDING: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:56:24.124899927 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:56:24.125223683 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:56:28.123730987 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:56:28.124164865 -0800 PST DONE: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:56:28.226889924 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/_serafc.f
 
-scripts/buildasm-0.txt::2026-01-25 05:53:51.1268453 -0800 PST  20000 cps  Receive Delay 45s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:56:28.228632114 -0800 PST  20000 cps  Receive Delay 45s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:53:51.1268453 -0800 PST SENDING: src/_serafc.asm
-scripts/buildasm-0.txt::2026-01-25 05:54:13.181716 -0800 PST DONE SENDING waiting for output: src/_serafc.asm
-scripts/buildasm-0.txt::2026-01-25 05:54:13.181716 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:55:16.7607535 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:55:16.7607535 -0800 PST DONE: src/_serafc.asm
-scripts/buildasm-0.txt::2026-01-25 05:55:16.8680233 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:55:19.8685335 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:55:19.8685335 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:56:28.228873541 -0800 PST SENDING: src/_serafc.asm
+scripts/buildasm-0.txt::2026-01-26 13:56:49.421504878 -0800 PST DONE SENDING waiting for output: src/_serafc.asm
+scripts/buildasm-0.txt::2026-01-26 13:56:49.421856164 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:57:54.52728617 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:57:54.527799287 -0800 PST DONE: src/_serafc.asm
+scripts/buildasm-0.txt::2026-01-26 13:57:54.628527653 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:57:57.631047343 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:57:57.632397925 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: 
 
-scripts/buildasm-0.txt::2026-01-25 05:55:19.8811529 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:57:57.63305902 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:55:19.8811529 -0800 PST SENDING: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:55:19.8811529 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:55:19.8811529 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:55:22.9868514 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:55:22.9868514 -0800 PST DONE: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:57:57.633291054 -0800 PST SENDING: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:57:57.633616091 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:57:57.633773905 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:58:00.746056636 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:58:00.7464059 -0800 PST DONE: hA state andnC!
 \
 \ Load _fi.asm - the forth interpreter
 \
-scripts/buildasm-0.txt::2026-01-25 05:55:23.1220637 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:58:00.848174346 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:55:23.1220637 -0800 PST SENDING: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:55:23.1220637 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:55:23.1220637 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:55:26.1258871 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:55:26.1258871 -0800 PST DONE: hA state orC!
-scripts/buildasm-0.txt::2026-01-25 05:55:26.2436605 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:58:00.848453073 -0800 PST SENDING: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:58:00.848690708 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:58:00.848923349 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:58:03.864969822 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:58:03.865348216 -0800 PST DONE: hA state orC!
+scripts/buildasm-0.txt::2026-01-26 13:58:03.968797394 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: results/outputFiles/_fi.f
 
-scripts/buildasm-0.txt::2026-01-25 05:55:26.2575494 -0800 PST  20000 cps  Receive Delay 45s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:58:03.970582084 -0800 PST  20000 cps  Receive Delay 45s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:55:26.2575494 -0800 PST SENDING: src/_fi.asm
-scripts/buildasm-0.txt::2026-01-25 05:55:52.7343382 -0800 PST DONE SENDING waiting for output: src/_fi.asm
-scripts/buildasm-0.txt::2026-01-25 05:55:52.7343382 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:57:02.8501886 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:57:02.8501886 -0800 PST DONE: src/_fi.asm
-scripts/buildasm-0.txt::2026-01-25 05:57:02.9574671 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:57:05.9578885 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:57:05.9578885 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:58:03.970787774 -0800 PST SENDING: src/_fi.asm
+scripts/buildasm-0.txt::2026-01-26 13:58:30.55393845 -0800 PST DONE SENDING waiting for output: src/_fi.asm
+scripts/buildasm-0.txt::2026-01-26 13:58:30.554121136 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:59:41.918199968 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:59:41.918620934 -0800 PST DONE: src/_fi.asm
+scripts/buildasm-0.txt::2026-01-26 13:59:42.019215481 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:59:45.021754243 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:59:45.0232476 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: results/resultFiles/buildasm-0.txt
 outputFileName: 
 
-scripts/buildasm-0.txt::2026-01-25 05:57:05.9703628 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/buildasm-0.txt::2026-01-26 13:59:45.023813906 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/buildasm-0.txt::2026-01-25 05:57:05.9703628 -0800 PST SENDING: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:57:05.9703628 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:57:05.9703628 -0800 PST WAIT STARTED
-scripts/buildasm-0.txt::2026-01-25 05:57:09.1251444 -0800 PST WAIT DONE
-scripts/buildasm-0.txt::2026-01-25 05:57:09.1251444 -0800 PST DONE: hA state andnC!
-scripts/buildasm-0.txt::2026-01-25 05:57:09.2313205 -0800 PST 
+scripts/buildasm-0.txt::2026-01-26 13:59:45.024168798 -0800 PST SENDING: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:59:45.024427872 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:59:45.024855952 -0800 PST WAIT STARTED
+scripts/buildasm-0.txt::2026-01-26 13:59:49.150643631 -0800 PST WAIT DONE
+scripts/buildasm-0.txt::2026-01-26 13:59:49.151127453 -0800 PST DONE: hA state andnC!
+scripts/buildasm-0.txt::2026-01-26 13:59:49.25311975 -0800 PST 
  scriptFileName: scripts/buildasm-0.txt
    logFileName: results/runLogs/buildasm-0.txt
 resultFileName: 

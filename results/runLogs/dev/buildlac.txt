@@ -1,88 +1,88 @@
-scripts/dev/buildlac.txt::2026-01-25 06:46:03.9901961 -0800 PST 
+scripts/dev/buildlac.txt::2026-01-26 16:26:19.050550279 -0800 PST 
  scriptFileName: scripts/dev/buildlac.txt
    logFileName: results/runLogs/dev/buildlac.txt
 resultFileName: 
 outputFileName: 
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:04.0148991 -0800 PST 
+scripts/dev/buildlac.txt::2026-01-26 16:26:19.053508663 -0800 PST 
  scriptFileName: scripts/dev/buildlac.txt
    logFileName: results/runLogs/dev/buildlac.txt
 resultFileName: results/resultFiles/dev/buildlac.txt
 outputFileName: 
 
 \
-scripts/dev/buildlac.txt::2026-01-25 06:46:04.0236941 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:19.054133356 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:04.0236941 -0800 PST SENDING: reboot
-scripts/dev/buildlac.txt::2026-01-25 06:46:04.0236941 -0800 PST DONE SENDING waiting for output: reboot
-scripts/dev/buildlac.txt::2026-01-25 06:46:04.0253554 -0800 PST WAIT STARTED
-scripts/dev/buildlac.txt::2026-01-25 06:46:09.2003561 -0800 PST WAIT DONE
-scripts/dev/buildlac.txt::2026-01-25 06:46:09.2003561 -0800 PST DONE: reboot
+scripts/dev/buildlac.txt::2026-01-26 16:26:19.054249224 -0800 PST SENDING: reboot
+scripts/dev/buildlac.txt::2026-01-26 16:26:19.054398668 -0800 PST DONE SENDING waiting for output: reboot
+scripts/dev/buildlac.txt::2026-01-26 16:26:19.054498081 -0800 PST WAIT STARTED
+scripts/dev/buildlac.txt::2026-01-26 16:26:24.174864249 -0800 PST WAIT DONE
+scripts/dev/buildlac.txt::2026-01-26 16:26:24.175630066 -0800 PST DONE: reboot
 \
 \ check Forth
 \
-scripts/dev/buildlac.txt::2026-01-25 06:46:09.3458628 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:24.277182052 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:09.3458628 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildlac.txt::2026-01-25 06:46:09.3458628 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildlac.txt::2026-01-25 06:46:09.3458628 -0800 PST WAIT STARTED
-scripts/dev/buildlac.txt::2026-01-25 06:46:10.3723723 -0800 PST WAIT DONE
-scripts/dev/buildlac.txt::2026-01-25 06:46:10.3723723 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildlac.txt::2026-01-26 16:26:24.277599811 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildlac.txt::2026-01-26 16:26:24.277757178 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildlac.txt::2026-01-26 16:26:24.278049801 -0800 PST WAIT STARTED
+scripts/dev/buildlac.txt::2026-01-26 16:26:25.311998592 -0800 PST WAIT DONE
+scripts/dev/buildlac.txt::2026-01-26 16:26:25.312355171 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \
 \ Load asm.f
 \
-scripts/dev/buildlac.txt::2026-01-25 06:46:10.5073211 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:25.41666623 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:10.5073211 -0800 PST SENDING: results/outputFiles/asm.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:17.368285 -0800 PST DONE SENDING waiting for output: results/outputFiles/asm.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:17.368285 -0800 PST WAIT STARTED
-scripts/dev/buildlac.txt::2026-01-25 06:46:20.8202653 -0800 PST WAIT DONE
-scripts/dev/buildlac.txt::2026-01-25 06:46:20.8202653 -0800 PST DONE: results/outputFiles/asm.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:20.9356161 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:25.417095703 -0800 PST SENDING: results/outputFiles/asm.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:32.055440542 -0800 PST DONE SENDING waiting for output: results/outputFiles/asm.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:32.055660821 -0800 PST WAIT STARTED
+scripts/dev/buildlac.txt::2026-01-26 16:26:35.494842499 -0800 PST WAIT DONE
+scripts/dev/buildlac.txt::2026-01-26 16:26:35.495601901 -0800 PST DONE: results/outputFiles/asm.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:35.596351888 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:20.9356161 -0800 PST SENDING: hA state orC!
-scripts/dev/buildlac.txt::2026-01-25 06:46:20.9356161 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/dev/buildlac.txt::2026-01-25 06:46:20.9356161 -0800 PST WAIT STARTED
-scripts/dev/buildlac.txt::2026-01-25 06:46:23.943708 -0800 PST WAIT DONE
-scripts/dev/buildlac.txt::2026-01-25 06:46:23.943708 -0800 PST DONE: hA state orC!
-scripts/dev/buildlac.txt::2026-01-25 06:46:24.0635377 -0800 PST 
+scripts/dev/buildlac.txt::2026-01-26 16:26:35.596919389 -0800 PST SENDING: hA state orC!
+scripts/dev/buildlac.txt::2026-01-26 16:26:35.597239199 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/dev/buildlac.txt::2026-01-26 16:26:35.597636259 -0800 PST WAIT STARTED
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.613954074 -0800 PST WAIT DONE
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.614457773 -0800 PST DONE: hA state orC!
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.717479717 -0800 PST 
  scriptFileName: scripts/dev/buildlac.txt
    logFileName: results/runLogs/dev/buildlac.txt
 resultFileName: results/resultFiles/dev/buildlac.txt
 outputFileName: results/outputFiles/dev/lac.f
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:24.1060485 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.720186529 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:24.1060485 -0800 PST ECHOING: src/optimize/Lac/lacDef.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:24.1070877 -0800 PST DONE ECHOING: src/optimize/Lac/lacDef.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:24.2472898 -0800 PST  20000 cps  Receive Delay 10s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.72041338 -0800 PST ECHOING: src/optimize/Lac/lacDef.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.729363724 -0800 PST DONE ECHOING: src/optimize/Lac/lacDef.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.832356394 -0800 PST  20000 cps  Receive Delay 10s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:24.2472898 -0800 PST SENDING: src/optimize/Lac/lacAsmSrc.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:25.390352 -0800 PST DONE SENDING waiting for output: src/optimize/Lac/lacAsmSrc.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:25.390352 -0800 PST WAIT STARTED
-scripts/dev/buildlac.txt::2026-01-25 06:46:36.3762421 -0800 PST WAIT DONE
-scripts/dev/buildlac.txt::2026-01-25 06:46:36.3762421 -0800 PST DONE: src/optimize/Lac/lacAsmSrc.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:36.5312757 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:38.832626786 -0800 PST SENDING: src/optimize/Lac/lacAsmSrc.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:39.951082365 -0800 PST DONE SENDING waiting for output: src/optimize/Lac/lacAsmSrc.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:39.951348393 -0800 PST WAIT STARTED
+scripts/dev/buildlac.txt::2026-01-26 16:26:52.32990457 -0800 PST WAIT DONE
+scripts/dev/buildlac.txt::2026-01-26 16:26:52.330314611 -0800 PST DONE: src/optimize/Lac/lacAsmSrc.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:52.432227454 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:36.5312757 -0800 PST ECHOING: src/optimize/Lac/lacSrc.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:36.5455974 -0800 PST DONE ECHOING: src/optimize/Lac/lacSrc.f
-scripts/dev/buildlac.txt::2026-01-25 06:46:36.6507675 -0800 PST WAIT STARTED
-scripts/dev/buildlac.txt::2026-01-25 06:46:39.6510446 -0800 PST WAIT DONE
-scripts/dev/buildlac.txt::2026-01-25 06:46:39.6510446 -0800 PST 
+scripts/dev/buildlac.txt::2026-01-26 16:26:52.432688868 -0800 PST ECHOING: src/optimize/Lac/lacSrc.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:52.523523367 -0800 PST DONE ECHOING: src/optimize/Lac/lacSrc.f
+scripts/dev/buildlac.txt::2026-01-26 16:26:52.623898851 -0800 PST WAIT STARTED
+scripts/dev/buildlac.txt::2026-01-26 16:26:55.625662002 -0800 PST WAIT DONE
+scripts/dev/buildlac.txt::2026-01-26 16:26:55.627255931 -0800 PST 
  scriptFileName: scripts/dev/buildlac.txt
    logFileName: results/runLogs/dev/buildlac.txt
 resultFileName: results/resultFiles/dev/buildlac.txt
 outputFileName: 
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:39.6636341 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildlac.txt::2026-01-26 16:26:55.627726128 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildlac.txt::2026-01-25 06:46:39.6636341 -0800 PST SENDING: hA state andnC!
-scripts/dev/buildlac.txt::2026-01-25 06:46:39.6636341 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/dev/buildlac.txt::2026-01-25 06:46:39.6636341 -0800 PST WAIT STARTED
-scripts/dev/buildlac.txt::2026-01-25 06:46:42.6857761 -0800 PST WAIT DONE
-scripts/dev/buildlac.txt::2026-01-25 06:46:42.6857761 -0800 PST DONE: hA state andnC!
-scripts/dev/buildlac.txt::2026-01-25 06:46:42.7970301 -0800 PST 
+scripts/dev/buildlac.txt::2026-01-26 16:26:55.627844909 -0800 PST SENDING: hA state andnC!
+scripts/dev/buildlac.txt::2026-01-26 16:26:55.628072474 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/dev/buildlac.txt::2026-01-26 16:26:55.628220504 -0800 PST WAIT STARTED
+scripts/dev/buildlac.txt::2026-01-26 16:26:58.644764029 -0800 PST WAIT DONE
+scripts/dev/buildlac.txt::2026-01-26 16:26:58.645438272 -0800 PST DONE: hA state andnC!
+scripts/dev/buildlac.txt::2026-01-26 16:26:58.747190321 -0800 PST 
  scriptFileName: scripts/dev/buildlac.txt
    logFileName: results/runLogs/dev/buildlac.txt
 resultFileName: 
