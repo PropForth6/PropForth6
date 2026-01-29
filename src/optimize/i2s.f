@@ -176,8 +176,22 @@ __bitOutRet
 
 
 
-\ ( angle -- sin ) angle 0x2000 is 2PI or 360 degrees, sin has 17 significant bits
+\ ( angle type -- res ) angle 0x2000 is 2PI or 360 degrees, 
+\   type 0 sin, 1 triangle, 2 square, 3 sawtooth, res has 17 significant bits
 build_BootOpt :rasm
+                mov     __type , $C_stTOS
+                spop
+                cmp     __type , # 3                  wc wz
+    if_e        jmpret  __sawRet , # __saw
+                cmp     __type , # 2                  wc wz
+    if_e        jmpret  __squareRet , # __square
+                cmp     __type , # 1                  wc wz
+    if_e        jmpret  __triangleRet , # __triangle
+                cmp    __type , # 0                   wc wz
+    if_e        jmpret  __sinRet ,  # __sin
+                jexit
+ 
+__sin
                 test    $C_stTOS , __quad90 wc
                 test    $C_stTOS , __quad180 wz
     if_c        neg     $C_stTOS , $C_stTOS
@@ -185,7 +199,36 @@ build_BootOpt :rasm
                 shl     $C_stTOS , # 1
                 rdword  $C_stTOS , $C_stTOS
     if_nz       neg     $C_stTOS , $C_stTOS
-                jexit
+__sinRet
+                ret
+
+__triangle
+                test    $C_stTOS , __quad90 wc
+                test    $C_stTOS , __quad180 wz
+    if_c        neg     $C_stTOS , $C_stTOS
+                and     $C_stTOS , __angleMask
+                shl     $C_stTOS , # 5
+    if_nz       neg     $C_stTOS , $C_stTOS
+__triangleRet
+                ret
+
+__saw
+                and     $C_stTOS , __angleMask360
+                shl     $C_stTOS , # 4
+                sub     $C_stTOS , __sawShift            
+__sawRet
+                ret
+
+__square
+                test    $C_stTOS , __quad180 wz
+    if_z        mov     $C_stTOS , __maxValue
+    if_nz       mov     $C_stTOS , __minValue
+__squareRet
+                ret
+
+
+__type
+                0
 __quad90
                 h800 
 __quad180
@@ -193,75 +236,86 @@ __quad180
 \ 0xE000 >> 1
 __sinTable
                 h7000
-;asm sin
-
-
-
-\ ( angle -- tri ) angle 0x2000 is 2PI or 360 degrees,  has 17 significant bits
-build_BootOpt :rasm
-                test    $C_stTOS , __quad90 wc
-                test    $C_stTOS , __quad180 wz
-                and     $C_stTOS , # __angleMask
-    if_c        neg     $C_stTOS , $C_stTOS
-                shl     $C_stTOS , # 5
-    if_nz       neg     $C_stTOS , $C_stTOS
-                jexit
+__angleMask360
+                h1FFF
 __angleMask
                 h7FF
-__quad90
-                h800 
-__quad180
-                h1000 
-;asm tri
-
-
-\ ( angle -- square ) angle 0x2000 is 2PI or 360 degrees,  has 17 significant bits
-build_BootOpt :rasm
-                test    $C_stTOS , __quad180 wz
-    if_z        mov     $C_stTOS , __maxValue
-    if_nz       mov     $C_stTOS , __minValue
-                jexit
 __maxValue
                 hFFFF 
 __minValue
                 hFFFF0001
-__quad180
-                h1000 
-;asm square
+\ h10000 - 8
+__sawShift
+                hFFF8
+;asm wav
 
 
 
 
 
-
-
-lockdict create sin forthentry
-$C_a_lxasm w, h107  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-h613D9104 l, h623D9105 l, hA4B190C8 l, h68BD9106 l, h2CFD9001 l, h4BD90C8 l, hA49590C8 l, h5C7C0073 l,
-h800 l, h1000 l, h7000 l,
+lockdict create wav forthentry
+$C_a_lxasm w, h127  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+hA0BE3CC8 l, h5CFD72B3 l, h877E3C03 l, h5CEA3316 l, h877E3C02 l, h5CEA3B1A l, h877E3C01 l, h5CEA2B0F l,
+h877E3C00 l, h5CEA1D07 l, h5C7C0073 l, h613D911F l, h623D9120 l, hA4B190C8 l, h68BD9121 l, h2CFD9001 l,
+h4BD90C8 l, hA49590C8 l, h5C7C0000 l, h613D911F l, h623D9120 l, hA4B190C8 l, h60BD9123 l, h2CFD9005 l,
+hA49590C8 l, h5C7C0000 l, h60BD9122 l, h2CFD9004 l, h84BD9126 l, h5C7C0000 l, h623D9120 l, hA0A99124 l,
+hA0959125 l, h5C7C0000 l, 0 l, h800 l, h1000 l, h7000 l, h1FFF l, h7FF l,
+hFFFF l, hFFFF0001 l, hFFF8 l,
 freedict
 
+: sin 0 wav ;
+: triangle 1 wav ;
+: square 2 wav ;
+: sawtooth 3 wav ;
 
-lockdict create tri forthentry
-$C_a_lxasm w, h106  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-h613D9104 l, h623D9105 l, h60FD9103 l, hA4B190C8 l, h2CFD9005 l, hA49590C8 l, h5C7C0073 l, h7FF l,
-h800 l, h1000 l,
-freedict
-
-
-lockdict create square forthentry
-$C_a_lxasm w, h103  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-h623D9102 l, hA0959100 l, hA0A99101 l, h5C7C0073 l, hFFFF l, hFFFF0001 l, h1000 l,
-freedict
-
-
+: winit dira COG@ hFFFF or dira COG! ;
+ 
 
 : tw
     h2100 0 do
-        i . i sin . i tri . i square . cr
+        i . i 0 wav . i 1 wav . i 2 wav .  i 3 wav . cr
 
+    loop
+;
+
+: tw1
+    h80 0 do
+        i . i 0 wav . i 1 wav . i 2 wav .  i 3 wav . cr
+    loop
+    cr cr cr cr
+    h880 h780 do
+        i . i 0 wav . i 1 wav . i 2 wav .  i 3 wav . cr
+    loop
+    cr cr cr cr
+    h1040 hFC0 do
+        i . i 0 wav . i 1 wav . i 2 wav .  i 3 wav . cr
+    loop
+    cr cr cr cr
+    h1880 h1780 do
+        i . i 0 wav . i 1 wav . i 2 wav .  i 3 wav . cr
+    loop
+    cr cr cr cr
+    h2040 h1FC0 do
+        i . i 0 wav . i 1 wav . i 2 wav .  i 3 wav . cr
+    loop
+;
+
+: tw2
+    0 begin
+        dup 
+        esc?
+    until
+
+;
+
+
+: tt
+    h2100 0 do
+        i . i h1FFF and 4 lshift h10000 - . cr
     h100 +loop
 ;
+
+
 
 
 
