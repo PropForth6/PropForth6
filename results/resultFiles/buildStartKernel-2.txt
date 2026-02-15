@@ -5,7 +5,7 @@ resultFileName: results/resultFiles/buildStartKernel-2.txt
 outputFileName: 
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14300 TMP01KERNEL6.0-2026Jan26 14:01-0
+here: 14300 TMP01KERNEL6.0-2026Jan29 17:10-0
 
 Prop0 Cog6 ok
 \
@@ -8964,7 +8964,7 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-: (version) c" STARTKERNEL6.0-2026Jan26 14:10-0" ;
+: (version) c" STARTKERNEL6.0-2026Jan29 17:20-0" ;
 Prop0 Cog6 ok
 hFB wconstant $C_varEnd
 Prop0 Cog6 ok
@@ -9288,7 +9288,7 @@ RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14300 TMP01KERNEL6.0-2026Jan26 14:01-0
+here: 14300 TMP01KERNEL6.0-2026Jan29 17:10-0
 
 Prop0 Cog6 ok
 wvariable lastNewNFA
@@ -11187,4 +11187,4 @@ count4 W@ .
 bytecount W@ .
 8000 Prop0 Cog6 ok
 checksum W@ .
-4A31 Prop0 Cog6 ok
+4A38 Prop0 Cog6 ok

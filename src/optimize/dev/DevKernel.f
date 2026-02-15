@@ -943,7 +943,7 @@ h1FD	wconstant phsb
 
 \
 \ ( -- t/f) if the esc key or CTL-E has been hit
-[ifnder esc?
+[ifndef esc?
 : esc?
 	fkey?
 	if 
@@ -953,3 +953,5 @@ h1FD	wconstant phsb
 	then
 	;
 ]
+
+

@@ -1,10 +1,10 @@
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:26.177161145 -0800 PST 
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:08.411097556 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernel.txt
    logFileName: results/runLogs/dev/buildLacKernel.txt
 resultFileName: 
 outputFileName: 
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:26.180814833 -0800 PST 
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:08.414531882 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernel.txt
    logFileName: results/runLogs/dev/buildLacKernel.txt
 resultFileName: results/resultFiles/dev/buildLacKernel.txt
@@ -13,105 +13,105 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:26.182248235 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:08.41690637 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:26.182609241 -0800 PST SENDING: reboot
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:26.182837498 -0800 PST DONE SENDING waiting for output: reboot
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:26.182964418 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:31.31610756 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:31.316702317 -0800 PST DONE: reboot
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:08.418552734 -0800 PST SENDING: reboot
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:08.41894696 -0800 PST DONE SENDING waiting for output: reboot
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:08.419192365 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:13.458887842 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:13.459327212 -0800 PST DONE: reboot
 \
 \ check Forth
 \
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:31.418785896 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:13.561530696 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:31.419109065 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:31.419439334 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:31.419702486 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:32.448607595 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:32.449048144 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:13.561688039 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:13.561925083 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:13.562125261 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:14.588044085 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:14.588908279 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ words to be added / replaced
 \
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:32.551698188 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:14.691450344 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:32.55192528 -0800 PST SENDING: c" lacKERNEL6.0-
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:32.552221553 -0800 PST DONE SENDING waiting for output: c" lacKERNEL6.0-
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:32.552465643 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:35.570308894 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:35.570533928 -0800 PST DONE: c" lacKERNEL6.0-
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:35.671203723 -0800 PST SEND: [2026Jan26 16:27]
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:35.671717517 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:14.692163965 -0800 PST SENDING: c" lacKERNEL6.0-
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:14.692338451 -0800 PST DONE SENDING waiting for output: c" lacKERNEL6.0-
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:14.69249313 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:17.69904861 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:17.699426891 -0800 PST DONE: c" lacKERNEL6.0-
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:17.800193265 -0800 PST SEND: [2026Jan29 18:02]
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:17.800850791 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:35.671940594 -0800 PST SENDING: -0" version W@ ccopy
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:35.672325881 -0800 PST DONE SENDING waiting for output: -0" version W@ ccopy
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:35.672568912 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:38.689169745 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:38.689565328 -0800 PST DONE: -0" version W@ ccopy
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:38.793726839 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:17.801119981 -0800 PST SENDING: -0" version W@ ccopy
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:17.801430359 -0800 PST DONE SENDING waiting for output: -0" version W@ ccopy
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:17.801739879 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:20.827245488 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:20.827598479 -0800 PST DONE: -0" version W@ ccopy
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:20.94785764 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:38.793966131 -0800 PST SENDING: src/optimize/dev/LacKernelDef.f
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:38.798782614 -0800 PST DONE SENDING waiting for output: src/optimize/dev/LacKernelDef.f
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:38.79893162 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:41.836016904 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:41.836455629 -0800 PST DONE: src/optimize/dev/LacKernelDef.f
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:41.939088462 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:20.948151457 -0800 PST SENDING: src/optimize/dev/LacKernelDef.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:20.953946965 -0800 PST DONE SENDING waiting for output: src/optimize/dev/LacKernelDef.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:20.954280233 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:23.990635255 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:23.991206923 -0800 PST DONE: src/optimize/dev/LacKernelDef.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:24.097658013 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:41.939332973 -0800 PST SENDING: results/outputFiles/dev/lac.f
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:46.828310658 -0800 PST DONE SENDING waiting for output: results/outputFiles/dev/lac.f
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:46.828666179 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:50.171729267 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:50.172072738 -0800 PST DONE: results/outputFiles/dev/lac.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:24.098110689 -0800 PST SENDING: results/outputFiles/dev/lac.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:30.135374737 -0800 PST DONE SENDING waiting for output: results/outputFiles/dev/lac.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:30.135636668 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:33.49556975 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:33.496140382 -0800 PST DONE: results/outputFiles/dev/lac.f
 \
 \ forthimager.f
 \						
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:50.276348185 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:33.601289735 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:50.276731006 -0800 PST SENDING: src/forthimager.f
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:50.51466471 -0800 PST DONE SENDING waiting for output: src/forthimager.f
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:50.51487103 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:55.238157664 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:55.238748349 -0800 PST DONE: src/forthimager.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:33.601662193 -0800 PST SENDING: src/forthimager.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:33.848047845 -0800 PST DONE SENDING waiting for output: src/forthimager.f
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:33.848262715 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:37.228400985 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:37.229220587 -0800 PST DONE: src/forthimager.f
 \
 \
 \ make devKernel.eeprom
 \
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:55.341124862 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:37.332695398 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:55.341353712 -0800 PST SENDING: hA state orC!
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:55.341563465 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:55.341792804 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:56.345040087 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:56.345419232 -0800 PST DONE: hA state orC!
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:56.44950405 -0800 PST 
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:37.332934387 -0800 PST SENDING: hA state orC!
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:37.333381854 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:37.333754974 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:38.344317896 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:38.344986629 -0800 PST DONE: hA state orC!
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:38.450170454 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernel.txt
    logFileName: results/runLogs/dev/buildLacKernel.txt
 resultFileName: results/resultFiles/dev/buildLacKernel.txt
 outputFileName: results/outputFiles/dev/lacKernel.eeprom
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:56.449925483 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:38.451305679 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:56.450046608 -0800 PST SENDING: fbinout
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:56.450190639 -0800 PST DONE SENDING waiting for output: fbinout
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:56.450327718 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:59.452813316 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:59.453264629 -0800 PST DONE: fbinout
-scripts/dev/buildLacKernel.txt::2026-01-26 16:27:59.554179817 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:06.411783797 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:06.413002032 -0800 PST 
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:38.451526353 -0800 PST SENDING: fbinout
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:38.451788604 -0800 PST DONE SENDING waiting for output: fbinout
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:38.451930277 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:41.452342265 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:41.452825731 -0800 PST DONE: fbinout
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:41.553760723 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:48.128260103 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:48.130291315 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernel.txt
    logFileName: results/runLogs/dev/buildLacKernel.txt
 resultFileName: results/resultFiles/dev/buildLacKernel.txt
 outputFileName: 
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:06.413482166 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:48.130958151 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:06.41364008 -0800 PST SENDING: hA state andnC!
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:06.413857729 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:06.414020355 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:07.431181122 -0800 PST WAIT DONE
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:07.431507802 -0800 PST DONE: hA state andnC!
-scripts/dev/buildLacKernel.txt::2026-01-26 16:28:07.533079938 -0800 PST 
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:48.131196183 -0800 PST SENDING: hA state andnC!
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:48.131435718 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:48.131884748 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:49.141928754 -0800 PST WAIT DONE
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:49.142647193 -0800 PST DONE: hA state andnC!
+scripts/dev/buildLacKernel.txt::2026-01-29 18:02:49.245881514 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernel.txt
    logFileName: results/runLogs/dev/buildLacKernel.txt
 resultFileName: 

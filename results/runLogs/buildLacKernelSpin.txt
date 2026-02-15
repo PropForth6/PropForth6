@@ -1,10 +1,10 @@
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:34.862695646 -0800 PST 
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:16.175894152 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernelSpin.txt
    logFileName: results/runLogs/buildLacKernelSpin.txt
 resultFileName: 
 outputFileName: 
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:34.865101579 -0800 PST 
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:16.177811692 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernelSpin.txt
    logFileName: results/runLogs/buildLacKernelSpin.txt
 resultFileName: results/resultFiles/buildLacKernelSpin.txt
@@ -13,69 +13,69 @@ outputFileName:
 \
 \ Reboot
 \
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:34.866003144 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:16.17887766 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:34.866110131 -0800 PST SENDING: reboot
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:34.866272927 -0800 PST DONE SENDING waiting for output: reboot
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:34.866363877 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:39.987748409 -0800 PST WAIT DONE
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:39.990807796 -0800 PST DONE: reboot
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:16.180487393 -0800 PST SENDING: reboot
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:16.180696508 -0800 PST DONE SENDING waiting for output: reboot
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:16.180813563 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:21.351565232 -0800 PST WAIT DONE
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:21.352274923 -0800 PST DONE: reboot
 \
 \ check Forth
 \
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:40.094176483 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:21.454729139 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:40.094447544 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:40.094816595 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:40.095370876 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:41.12828233 -0800 PST WAIT DONE
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:41.128757013 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:21.455060667 -0800 PST SENDING: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:21.455628681 -0800 PST DONE SENDING waiting for output: cr c" here: " .cstr here W@ . (version) .cstr cr cr
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:21.456038932 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:22.485268315 -0800 PST WAIT DONE
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:22.485673606 -0800 PST DONE: cr c" here: " .cstr here W@ . (version) .cstr cr cr
 \
 \ Load spinImage.f
 \
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:41.232539412 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:22.589433561 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:41.232676459 -0800 PST SENDING: src/spinImage.f
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:41.73286952 -0800 PST DONE SENDING waiting for output: src/spinImage.f
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:41.733106384 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:45.128025369 -0800 PST WAIT DONE
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:45.128491456 -0800 PST DONE: src/spinImage.f
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:45.228999773 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:22.589691278 -0800 PST SENDING: src/spinImage.f
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:23.092689477 -0800 PST DONE SENDING waiting for output: src/spinImage.f
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:23.093021082 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:26.491768115 -0800 PST WAIT DONE
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:26.492381563 -0800 PST DONE: src/spinImage.f
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:26.593253585 -0800 PST  20000 cps  Receive Delay 1s Echo: false Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:45.229539827 -0800 PST SENDING: hA state orC!
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:45.230028763 -0800 PST DONE SENDING waiting for output: hA state orC!
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:45.230361333 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:46.238676657 -0800 PST WAIT DONE
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:46.239098133 -0800 PST DONE: hA state orC!
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:46.343001991 -0800 PST 
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:26.593750015 -0800 PST SENDING: hA state orC!
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:26.594076269 -0800 PST DONE SENDING waiting for output: hA state orC!
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:26.594596088 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:27.597847696 -0800 PST WAIT DONE
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:27.598534616 -0800 PST DONE: hA state orC!
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:27.706618874 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernelSpin.txt
    logFileName: results/runLogs/buildLacKernelSpin.txt
 resultFileName: results/resultFiles/buildLacKernelSpin.txt
 outputFileName: results/outputFiles/dev/lacKernel.spin
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:46.343629237 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:27.707462443 -0800 PST  20000 cps  Receive Delay 3s Echo: false Expand CR->CRLF: false Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:46.343775778 -0800 PST SENDING: spinImage
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:46.343917425 -0800 PST DONE SENDING waiting for output: spinImage
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:28:46.344033521 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:15.28620158 -0800 PST WAIT DONE
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:15.286581253 -0800 PST DONE: spinImage
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:15.387204309 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:18.388384592 -0800 PST WAIT DONE
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:18.390099887 -0800 PST 
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:27.707686891 -0800 PST SENDING: spinImage
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:27.707893557 -0800 PST DONE SENDING waiting for output: spinImage
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:27.708057606 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:56.200360834 -0800 PST WAIT DONE
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:56.200947234 -0800 PST DONE: spinImage
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:56.301746807 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:59.302843574 -0800 PST WAIT DONE
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:59.304921428 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernelSpin.txt
    logFileName: results/runLogs/buildLacKernelSpin.txt
 resultFileName: results/resultFiles/buildLacKernelSpin.txt
 outputFileName: 
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:18.390573223 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:59.30592663 -0800 PST  20000 cps  Receive Delay 1s Echo: true Expand CR->CRLF: true Translate LF_CR: true Binary: false
 
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:18.390691524 -0800 PST SENDING: hA state andnC!
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:18.390921339 -0800 PST DONE SENDING waiting for output: hA state andnC!
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:18.391065942 -0800 PST WAIT STARTED
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:19.409408769 -0800 PST WAIT DONE
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:19.40975102 -0800 PST DONE: hA state andnC!
-scripts/dev/buildLacKernelSpin.txt::2026-01-26 16:29:19.51129217 -0800 PST 
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:59.306175154 -0800 PST SENDING: hA state andnC!
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:59.306553535 -0800 PST DONE SENDING waiting for output: hA state andnC!
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:03:59.306881552 -0800 PST WAIT STARTED
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:04:00.321585836 -0800 PST WAIT DONE
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:04:00.322300834 -0800 PST DONE: hA state andnC!
+scripts/dev/buildLacKernelSpin.txt::2026-01-29 18:04:00.424564245 -0800 PST 
  scriptFileName: scripts/dev/buildLacKernelSpin.txt
    logFileName: results/runLogs/buildLacKernelSpin.txt
 resultFileName: 

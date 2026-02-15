@@ -17,16 +17,16 @@ RESET: 4 0 ?    0 ?
 
 RESET: 5 0 ?    0 ?
 
-optKERNEL6.0-2026Jan26 14:28-0
+optKERNEL6.0-2026Jan29 17:37-0
 
 RESET: 6 0 ?    0 ?
 Prop0 Cog6 ok
 cr c" here: " .cstr here W@ . (version) .cstr cr cr
 
-here: 14446 optKERNEL6.0-2026Jan26 14:28-0
+here: 14446 optKERNEL6.0-2026Jan29 17:37-0
 
 Prop0 Cog6 ok
-c" devKERNEL6.0-2026Jan26 14:36-0" version W@ ccopy
+c" devKERNEL6.0-2026Jan29 17:45-0" version W@ ccopy
 Prop0 Cog6 ok
 \
 Prop0 Cog6 ok
@@ -3029,8 +3029,39 @@ Prop0 Cog6 ok
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
-[ifnder esc?
-UNDEFINED WORD [ifnder
+[ifndef esc?
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+: esc?
+
+ fkey?
+
+ if 
+
+  dup h1B = swap 5 = or 
+
+ else 
+
+  drop 0 
+
+ then
+
+ ;
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+]
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
+Prop0 Cog6 ok
+
 Prop0 Cog6 ok
 
 Prop0 Cog6 ok
