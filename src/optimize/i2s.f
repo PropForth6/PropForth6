@@ -18,6 +18,19 @@
 
 \ _i2s ( clockMask lrMask dataOutMask dataAddr ackAddr -- )
 
+\
+\ filter for pwm
+\
+\   pin ----/\/\/\/\---------------- out
+\            1Kohm     |
+\                      |
+\                     ___
+\                     ___  10 nF
+\                      |
+\                      |
+\                      |
+\                     GND
+
 
 variable  dataOut
 wvariable dataAck
