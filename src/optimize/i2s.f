@@ -21,7 +21,7 @@ variable typeVector l,
 variable gainVector l,
 variable phaseVector l,
 variable stepVector l,
-variable currentStepCountVector l,
+variable currentStepIndexVector l,
 
 
 \ 32 bit value for sound, hi 16 bits are right channel, lo 16 bits are left channel
@@ -105,6 +105,7 @@ d16 wconstant toneDefSize
 \                     GND
 
 \ _i2s ( clockMask lrMask dataOutMask dataAddr ackAddr -- )
+
 lockdict create _i2s forthentry
 $C_a_lxasm w, h13B  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
 hA0BE64C8 l, h5CFD72B3 l, hA0BE66C8 l, h5CFD72B3 l, hA0BE68C8 l, h5CFD72B3 l, hA0BE6AC8 l, h5CFD72B3 l,
@@ -118,31 +119,44 @@ h4 l, h2 l, h1 l, 0 l, 0 l, hFFFF7FFE l, 0 l,
 freedict
 
 
-\ ( toneOutput cyclesLeft currentStepCountVector stepVector phaseVector gainVector typeVector numTones -- )
+\ ( toneOutput cyclesLeft currentStepIndexVector stepVector phaseVector gainVector typeVector numTones -- )
+
+
+
 lockdict create __genwave forthentry
-$C_a_lxasm w, h15A  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-hA0BEA8C8 l, h5CFD72B3 l, hA0BEAEC8 l, h5CFD72B3 l, hA0BEB2C8 l, h5CFD72B3 l, hA0BEAAC8 l, h5CFD72B3 l,
-hA0BEACC8 l, h5CFD72B3 l, hA0BEB0C8 l, h5CFD72B3 l, hA0BEA6C8 l, h5CFD72B3 l, hA0BEA4C8 l, h5CFD72B3 l,
-hA0BE9FF1 l, h80BE9F50 l, hF8BE9F50 l, hA0BE794D l, h80BE9B4E l, h28FE7813 l, hA0BE7B3C l, h5CFE5924 l,
-h28FE7804 l, h60BE7940 l, hA0BE7D3C l, hA0BE793D l, h5CFE6F35 l, h28FE7801 l, h60BE7940 l, h2CFE7810 l,
-h68BE7D3C l, h60BE7D40 l, h83E7D52 l, hA0BE794F l, h84BE79F1 l, h83E7953 l, h5C7C010E l, h5C7C0073 l,
-h613E7943 l, h623E7944 l, hA4B2793C l, h68BE7945 l, h2CFE7801 l, h4BE793C l, hA496793C l, h80BE7949 l,
-h5C7C0000 l, h613E7943 l, h623E7944 l, hA4B2793C l, h60BE7947 l, h2CFE7805 l, hA496793C l, h80BE7949 l,
-h5C7C0000 l, h60BE7946 l, h2CFE7804 l, h5C7C0000 l, h623E7944 l, hA0AA7948 l, hA0D67800 l, h5C7C0000 l,
-0 l, 0 l, 0 l, 0 l, hFFFF l, hFFFF0000 l, 0 l, h800 l,
-h1000 l, h7000 l, h1FFF l, h7FF l, h1FFFF l, h10000 l, 0 l, 0 l,
-0 l, 0 l, h5CE13BD l, 0 l, h716 l, 0 l, 0 l, 0 l,
-0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
+$C_a_lxasm w, h167  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+hA0BEBCC8 l, h5CFD72B3 l, hA0BEC2C8 l, h5CFD72B3 l, hA0BEC6C8 l, h5CFD72B3 l, hA0BEBEC8 l, h5CFD72B3 l,
+hA0BEC0C8 l, h5CFD72B3 l, hA0BEC4C8 l, h5CFD72B3 l, hA0BEBAC8 l, h5CFD72B3 l, hA0BEB8C8 l, h5CFD72B3 l,
+hA0BEB3F1 l, h80BEB35A l, hF8BEB35A l, hA0FE9200 l, h8BECD5E l, h877ECC00 l, h5C680129 l, hA0BE8D60 l,
+h80BE8D64 l, h8BEB146 l, hA0BE8D62 l, h80BE8D64 l, h8BEAF46 l, hA0BE8F57 l, h80BE8F58 l, h83E8F46 l,
+hA0BE8D57 l, h28FE8C13 l, h80BEAF58 l, h5CFE6D2E l, h28FE8C04 l, h80BE9346 l, h80FEC804 l, h80FECA01 l,
+h873ECB66 l, h5C700113 l, hA0FECA00 l, hA0FEC800 l, h83E935C l, hA0BE8D59 l, h84BE8DF1 l, h83E8D5D l,
+h5C7C010E l, h5C7C0073 l, h613E8D4D l, h623E8D4E l, hA4B28D46 l, h68BE8D4F l, h2CFE8C01 l, h4BE8D46 l,
+hA4968D46 l, h80BE8D53 l, h5C7C0000 l, h613E8D4D l, h623E8D4E l, hA4B28D46 l, h60BE8D51 l, h2CFE8C05 l,
+hA4968D46 l, h80BE8D53 l, h5C7C0000 l, h60BE8D50 l, h2CFE8C04 l, h5C7C0000 l, h623E8D4E l, hA0AA8D52 l,
+hA0D68C00 l, h5C7C0000 l, 0 l, 0 l, 0 l, 0 l, hFFFF l, hFFFF0000 l,
+0 l, h800 l, h1000 l, h7000 l, h1FFF l, h7FF l, h1FFFF l, h10000 l,
+0 l, 0 l, 0 l, 0 l, h5CE13BD l, 0 l, h716 l, 0 l,
+0 l, 0 l, h1 l, 0 l, 0 l, 0 l, 0 l, 0 l,
+0 l, 0 l, 0 l,
 freedict
 
 
 
+
+0 numTones L!
+0 typeVector L!
+0 currentStepIndexVector L!
+0 stepVector L!
+
 \ set up the i2s output
 c" d17 pinout d18 pinout d19 pinout 17 bitFrequency setHza d17 >m  d18 >m d19 >m toneOutput dataAck _i2s" 0 cogx
 
-c" toneOutput cyclesLeft currentStepCountVector stepVector phaseVector gainVector typeVector numTones __genwave" 3 cogx
+c" toneOutput cyclesLeft currentStepIndexVector stepVector phaseVector gainVector typeVector numTones __genwave" 3 cogx
 
+1000 freqToStep stepVector L!
 
+1 numTones L!
 
 
 
@@ -314,7 +328,7 @@ __addr
 
 \ 1000 hz, left sin wave right sawtooth
 
-\ ( toneOutput cyclesLeft currentStepCountVector stepVector phaseVector gainVector typeVector numTones -- )
+\ ( toneOutput cyclesLeft currentStepIndexVector stepVector phaseVector gainVector typeVector numTones -- )
 build_BootOpt :rasm
                 mov     __numTones , $C_stTOS
                 spop
@@ -326,7 +340,7 @@ build_BootOpt :rasm
                 spop
                 mov     __stepVector , $C_stTOS
                 spop
-                mov     __currentStepCountVector , $C_stTOS
+                mov     __currentStepIndexVector , $C_stTOS
                 spop
                 mov     __cyclesLeft , $C_stTOS
                 spop
@@ -336,30 +350,44 @@ build_BootOpt :rasm
                 add     __time , __period
 __mainLoop
                 waitcnt __time , __period
-                mov     __r0 , __currIndex
-                add     __currIndex , __step
+                mov     __r3 , # 0
+                rdlong  __toneLimit , __numTones
+                cmp     __toneLimit , # 0           wc wz
+    if_z        jmp     # __tonesDone
+__toneLoop 
+                mov     __r0 , __stepVector
+                add     __r0 , __currentToneOffset 
+                rdlong  __step , __r0
+
+                mov     __r0 , __currentStepIndexVector
+                add     __r0 , __currentToneOffset 
+                rdlong  __currentStepIndex , __r0
+
+                mov     __r1 , __currentStepIndex
+                add     __r1 , __step
+                wrlong  __r1 , __r0
+
+                mov     __r0 , __currentStepIndex
                 shr     __r0 , # d19
-                mov     __r1 , __r0
+
+                add     __currentStepIndex , __step
 
                 jmpret  __sinRet ,  # __sin
                 shr     __r0 , # 4
-                and     __r0 , __lomask
-                mov     __r2 , __r0
+                add     __r3 , __r0
 
-                mov     __r0 , __r1
-                jmpret  __sawRet ,  # __saw
-                shr     __r0 , # 1
-                and     __r0 , __lomask
-                shl     __r0 , # d16
-                or      __r2 , __r0
+                add     __currentToneOffset , # 4
+                add     __toneNum , # 1
+                cmp     __toneNum , __toneLimit      wc wz
+    if_b        jmp    # __toneLoop
 
-                and     __r2 , __lomask
-
-                wrlong  __r2 , __toneOutput
-
-                mov     __r0 , __time
-                sub     __r0 , cnt
                 
+                mov     __toneNum , # 0            
+                mov     __currentToneOffset , # 0 
+                wrlong  __r3 , __toneOutput
+__tonesDone
+                mov     __r0 , __time
+                sub     __r0 , cnt               
                 wrlong  __r0 , __cyclesLeft
 
                 jmp     # __mainLoop
@@ -432,7 +460,7 @@ __output
                 0
 __att 
                 0
-__currIndex
+__currentStepIndex
                 0
 __step
                 d97391549
@@ -447,16 +475,22 @@ __toneOutput
 __cyclesLeft
                 0
 __numTones
-                0
+                1
 __phaseVector
                 0
 __stepVector
                 0
 __typeVector
                 0
-__currentStepCountVector
+__currentStepIndexVector
                 0
 __gainVector
+                0
+__currentToneOffset 
+                0
+__toneNum
+                0
+__toneLimit
                 0
 
 ;asm __genwave
