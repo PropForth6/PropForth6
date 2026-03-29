@@ -13,8 +13,37 @@ sampleFreq d32 * constant bitFrequency
 \ (freq -- stepPerPeriod)
 : freqToStep tableLen u* 1 stepShift lshift sampleFreq u*/ ;
 
+variable numTones
+variable cyclesLeft
+variable toneOutput
+variable numTones
+variable typeVector l,
+variable gainVector l,
+variable phaseVector l,
+variable stepVector l,
+variable currentStepCountVector l,
 
-\ 
+
+\ 32 bit value for sound, hi 16 bits are right channel, lo 16 bits are left channel
+variable  dataOut
+\ this value is written to zero, when the data is accepted
+wvariable dataAck
+\ read by __simWave to output a digital signalfor scoping with lac
+wvariable simAddr
+
+
+
+
+\ tone definition
+\ 4 bytes - period, derived from frequency
+\ 4 bytes - attenuation 
+\ 4 bytes - attack time, cycles
+\ 4 bytes - hold time, cycles
+\ 4 bytes - decay time
+\ 4 bytes - sustain time
+\ 4 bytes - release time
+\ 4 bytes - 
+
 
 \ tone generator structure
 variable toneDef l, l, l, l, l,
@@ -32,11 +61,13 @@ d16 wconstant toneDefSize
 : toneDefPeriod@ toneDefAddr L@  ; 
 
 
-: toneDefAtten  toneDefAddr 4+ ;
-: toneDefAttack toneDefAddr d8 + ;
-: toneDefDecay toneDefAddr d12 + ;
-: toneDefSustain toneDefAddr d12 + ;
-: toneDefRelease toneDefAddr d16 + ;
+\ : toneDefAtten  toneDefAddr 4+ ;
+\ : toneDefAttack toneDefAddr d8 + ;
+\ : toneDefDecay toneDefAddr d12 + ;
+\ : toneDefSustain toneDefAddr d12 + ;
+\ : toneDefRelease toneDefAddr d16 + ;
+\ : harmonics octave 3rd fifth ;
+\ : type ;
 
 
 
@@ -73,14 +104,6 @@ d16 wconstant toneDefSize
 \                      |
 \                     GND
 
-\ 32 bit value for sound, hi 16 bits are right channel, lo 16 bits are left channel
-variable  dataOut
-\ this value is written to zero, when the data is accepted
-wvariable dataAck
-\ read by __simWave to output a digital signalfor scoping with lac
-wvariable simAddr
-
-
 \ _i2s ( clockMask lrMask dataOutMask dataAddr ackAddr -- )
 lockdict create _i2s forthentry
 $C_a_lxasm w, h13B  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
@@ -95,32 +118,40 @@ h4 l, h2 l, h1 l, 0 l, 0 l, hFFFF7FFE l, 0 l,
 freedict
 
 
-\ ( addr period --  ) pwm from addr
-lockdict create __pwmout forthentry
-$C_a_lxasm w, h10C  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-hA0BE14C8 l, h5CFD72B3 l, hA0BE16C8 l, h5CFD72B3 l, hA0BE13F1 l, h80BE130A l, h4BE110B l, h2CFE1006 l,
-hF8BE130A l, hA4BFF908 l, h5C7C0102 l, h5C7C0073 l, 0 l, 0 l, 0 l, 0 l,
-
+\ ( toneOutput cyclesLeft currentStepCountVector stepVector phaseVector gainVector typeVector numTones -- )
 lockdict create __genwave forthentry
-$C_a_lxasm w, h142  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-hA0BE82C8 l, h5CFD72B3 l, hA0BE7DF1 l, h80BE7D3F l, hF8BE7D3F l, hA0BE573C l, h80BE793D l, h28FE5613 l,
-hA0BE592B l, h5CFE3713 l, h28FE5604 l, h60BE572F l, hA0BE5B2B l, hA0BE572C l, h5CFE4D24 l, h28FE5601 l,
-h60BE572F l, h2CFE5610 l, h68BE5B2B l, h60BE5B2F l, h83E5B41 l, h5C7C0100 l, h5C7C0073 l, h613E5732 l,
-h623E5733 l, hA4B2572B l, h68BE5734 l, h2CFE5601 l, h4BE572B l, hA496572B l, h80BE5738 l, h5C7C0000 l,
-h613E5732 l, h623E5733 l, hA4B2572B l, h60BE5736 l, h2CFE5605 l, hA496572B l, h80BE5738 l, h5C7C0000 l,
-h60BE5735 l, h2CFE5604 l, h5C7C0000 l, h623E5733 l, hA0AA5737 l, hA0D65600 l, h5C7C0000 l, 0 l,
-0 l, 0 l, 0 l, hFFFF l, hFFFF0000 l, 0 l, h800 l, h1000 l,
-h7000 l, h1FFF l, h7FF l, h1FFFF l, h10000 l, 0 l, 0 l, 0 l,
-0 l, h5CE13BD l, 0 l, h716 l, 0 l, 0 l,
+$C_a_lxasm w, h15A  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+hA0BEA8C8 l, h5CFD72B3 l, hA0BEAEC8 l, h5CFD72B3 l, hA0BEB2C8 l, h5CFD72B3 l, hA0BEAAC8 l, h5CFD72B3 l,
+hA0BEACC8 l, h5CFD72B3 l, hA0BEB0C8 l, h5CFD72B3 l, hA0BEA6C8 l, h5CFD72B3 l, hA0BEA4C8 l, h5CFD72B3 l,
+hA0BE9FF1 l, h80BE9F50 l, hF8BE9F50 l, hA0BE794D l, h80BE9B4E l, h28FE7813 l, hA0BE7B3C l, h5CFE5924 l,
+h28FE7804 l, h60BE7940 l, hA0BE7D3C l, hA0BE793D l, h5CFE6F35 l, h28FE7801 l, h60BE7940 l, h2CFE7810 l,
+h68BE7D3C l, h60BE7D40 l, h83E7D52 l, hA0BE794F l, h84BE79F1 l, h83E7953 l, h5C7C010E l, h5C7C0073 l,
+h613E7943 l, h623E7944 l, hA4B2793C l, h68BE7945 l, h2CFE7801 l, h4BE793C l, hA496793C l, h80BE7949 l,
+h5C7C0000 l, h613E7943 l, h623E7944 l, hA4B2793C l, h60BE7947 l, h2CFE7805 l, hA496793C l, h80BE7949 l,
+h5C7C0000 l, h60BE7946 l, h2CFE7804 l, h5C7C0000 l, h623E7944 l, hA0AA7948 l, hA0D67800 l, h5C7C0000 l,
+0 l, 0 l, 0 l, 0 l, hFFFF l, hFFFF0000 l, 0 l, h800 l,
+h1000 l, h7000 l, h1FFF l, h7FF l, h1FFFF l, h10000 l, 0 l, 0 l,
+0 l, 0 l, h5CE13BD l, 0 l, h716 l, 0 l, 0 l, 0 l,
+0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 freedict
 
 
-lockdict create __simWave forthentry
-$C_a_lxasm w, h10F  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-hA0BE14C8 l, h5CFD72B3 l, h4BE170A l, h4BE1B0B l, h28FE1A0C l, h60FE1A0F l, hA0FE1801 l, h2CBE190D l,
-hA0BE17F4 l, h60BE170E l, h68BE170C l, hA0BFE90C l, h5C7C00FE l, h5C7C0073 l, 0 l, 0 l,
-0 l, 0 l, hFFFF0000 l,
-freedict
+
+\ set up the i2s output
+c" d17 pinout d18 pinout d19 pinout 17 bitFrequency setHza d17 >m  d18 >m d19 >m toneOutput dataAck _i2s" 0 cogx
+
+c" toneOutput cyclesLeft currentStepCountVector stepVector phaseVector gainVector typeVector numTones __genwave" 3 cogx
+
+
+
+
+
+
+
+
+
+
+
 
 
 \ set up the i2s output
@@ -140,26 +171,6 @@ sl
 
 
 ////////////// test 1 end
-
-
-
-
-
-
-\ 1000 hz, left sin wave right sawtooth
-\ ( output -- )
-lockdict create __genwave forthentry
-$C_a_lxasm w, h141  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-hA0BE80C8 l, h5CFD72B3 l, hA0BE7BF1 l, h80BE7B3E l, hF8BE7B3E l, hA0BE553B l, h80BE773C l, h28FE5413 l,
-hA0BE572A l, h5CFE3512 l, h28FE5401 l, h60BE552E l, hA0BE592A l, hA0BE552B l, h5CFE4B23 l, h28FE5401 l,
-h60BE552E l, h2CFE5410 l, h68BE592A l, h83E5940 l, h5C7C0100 l, h5C7C0073 l, h613E5531 l, h623E5532 l,
-hA4B2552A l, h68BE5533 l, h2CFE5401 l, h4BE552A l, hA496552A l, h80BE5537 l, h5C7C0000 l, h613E5531 l,
-h623E5532 l, hA4B2552A l, h60BE5535 l, h2CFE5405 l, hA496552A l, h80BE5537 l, h5C7C0000 l, h60BE5534 l,
-h2CFE5404 l, h5C7C0000 l, h623E5532 l, hA0AA5536 l, hA0D65400 l, h5C7C0000 l, 0 l, 0 l,
-0 l, 0 l, hFFFF l, hFFFF0000 l, 0 l, h800 l, h1000 l, h7000 l,
-h1FFF l, h7FF l, h1FFFF l, h10000 l, 0 l, 0 l, 0 l, 0 l,
-h5CE13BD l, 0 l, h716 l, 0 l, 0 l,
-freedict
 
 
 
@@ -302,9 +313,24 @@ __addr
 
 
 \ 1000 hz, left sin wave right sawtooth
-\ ( outputAddr -- )
+
+\ ( toneOutput cyclesLeft currentStepCountVector stepVector phaseVector gainVector typeVector numTones -- )
 build_BootOpt :rasm
-                mov     __output , $C_stTOS
+                mov     __numTones , $C_stTOS
+                spop
+                mov     __typeVector , $C_stTOS
+                spop
+                mov     __gainVector , $C_stTOS
+                spop
+                mov     __phaseVector , $C_stTOS
+                spop
+                mov     __stepVector , $C_stTOS
+                spop
+                mov     __currentStepCountVector , $C_stTOS
+                spop
+                mov     __cyclesLeft , $C_stTOS
+                spop
+                mov     __toneOutput , $C_stTOS
                 spop
                 mov     __time , cnt
                 add     __time , __period
@@ -327,11 +353,14 @@ __mainLoop
                 shl     __r0 , # d16
                 or      __r2 , __r0
 
-
                 and     __r2 , __lomask
 
+                wrlong  __r2 , __toneOutput
 
-                wrlong  __r2 , __output
+                mov     __r0 , __time
+                sub     __r0 , cnt
+                
+                wrlong  __r0 , __cyclesLeft
 
                 jmp     # __mainLoop
 
@@ -407,15 +436,31 @@ __currIndex
                 0
 __step
                 d97391549
-__timex`
+__time
                 0
 __period
                 d1814
 __debug
                 0
-__output
+__toneOutput
                 0
+__cyclesLeft
+                0
+__numTones
+                0
+__phaseVector
+                0
+__stepVector
+                0
+__typeVector
+                0
+__currentStepCountVector
+                0
+__gainVector
+                0
+
 ;asm __genwave
+
 
 
 \ ( addrOfAddr --  ) 
