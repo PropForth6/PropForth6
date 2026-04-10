@@ -82,7 +82,6 @@ h5C7C0108 l, hF03E6D36 l, hF43E6D36 l, h2DFE6E01 l, h70BFE934 l, h5C3C013A l, 0 
 h4 l, h2 l, h1 l, 0 l, 0 l, hFFFF7FFE l, 0 l,
 freedict
 
-
 \ ( toneOutput cyclesLeft currentStepIndexVector stepVector phaseVector gainVector typeVector numTones -- )
 
 lockdict create __genwave forthentry
@@ -108,7 +107,11 @@ h5CE13BD l, 0 l, h716 l, 0 l, 0 l, 0 l, h1 l, 0 l,
 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 freedict
 
-
+lockdict create __simwave forthentry
+$C_a_lxasm w, h109  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+hA0BE0CC8 l, h5CFD72B3 l, h4BE1106 l, h28FE100C l, h60FE100F l, hA0FE0E01 l, h2CBE0F08 l, hA0BFE907 l,
+h5C7C00FE l, h5C7C0073 l, 0 l, 0 l, 0 l,
+freedict
 
 0 toneOutput L!
 0 numTones L!
@@ -129,12 +132,18 @@ freedict
     numTones volume __genwave
 ;
 
-c" runI2s" 0 cogx
+\ set up wave simulator, can see the wave on logic analyzer
+: runSimWave
+    dira COG@ hFFFF or dira COG! toneOutput __simwave
+;
 
+c" runI2s" 0 cogx
 c" runGenWave" 1 cogx
+c" runSimWave" 2 cogx
 
 256 400 0 setTone 
-256 500 1 setTone 
+256 1200 1 setTone 
+
 256 600 2 setTone 
 256 700 3 setTone 
 256 800 4 setTone 
@@ -145,9 +154,11 @@ c" runGenWave" 1 cogx
 256 1300 9 setTone 
 
 
-1 numTones L!
+2 numTones L!
+256 volume L!
 
 
+\ END TEST
 
 
 
@@ -189,7 +200,8 @@ sl
 
 \ assembler source
 
-\ _i2s ( clockMask lrMask dataOutMask dataAddr ackAddr -- )  clockMask - input  lrMask,dataOutMask - outputs   dataAddr - pointer to long 16 bits for each channel left channel is the lo 16 bits
+\ _i2s ( clockMask lrMask dataOutMask dataAddr ackAddr -- )  clockMask - input  lrMask,dataOutMask - outputs 
+\   dataAddr - pointer to long 16 bits for each channel left channel is the lo 16 bits
 build_BootOpt :rasm
 	            mov	    __ackAddr , $C_stTOS
 	            spop
@@ -282,41 +294,8 @@ __bitOutRet
 ;asm _i2s
 
 
-\ ( addr period --  ) pwm from addr
-build_BootOpt :rasm
-                mov     __period , $C_stTOS
-                spop
-                mov     __addr , $C_stTOS
-                spop
-                mov     __time , cnt
-                add     __time , __period
-__mainLoop
-                rdword  __value , __addr
-                shl     __value , # 6
-                waitcnt __time , __period
-                neg     phsa , __value
-                jmp     # __mainLoop
-                jexit
-__value
-                0                
-__time
-                0
-__period
-                0
-__addr
-                0
-;asm __pwmout
-
-
-\
-\ 
-\
-\
-
-
-
-
-\ ( toneOutput cyclesLeft currentStepIndexVector stepVector phaseVector gainVector typeVector numTonesAddr volumeAddr -- )
+\ ( toneOutput cyclesLeft currentStepIndexVector stepVector phaseVector gainVector 
+\ typeVector numTonesAddr volumeAddr -- )
 build_BootOpt :rasm
                 mov     __volumeAddr , $C_stTOS
                 spop
@@ -535,35 +514,59 @@ __volumeAddr
 
 
 
-\ ( addrOfAddr --  ) 
+\ ( addrIn --  ) 
 build_BootOpt :rasm
-                mov     __addrOfAddr , $C_stTOS
+                mov     __addrIn , $C_stTOS
                 spop
 __mainLoop
-                rdword  __r0 , __addrOfAddr
-                rdword  __value , __r0
-\                add     __value , # h80
+                rdword  __value , __addrIn
                 shr     __value , # d12
                 and     __value , # d15
                 mov     __r1 , # 1
                 shl     __r1 , __value
-                mov     __r0 , outa
-                and     __r0 , __himask 
-                or      __r0 , __r1
                 mov     outa , __r1
                 jmp     # __mainLoop
                 jexit
-__addrOfAddr
+__addrIn
                 0
-__r0
-                0            
 __r1
                 0            
 __value
                 0            
-__himask
-                hFFFF0000
-;asm __simWave
+;asm __simwave
+
+
+
+\ ( addr period --  ) pwm from addr
+build_BootOpt :rasm
+                mov     __period , $C_stTOS
+                spop
+                mov     __addr , $C_stTOS
+                spop
+                mov     __time , cnt
+                add     __time , __period
+__mainLoop
+                rdword  __value , __addr
+                shl     __value , # 6
+                waitcnt __time , __period
+                neg     phsa , __value
+                jmp     # __mainLoop
+                jexit
+__value
+                0                
+__time
+                0
+__period
+                0
+__addr
+                0
+;asm __pwmout
+
+
+\
+\ 
+\
+\
 
 
 
