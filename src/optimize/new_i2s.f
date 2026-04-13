@@ -53,7 +53,7 @@ variable volume
 9 constant maxNumTones
 256 constant maxVolume
 variable typeVector 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
-variable gainVector 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
+variable gainVector 128 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 variable phaseVector 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 variable stepVector 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 variable currentStepIndexVector 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
@@ -64,8 +64,8 @@ variable volumeVector 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 variable  dataOut
 
 : setNumTones maxNumTones 1+ min numTones L! ;
-\ ( volume freq index -- )
-: setTone maxNumTones min  4* swap freqToStep over stepVector + L! volumeVector + L! ;
+\ ( gain freq index -- )
+: setTone maxNumTones min  4* swap freqToStep over stepVector + L! gainVector + L! ;
 \ ( n -- ) n = 0-256 overall volume
 : setVolume maxVolume min volume L! ;
 : tmon begin cyclesLeft L@ . cr 1000 delms esc? until ;
@@ -90,25 +90,26 @@ freedict
 
 
 lockdict create __genwave forthentry
-$C_a_lxasm w, h193  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-hA0BF24C8 l, h5CFD72B3 l, hA0BF12C8 l, h5CFD72B3 l, hA0BF18C8 l, h5CFD72B3 l, hA0BF1CC8 l, h5CFD72B3 l,
-hA0BF14C8 l, h5CFD72B3 l, hA0BF16C8 l, h5CFD72B3 l, hA0BF1AC8 l, h5CFD72B3 l, hA0BF10C8 l, h5CFD72B3 l,
-hA0BF0EC8 l, h5CFD72B3 l, hA0BF09F1 l, h80BF0985 l, hF8BF0985 l, hA0FEE800 l, h8BF2389 l, h877F2200 l,
-h5C68012C l, hA0BEE38B l, h80BEE38F l, h8BF0771 l, hA0BEE38D l, h80BEE38F l, h8BF0571 l, hA0BEE582 l,
-h80BEE583 l, h83EE571 l, hA0BEE382 l, h28FEE213 l, h5CFE7331 l, h80BEE971 l, h80FF1E04 l, h80FF2001 l,
-h873F2191 l, h5C700115 l, hA0FF2000 l, hA0FF1E00 l, h8BEE392 l, h5CFEE149 l, h4CBEE975 l, h83EE987 l,
-hA0BEE384 l, h84BEE3F1 l, h83EE388 l, h5C7C0110 l, h5C7C0073 l, h613EE378 l, h623EE379 l, hA4B2E371 l,
-h68BEE37A l, h2CFEE201 l, h4BEE371 l, hA496E371 l, h80BEE37E l, h5C7C0000 l, h613EE378 l, h623EE379 l,
-hA4B2E371 l, h60BEE37C l, h2CFEE205 l, hA496E371 l, h80BEE37E l, h5C7C0000 l, h60BEE37B l, h2CFEE204 l,
-h5C7C0000 l, h623EE379 l, hA0AAE37D l, hA0D6E200 l, h5C7C0000 l, hA0FEE600 l, hA0FEE401 l, h623EE372 l,
-h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l, h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l,
-h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l, h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l,
-h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l, h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l,
-h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l, h8096E774 l, h2CFEE401 l, h2CFEE801 l, h623EE372 l,
-h8096E774 l, h80FEE680 l, h28FEE608 l, hA0BEE973 l, h5C7C0000 l, 0 l, 0 l, 0 l,
-0 l, hFFFF l, hFFFF0000 l, 0 l, h800 l, h1000 l, h7000 l, h1FFF l,
-h7FF l, h1FFFF l, h10000 l, 0 l, 0 l, 0 l, 0 l, h5CE13BD l,
-0 l, h716 l, 0 l, 0 l, 0 l, h1 l, 0 l, 0 l,
+$C_a_lxasm w, h19B  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+hA0BF2EC8 l, h5CFD72B3 l, hA0BF1EC8 l, h5CFD72B3 l, hA0BF22C8 l, h5CFD72B3 l, hA0BF26C8 l, h5CFD72B3 l,
+hA0BF20C8 l, h5CFD72B3 l, hA0BF24C8 l, h5CFD72B3 l, hA0BF1CC8 l, h5CFD72B3 l, hA0BF1AC8 l, h5CFD72B3 l,
+hA0BF15F1 l, h80BF158B l, hF8BF158B l, hA0FF3200 l, h8BF2D8F l, h877F2C00 l, h5C680138 l, hA0BEFB93 l,
+h80BEFB94 l, h8BF357D l, hA0BEFB91 l, h80BEFB94 l, h8BF317D l, hA0BEFB90 l, h80BEFB94 l, h8BF137D l,
+hA0BEFB92 l, h80BEFB94 l, h8BF117D l, hA0BEFD88 l, h80BEFD89 l, h83EFD7D l, hA0BEFB88 l, h28FEFA13 l,
+h80BF1189 l, h877F3003 l, h5CEAA14E l, h877F3002 l, h5CEAA951 l, h877F3001 l, h5CEA9B46 l, h877F3000 l,
+h5CEA8B3D l, hA0BF017D l, hA0BEFB9A l, h5CFEF955 l, h80BF3380 l, h80FF2804 l, h80FF2A01 l, h873F2B96 l,
+h5C700113 l, hA0FF2A00 l, hA0FF2800 l, h83F338D l, hA0BEFB8A l, h84BEFBF1 l, h83EFB8E l, h5C7C010E l,
+h5C7C0073 l, h613EFB81 l, h623EFB82 l, hA4B2FB7D l, h68BEFB83 l, h2CFEFA01 l, h4BEFB7D l, hA496FB7D l,
+h80BEFB87 l, h5C7C0000 l, h613EFB81 l, h623EFB82 l, hA4B2FB7D l, h60BEFB85 l, h2CFEFA05 l, hA496FB7D l,
+h80BEFB87 l, h5C7C0000 l, h60BEFB84 l, h2CFEFA04 l, h5C7C0000 l, h623EFB82 l, hA0AAFB86 l, hA0D6FA00 l,
+h5C7C0000 l, hA0FEFE00 l, hA0FEFC01 l, h623EFB7E l, h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l,
+h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l, h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l,
+h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l, h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l,
+h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l, h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l,
+h8096FF80 l, h2CFEFC01 l, h2CFF0001 l, h623EFB7E l, h8096FF80 l, h80FEFE80 l, h28FEFE08 l, hA0BF017F l,
+h5C7C0000 l, 0 l, 0 l, 0 l, 0 l, h800 l, h1000 l, h7000 l,
+h1FFF l, h7FF l, h1FFFF l, h10000 l, 0 l, h5CE13BD l, 0 l, h716 l,
+0 l, 0 l, 0 l, h1 l, 0 l, 0 l, 0 l, 0 l,
 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 freedict
 
