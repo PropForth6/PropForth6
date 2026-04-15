@@ -7,7 +7,7 @@
 
 
 \ cog 0 - i2s driver,  clock A produces the bit clk 44100 sample rate
-\ cog 1 - wave generator for freq < 2 khz ??? generation at 22.5 kHz, 10 waves ???
+\ cog 1 - wave generator, possibility for freq < 2 khz ??? generation at 22.5 kHz, 10 waves ???
 \ cog 2 - wave generator
 \ cog 3 - wave generator / wave display for lac
 \ cog 4 - mixer 
@@ -136,8 +136,6 @@ hA0BE0CC8 l, h5CFD72B3 l, h4BE1106 l, h28FE100C l, h60FE100F l, hA0FE0E01 l, h2C
 h5C7C00FE l, h5C7C0073 l, 0 l, 0 l, 0 l,
 freedict
 
-0 numTones L!
-
 \ set up the i2s 
 : runI2s 
     d17 pinout d18 pinout d19 pinout 17 bitFrequency setHza
@@ -156,58 +154,56 @@ freedict
     __genwave
 ;
 
-: runGenWave
-    toneOutput
-    cyclesLeft
-    currentStepIndexVector
-    stepVector
-    typeGainVector
-    numTones
-    __genwave
-;
-
-
 \ set up wave simulator, can see the wave on logic analyzer
 : runSimWave
-    dira COG@ hFFFF or dira COG! toneOutput __simwave
+    4* toneOutput + dira COG@ hFFFF or dira COG! __simwave
 ;
 
 : dd
-    typeGainVector d16 dump
-    stepVector d16 dump
-    currentStepIndexVector d16 dump
+    typeGainVector d64 dump
+    stepVector d64 dump
+    currentStepIndexVector d64 dump
     ;
 
 : tmon 
-    begin cyclesLeft L@ . cr 1000 delms esc? until 
+    begin 
+        cyclesLeft L@ . 
+        cyclesLeft 4+ L@ . 
+        cyclesLeft 4+ 4+ L@ . 
+        cr 1000 delms esc? 
+    until 
 ;
-
-
 
 c" runI2s" 0 cogx
 c" 0 runGenWave" 1 cogx
-c" runSimWave" 3 cogx
+c" 1 runGenWave" 2 cogx
+\ c" 0 runSimWave" 3 cogx
+c" 1 runSimWave" 3 cogx
 
-0 64 400 0 setTone 
-0 64 1200 1 setTone 
-0 64 600 2 setTone 
-0 64 700 3 setTone 
-0 64 800 4 setTone 
-0 64 900 5 setTone 
-0 64 1000 6 setTone 
-0 64 1100 7 setTone 
-0 64 1200 8 setTone 
-0 64 1300 9 setTone 
+0 64 400  0 setTone 
+2 0  500  1 setTone 
+2 0  600  2 setTone 
+2 0  700  3 setTone 
+2 0  800  4 setTone 
+2 0  900  5 setTone 
+2 0  1000 6 setTone 
+2 0  1100 7 setTone 
+2 0  1200 8 setTone 
+2 0  1300 9 setTone 
+
+5 numTones L! 
+5 numTones 4+ L!
 
 
-1 numTones L!
-1 numTones L!
 
-0 64 400 0 setTone 0 64 1200 1 setTone 2 numTones L!
+0 64 400 0 setTone 0 64 1200 1 setTone
 
-0 66 400 0 setTone 0 32 1200 1 setTone 2 numTones L!
+0 66 400 0 setTone 0 32 1200 1 setTone
 
-0 64 400 0 setTone 2 32 1200 1 setTone 2 numTones L!
+0 64 400 0 setTone 2 32 1200 1 setTone
+
+0 64 400 0 setTone 3 66 1200 5 setTone 
+
 
 
 
