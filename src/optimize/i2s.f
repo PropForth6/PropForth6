@@ -5,7 +5,6 @@
 \ pin 18 - i2s LR ( left right signal) 
 \ pin 19 - data for i2s
 
-
 \ cog 0 - i2s driver,  clock A produces the bit clk 44100 sample rate
 \ cog 1 - wave generator, possibility for freq < 2 khz ??? generation at 22.5 kHz, 10 waves ???
 \ cog 2 - wave generator
@@ -53,10 +52,19 @@ sampleFreq d32 * constant bitFrequency
 variable numTones 0 l, 0 l,
 variable cyclesLeft 0 l, 0 l,
 variable toneOutput 0 l, 0 l,
+variable toneSum
 variable volume
+
+0 volume L!
+0 toneSum L!
+0 toneOutput L!
+
 d15 constant maxNumTones
 d256 constant maxVolume
 
+5 numTones L!
+5 numTones 4+ L!
+5 numTones 4+ 4+ L!
 
 \ set up for 15 tones, currently running at 5 tones per cog
 
@@ -81,7 +89,7 @@ tonesArray     d120 +  constant currentStepIndexVector
 \ ( type gain freq index -- )
 : setTone 
     maxNumTones min 4* swap freqToStep over stepVector + L! 
-    currentStepIndexVector over + h55 swap L!
+    currentStepIndexVector over + 0 swap L!
     rot d16 lshift rot or swap typeGainVector + L!
 ;
 
@@ -129,6 +137,20 @@ h5C7C0000 l, h623EE376 l, hA0AAE37A l, hA0D6E200 l, h5C7C0000 l, 0 l, 0 l, 0 l,
 0 l,
 freedict
 
+lockdict create __mixer forthentry
+$C_a_lxasm w, h14E  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+hA0BE98C8 l, h5CFD72B3 l, hA0BE86C8 l, h5CFD72B3 l, hA0BE84C8 l, h5CFD72B3 l, h83E8D43 l, hA0BE8942 l,
+hA0FE8C00 l, h8BE8B44 l, h80FE8804 l, h80BE8D45 l, h8BE8B44 l, h80FE8804 l, h80BE8D45 l, h8BE8B44 l,
+h80BE8D45 l, h28BE8D4B l, h8BE9B4C l, h4DBE8D47 l, h80CE9001 l, hA0FE8A00 l, h627E9A01 l, h80968B46 l,
+h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l, h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l,
+h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l, h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l,
+h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l, h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l,
+h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l, h2CFE8C01 l, h28FE9A01 l, h627E9A01 l, h80968B46 l,
+h80FE8A80 l, h28FE8A08 l, hA0BE8D45 l, h87FE9201 l, h5C440102 l, hA0BE934A l, h877E91F4 l, h80C69601 l,
+h84F29601 l, hA0FE9000 l, h44FE9608 l, h40FE9600 l, h5C7C0102 l, h5C7C0073 l, 0 l, 0 l,
+0 l, 0 l, 0 l, hFFFF l, 0 l, h2710 l, h2710 l, 0 l,
+0 l, 0 l,
+freedict
 
 lockdict create __simwave forthentry
 $C_a_lxasm w, h109  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
@@ -156,16 +178,40 @@ freedict
 
 \ set up wave simulator, can see the wave on logic analyzer
 : runSimWave
-    4* toneOutput + dira COG@ hFFFF or dira COG! __simwave
+    dira COG@ hFFFF or dira COG! toneSum __simwave
 ;
+
+: runMixer
+    toneOutput toneSum volume __mixer
+;
+
+: mix 
+    begin
+        toneOutput L@ 
+        toneOutput 4+ L@ +
+        toneOutput 4+ 4+ L@ +
+        toneSum L! 
+        0
+    until
+;  
 
 : dd
     typeGainVector d64 dump
     stepVector d64 dump
     currentStepIndexVector d64 dump
-    ;
+;
 
 : tmon 
+    begin 
+        toneOutput L@ . 
+        toneOutput 4+ L@ . 
+        toneOutput 4+ 4+ L@ . 
+        toneSum L@ .
+        cr esc? 
+    until 
+;
+
+: cmon 
     begin 
         cyclesLeft L@ . 
         cyclesLeft 4+ L@ . 
@@ -177,35 +223,93 @@ freedict
 c" runI2s" 0 cogx
 c" 0 runGenWave" 1 cogx
 c" 1 runGenWave" 2 cogx
-\ c" 0 runSimWave" 3 cogx
-c" 1 runSimWave" 3 cogx
-
-0 64 400  0 setTone 
-2 0  500  1 setTone 
-2 0  600  2 setTone 
-2 0  700  3 setTone 
-2 0  800  4 setTone 
-2 0  900  5 setTone 
-2 0  1000 6 setTone 
-2 0  1100 7 setTone 
-2 0  1200 8 setTone 
-2 0  1300 9 setTone 
-
-5 numTones L! 
-5 numTones 4+ L!
+c" runSimWave" 3 cogx
+c" runMixer"  4 cogx
 
 
 
-0 64 400 0 setTone 0 64 1200 1 setTone
+typeSin      d64   d400  d0 setTone 
+typeTriangle d0    d500  d1 setTone 
+typeTriangle d0    d600  d2 setTone 
+typeTriangle d0    d700  d3 setTone 
+typeTriangle d0    d800  d4 setTone 
+typeTriangle d0    d900  d5 setTone 
+typeTriangle d0    d1000 d6 setTone 
+typeTriangle d0    d1100 d7 setTone 
+typeTriangle d0    d1200 d8 setTone 
+typeTriangle d0    d1300 d9 setTone 
+d0 setVolume
 
-0 66 400 0 setTone 0 32 1200 1 setTone
 
-0 64 400 0 setTone 2 32 1200 1 setTone
+\ test scenarios
 
-0 64 400 0 setTone 3 66 1200 5 setTone 
+typeSin      d64   d400  d0 setTone 
+typeTriangle d0    d500  d1 setTone 
+typeTriangle d0    d600  d2 setTone 
+typeTriangle d0    d700  d3 setTone 
+typeTriangle d0    d800  d4 setTone 
+typeTriangle d0    d900  d5 setTone 
+typeTriangle d0    d1000 d6 setTone 
+typeTriangle d0    d1100 d7 setTone 
+typeTriangle d0    d1200 d8 setTone 
+typeTriangle d0    d1300 d9 setTone 
+d256 setVolume
+
+
+typeSin      d256   d400  d0 setTone 
+typeTriangle d0    d500  d1 setTone 
+typeTriangle d0    d600  d2 setTone 
+typeTriangle d0    d700  d3 setTone 
+typeTriangle d0    d800  d4 setTone 
+typeTriangle d0    d900  d5 setTone 
+typeTriangle d0    d1000 d6 setTone 
+typeTriangle d0    d1100 d7 setTone 
+typeTriangle d0    d1200 d8 setTone 
+typeTriangle d0    d1300 d9 setTone 
+d256 setVolume
+
+typeSin      d256   d400  d0 setTone 
+typeSquare   d128   d1200 d1 setTone 
+typeTriangle d0    d600  d2 setTone 
+typeTriangle d0    d700  d3 setTone 
+typeTriangle d0    d800  d4 setTone 
+typeTriangle d0    d900  d5 setTone 
+typeTriangle d0    d1000 d6 setTone 
+typeTriangle d0    d1100 d7 setTone 
+typeTriangle d0    d1200 d8 setTone 
+typeTriangle d0    d1300 d9 setTone 
+d256 setVolume
+
+
+typeSin      d64   d400  d0 setTone 
+typeTriangle d0    d500  d1 setTone 
+typeTriangle d0    d600  d2 setTone 
+typeTriangle d0    d700  d3 setTone 
+typeTriangle d0    d800  d4 setTone 
+typeTriangle d0    d900  d5 setTone 
+typeTriangle d0    d1000 d6 setTone 
+typeTriangle d0    d1100 d7 setTone 
+typeSin      d32   d1200 d8 setTone 
+typeTriangle d0    d1300 d9 setTone 
+d256 setVolume
+
+
+typeSin      d64   d400  d0 setTone 
+typeTriangle d0    d500  d1 setTone 
+typeTriangle d0    d600  d2 setTone 
+typeTriangle d0    d700  d3 setTone 
+typeTriangle d64   d800  d4 setTone 
+typeTriangle d0    d900  d5 setTone 
+typeTriangle d0    d1000 d6 setTone 
+typeTriangle d0    d1100 d7 setTone 
+typeSquare   d0    d1200 d8 setTone 
+typeTriangle d0    d1300 d9 setTone 
+d256 setVolume
 
 
 
+
+4 cogreset 1000 delms c" runMixer" 4 cogx
 
 \ END TEST
 
@@ -520,7 +624,115 @@ __outSum
                 0
 __gain
                 0
-;asm __genwave
+;asm __genwave  
+
+
+
+\ ( toneAddrs outAddr volumeAddr --  ) 
+build_BootOpt :rasm
+                mov     __volumeAddr , $C_stTOS
+                spop
+                mov     __outAddr , $C_stTOS
+                spop
+                mov     __toneAddrs , $C_stTOS
+                spop
+__mainLoop
+                wrlong  __value , __outAddr
+                mov     __r0 ,  __toneAddrs
+                mov     __value , # 0
+                rdlong  __r1 , __r0
+                add     __r0 , # d4
+                add     __value , __r1
+                rdlong  __r1 , __r0
+                add     __r0 , # d4
+                add     __value , __r1
+                rdlong  __r1 , __r0
+                add     __value , __r1
+                shr     __value , __agcRightShift
+                rdlong  __volume , __volumeAddr
+ 
+                max     __value , __maxValue    wc
+    if_nc       add     __agcCount , # 1
+
+                mov     __r1 , # 0
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                shl     __value , # 1
+                shr     __volume , # 1
+                test    __volume , # 1     wz
+    if_nz       add     __r1 , __value
+                add     __r1 , # d128
+                shr     __r1 , # 8
+                mov     __value , __r1
+
+                sub     __loopCount , # 1       wz wc
+    if_a        jmp     # __mainLoop
+
+                mov     __loopCount , __loopCountReset
+                cmp     __agcCount , # d500 wz wc
+    if_a        add     __agcRightShift , # 1
+    if_b        sub     __agcRightShift , # 1
+                mov     __agcCount , # 0
+
+                maxs    __agcRightShift , # d8 
+                mins    __agcRightShift , # 0
+ 
+                jmp     # __mainLoop
+                jexit
+__toneAddrs
+                0
+__outAddr
+                0
+__r0
+                0
+__r1
+                0       
+__value
+                0            
+__maxValue
+                hFFFF
+__agcCount
+                0
+__loopCount
+                d10000
+__loopCountReset
+                d10000
+__agcRightShift
+                0      
+__volumeAddr
+                0
+__volume
+                0
+;asm __mixer
+
 
 
 
