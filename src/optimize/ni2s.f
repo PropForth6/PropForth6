@@ -8,9 +8,9 @@
 \ cog 0 - i2s driver,  clock A produces the bit clk 44100 sample rate
 \ cog 1 - wave generator, possibility for freq < 2 khz ??? generation at 22.5 kHz, 10 waves ???
 \ cog 2 - wave generator
-\ cog 3 - wave generator / (wave display for lac - for debugging )
+\ cog 3 - wave generator / wave display for lac
 \ cog 4 - mixer 
-\ cog 5 - tone / note envelope driver
+\ cog 5 - tone / envelope driver
 \ cog 6 - ui 
 \ cog 7 - serial interface
 
@@ -129,7 +129,6 @@ variable notesArray
 d12 d4 u*               constant noteSize
 d15                     constant numNotes
 
-
 \ attackStart   128 * gain/ms
 \ holdStart     128 * gain/ms
 \ decayStart    128 * gain/ms
@@ -145,7 +144,6 @@ variable holdMs
 variable decayMs
 variable sustainMs
 variable releaseMs
-varaible notePointer
 
 
 \ setNote ( attackLevel sustainLevel attackMs holdMs decayMs sustainMs releaseMs type freq noteIndex -- )
@@ -159,11 +157,6 @@ varaible notePointer
     attackMs L!
     sustainLevel L!
     attackLevel L!
-
-    notesArray noteSize noteIndex L@ u* notePointer L!
-
-
-
 ;
 
 \ _i2s ( clockMask lrMask dataOutMask dataAddr  -- )
@@ -307,15 +300,6 @@ c" 3 runGenWav" 3 cogx
 c" runMixer"  4 cogx
 
 : v setVolume ;
-
-
-
-
-
-
-
-
-
 
 : t0  typeSin swap d400 d0 setTone ;
 : t5  typeSin swap d800 d5 setTone ;
