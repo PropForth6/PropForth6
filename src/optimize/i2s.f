@@ -243,12 +243,18 @@ freedict
 
 \ set up the i2s 
 : runI2s 
+	c" __i2s" pad ccopy
+    pad cds W!
+
     d17 pinout d18 pinout d19 pinout 17 bitFrequency setHza
     d17 >m  d18 >m d19 >m toneSum _i2s
 ;
 
 \ ( n -- ) n - cog offset
 : runGenWave
+	c" __genwave: " pad ccopy
+    dup pad cappendn
+    pad cds W!
     4*
     toneOutput over + swap
     cyclesLeft over + swap
@@ -262,12 +268,16 @@ freedict
 
 \ set up wave simulator, can see the wave on logic analyzer
 : runSimWave
+	c" __simwave" pad ccopy
+    pad cds W!
     dira COG@ hFFFF or dira COG!
     toneSum
     __simwave
 ;
 
 : runMixer
+	c" __mixer" pad ccopy
+    pad cds W!
     toneOutput toneSum volume mixDebug __mixer
 ;
 
