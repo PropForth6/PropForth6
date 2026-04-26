@@ -63,24 +63,27 @@ variable volume
 0 toneSum L!
 0 toneOutput L!
 
-d15 constant maxNumTones
+\ set up for 15 tones, currently running at 5 tones per cog
+
+d5 constant tonesPerCog
+d3 constant numToneCogs
+
+tonesPerCog numToneCogs u* constant maxNumTones
 
 d256 constant maxVolume
 
-5 numTones L!
-5 numTones 4+ L!
-5 numTones 4+ 4+ L!
+tonesPerCog numTones L!
+tonesPerCog numTones 4+ L!
+tonesPerCog numTones 4+ 4+ L!
 
-\ set up for 15 tones, currently running at 5 tones per cog
 
-d5 constant toneArraySize
 variable tonesArray
 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 
 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
-tonesArray             constant typeGainVector
-tonesArray     d60 +   constant stepVector
-tonesArray     d120 +  constant currentStepIndexVector
+tonesArray                              constant typeGainVector
+tonesArray     maxNumTones 4* +         constant stepVector
+tonesArray     maxNumTones 4* 2* +      constant currentStepIndexVector
 
 0 constant typeSin
 1 constant typeTriangle
@@ -249,9 +252,9 @@ freedict
     4*
     toneOutput over + swap
     cyclesLeft over + swap
-    currentStepIndexVector over toneArraySize u* + swap
-    stepVector over toneArraySize u* + swap
-    typeGainVector over toneArraySize u* + swap
+    currentStepIndexVector over tonesPerCog u* + swap
+    stepVector over tonesPerCog u* + swap
+    typeGainVector over tonesPerCog u* + swap
     numTones +
     period
     __genwave
@@ -303,23 +306,54 @@ freedict
 c" runI2s" 0 cogx
 c" 0 runGenWave" 1 cogx
 c" 1 runGenWave" 2 cogx
-c" 2 runGenWav" 3 cogx
+c" 2 runGenWave" 3 cogx
 c" runMixer"  4 cogx
+
+
+typeSin d0  d400  d0   setTone
+typeSin d0  d500  d1   setTone
+typeSin d0  d600  d2   setTone
+typeSin d0  d700  d3   setTone
+typeSin d0  d800  d4   setTone
+typeSin d0  d900  d5   setTone
+typeSin d0  d1000 d6   setTone
+typeSin d0  d1100 d7   setTone
+typeSin d0  d1200 d8   setTone
+typeSin d0  d1300 d9   setTone
+typeSin d0  d1400 d10  setTone
+typeSin d0  d1500 d11  setTone
+typeSin d0  d1600 d12  setTone
+typeSin d0  d1700 d13  setTone
+typeSin d0  d1800 d14  setTone
+
 
 : v setVolume ;
 
+: t0  typeSin swap d400  d0   setTone ;
+: t1  typeSin swap d500  d1   setTone ;
+: t2  typeSin swap d600  d2   setTone ;
+: t3  typeSin swap d700  d3   setTone ;
+: t4  typeSin swap d800  d4   setTone ;
+: t5  typeSin swap d900  d5   setTone ;
+: t6  typeSin swap d1000 d6   setTone ;
+: t7  typeSin swap d1100 d7   setTone ;
+: t8  typeSin swap d1200 d8   setTone ;
+: t9  typeSin swap d1300 d9   setTone ;
+: t10 typeSin swap d1400 d10  setTone ;
+: t11 typeSin swap d1500 d11  setTone ;
+: t12 typeSin swap d1600 d12  setTone ;
+: t13 typeSin swap d1700 d13  setTone ;
+: t14 typeSin swap d1800 d14  setTone ;
 
 
 
 
 
+32 t0 32 v
 
 
 
 
-: t0  typeSin swap d400 d0 setTone ;
-: t5  typeSin swap d800 d5 setTone ;
-: t10 typeSin swap d1200 d5 setTone ;
 
 32 t0 16 t5 16 t10 32 v
 
