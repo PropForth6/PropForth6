@@ -145,7 +145,7 @@ variable holdMs
 variable decayMs
 variable sustainMs
 variable releaseMs
-varaible notePointer
+variable notePointer
 
 
 \ setNote ( attackLevel sustainLevel attackMs holdMs decayMs sustainMs releaseMs type freq noteIndex -- )
@@ -303,7 +303,7 @@ freedict
 c" runI2s" 0 cogx
 c" 0 runGenWave" 1 cogx
 c" 1 runGenWave" 2 cogx
-c" 3 runGenWav" 3 cogx
+c" 2 runGenWav" 3 cogx
 c" runMixer"  4 cogx
 
 : v setVolume ;
@@ -321,7 +321,7 @@ c" runMixer"  4 cogx
 : t5  typeSin swap d800 d5 setTone ;
 : t10 typeSin swap d1200 d5 setTone ;
 
-32 t0 16 t5 32 v
+32 t0 16 t5 16 t10 32 v
 
 256 t0 256 t5 20 v
 
