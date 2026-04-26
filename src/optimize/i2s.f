@@ -186,26 +186,26 @@ freedict
 \ ( toneOutput cyclesLeft currentStepIndexVector stepVector typeGainVector numTonesAddr -- )
 
 lockdict create __genwave forthentry
-$C_a_lxasm w, h18F  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
-hA0BF02C8 l, h5CFD72B3 l, hA0BF0AC8 l, h5CFD72B3 l, hA0BF0EC8 l, h5CFD72B3 l, hA0BF0CC8 l, h5CFD72B3 l,
-hA0BF10C8 l, h5CFD72B3 l, hA0BF08C8 l, h5CFD72B3 l, hA0BF06C8 l, h5CFD72B3 l, hA0BF01F1 l, h80BF0181 l,
-hF8BF0181 l, hA0FF1A00 l, h8BF1785 l, h877F1600 l, h5C680156 l, hA0BEE787 l, h80BEE789 l, h8BF1D73 l,
-hA0BEE786 l, h80BEE789 l, h8BEFF73 l, hA0BEE788 l, h80BEE789 l, h8BEFD73 l, hA0BEE97E l, h80BEE97F l,
-h83EE973 l, hA0BEE77E l, h28FEE613 l, hA0BF198E l, h60FF1DFF l, h28FF1810 l, h60FF1803 l, h877F1803 l,
-h5CEADB6A l, h877F1802 l, h5CEAE56E l, h877F1801 l, h5CEAD363 l, h877F1800 l, h5CEAC55B l, hA0FEE800 l,
-h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l, h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l,
-h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l, h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l,
-h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l, h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l,
-h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l, h627F1C01 l, h8096E973 l, h2CFEE601 l, h28FF1C01 l,
-h627F1C01 l, h8096E973 l, h80FEE880 l, h38FEE808 l, h80BF1B74 l, h80FF1204 l, h86FF1601 l, h5C540111 l,
-hA0FF1200 l, h83F1B83 l, hA0BEE780 l, h84BEE7F1 l, h83EE784 l, h5C7C010C l, h5C7C0073 l, h613EE777 l,
-h623EE778 l, hA4B2E773 l, h68BEE779 l, h2CFEE601 l, h4BEE773 l, hA496E773 l, h5C7C0000 l, h613EE777 l,
-h623EE778 l, hA4B2E773 l, h60BEE77B l, h2CFEE605 l, hA496E773 l, h5C7C0000 l, h60BEE77A l, h2CFEE604 l,
-h84BEE77D l, h5C7C0000 l, h623EE778 l, hA0AAE77C l, hA0D6E600 l, h84BEE77D l, h5C7C0000 l, 0 l,
-0 l, 0 l, 0 l, h800 l, h1000 l, h7000 l, h1FFF l, h7FF l,
-h1FFFF l, h10000 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
-0 l, h1 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
-0 l, 0 l, 0 l,
+$C_a_lxasm w, h18D  hFC  1- tuck - h9 lshift swap h1FF and or here W@ alignl h10 lshift or l,
+hA0BEFEC8 l, h5CFD72B3 l, hA0BF06C8 l, h5CFD72B3 l, hA0BF0AC8 l, h5CFD72B3 l, hA0BF08C8 l, h5CFD72B3 l,
+hA0BF0CC8 l, h5CFD72B3 l, hA0BF04C8 l, h5CFD72B3 l, hA0BF02C8 l, h5CFD72B3 l, hA0BEFDF1 l, h80BEFD7F l,
+hF8BEFD7F l, hA0FF1600 l, h8BF1383 l, hA0BEE385 l, h80BEE387 l, h8BF1971 l, hA0BEE384 l, h80BEE387 l,
+h8BEFB71 l, hA0BEE386 l, h80BEE387 l, h8BEF971 l, hA0BEE57C l, h80BEE57D l, h83EE571 l, hA0BEE37C l,
+h28FEE213 l, hA0BF158C l, h60FF19FF l, h28FF1410 l, h60FF1403 l, h2CFF1403 l, h80FF1554 l, h5C3C018A l,
+hA0FEE400 l, h627F1801 l, h8096E571 l, h2CFEE201 l, h28FF1801 l, h627F1801 l, h8096E571 l, h2CFEE201 l,
+h28FF1801 l, h627F1801 l, h8096E571 l, h2CFEE201 l, h28FF1801 l, h627F1801 l, h8096E571 l, h2CFEE201 l,
+h28FF1801 l, h627F1801 l, h8096E571 l, h2CFEE201 l, h28FF1801 l, h627F1801 l, h8096E571 l, h2CFEE201 l,
+h28FF1801 l, h627F1801 l, h8096E571 l, h2CFEE201 l, h28FF1801 l, h627F1801 l, h8096E571 l, h2CFEE201 l,
+h28FF1801 l, h627F1801 l, h8096E571 l, h80FEE480 l, h38FEE408 l, h80BF1772 l, h80FF0E04 l, h86FF1201 l,
+h5C54010F l, hA0FF0E00 l, h83F1781 l, hA0BEE37E l, h84BEE3F1 l, h83EE382 l, h5C7C010C l, h5C7C0073 l,
+h613EE375 l, h623EE376 l, hA4B2E371 l, h68BEE377 l, h2CFEE201 l, h4BEE371 l, hA496E371 l, h5C7C0124 l,
+h613EE375 l, h623EE376 l, hA4B2E371 l, h60BEE379 l, h2CFEE205 l, hA496E371 l, h5C7C0124 l, h5C7C0124 l,
+h60BEE378 l, h2CFEE204 l, h84BEE37B l, h5C7C0124 l, h5C7C0124 l, h5C7C0124 l, h5C7C0124 l, h5C7C0124 l,
+h623EE376 l, hA0AAE37A l, hA0D6E200 l, h84BEE37B l, h5C7C0124 l, 0 l, 0 l, 0 l,
+0 l, h800 l, h1000 l, h7000 l, h1FFF l, h7FF l, h1FFFF l, h10000 l,
+0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, h1 l,
+0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l, 0 l,
+0 l,
 freedict
 
 \ ( toneAddrs outAddr outSignedAddr volumeAddr --  ) 
@@ -358,9 +358,13 @@ typeSin d0  d1800 d14  setTone
 
 
 
+    0 32 d1000  d5   setTone
 
 32 t0 32 v
 
+
+
+typeSin d0  d400  d0   setTone
 
 
 
@@ -628,8 +632,6 @@ __mainLoop
                 waitcnt __time , __period
                 mov     __outSum , # 0
                 rdlong  __toneLimit , __numTones
-                cmp     __toneLimit , # 0           wc wz
-    if_z        jmp     # __tonesDone
 __toneLoop 
                 mov     __r0 , __typeGainVector
                 add     __r0 , __currentToneOffset 
@@ -654,17 +656,12 @@ __toneLoop
                 shr     __type , # d16
                 and     __type , # 3
 
-                cmp     __type , # 3                  wc wz
-    if_e        jmpret  __sawRet , # __saw
-                cmp     __type , # 2                  wc wz
-    if_e        jmpret  __squareRet , # __square
-                cmp     __type , # 1                  wc wz
-    if_e        jmpret  __triangleRet , # __triangle
-                cmp    __type , # 0                   wc wz
-    if_e        jmpret  __sinRet ,  # __sin
+                shl     __type , # 3
+                add     __type , # __genRoutines
+                jmp     __type
+__genret
 
                 mov     __r1 , # 0
-
                 test    __gain , # 1     wz
     if_nz       add     __r1 , __r0
                 shl     __r0 , # 1
@@ -719,6 +716,9 @@ __tonesDone
                 jmp     # __mainLoop
 
                 jexit
+
+\ reach routine must be 8 instructions
+__genRoutines
 __sin
                 test    __r0 , __quad90 wc
                 test    __r0 , __quad180 wz
@@ -727,8 +727,7 @@ __sin
                 shl     __r0 , # 1
                 rdword  __r0 , __r0
     if_nz       neg     __r0 , __r0
-__sinRet
-                ret
+                jmp     # __genret
 __triangle
                 test    __r0 , __quad90 wc
                 test    __r0 , __quad180 wz
@@ -736,21 +735,24 @@ __triangle
                 and     __r0 , __angleMask
                 shl     __r0 , # 5
     if_nz       neg     __r0 , __r0
-__triangleRet
-                ret
+                jmp     # __genret
+                jmp     # __genret             
 __saw
                 and     __r0 , __angleMask360
                 shl     __r0 , # 4
                 sub     __r0 , __midValue
-__sawRet
-                ret
+                jmp     # __genret
+                jmp     # __genret
+                jmp     # __genret
+                jmp     # __genret
+                jmp     # __genret
 __square
                 test    __r0 , __quad180 wz
     if_z        mov     __r0 , __maxValue
     if_nz       mov     __r0 , # 0
                 sub     __r0 , __midValue
-__squareRet
-                ret
+               jmp     # __genret
+\ padding no needed on last one
 __r0
                 0
 __r1
@@ -809,7 +811,6 @@ __outSum
 __gain
                 0
 ;asm __genwave  
-
 
 
 \ ( toneAddrs outAddr volumeAddr --  ) 
